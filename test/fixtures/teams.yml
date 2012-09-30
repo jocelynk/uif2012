@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  active: false
+  max_capacity: 1
+
+two:
+  name: MyString
+  active: false
+  max_capacity: 1
