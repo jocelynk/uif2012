@@ -7,5 +7,6 @@ class Team < ActiveRecord::Base
 
   #Validations
   validates_presence_of :active, :max_capacity, :name
+  validates_numericality_of :max_capacity, :greater_than => 1, :message => "must be greater than 1"
   
 end

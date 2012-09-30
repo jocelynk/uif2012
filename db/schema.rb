@@ -11,55 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930064922) do
-
-  create_table "departments", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "active"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "events", :force => true do |t|
-    t.datetime "date"
-    t.integer  "program_id"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.integer  "location_id"
-    t.boolean  "gospel_shared"
-    t.integer  "meals_server"
-    t.integer  "bibles_distributed"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
-  create_table "programs", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "department_id"
-    t.integer  "min_grade"
-    t.integer  "max_grade"
-    t.boolean  "active"
-    t.integer  "max_capacity"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "registrations", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "program_id"
-    t.integer  "team_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.boolean  "active"
-    t.integer  "max_capacity"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
+ActiveRecord::Schema.define(:version => 0) do
 
 end
