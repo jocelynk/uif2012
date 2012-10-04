@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <b>Group:</b>
+  <b>Team:</b>
   <%= @registration.group_id %>
 </p>
 
