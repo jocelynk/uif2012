@@ -3,10 +3,10 @@ class Program < ActiveRecord::Base
   attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name
 
   #Relationships
-  has_many :events
   belongs_to :department
+  has_many :events
   has_many :registrations
-  has_many :teams, :through => :registrations
+  has_many :groups, :through => :registrations
   has_many :locations, :through => :events
   
   #Validations

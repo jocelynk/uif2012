@@ -15,7 +15,7 @@ FactoryGirl.define do
     active true
   end
   
-  factory :team do
+  factory :group do
     name "HS Choir"
     max_capacity 20
     active true

@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
   validates_presence_of :active, :name
   validates_numericality_of :max_capacity, :greater_than => 1, :message => "must be greater than 1", :allow_nil => true
   
-  #validation for sum ofmax_capacity for team is less than max_capacity of program
+  #validation for sum of max_capacity for team is less than max_capacity of program
   #Scopes
  # scope :program_capacity, join(:registrations, :programs)
   

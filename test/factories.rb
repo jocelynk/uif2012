@@ -15,7 +15,7 @@ FactoryGirl.define do
     active true
   end
   
-  factory :team do
+  factory :group do
     name "HS Choir"
     max_capacity 20
     active true
@@ -39,6 +39,7 @@ FactoryGirl.define do
     phone { rand(10 ** 10).to_s.rjust(10,'0') }
     active true
   end
+end
 
   
   

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930161426) do
+ActiveRecord::Schema.define(:version => 20121004044339) do
 
   create_table "attendences", :force => true do |t|
     t.integer  "student_id"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20120930161426) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "max_capacity"
+    t.boolean  "active"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "street"
@@ -60,10 +68,10 @@ ActiveRecord::Schema.define(:version => 20120930161426) do
     t.integer  "department_id"
     t.integer  "min_grade"
     t.integer  "max_grade"
-    t.boolean  "active"
     t.integer  "max_capacity"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "active"
   end
 
   create_table "registrations", :force => true do |t|
@@ -72,14 +80,6 @@ ActiveRecord::Schema.define(:version => 20120930161426) do
     t.integer  "team_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "teams", :force => true do |t|
-    t.string   "name"
-    t.boolean  "active"
-    t.integer  "max_capacity"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
 
 end

@@ -3,14 +3,14 @@ class Program < ActiveRecord::Base
   attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name
 
   #Relationships
-  has_many :events
   belongs_to :department
+  has_many :events
   has_many :registrations
-  has_many :teams, :through => :registrations
+  has_many :groups, :through => :registrations
   has_many :locations, :through => :events
   
   #Validations
-  validates_presence_of :name, :max_grade, :min_grade, :max_capacity, :active
+  validates_presence_of :name, :max_grade, :min_grade, :max_capacity
   validates_uniqueness_of :name
   validates_numericality_of :max_capacity, :max_grade, :min_grade, :only_integer => true, :greater_than => 1, :message => "can only be whole number."
   validates_inclusion_of :max_grade, :min_grade, :in => 1..12, :message => "grades are between 1 and 12"

@@ -3,6 +3,10 @@ class Department < ActiveRecord::Base
 
   #Relationships
   has_many :programs
-  validates_presence_of :name, :active
+  validates_presence_of :name
   validates_uniqueness_of :name
+  
+  scope :alphabetical, order('name')
+  scope :active, where('active = ?', true)
+  scope :inactive, where('active = ?', false)
 end
