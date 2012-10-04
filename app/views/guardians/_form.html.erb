@@ -1,0 +1,49 @@
+<%= form_for(@guardian) do |f| %>
+  <% if @guardian.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guardian.errors.count, "error") %> prohibited this guardian from being saved:</h2>
+
+      <ul>
+      <% @guardian.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :household_id %><br />
+    <%= f.number_field :household_id %>
+  </div>
+  <div class="field">
+    <%= f.label :guardian_type %><br />
+    <%= f.text_field :guardian_type %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_phone %><br />
+    <%= f.text_field :cell_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :can_text %><br />
+    <%= f.check_box :can_text %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

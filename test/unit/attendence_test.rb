@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class AttendenceTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  #Test relationships
+  should belong_to(:event)
+  should belong_to(:student)
+
 end

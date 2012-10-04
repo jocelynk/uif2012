@@ -1,9 +1,10 @@
 class Registration < ActiveRecord::Base
-  attr_accessible :program_id, :student_id, :team_id
+  attr_accessible :program_id, :student_id, :group_id
 
   #Relationships
   belongs_to :group
   belongs_to :program
+  belongs_to :student
 #need to create student table
   
 end

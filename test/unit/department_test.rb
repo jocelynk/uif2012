@@ -4,7 +4,7 @@ class DepartmentTest < ActiveSupport::TestCase
   #Test relationships
   should have_many(:programs)
 
-  #Test relationships
+  #Test validations
   should validate_presence_of(:name)
   should validate_uniqueness_of(:name)
   

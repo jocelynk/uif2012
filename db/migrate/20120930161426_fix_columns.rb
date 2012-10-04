@@ -7,6 +7,8 @@ class FixColumns < ActiveRecord::Migration
     #removes duplicate active columns
     remove_column :programs, :active 
     #adds column back in
-    add_column :programs, :active, :boolean 
+    add_column :programs, :active, :boolean
+    
+    rename_column :registrations, :team_id, :group_id
   end
 end

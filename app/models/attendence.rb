@@ -3,5 +3,5 @@ class Attendence < ActiveRecord::Base
   
   #Relationships
   belongs_to :event
-#need to create student table
+  belongs_to :student
 end

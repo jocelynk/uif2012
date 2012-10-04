@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004044339) do
+ActiveRecord::Schema.define(:version => 20121004060933) do
 
   create_table "attendences", :force => true do |t|
     t.integer  "student_id"
@@ -50,6 +50,35 @@ ActiveRecord::Schema.define(:version => 20121004044339) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "guardians", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "household_id"
+    t.string   "guardian_type"
+    t.string   "cell_phone"
+    t.boolean  "can_text"
+    t.string   "email"
+    t.boolean  "active"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "households", :force => true do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "insurance_company"
+    t.string   "insurance_number"
+    t.string   "church"
+    t.float    "lat"
+    t.float    "lon"
+    t.boolean  "active"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "street"
@@ -77,9 +106,33 @@ ActiveRecord::Schema.define(:version => 20121004044339) do
   create_table "registrations", :force => true do |t|
     t.integer  "student_id"
     t.integer  "program_id"
-    t.integer  "team_id"
+    t.integer  "group_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "student_allergies", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "allergy_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "barcode_number"
+    t.integer  "household_id"
+    t.boolean  "is_male"
+    t.integer  "grade"
+    t.date     "date_of_birth"
+    t.string   "cell_phone"
+    t.boolean  "can_text"
+    t.string   "photo"
+    t.string   "email"
+    t.string   "status"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

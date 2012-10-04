@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @guardian.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @guardian.last_name %>
+</p>
+
+<p>
+  <b>Household:</b>
+  <%= @guardian.household_id %>
+</p>
+
+<p>
+  <b>Guardian type:</b>
+  <%= @guardian.guardian_type %>
+</p>
+
+<p>
+  <b>Cell phone:</b>
+  <%= @guardian.cell_phone %>
+</p>
+
+<p>
+  <b>Can text:</b>
+  <%= @guardian.can_text %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @guardian.email %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @guardian.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_guardian_path(@guardian) %> |
+<%= link_to 'Back', guardians_path %>
