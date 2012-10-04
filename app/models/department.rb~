@@ -3,6 +3,6 @@ class Department < ActiveRecord::Base
 
   #Relationships
   has_many :programs
-  validates_presence_of :name, :description, :active
+  validates_presence_of :name, :active
   validates_uniqueness_of :name
 end

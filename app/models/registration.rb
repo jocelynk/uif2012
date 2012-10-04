@@ -3,7 +3,7 @@ class Registration < ActiveRecord::Base
 
   #Relationships
   belongs_to :team
-  belongs_to :programs
+  belongs_to :program
 #need to create student table
   
 end

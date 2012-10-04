@@ -11,7 +11,6 @@ class Location < ActiveRecord::Base
   validates_presence_of :name, :street, :city, :active
   validates_uniqueness_of :name
   validates_format_of :zip, :with => /^\d{5}$/, :message => "should be five digits long"
-  validates_format_of :phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
 
   # Scopes
   scope :alphabetical, order('name')

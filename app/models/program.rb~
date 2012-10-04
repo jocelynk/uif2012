@@ -4,7 +4,7 @@ class Program < ActiveRecord::Base
 
   #Relationships
   has_many :events
-  belongs_to :departments
+  belongs_to :department
   has_many :registrations
   has_many :teams, :through => :registrations
   has_many :locations, :through => :events
