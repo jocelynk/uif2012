@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @program.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @program.description %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @program.department_id %>
+</p>
+
+<p>
+  <b>Min grade:</b>
+  <%= @program.min_grade %>
+</p>
+
+<p>
+  <b>Max grade:</b>
+  <%= @program.max_grade %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @program.active %>
+</p>
+
+<p>
+  <b>Max capacity:</b>
+  <%= @program.max_capacity %>
+</p>
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>

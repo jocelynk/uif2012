@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date:</b>
+  <%= @event.date %>
+</p>
+
+<p>
+  <b>Program:</b>
+  <%= @event.program_id %>
+</p>
+
+<p>
+  <b>Start time:</b>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <b>End time:</b>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @event.location_id %>
+</p>
+
+<p>
+  <b>Gospel shared:</b>
+  <%= @event.gospel_shared %>
+</p>
+
+<p>
+  <b>Meals server:</b>
+  <%= @event.meals_served %>
+</p>
+
+<p>
+  <b>Bibles distributed:</b>
+  <%= @event.bibles_distributed %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
