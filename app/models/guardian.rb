@@ -4,6 +4,8 @@ class Guardian < ActiveRecord::Base
 
   #Relationships
   belongs_to :household
+  # has_many :registrations
+  # has_many :programs, :through => :registrations
 
   #Validations
   validates_presence_of :first_name, :last_name, :guardian_type, :cell_phone
