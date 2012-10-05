@@ -4,7 +4,7 @@ class Household < ActiveRecord::Base
 
   # Relationships
   has_many :guardians
-  belongs_to :students
+  has_many :students
 
   #Validations
   validates_presence_of :name, :street, :city, :zip, :insurance_company
