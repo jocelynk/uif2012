@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'carrierwave'
+# gem 'carrierwave'
 
 gem 'rails', '3.2.8'
 gem 'jquery-rails'

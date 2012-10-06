@@ -14,7 +14,7 @@ class EventTest < ActiveSupport::TestCase
   should_not allow_value(3.14159).for(:location_id)
   should_not allow_value(nil).for(:location_id)
   should allow_value(2).for(:program_id)
-  
+
   should allow_value(1000001).for(:program_id)
   should_not allow_value("bah").for(:program_id)
   should_not allow_value(-13).for(:program_id)
@@ -131,7 +131,7 @@ class EventTest < ActiveSupport::TestCase
       assert_equal ['SAT Prep', 'Acting'], Event.happening_events.map{|s| s.program.name}
       @program.destroy
       @event.destroy
-    end
-   
   end
+
+
 end

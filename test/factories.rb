@@ -1,3 +1,4 @@
+
 FactoryGirl.define do
   factory :department do
     name "Peforming Arts"
@@ -49,5 +50,4 @@ FactoryGirl.define do
   end
 end
 
-  
   

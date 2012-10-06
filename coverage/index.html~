@@ -7318,6 +7318,13 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
+<<<<<<< HEAD
+          
+          
+=======
+          
+          
+>>>>>>> f9fcbe12fc03780a708bdf03f105ca17cd741b44
           <code class="ruby">  #validates_inclusion_of :bibles_distributed, :gospel_shared, :in =&gt; [true, false]</code>
         </li>
       
