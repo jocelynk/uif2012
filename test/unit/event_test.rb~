@@ -21,118 +21,116 @@ class EventTest < ActiveSupport::TestCase
   should_not allow_value(3.14159).for(:program_id)
   should_not allow_value(nil).for(:program_id)
   should allow_value(2).for(:program_id)
-  
-  should allow_value(1000001).for(:attendence_id)
-  should_not allow_value("bah").for(:attendence_id)
-  should_not allow_value(-13).for(:attendence_id)
-  should_not allow_value(3.14159).for(:attendence_id)
-  should_not allow_value(nil).for(:attendence_id)
-  
+
   should allow_value(2).for(:meals_served)
   should_not allow_value(-13).for(:meals_served)
   should_not allow_value("bah").for(:meals_served)
   should_not allow_value(3.14159).for(:meals_served)
   should_not allow_value(nil).for(:meals_served)
   
-  # for date
-  should allow_value(7.weeks.ago.to_date).for(:date)
-  should allow_value(2.years.ago.to_date).for(:date)
-  should_not allow_value(1.week.from_now.to_date).for(:date)
-  should_not allow_value("bad").for(:start_date)
-  should_not allow_value(nil).for(:start_date)
-    
   context "Creating a context" do
      # create the objects I want with factories
      setup do
+       @arts_department = FactoryGirl.create(:department)
+       @athletics = FactoryGirl.create(:department, :name => "Athletics", :description => "Sports")
+       @academics = FactoryGirl.create(:department, :name => "Academics", :description => "Learning");
+
        @cmu = FactoryGirl.create(:location)
-       @choir = FactoryGirl.create(:program)
-       @monday_class = FactoryGirl.create(:event, :location => @cmu, :program => @choir)
+       
+       @choir = FactoryGirl.create(:program, :department => @arts_department)
+       @soccer = FactoryGirl.create(:program, :name => "Soccer", :description => "Kick a ball", :department => @athletics)
+       @sat_prep = FactoryGirl.create(:program, :name => "SAT Prep", :description => "Prepare for SATs", :department => @academics)       
+       @mon_class = FactoryGirl.create(:event, :location => @cmu, :program => @choir)
+       @tues_class = FactoryGirl.create(:event, :location => @cmu, :program => @soccer, :date => 3.days.ago.to_date, :start_time => Time.local(2012,10,3,16,0), :end_time => Time.local(2012,10,3,17,0))
+       @wed_class = FactoryGirl.create(:event, :location => @cmu, :program => @sat_prep, :date => 4.days.from_now.to_date, :start_time => Time.local(2012,10,10,16,0), :end_time => nil)
      
      end
 
      # and provide a teardown method as well
      teardown do
-       @cmu.destroy
-       @choir.destroy
-       @monday_class.destroy
+       @arts_department.destroy
+       #@athletics.destroy
+       #@academics.destroy
+       #
+       #@cmu.destroy
+       
+       #@choir.destroy
+       #@soccer.destroy
+       #@sat_prep.destroy
+       
+       #@mon_class.destroy
+      # @tues_class.destroy
+      # @wed_class.destroy
      end
      
     # test validations
     should "only accept date data for date field" do
-      @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => "FRED")
-      deny @shift_kj_bad.valid?
-      @shift_kj_bad2 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => "14:00:00")
-      deny @shift_kj_bad2.valid?
-      @shift_kj_bad3 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => 2011)
-      deny @shift_kj_bad3.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => 2.weeks.ago.to_date)
-      assert @shift_kj_good.valid?
+      @event_bad = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :date => "FRED")
+      deny @event_bad.valid?
+      @event_bad2 = FactoryGirl.build(:event, :location => @cmu,  :program => @choir, :date => "14:00:00")
+      deny @event_bad2.valid?
+      @event_bad3 = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :date => 2011)
+      deny @event_bad3.valid?
+      @event_good = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :date => 2.weeks.ago.to_date)
+      assert @event_good.valid?
     end
     
     should "not allow date to be nil" do
-      @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => nil)
-      deny @shift_kj_bad.valid?
-    end
-    
-    should "ensure that shift dates do not precede the assignment start date" do
-      @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => 2.years.ago.to_date)
-      deny @shift_kj_bad.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :date => 2.weeks.ago.to_date)
-      assert @shift_kj_good.valid?
+      @event_bad = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :date => nil)
+      deny @event_bad.valid?
     end
     
     should "only accept time data for start time" do
       # KNOWN BUG: see https://github.com/adzap/validates_timeliness/issues/52
-      # @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => "FRED")
-      # deny @shift_kj_bad.valid?
-      @shift_kj_bad2 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => "12:66")
-      deny @shift_kj_bad2.valid?
-      @shift_kj_bad3 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => 2011)
-      deny @shift_kj_bad3.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => Time.local(2000,1,1,12,0,0))
-      assert @shift_kj_good.valid?
+      # @event_bad = FactoryGirl.build(:event, :location => @cmu, :start_time => "FRED")
+      # deny @event_bad.valid?
+      @event_bad2 = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :start_time => "12:66")
+      deny @event_bad2.valid?
+      @event_bad3 = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :start_time => 2011)
+      deny @event_bad3.valid?
+      @event_good = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :start_time => Time.local(2000,1,1,12,0,0))
+      assert @event_good.valid?
     end
     
     should "only accept time data for end time" do
       # KNOWN BUG: see https://github.com/adzap/validates_timeliness/issues/52
-      # @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => "FRED")
-      # deny @shift_kj_bad.valid?
-      # @shift_kj_bad2 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => "12:66")
-      # deny @shift_kj_bad2.valid?
-      @shift_kj_bad3 = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => 2011)
-      deny @shift_kj_bad3.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => Time.local(2000,1,1,12,0,0), :end_time => Time.local(2000,1,1,16,0,0))
-      assert @shift_kj_good.valid?
+      # @event_bad = FactoryGirl.build(:event, :location => @cmu, :end_time => "FRED")
+      # deny @event_bad.valid?
+      # @event_bad2 = FactoryGirl.build(:event, :location => @cmu, :end_time => "12:66")
+      # deny @event_bad2.valid?
+      @event_bad3 = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :end_time => 2011)
+      deny @event_bad3.valid?
+      @event_good = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :start_time => Time.local(2000,1,1,12,0,0), :end_time => Time.local(2000,1,1,16,0,0))
+      assert @event_good.valid?
     end
     
     should "not allow start time to be nil" do
-      @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :start_time => nil)
-      deny @shift_kj_bad.valid?
+      @event_bad = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :start_time => nil)
+      deny @event_bad.valid?
     end
     
     should "allow end time can be nil" do
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => nil)
-      assert @shift_kj_good.valid?
+      @event_good = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :end_time => nil)
+      assert @event_good.valid?
     end
     
-    should "ensure that shift end times do not precede the shift start time" do
-      @shift_kj_bad = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => Time.local(2000,1,1,10,0,0))
-      deny @shift_kj_bad.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn, :end_time => Time.local(2000,1,1,14,0,0))
-      assert @shift_kj_good.valid?
+    should "ensure that event end times do not precede the event start time" do
+      @event_bad = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :end_time => Time.local(2000,1,1,10,0,0))
+      deny @event_bad.valid?
+      @event_good = FactoryGirl.build(:event, :location => @cmu, :program => @choir, :end_time => Time.local(2013,1,1,14,0,0))
+      assert @event_good.valid?
     end
     
-    should "ensure that shift are only given to current assignments" do
-      @shift_ben_bad = FactoryGirl.build(:shift, :assignment => @assign_ben)
-      deny @shift_ben_bad.valid?
-      @shift_kj_good = FactoryGirl.build(:shift, :assignment => @assign_kathryn)
-      assert @shift_kj_good.valid?
+    should "have a scope to order chronologically" do
+      assert_equal ["Soccer","Choir","SAT Prep"], Event.chronological.map{|s| s.program.name}
     end
     
-    # test completed? method
-    should "have a completed? method that works properly" do
-      deny @shift_cindy.completed?
-      assert @shift_kathryn.completed?
+    should "have a scope for happening events" do
+      @program = FactoryGirl.create(:program, :name => "Acting", :department => @arts_department)
+      @event = FactoryGirl.create(:event, :location => @cmu, :program => @program, :date => Date.today, :start_time => Time.now, :end_time => nil)
+      assert_equal ['SAT Prep', 'Acting'], Event.happening_events.map{|s| s.program.name}
+      @program.destroy
+      @event.destroy
     end
    
   end

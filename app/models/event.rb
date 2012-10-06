@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   #validates_inclusion_of :bibles_distributed, :gospel_shared, :in => [true, false]
     
   #Scopes
-  scope :happening_event, where(':start_time IS NOT NULL AND :end_time IS NULL')
+  scope :happening_events, where('end_time IS NULL')
   scope :chronological, order(:date, :start_time)
 end
 

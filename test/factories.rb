@@ -21,24 +21,26 @@ FactoryGirl.define do
     active true
   end
   
-  factory :event do
-    association :program
-    association :location
-    date Date.today
-    start_time Time.local(2012,1,1,11,0,0)
-    end_time Time.local(2012,1,1,14,0,0)
-    meals_served 100
-    gospel_shared true
-    bibles_distributed true
-  end
-
-  factory :location do
+   factory :location do
     name "CMU"
     street "5000 Forbes Avenue"
     city "Pittsburgh"
     zip "15213"
     active true
   end
+  
+  factory :event do
+    association :program
+    association :location
+    date Date.today
+    start_time Time.local(2012,10,6,11,0,0)
+    end_time Time.local(2012,10,6,14,0,0)
+    meals_served 100
+    gospel_shared true
+    bibles_distributed true
+  end
+
+ 
   
   factory :attendence do
     association :event
