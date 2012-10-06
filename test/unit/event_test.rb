@@ -49,18 +49,18 @@ class EventTest < ActiveSupport::TestCase
      # and provide a teardown method as well
      teardown do
        @arts_department.destroy
-       #@athletics.destroy
-       #@academics.destroy
-       #
-       #@cmu.destroy
+       @athletics.destroy
+       @academics.destroy
        
-       #@choir.destroy
-       #@soccer.destroy
-       #@sat_prep.destroy
+       @cmu.destroy
        
-       #@mon_class.destroy
-      # @tues_class.destroy
-      # @wed_class.destroy
+       @choir.destroy
+       @soccer.destroy
+       @sat_prep.destroy
+       
+       @mon_class.destroy
+       @tues_class.destroy
+       @wed_class.destroy
      end
      
     # test validations
