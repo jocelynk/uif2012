@@ -131,6 +131,7 @@ class EventTest < ActiveSupport::TestCase
       assert_equal ['SAT Prep', 'Acting'], Event.happening_events.map{|s| s.program.name}
       @program.destroy
       @event.destroy
+    end
   end
 
 
