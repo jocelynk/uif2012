@@ -24,6 +24,14 @@
     <%= f.number_field :department_id %>
   </div>
   <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.date_select :start_date %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
     <%= f.label :min_grade %><br />
     <%= f.number_field :min_grade %>
   </div>

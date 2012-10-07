@@ -10,6 +10,8 @@ FactoryGirl.define do
     association :department
     name "Choir"
     description "Children who sing"
+    start_date 1.year.ago.to_date
+    end_date 1.month.ago.to_date
     max_capacity 60
     max_grade 12
     min_grade 6

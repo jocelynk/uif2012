@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(:version => 20121004060933) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.boolean  "active"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "registrations", :force => true do |t|

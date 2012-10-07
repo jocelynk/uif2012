@@ -23,14 +23,14 @@
       <img src="./assets/0.5.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2012-10-06T17:04:42-04:00">2012-10-06T17:04:42-04:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2012-10-06T20:17:15-04:00">2012-10-06T20:17:15-04:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">34.45%</span></span>
+    (<span class="covered_percent"><span class="red">34.69%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
@@ -41,8 +41,8 @@
   <a name="AllFiles"></a>
   <div>
     <b>35</b> files in total.
-    <b>537</b> relevant lines. 
-    <span class="green"><b>185</b> lines covered</span> and
+    <b>539</b> relevant lines. 
+    <span class="green"><b>187</b> lines covered</span> and
     <span class="red"><b>352</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -372,11 +372,11 @@
       <tr>
         <td class="strong"><a href="#91380304ef7c35a55b8e0b82699028b6c500b533" class="src_link" title="app/models/program.rb">app/models/program.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>25</td>
-        <td>14</td>
-        <td>14</td>
+        <td>27</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
-        <td>6.1</td>
+        <td>5.9</td>
       </tr>
       
       <tr>
@@ -579,15 +579,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.46
+         1.45
        </span>
     </span> hits/line)
   </h2>
   <a name="Models"></a>
   <div>
     <b>11</b> files in total.
-    <b>83</b> relevant lines. 
-    <span class="green"><b>83</b> lines covered</span> and
+    <b>85</b> relevant lines. 
+    <span class="green"><b>85</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -677,11 +677,11 @@
       <tr>
         <td class="strong"><a href="#91380304ef7c35a55b8e0b82699028b6c500b533" class="src_link" title="app/models/program.rb">app/models/program.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>25</td>
-        <td>14</td>
-        <td>14</td>
+        <td>27</td>
+        <td>16</td>
+        <td>16</td>
         <td>0</td>
-        <td>6.1</td>
+        <td>5.9</td>
       </tr>
       
       <tr>
@@ -7302,7 +7302,7 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates_time :end_time, :after =&gt; :start_time, :allow_blank =&gt; true</code>
+          <code class="ruby">  validates_time :end_time, :after =&gt; :start_time, :allow_blank =&gt; true, :after_message =&gt; &quot;must be after the start of the event&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="13">
@@ -7902,8 +7902,8 @@
     <h3>app/models/program.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
+      <b>16</b> relevant lines. 
+      <span class="green"><b>16</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -7926,7 +7926,7 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name</code>
+          <code class="ruby">  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name, :start_date, :end_date</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="4">
@@ -8013,49 +8013,61 @@
           <code class="ruby">  validate :max_grade_greater_than_min_grade</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates_date :start_date</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  validates_date :end_date, :after =&gt; :start_date, :allow_blank =&gt; true, :after_message =&gt; &quot;must be after the start of the program&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="never" data-hits="" data-linenumber="21">
           
           
           <code class="ruby">  #Methods</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
           <code class="ruby">  def max_grade_greater_than_min_grade</code>
         </li>
       
-        <li class="covered" data-hits="72" data-linenumber="21">
-          <span class="hits">72</span>
+        <li class="covered" data-hits="79" data-linenumber="23">
+          <span class="hits">79</span>
           
           <code class="ruby">    errors.add(:max_grade, &quot;must be greater than min grade&quot;) unless self.max_grade.to_i &gt; self.min_grade.to_i</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="26">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">end</code>

@@ -10,9 +10,5 @@ class FixColumns < ActiveRecord::Migration
     add_column :programs, :active, :boolean
     
     rename_column :registrations, :team_id, :group_id
-    
-    add_column :programs, :start_date, :date
-    
-    add_column :programs, :end_date, :date
   end
 end

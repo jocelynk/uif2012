@@ -16,7 +16,7 @@ class Program < ActiveRecord::Base
   validates_inclusion_of :max_grade, :min_grade, :in => 1..12, :message => "grades are between 1 and 12"
   validate :max_grade_greater_than_min_grade
   validates_date :start_date
-  validates_date :end_date, :after => :start_date, :allow_blank => true, :after_message => "must be after the start of the program"
+  validates_date :end_date, :after => :start_date, :allow_blank => true, :after_message => "must be on or after the start of the program"
 
   #Methods
   def max_grade_greater_than_min_grade

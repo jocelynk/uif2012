@@ -16,6 +16,16 @@
 </p>
 
 <p>
+  <b>Start Date:</b>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <b>End Date:</b>
+  <%= @event.end_date %>
+</p>
+
+<p>
   <b>Min grade:</b>
   <%= @program.min_grade %>
 </p>
@@ -34,12 +44,6 @@
   <b>Max capacity:</b>
   <%= @program.max_capacity %>
 </p>
-
-<p>
-  <b>Active:</b>
-  <%= @program.active %>
-</p>
-
 
 <%= link_to 'Edit', edit_program_path(@program) %> |
 <%= link_to 'Back', programs_path %>
