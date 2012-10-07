@@ -53,7 +53,6 @@ namespace :db do
       num = Populator.value_in_range(1..11)
       num1 = num+1
       range = num1..12
-      program = Program.new
       program.department_id = dept_ids.sample
       program.name = Populator.words(1..3).titleize
       program.description = Populator.sentences(2..10)
@@ -72,10 +71,9 @@ namespace :db do
       else
         program.end_date = (2.months.ago.to_date..2.days.ago.to_date).to_a.sample
       end
-      program.save!
+
   
        Event.populate 5 do |event|
-         event = Event.new
          if(program.active)
            event.date = (program.start_date..Date.today).to_a.sample
          else
@@ -93,14 +91,13 @@ namespace :db do
          event.gospel_shared = true
          event.meals_served = Populator.value_in_range(40..60)
      
-         event.save!
+
        end
       
     end
     statuses = %w[College Active Unactive Graduated Missing ]
     #Step 3 Add Households and students to Household
     Household.populate 100 do |household|
-      household = Household.new
       household.name = Faker::Name.last_name
       household.street = Faker::Address.street_address
       household.street2 = Faker::Address.street_address
@@ -115,13 +112,11 @@ namespace :db do
       else
         household.active = true
       end
-      household.save!
-      
-      
-     Student.populate (1..2).to_a.sample do |student|
-        student = Student.new
+     
+     n = (1..2).to_a.sample 
+     Student.populate n do |student|
         student.first_name = Faker::Name.first_name
-        student.last_name = household.last_name
+        student.last_name = household.name
         student.grade = (1..12).to_a.sample
         student.household_id = household.id
         student.barcode_number = rand(12 ** 12).to_s.rjust(12,'0').chop
@@ -132,7 +127,7 @@ namespace :db do
           student.can_text = true
         end
         student.cell_phone = Faker::PhoneNumber.phone_number 
-        student.date_of_birth = (22.years.ago..15.years.ago).to_a.sample
+        student.date_of_birth = (22.years.ago.to_date..15.years.ago.to_date).to_a.sample
         student.email = Faker::Internet.email
         male = rand(4)
         if male.zero?
@@ -141,11 +136,9 @@ namespace :db do
           student.is_male = true
         end
         student.status = statuses.to_a.sample
-        
-        student.save!
+       
       end
     end  
     #Step 4 Add Students
-    
   end
 end
