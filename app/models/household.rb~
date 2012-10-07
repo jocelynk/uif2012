@@ -1,0 +1,42 @@
+class Household < ActiveRecord::Base
+  attr_accessible :active, :church, :city, :insurance_company, :insurance_number, :lat, :lon, :name, :street, :street2, :zip
+
+
+  # Relationships
+  has_many :guardians
+  has_many :students
+
+  #Validations
+  validates_presence_of :name, :street, :city, :zip, :insurance_company
+  validates_format_of :zip, :with => /^\d{5}(\-\d{4})?$/, :message => "should be five digits long"
+  validates_numericality_of :lat, :lon, :allow_blank => true
+  
+end
+
+
+     Student.populate (1..2).to_a.sample do |student|
+        student = Student.new
+        student.first_name = Faker::Name.first_name
+        student.last_name = hs.last_name
+        student.grade = (1..12).to_a.sample
+        student.household_id = household.id
+        student.barcode_number = rand(10 ** 10).to_s.rjust(10,'0')
+        can_text = rand(5)
+        if can_text.zero?
+          student.can_text = false
+        else
+          student.can_text = true
+        end
+        student.cell_phone = Faker::PhoneNumber.phone_number 
+        student.date_of_birth = 22.years.ago..15.years.ago
+        student.email = Faker::Internet.email
+        male = rand(4)
+        if male.zero?
+          student.is_male = false
+        else
+          student.is_male = true
+        end
+        student.status = statuses.to_a.sample
+        
+        student.save!
+      end
