@@ -49,7 +49,7 @@ namespace :db do
     # Step 2: Add Some Programs for each Department and add Events to Programs
     dept_ids = Department.all.map(&:id)
     location_ids = Location.all.map(&:id)
-    Program.populate 20 do |program|
+    Program.populate 12 do |program|
       num = Populator.value_in_range(1..11)
       num1 = num+1
       range = num1..12
@@ -96,7 +96,7 @@ namespace :db do
       
     end
     statuses = %w[College Active Unactive Graduated Missing ]
-    #Step 3 Add Households and students to Household
+    #Step 3 Add Households and Students to Household
     Household.populate 100 do |household|
       household.name = Faker::Name.last_name
       household.street = Faker::Address.street_address
@@ -104,7 +104,7 @@ namespace :db do
       household.zip = Faker::Address.zip_code
       household.city = Faker::Address.city
       household.church = Populator.words(1).titleize
-      household.insurance_company = Populator.words(1..2)
+      household.insurance_company = Populator.words(1..2).titleize
       household.insurance_number = rand(8**8).to_s.rjust(8, '0')
       not_active = rand(4)
       if not_active.zero?
@@ -139,6 +139,64 @@ namespace :db do
        
       end
     end  
-    #Step 4 Add Students
+    #Step 4 Create Groups
+
+
+    Group.populate 24 do |group|
+        group.name = Populator.words(1..3).titleize
+        group.active = true
+        group.max_capacity = Populator.value_in_range(20..60)
+    end
+    
+    #Step 5 Create Registrations
+    group_ids = Group.all.map(&:id)
+    program_ids = Program.all.map(&:id)
+    student_ids = Student.all.map(&:id)
+    student_ids.each do |student|
+        n = (1..2).to_a.sample 
+        Registration.populate n do |registration|
+            registration.student_id = student
+            registration.program_id = program_ids.sample
+            registration.group_id = group_ids.sample
+                
+        end
+    end
+    
+    #Step 6 Create Allergies
+    Allergy.populate 20 do |allergy|
+        allergy.name = Populator.words(1..3).titleize
+        allergy.warning_text = Populator.sentences(1..3)
+        allergy.active = true
+    end
+    
+    allergy_ids = Allergy.all.map(&:id)
+    student_ids = Student.all.map(&:id)
+    StudentAllergy.populate 100 do |studentallergy|
+        studentallergy.allergy_id = allergy_ids.sample
+        studentallergy.student_id = student_ids.sample
+    end
+    
+    #Step 7 Create Guardians
+    household_ids = Household.all.to_a.each_with_object({}){ |household,h| h[household.id] = household.name }
+
+    types = %w[Custodial Uncustodial Grandparent Father Mother]
+    household_ids.each do |k,v|
+        n = (1..2).to_a.sample
+        Guardian.populate n do |guardian|
+           guardian.first_name = Faker::Name.first_name
+           guardian.last_name = v
+           guardian.household_id = k
+           guardian.guardian_type = types.to_a.sample
+           guardian.cell_phone = Faker::PhoneNumber.phone_number 
+           can_text = rand(5)
+           if can_text.zero?
+             guardian.can_text = false
+           else
+             guardian.can_text = true
+           end
+           guardian.email = Faker::Internet.email
+           guardian.active = true
+        end
+    end
   end
 end
