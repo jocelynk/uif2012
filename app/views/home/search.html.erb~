@@ -1,0 +1,23 @@
+<h2>Search result for term <em>'<%= @query %>'</em> resulted in <%= pluralize(@total_hits, 'hit') %></h2>
+
+<%= form_tag search_path, :method => 'get' do %>
+  <%# hidden_field_tag :direction, params[:query] %>
+  <%# hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:query] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<p class="supertiny">&nbsp;</p>
+
+<% unless @students.empty? %>
+<p><em><strong>Students matching term '<%= @query %>'</strong></em></p>
+<ul>
+<% for student in @students do %>
+<li><%= link_to student.name, student_path(student) %></li>
+<% end %>
+</ul>
+<p class="smtext">&nbsp;</p>
+<% end %>

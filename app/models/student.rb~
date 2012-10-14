@@ -18,15 +18,6 @@ class Student < ActiveRecord::Base
   scope :alphabetical, order('last_name, first_name')
   validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes only"
 
-  # Callback code
-  # -----------------------------
-  private
-  # We need to strip non-digits before saving to db
-  def reformat_phone
-    phone = self.phone.to_s # change to string in case input as all numbers
-    phone.gsub!(/[^0-9]/,"") # strip all non-digits
-    self.phone = phone # reset self.phone to new string
-  end
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
   
@@ -41,6 +32,28 @@ class Student < ActiveRecord::Base
   
   def age
     (Time.now.to_s(:number).to_i - date_of_birth.to_time.to_s(:number).to_i)/10e9.to_i
+  end
+  
+  def self.search(query)
+    if query
+      sql = query.split.map do |word|
+        %w[first_name last_name].map do |column|
+          sanitize_sql ["#{column} LIKE ?", "%#{word}%"]
+        end.join(" or ")
+      end.join(") and (")
+      where(sql)
+    else
+      scoped
+    end
+  end
+  # Callback code
+  # -----------------------------
+  private
+  # We need to strip non-digits before saving to db
+  def reformat_phone
+    phone = self.phone.to_s # change to string in case input as all numbers
+    phone.gsub!(/[^0-9]/,"") # strip all non-digits
+    self.phone = phone # reset self.phone to new string
   end
   
 end

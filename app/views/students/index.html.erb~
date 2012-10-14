@@ -36,7 +36,7 @@
     <td><%= student.household_id %></td>
     <td><%= student.is_male %></td>
     <td><%= student.grade %></td>
-    <td><%= student.date_of_birth.strftime("%B %e, %Y") %></td>
+    <td><%= student.date_of_birth %></td>
     <td><%= student.cell_phone %></td>
     <td><%= student.can_text %></td>
     <td><%= student.photo %></td>

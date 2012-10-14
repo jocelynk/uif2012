@@ -34,6 +34,18 @@ class Student < ActiveRecord::Base
     (Time.now.to_s(:number).to_i - date_of_birth.to_time.to_s(:number).to_i)/10e9.to_i
   end
   
+  def self.search(query)
+    if query
+      sql = query.split.map do |word|
+        %w[first_name last_name].map do |column|
+          sanitize_sql ["#{column} LIKE ?", "%#{word}%"]
+        end.join(" or ")
+      end.join(") and (")
+      where(sql)
+    else
+      scoped
+    end
+  end
   # Callback code
   # -----------------------------
   private

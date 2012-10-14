@@ -37,7 +37,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, :input_html => {:class => "datepicker"}  %>
   </div>
   <div class="field">
     <%= f.label :cell_phone %><br />

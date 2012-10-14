@@ -1,5 +1,11 @@
 <h1>Listing events</h1>
 
+<%= form_tag events_path, :method => 'get' do %>
+  <p>
+    <%= date_select :date_query, params[:date_query] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 <table>
   <tr>
     <th>Date</th>
@@ -8,7 +14,7 @@
     <th>End time</th>
     <th>Location</th>
     <th>Gospel shared</th>
-    <th>Meals server</th>
+    <th>Meals served</th>
     <th>Bibles distributed</th>
     <th></th>
     <th></th>
