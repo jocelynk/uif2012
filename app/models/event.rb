@@ -15,7 +15,11 @@ class Event < ActiveRecord::Base
 
     
   #Scopes
-  scope :happening_events, where('end_time IS NULL')
+  scope :happening_events, where('end_time IS NULL AND date = ?', Date.today)
   scope :chronological, order(:date, :start_time)
+  scope :past, where('date < ?', Date.today)
+  scope :upcoming, where('date >= ?', Date.today)
+
+#join events, registrations, attendences, students, left join, find null
 end
 

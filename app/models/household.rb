@@ -7,7 +7,7 @@ class Household < ActiveRecord::Base
   has_many :students
 
   #Validations
-  validates_presence_of :name, :street, :city, :zip, :insurance_company
+  validates_presence_of :name, :street, :city, :zip
   validates_format_of :zip, :with => /^\d{5}(\-\d{4})?$/, :message => "should be five digits long"
   validates_numericality_of :lat, :lon, :allow_blank => true
   

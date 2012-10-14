@@ -3,5 +3,7 @@ class StudentAllergy < ActiveRecord::Base
   
   belongs_to :allergy
   belongs_to :student
-
+  
+  #Scopes
+  scope :test, joins(:student, :allergy)
 end
