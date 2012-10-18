@@ -3,10 +3,11 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.by_date(params[:date_query])
-
+    @event = Event.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+      format.js
     end
   end
 
@@ -29,6 +30,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
+      format.js
     end
   end
 

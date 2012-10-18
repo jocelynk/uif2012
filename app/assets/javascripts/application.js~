@@ -14,5 +14,25 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require_tree .
-
+$(document).ready(function() {
+alert("asdf");
+console.log("asdfa");
+  $( "#clickme" )
+            .button()
+            .click(function() {
+            console.log("asdf");
+                $( "#popup" ).dialog( "open" );
+            });
+            
+            
+  
+    
+ $( "#popup" ).dialog({
+            autoOpen: false,
+            height: 300,
+            width: 350,
+            modal: true,
+         
+        });
+});
 

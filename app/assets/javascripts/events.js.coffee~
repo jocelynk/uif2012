@@ -11,6 +11,4 @@ $(document).ready ->
     height: 300
     width: 350
     modal: true
-    
-$("body").append "<%= escape_javascript(render(@events))%>"
 

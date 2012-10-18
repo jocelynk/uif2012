@@ -1,0 +1,2 @@
+$('body').append("<%=raw escape_javascript(render(@requests))%>");
+

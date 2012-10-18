@@ -24,9 +24,9 @@ class Event < ActiveRecord::Base
 
   def self.by_date(date_query)
     if  date_query.nil?
-      scoped
-    elsif date_query.to_a[0][1].blank?
       where(:date => Date.today)
+    elsif date_query.to_a[0][1].blank?
+      scoped
     else
       where(:date => Date.parse(date_query.to_a.sort.collect{|c| c[1]}.join("-")))
     end

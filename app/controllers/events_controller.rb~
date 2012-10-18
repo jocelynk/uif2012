@@ -2,11 +2,12 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.by_date(params[:query])
-
+    @events = Event.by_date(params[:date_query])
+    @event = Event.new
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+      format.js
     end
   end
 

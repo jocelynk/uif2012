@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.date_select :date %>
   </div>
   <div class="field">
     <%= f.label :program_id %><br />
@@ -36,7 +36,7 @@
     <%= f.check_box :gospel_shared %>
   </div>
   <div class="field">
-    <%= f.label :meals_server %><br />
+    <%= f.label :meals_serverd %><br />
     <%= f.number_field :meals_served %>
   </div>
   <div class="field">
