@@ -1,2 +1,2 @@
-$('body').append("<%=raw escape_javascript(render(@requests))%>");
+$('body').html("<%=escape_javascript(@events)%>");
 

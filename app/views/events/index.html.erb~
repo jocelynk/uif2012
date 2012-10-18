@@ -1,83 +1,25 @@
-<h1>Listing events</h1>
-<button id="clickme">Click Me</button>
-<div id="popup">
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :program_id %><br />
-    <%= f.number_field :program_id %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br />
-    <%= f.time_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br />
-    <%= f.time_select :end_time %>
-  </div>
-  <div class="field">
-    <%= f.label :location_id %><br />
-    <%= f.number_field :location_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<div id="container">
+    <div id="flash_notice" style="display:none"></div>
+    <%= content_tag :h1, yield(:title)  %>
+    <%= yield %>
 </div>
+
+<h1>Listing events</h1>
+
+
 
 <%= form_tag events_path, :method => 'get' do %>
   <p>
-    <%= date_select :date_query, params[:date_query], :include_blank => true %>
+    <%= date_select :date_query, params[:date_query], :include_blank => true%>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Program</th>
-    <th>Start time</th>
-    <th>End time</th>
-    <th>Location</th>
-    <th>Gospel shared</th>
-    <th>Meals served</th>
-    <th>Bibles distributed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.date %></td>
-    <td><%= event.program_id %></td>
-    <td><%= event.start_time %></td>
-    <td><%= event.end_time %></td>
-    <td><%= event.location_id %></td>
-    <td><%= event.gospel_shared %></td>
-    <td><%= event.meals_served %></td>
-    <td><%= event.bibles_distributed %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<button id="clickme">Click Me</button>
 
-<br />
+<div id="popup">
+    <%= render :partial => 'quick_add_form' %>
+</div>
+<div id="events_list"><%= render :partial => "events" %></div>
 
 <%= link_to 'New Event', new_event_path %>

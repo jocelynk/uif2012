@@ -10,5 +10,8 @@ $(document).ready ->
     autoOpen: false
     height: 300
     width: 350
+    close: clearForm
     modal: true
+    
+
 
