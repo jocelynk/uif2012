@@ -4076,3 +4076,74 @@ Processing by StudentsController#index as HTML
   [1m[36mStudent Load (2.3ms)[0m  [1mSELECT "students".* FROM "students" [0m
   Rendered students/index.html.erb within layouts/application (728.0ms)
 Completed 200 OK in 784ms (Views: 781.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:49:28 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[35mStudent Load (3.3ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (629.8ms)
+Compiled bootstrap_and_overrides.css  (1655ms)  (pid 48142)
+Compiled application.css  (14ms)  (pid 48142)
+Completed 200 OK in 2522ms (Views: 2517.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:50:02 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (3.0ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (601.7ms)
+Compiled bootstrap_and_overrides.css  (1810ms)  (pid 48142)
+Compiled application.css  (13ms)  (pid 48142)
+Completed 200 OK in 2672ms (Views: 2668.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:50:16 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[35mStudent Load (2.3ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (583.8ms)
+Compiled bootstrap_and_overrides.css  (1680ms)  (pid 48142)
+Compiled application.css  (14ms)  (pid 48142)
+Completed 200 OK in 2671ms (Views: 2665.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:50:28 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (2.6ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (575.2ms)
+Compiled bootstrap_and_overrides.css  (1950ms)  (pid 48142)
+Compiled application.css  (13ms)  (pid 48142)
+Completed 200 OK in 3005ms (Views: 3001.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:51:13 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[35mStudent Load (3.7ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (628.9ms)
+Compiled students.css  (83ms)  (pid 48142)
+Compiled application.css  (20ms)  (pid 48142)
+Completed 200 OK in 1124ms (Views: 1119.3ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:52:52 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (2.3ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (601.6ms)
+Compiled bootstrap_and_overrides.css  (1888ms)  (pid 48142)
+Compiled students.css  (2ms)  (pid 48142)
+Compiled application.css  (14ms)  (pid 48142)
+Completed 200 OK in 2968ms (Views: 2965.0ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:53:05 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[35mStudent Load (3.8ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (798.2ms)
+Compiled bootstrap_and_overrides.css  (2189ms)  (pid 48142)
+Compiled application.css  (13ms)  (pid 48142)
+Completed 200 OK in 3289ms (Views: 3284.7ms | ActiveRecord: 3.8ms)
