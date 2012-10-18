@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/font-awesome.css">
   <title>Uif2012</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
 
-<%= yield %>
+      <a class="brand" href="#">UIF logo</a>
+
+        <ul class="nav">
+          <li><%= link_to "Students", students_path %></li>
+          <li><%= link_to "Events", events_path %></li>
+          <li><%= link_to "Programs", programs_path %></li>
+        </ul>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container"> 
+<div class="span8">
+<%= yield %> </div>
+
+</div> 
+
+
+
 
 </body>
 </html>
