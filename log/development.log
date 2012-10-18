@@ -3941,3 +3941,138 @@ Processing by StudentsController#index as HTML
   Rendered students/index.html.erb within layouts/application (486.0ms)
 Completed 200 OK in 515ms (Views: 513.7ms | ActiveRecord: 1.2ms)
 Connecting to database specified by database.yml
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:35:26 -0400
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (2.4ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (1217.2ms)
+Compiled jquery.js  (8ms)  (pid 48142)
+Compiled jquery_ujs.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-transition.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-alert.js  (1ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-modal.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-dropdown.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-scrollspy.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-tab.js  (1ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-tooltip.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-popover.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-button.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-collapse.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-carousel.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-typeahead.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap/bootstrap-affix.js  (0ms)  (pid 48142)
+Compiled twitter/bootstrap.js  (424ms)  (pid 48142)
+Compiled application.js  (541ms)  (pid 48142)
+Completed 200 OK in 2099ms (Views: 2069.6ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:38:54 -0400
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (7.1ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (521.8ms)
+Compiled bootstrap_and_overrides.css  (1421ms)  (pid 48142)
+Compiled application.css  (14ms)  (pid 48142)
+Completed 200 OK in 2128ms (Views: 2120.1ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:39:00 -0400
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (2.3ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (655.3ms)
+Completed 200 OK in 711ms (Views: 707.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:39:06 -0400
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (3.4ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (579.2ms)
+Compiled bootstrap_and_overrides.css  (1393ms)  (pid 48142)
+Compiled application.css  (14ms)  (pid 48142)
+Completed 200 OK in 2162ms (Views: 2158.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:43:36 -0400
+Processing by StudentsController#index as HTML
+  [1m[36mStudent Load (2.5ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (612.1ms)
+Compiled bootstrap_and_overrides.css  (1520ms)  (pid 48142)
+Compiled application.css  (13ms)  (pid 48142)
+Completed 200 OK in 2336ms (Views: 2333.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:43:47 -0400
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (2.4ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (613.1ms)
+Compiled bootstrap_and_overrides.css  (1651ms)  (pid 48142)
+Compiled application.css  (13ms)  (pid 48142)
+Completed 200 OK in 2491ms (Views: 2487.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-10-17 23:43:57 -0400
+Processing by ProgramsController#index as HTML
+  [1m[36mProgram Load (0.4ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (48.2ms)
+Completed 200 OK in 125ms (Views: 97.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2012-10-17 23:43:59 -0400
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."date" = '2012-10-17'
+  Rendered events/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 86ms (Views: 55.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2012-10-17 23:44:02 -0400
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."date" = '2012-10-17'[0m
+  Rendered events/index.html.erb within layouts/application (168.4ms)
+Completed 200 OK in 219ms (Views: 218.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-10-17 23:44:03 -0400
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (2.8ms)[0m  SELECT "students".* FROM "students" 
+  Rendered students/index.html.erb within layouts/application (703.0ms)
+Completed 200 OK in 756ms (Views: 752.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:47:24 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (6.8ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (692.2ms)
+Completed 200 OK in 740ms (Views: 732.5ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=sallie" for 127.0.0.1 at 2012-10-17 23:47:28 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"sallie"}
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students" WHERE (first_name LIKE '%sallie%' or last_name LIKE '%sallie%')
+  Rendered students/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 64ms (Views: 62.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:47:38 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (3.1ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (741.3ms)
+Completed 200 OK in 786ms (Views: 782.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=bud" for 127.0.0.1 at 2012-10-17 23:47:45 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>"bud"}
+  [1m[35mStudent Load (0.4ms)[0m  SELECT "students".* FROM "students" WHERE (first_name LIKE '%bud%' or last_name LIKE '%bud%')
+  Rendered students/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 199ms (Views: 197.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/students?utf8=%E2%9C%93&query=" for 127.0.0.1 at 2012-10-17 23:47:52 -0400
+Processing by StudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "query"=>""}
+  [1m[36mStudent Load (2.3ms)[0m  [1mSELECT "students".* FROM "students" [0m
+  Rendered students/index.html.erb within layouts/application (728.0ms)
+Completed 200 OK in 784ms (Views: 781.4ms | ActiveRecord: 2.3ms)
