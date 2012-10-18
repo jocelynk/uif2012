@@ -3940,3 +3940,4 @@ Processing by StudentsController#index as HTML
   [1m[35mStudent Load (1.2ms)[0m  SELECT "students".* FROM "students" 
   Rendered students/index.html.erb within layouts/application (486.0ms)
 Completed 200 OK in 515ms (Views: 513.7ms | ActiveRecord: 1.2ms)
+Connecting to database specified by database.yml
