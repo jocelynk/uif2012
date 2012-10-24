@@ -21,5 +21,12 @@ Uif2012::Application.routes.draw do
   
   #Root url
   root :to => 'home#index'
+  
+  # Authentication routes
+  resources :users
+  resources :sessions
+  match 'register' => 'users#new', :as => :register
+  match 'logout' => 'sessions#destroy', :as => :logout
+  match 'login' => 'sessions#new', :as => :login
 
 end

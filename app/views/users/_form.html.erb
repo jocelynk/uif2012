@@ -1,0 +1,25 @@
+<%= simple_form_for @user do |f| %>
+  <fieldset>
+		<%= f.input :first_name %>
+		<%= f.input :last_name %>
+		
+		<% if current_user.is_admin? %>
+		  <%= f.input :username, :label => "Username" %>
+		<% end %>
+		
+		<%= f.input :email %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation, :label => "Confirm" %>
+		
+    <% if current_user.is_admin? %>
+      <%= f.input :role, :collection => User::ROLES %>
+      <%= f.input :department_id, :collection => Department.alphabetical.all %>
+    <% end %>
+
+		<%= f.input :active %>
+    <p class="supertiny">&nbsp;</p>
+    <div class="form-actions">
+      <%= f.submit nil %>
+    </div>
+  </fieldset>
+<% end %>
