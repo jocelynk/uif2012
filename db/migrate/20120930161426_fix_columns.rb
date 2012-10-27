@@ -14,5 +14,7 @@ class FixColumns < ActiveRecord::Migration
     add_column :programs, :start_date, :date
     
     add_column :programs, :end_date, :date
+    
+    #rename_table :attendences, :attendances
   end
 end

@@ -6942,3 +6942,84 @@ ActionController::RoutingError (No route matches [GET] "/font/fontawesome-webfon
 
 
   Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to FixColumns (20120930161426)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121023093141')[0m
+  [1m[35m (411.5ms)[0m  commit transaction
+Migrating to AddDefaultUser (20121023094204)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."username" = 'profh' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+  [1m[35mSQL (52.0ms)[0m  INSERT INTO "users" ("active", "created_at", "department_id", "email", "first_name", "last_name", "password_confirmation", "password_digest", "role", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["active", true], ["created_at", Sat, 27 Oct 2012 16:49:48 EDT -04:00], ["department_id", nil], ["email", "profh@cmu.edu"], ["first_name", "Professor"], ["last_name", "Heimann"], ["password_confirmation", nil], ["password_digest", "$2a$10$12HuF3mhAXMwVwxw7MttKe1tFgdkqNbAZyr5osm7K1fXIJ374tfVC"], ["role", "admin"], ["updated_at", Sat, 27 Oct 2012 16:49:48 EDT -04:00], ["username", "profh"]]
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121023094204')[0m
+  [1m[35m (349.1ms)[0m  commit transaction
+  [1m[36m (0.6ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("allergies")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("attendences")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("departments")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("groups")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("guardians")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("households")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("locations")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("programs")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("registrations")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("student_allergies")[0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("students")
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (229.7ms)[0m  [1mCREATE TABLE "allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "warning_text" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (341.3ms)[0m  CREATE TABLE "attendences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "event_id" integer, "exempt" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (253.9ms)[0m  [1mCREATE TABLE "departments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (253.1ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (219.3ms)[0m  [1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "max_capacity" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (218.6ms)[0m  CREATE TABLE "guardians" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "household_id" integer, "guardian_type" varchar(255), "cell_phone" varchar(255), "can_text" boolean, "email" varchar(255), "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (251.2ms)[0m  [1mCREATE TABLE "households" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "street2" varchar(255), "city" varchar(255), "zip" varchar(255), "insurance_company" varchar(255), "insurance_number" varchar(255), "church" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (240.3ms)[0m  CREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "city" varchar(255), "zip" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (263.0ms)[0m  [1mCREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "active" boolean, "start_date" date, "end_date" date) [0m
+  [1m[35m (241.8ms)[0m  CREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "group_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (241.9ms)[0m  [1mCREATE TABLE "student_allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "allergy_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (262.6ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "barcode_number" varchar(255), "household_id" integer, "is_male" boolean, "grade" integer, "date_of_birth" date, "cell_phone" varchar(255), "can_text" boolean, "photo" varchar(255), "email" varchar(255), "status" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (419.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (243.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (254.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (189.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121023094204')
+  [1m[36m (320.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121011055559')[0m
+  [1m[35m (189.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121004044339')
+  [1m[36m (221.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120930064431')[0m
+  [1m[35m (222.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121004060748')
+  [1m[36m (321.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121023093141')[0m
+  [1m[35m (200.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120930064619')
+  [1m[36m (210.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120930161426')[0m
+  [1m[35m (199.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20121004060609')
+  [1m[36m (188.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121004060419')[0m
+  [1m[35m (300.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120930144555')
+  [1m[36m (198.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20121004060933')[0m
+  [1m[35m (199.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120930064145')
+  [1m[36m (199.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120930064820')[0m
+  [1m[35m (301.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120930144434')
