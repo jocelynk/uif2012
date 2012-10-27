@@ -16,4 +16,7 @@
 </div>
 <div id="events_list"><%= render :partial => "events" %></div>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_event_path,
+            :class => 'btn btn-primary' %>
+

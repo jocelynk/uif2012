@@ -12,27 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+<<<<<<< HEAD
 //= require jquery.ui.all
+=======
+//= require twitter/bootstrap
+>>>>>>> 6db59c99f81c2179b21df1f71d033edabaff99d1
 //= require_tree .
-$(document).ready(function() {
-alert("asdf");
-console.log("asdfa");
-  $( "#clickme" )
-            .button()
-            .click(function() {
-            console.log("asdf");
-                $( "#popup" ).dialog( "open" );
-            });
-            
-            
-  
-    
- $( "#popup" ).dialog({
-            autoOpen: false,
-            height: 300,
-            width: 350,
-            modal: true,
-         
-        });
-});
+
 
