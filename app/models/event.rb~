@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
     
   #Validations
   validates_date :date
-  validates_time :start_time
+  validates_time :start_time, :message => "must enter a start time"
   validates_time :end_time, :after => :start_time, :allow_blank => true, :after_message => "must be after the start of the event"
   validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0
   validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => true

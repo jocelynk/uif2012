@@ -11,8 +11,8 @@ Uif2012::Application.routes.draw do
   resources :student_allergies
   resources :households
   resources :students
-  resources :groups
-  resources :attendences
+  resources :sections
+  resources :attendances
   resources :locations
   resources :events
   resources :programs

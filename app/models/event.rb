@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   #Relationships
   belongs_to :program
   belongs_to :location
-  has_many :attendences
+  has_many :attendances
     
   #Validations
   validates_date :date
@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   scope :past, where('date < ?', Date.today)
   scope :upcoming, where('date >= ?', Date.today)
 
-#join events, registrations, attendences, students, left join, find null
+#join events, registrations, attendances, students, left join, find null
 
   def self.by_date(date_query)
     if  date_query.nil?

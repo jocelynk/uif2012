@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
     
     # Step 0: clear any old data in the db
-    [Department, Program, Event, Group, Attendence, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
+    [Department, Program, Event, Section, Attendance, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
    
     # Step 1: Add Departments
     pa = Department.new
@@ -139,17 +139,17 @@ namespace :db do
        
       end
     end  
-    #Step 4 Create Groups
+    #Step 4 Create Sections
 
 
-    Group.populate 24 do |group|
-        group.name = Populator.words(1..3).titleize
-        group.active = true
-        group.max_capacity = Populator.value_in_range(20..60)
+    Section.populate 24 do |section|
+        section.name = Populator.words(1..3).titleize
+        section.active = true
+        section.max_capacity = Populator.value_in_range(20..60)
     end
     
     #Step 5 Create Registrations
-    group_ids = Group.all.map(&:id)
+    section_ids = Section.all.map(&:id)
     program_ids = Program.all.map(&:id)
     student_ids = Student.all.map(&:id)
     student_ids.each do |student|
@@ -157,7 +157,7 @@ namespace :db do
         Registration.populate n do |registration|
             registration.student_id = student
             registration.program_id = program_ids.sample
-            registration.group_id = group_ids.sample
+            registration.section_id = section_ids.sample
                 
         end
     end

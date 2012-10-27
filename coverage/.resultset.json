@@ -122,7 +122,7 @@
         1,
         null
       ],
-      "/home/jocelyn/uif2012/app/helpers/attendences_helper.rb": [
+      "/home/jocelyn/uif2012/app/helpers/attendances_helper.rb": [
         1,
         null
       ],
@@ -134,7 +134,7 @@
         1,
         null
       ],
-      "/home/jocelyn/uif2012/app/helpers/groups_helper.rb": [
+      "/home/jocelyn/uif2012/app/helpers/sections_helper.rb": [
         1,
         null
       ],
@@ -182,7 +182,7 @@
         1,
         null
       ],
-      "/home/jocelyn/uif2012/app/controllers/attendences_controller.rb": [
+      "/home/jocelyn/uif2012/app/controllers/attendances_controller.rb": [
         1,
         null,
         null,
@@ -267,7 +267,7 @@
         null,
         null
       ],
-      "/home/jocelyn/uif2012/app/models/attendence.rb": [
+      "/home/jocelyn/uif2012/app/models/attendance.rb": [
         1,
         1,
         null,
@@ -543,7 +543,7 @@
         null,
         null
       ],
-      "/home/jocelyn/uif2012/app/controllers/groups_controller.rb": [
+      "/home/jocelyn/uif2012/app/controllers/sections_controller.rb": [
         1,
         null,
         null,
@@ -628,7 +628,7 @@
         null,
         null
       ],
-      "/home/jocelyn/uif2012/app/models/group.rb": [
+      "/home/jocelyn/uif2012/app/models/section.rb": [
         1,
         1,
         null,
