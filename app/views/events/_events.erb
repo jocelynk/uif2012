@@ -2,35 +2,45 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
+
+
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:date) %></th>
+      <% if controller.controller_name == "events" %> 
+        <th><%= model_class.human_attribute_name(:date) %></th>
+      <% end %> 
       <th><%= model_class.human_attribute_name(:program_id) %></th>
       <th><%= model_class.human_attribute_name(:start_time) %></th>
       <th><%= model_class.human_attribute_name(:end_time) %></th>
-      <th><%= model_class.human_attribute_name(:location_id) %></th>
-      <th><%= model_class.human_attribute_name(:gospel_shared) %></th>
-      <th><%= model_class.human_attribute_name(:meals_served) %></th>
-      <th><%= model_class.human_attribute_name(:bibles_distributed) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <% if controller.controller_name == "events" %> 
+              <th><%= model_class.human_attribute_name(:location_id) %></th>
+              <th><%= model_class.human_attribute_name(:gospel_shared) %></th>
+              <th><%= model_class.human_attribute_name(:meals_served) %></th>
+              <th><%= model_class.human_attribute_name(:bibles_distributed) %></th>
+              <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <% end %> 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= link_to event.id, event_path(event) %></td>
-        <td><%= event.date %></td>
-        <td><%= event.program_id %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.end_time %></td>
-        <td><%= event.location_id %></td>
-        <td><%= event.gospel_shared %></td>
-        <td><%= event.meals_served %></td>
-        <td><%= event.bibles_distributed %></td>
-        <td><%=l event.created_at %></td>
+        <% if controller.controller_name == "events" %> 
+                <td><%= l event.date %></td>
+        <% end %>         
+        <td><%= link_to event.program.name, event_path(event) %></td>
+        <td><%= l event.start_time %></td>
+        <td><%= l event.end_time %></td>
+        <% if controller.controller_name == "events" %> 
+                <td><%= event.location.name %></td>
+                <td><%= event.gospel_shared %></td>
+                <td><%= event.meals_served %></td>
+                <td><%= event.bibles_distributed %></td>
+                <td><%=l event.created_at %></td>
+        <% end %>   
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-mini' %>

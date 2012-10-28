@@ -200,14 +200,28 @@ namespace :db do
     
     #Step 8 Create SectionEvents
 
-     ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
-     ids.each do |obj|
+     se_ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
+     se_ids.each do |obj|
         se = SectionEvent.new
         se.event_id = obj.event
         se.section_id = obj.section
         se.save!
      end
      
+     att_ids = Program.joins({:sections => [{:registrations => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
+
+     att_ids.each do |obj|
+        att = Attendance.new
+        att.event_id = obj.event
+        att.student_id = obj.student
+        exempt = rand(5)
+           if exempt.zero?
+             att.exempt = false
+           else
+             att.exempt = true
+           end
+        att.save!
+     end
  
 
   end

@@ -2,11 +2,20 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
 </div>
+<% if @attendees.nil && @absentees.nil %>
+<p>Fix this error - some events created without section events fix Populate file</p>
+<% else %>
+<div>
+<%= render :partial => "attendees" %>
+<p></p>
 
+<%= render :partial => "absentees" %>
+</div>
+<% end %>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
   <dd><%= @event.date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:program_id) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(@event.program.name) %>:</strong></dt>
   <dd><%= @event.program_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
   <dd><%= @event.start_time %></dd>

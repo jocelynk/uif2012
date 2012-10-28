@@ -11,6 +11,7 @@ end
 
 module Uif2012
   class Application < Rails::Application
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -59,7 +60,17 @@ module Uif2012
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.action_view.JavaScript_expansions[:defaults] = %w(jquery rails application)  
+    
+    
+
+    private
+
+     
+      def instantiate_controller_and_action_names
+          @current_action = action_name
+          @current_controller = controller_name
+      end
+
 
   end
 end
