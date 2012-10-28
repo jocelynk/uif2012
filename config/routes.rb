@@ -1,5 +1,7 @@
 Uif2012::Application.routes.draw do
   
+  resources :section_events
+
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
