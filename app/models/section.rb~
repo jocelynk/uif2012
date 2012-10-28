@@ -1,8 +1,8 @@
-class Group < ActiveRecord::Base
-  attr_accessible :active, :max_capacity, :name
+class Section < ActiveRecord::Base
+  attr_accessible :active, :max_capacity, :name, :program_id
   #Relationships
   has_many :registrations
-  has_many :programs, :through => :registrations
+  belongs_to :program
 
   #Validations
   validates_presence_of :name

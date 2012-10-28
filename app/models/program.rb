@@ -5,8 +5,8 @@ class Program < ActiveRecord::Base
   #Relationships
   belongs_to :department
   has_many :events
-  has_many :registrations
-  has_many :sections, :through => :registrations
+  has_many :sections
+  has_many :registrations, :through => :sections
   has_many :locations, :through => :events
   
   #Validations

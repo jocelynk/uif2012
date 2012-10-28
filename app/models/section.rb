@@ -1,8 +1,11 @@
 class Section < ActiveRecord::Base
-  attr_accessible :active, :max_capacity, :name
+  attr_accessible :active, :max_capacity, :name, :program_id
   #Relationships
+  belongs_to :program
   has_many :registrations
-  has_many :programs, :through => :registrations
+  has_many :section_events
+
+  
 
   #Validations
   validates_presence_of :name

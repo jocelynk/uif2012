@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   belongs_to :program
   belongs_to :location
   has_many :attendances
+  has_many :section_events
     
   #Validations
   validates_date :date
