@@ -1,5 +1,5 @@
-<%= f.fields_for :registrations do |registration_form| %>
-  <%= registration_form.text_field :name %>
-  <%= registration_form.link_to_remove "Remove this registration" %>
-<% end %>
-<p><%= f.link_to_add "Add a registration", :registrations %></p>
+<div class="field">
+   <%= f.label :section , class: "section"%><br />
+   <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, :prompt => "Choose a Section" %>
+  </div>
+  <%= f.link_to_remove "Remove this registration" %>

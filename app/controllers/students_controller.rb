@@ -41,11 +41,11 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     #remove program field in params
-    #if !params[:student][:registrations_attributes].nil?
-    #  params[:student] ||= {}
-    #  params[:student][:registrations_attributes] ||= []
-    #  params[:student][:registrations_attributes].each { |key, value| value.shift}
-    #end
+    if !params[:student][:registrations_attributes].nil?
+      params[:student] ||= {}
+      params[:student][:registrations_attributes] ||= []
+      params[:student][:registrations_attributes].each { |key, value| value.shift}
+    end
     
     @student = Student.new(params[:student])
 
@@ -64,11 +64,11 @@ class StudentsController < ApplicationController
   # PUT /students/1.json
   def update
     #remove program field in params
-    #if !params[:student][:registrations_attributes].nil?
-    #  params[:student] ||= {}
-    #  params[:student][:registrations_attributes] ||= []
-    #  params[:student][:registrations_attributes].each { |key, value| value.shift}
-    #end
+    if !params[:student][:registrations_attributes].nil?
+      params[:student] ||= {}
+      params[:student][:registrations_attributes] ||= []
+      params[:student][:registrations_attributes].each { |key, value| value.shift}
+    end
     
     @student = Student.find(params[:id])
 

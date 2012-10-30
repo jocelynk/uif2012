@@ -13,12 +13,9 @@
   <%= f.input :status %>
   
   <%= f.fields_for :registrations do |registration_form| %>
-  <div class="field">
-   <%= registration_form.association :section, :label_method => :name, :value_method => :id, :prompt => 'Choose a Section' %>
-  </div>
-  <%= registration_form.link_to_remove "Remove this registration" %>
+    <%= render 'registration_fields', f: registration_form %>
 <% end %>
-<p><%= f.link_to_add "Add a registration", :registrations %></p>
+<p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
  
   
   <div class="form-actions">

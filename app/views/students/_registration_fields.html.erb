@@ -1,13 +1,11 @@
-<%= f.fields_for :registrations do |registration_form| %>
- <div class="field">
-    <%= registration_form.label :program %><br />
-    <%= registration_form.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
+<div class="field">
+  <div class="field">
+    <%= f.label :program %><br />
+    <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
   </div>
   <div class="field">
-    <%= registration_form.label :section %><br />
-    <%= registration_form.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
+    <%= f.label :section %><br />
+    <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
   </div>
-  <%= registration_form.link_to_remove "Remove this registration" %>
-<% end %>
-<p><%= f.link_to_add "Add a registration", :registrations %></p>
- 
+  </div>
+  <%= f.link_to_remove "Remove this registration" %>
