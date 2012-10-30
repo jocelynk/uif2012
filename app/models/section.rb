@@ -1,9 +1,12 @@
 class Section < ActiveRecord::Base
-  attr_accessible :active, :max_capacity, :name, :program_id
+  attr_accessible :active, :max_capacity, :name, :program_id, :registrations_attributes
   #Relationships
   belongs_to :program
   has_many :registrations
   has_many :section_events
+  
+  #Nested attributes
+  accepts_nested_attributes_for :registrations
 
   
 

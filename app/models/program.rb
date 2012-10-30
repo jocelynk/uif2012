@@ -18,6 +18,12 @@ class Program < ActiveRecord::Base
   validates_date :start_date
   validates_date :end_date, :after => :start_date, :allow_blank => true, :after_message => "must be after the start of the program"
 
+  #Nested Attributes
+  accepts_nested_attributes_for :sections, :allow_destroy => true
+  
+  #Scopes
+  scope :active, where('active = ? AND end_date IS NULL', true)
+  scope :by_name, order('name')
   #Methods
   def max_grade_greater_than_min_grade
     errors.add(:max_grade, "must be greater than min grade") unless self.max_grade.to_i > self.min_grade.to_i
