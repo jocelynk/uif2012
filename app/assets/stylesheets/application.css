@@ -391,7 +391,7 @@ td.strong {
 
 thead tr th
 {
-    font-size:18px;
+    font-size:15px;
 }
 
 .logo
@@ -437,4 +437,17 @@ div.span8
 .pull-left input:focus
 {
     width:100px !important;
+}
+
+td a.btn.btn-mini
+{
+    margin-left:-50px;
+    position:absolute;
+    display:inline;
+}
+td a.btn-danger
+{
+    right:-190px;
+    position:absolute;
+    display:inline;
 }
