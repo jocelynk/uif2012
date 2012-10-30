@@ -1,0 +1,24 @@
+jQuery ->
+  obj = 
+    count1: 0
+    count2: 0    
+  $('form').on 'click', '.add_nested_fields', (event) ->
+    event.preventDefault()
+    $('.program').prop('id', 'program' + obj.count1++) 
+    $('.section').prop('id', 'section' + obj.count2++)
+    program_id = obj.count1 - 1
+    section_id = obj.count2 - 1
+    sections = $('#section'+section_id).next().next().html()
+    console.log("section: " + sections)
+    $('#program'+program_id).change ->
+      program = $('#program'+program_id + ' :selected').text()
+      escaped_program = program.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
+      options = $(sections).filter("optgroup[label=#{escaped_program}]").html()
+      console.log("options: " + options)
+      if options
+        $('#registration_section_id').html(options)
+        $('#registration_section_id').parent().show()
+      else
+        $('#registration_section_id').empty()
+        $('#registration_section_id').parent().hide()
+     

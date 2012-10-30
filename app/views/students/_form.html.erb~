@@ -11,6 +11,16 @@
   <%= f.input :photo %>
   <%= f.input :email %>
   <%= f.input :status %>
+  
+  <%= f.fields_for :registrations do |registration_form| %>
+  <div class="field">
+   <%= f.association :section, :label_method => :name, :value_method => :id, :prompt => 'Choose a Section' %>
+  </div>
+  <%= registration_form.link_to_remove "Remove this registration" %>
+<% end %>
+<p><%= f.link_to_add "Add a registration", :registrations %></p>
+ 
+  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

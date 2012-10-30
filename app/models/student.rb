@@ -61,7 +61,7 @@ class Student < ActiveRecord::Base
   def reformat_phone
     phone = self.cell_phone.to_s # change to string in case input as all numbers
     phone.gsub!(/[^0-9]/,"") # strip all non-digits
-    self.phone = phone # reset self.phone to new string
+    self.cell_phone = phone # reset self.phone to new string
   end
   
 end
