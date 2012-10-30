@@ -12,11 +12,12 @@
   <%= f.input :email %>
   <%= f.input :status %>
   
-  <%= f.fields_for :registrations do |registration_form| %>
-    <%= render 'registration_fields', f: registration_form %>
-<% end %>
-<p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
- 
+  <div id="registration_nested_form">
+    <%= f.fields_for :registrations do |registration_form| %>
+      <%= render 'registration_fields', f: registration_form %>
+    <% end %>
+    <p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
+  </div>
   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>

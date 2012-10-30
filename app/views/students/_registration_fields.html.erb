@@ -1,9 +1,9 @@
 <div class="field">
-  <div class="field">
+  <div class="pro">
     <%= f.label :program %><br />
     <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
   </div>
-  <div class="field">
+  <div class="sec">
     <%= f.label :section %><br />
     <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
   </div>
