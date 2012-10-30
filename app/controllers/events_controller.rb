@@ -52,15 +52,28 @@ class EventsController < ApplicationController
 
     respond_to do |format|
        if @event.save
-        flash[:notice] = "Event was successfully created."
-        format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
-       # format.json { render json: @event, status: :created, location: @event }
-        format.js
-        @events = Event.by_date(params[:date_query])
+        if request.xhr?
+          flash[:notice] = "Event was successfully created."
+          format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
+          # format.json { render json: @event, status: :created, location: @event }
+          format.js
+          @events = Event.by_date(params[:date_query])
+        else
+          flash[:notice] = "Event was successfully created."
+          format.html { redirect_to events_url, notice: 'Event was successfully created.' }
+          format.json { render json: @event, status: :created, location: @event }
+          format.js
+        end
       else
-        format.html #{ render action: "new" }
-       # format.json { render json: @event.errors, status: :unprocessable_entity }
-        format.js
+        if request.xhr?
+          format.html #{ render action: "new" }
+       #  format.json { render json: @event.errors, status: :unprocessable_entity }
+          format.js
+        else
+          format.html { render action: "new" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+          format.js
+        end
 
     end
      # if @event.save
@@ -100,9 +113,16 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html #{ redirect_to events_url }
-      format.json { head :no_content }
-      format.js 
+      if request.xhr?
+        format.html
+        format.json { head :no_content }
+        format.js
+      else
+        format.html { redirect_to events_url }
+        format.json { head :no_content }
+        format.js
+      end
+       
     end
   end
 end
