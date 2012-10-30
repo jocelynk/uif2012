@@ -21,8 +21,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @attendees = Event.attendees(params[:id]).first.id
-    @absentees = Event.absentees(params[:id]).first.id
+    @attendees = Event.attendees(params[:id])
+    @absentees = Event.absentees(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -102,7 +102,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html #{ redirect_to events_url }
       format.json { head :no_content }
-      format.js
+      format.js {render :nothing}
     end
   end
 end

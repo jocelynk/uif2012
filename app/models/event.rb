@@ -6,7 +6,8 @@ class Event < ActiveRecord::Base
   belongs_to :location
   has_many :attendances
   has_many :section_events
-    
+  has_many :students, :through => :attendances
+   
   #Validations
   validates_date :date
   validates_time :start_time, :message => "must enter a start time"
@@ -22,7 +23,6 @@ class Event < ActiveRecord::Base
   scope :upcoming, where('date >= ?', Date.today)
   scope :current, where('date = ?', Date.today)
 
-#join events, registrations, attendances, students, left join, find null
 
   def self.by_date(date_query)
     if  date_query.nil?

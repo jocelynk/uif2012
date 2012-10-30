@@ -4,6 +4,6 @@
 <%- else %>
   console.log('Created');
   $('#popup').dialog('close');
-  $('#new_event').resetForm();
-  $("#events_list").html("<%= escape_javascript( render(:partial => "events") ) %>");
+  $(":input:not(input[type=submit])").val("");
+          $("#events_list").html("<%= escape_javascript( render(:partial => "events") ) %>");
 <%- end %>
