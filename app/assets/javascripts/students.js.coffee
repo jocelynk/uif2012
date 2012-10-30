@@ -18,7 +18,9 @@ jQuery ->
         console.log("options: " + options)
         
         if options
+          alert("asdfasdfsa");
           $('#student_registrations_attributes_' + obj + '_section_id').html(options)
+          console.log($('#student_registrations_attributes_' + obj + '_section_id'));
           $('#student_registrations_attributes_' + obj + '_section_id').parent().show()
         else
           $('#student_registrations_attributes_' + obj + '_section_id').empty()

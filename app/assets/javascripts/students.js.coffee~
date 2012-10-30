@@ -1,9 +1,9 @@
 jQuery ->
   obj = 
-    count1: 0   
+    count: 0   
   $('form').on 'click', '.add_fields', (event) ->
     regexp = new RegExp($(this).data('id'), 'g')
-    $(this).before($(this).data('fields').replace(regexp, obj.count1++))
+    $(this).before($(this).data('fields').replace(regexp, obj.count++))
       
     fn = (obj) ->
       $('#student_registrations_attributes_' + obj + '_section_id').parent().hide()
@@ -18,12 +18,13 @@ jQuery ->
         console.log("options: " + options)
         
         if options
+          alert("asdfasdfsa");
           $('#student_registrations_attributes_' + obj + '_section_id').html(options)
           $('#student_registrations_attributes_' + obj + '_section_id').parent().show()
         else
           $('#student_registrations_attributes_' + obj + '_section_id').empty()
           $('#student_registrations_attributes_' + obj + '_section_id').parent().hide() 
       )
-    fn(obj.count1-1)
+    fn(obj.count-1)
     event.preventDefault()
   
