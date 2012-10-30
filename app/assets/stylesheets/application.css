@@ -451,3 +451,9 @@ td a.btn-danger
     position:absolute;
     display:inline;
 }
+
+#footer {
+    color:black;
+    height: 60px;
+    width:100%;
+}
