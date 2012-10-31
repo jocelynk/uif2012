@@ -7,13 +7,14 @@ class Event < ActiveRecord::Base
   has_many :attendances
   has_many :section_events
   has_many :students, :through => :attendances
+  has_many :sections, :through => :section_events
    
   #Validations
   validates_date :date
   validates_time :start_time, :message => "must enter a start time"
   validates_time :end_time, :after => :start_time, :allow_blank => true, :after_message => "must be after the start of the event"
-  validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0
-  validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => true
+  validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0, :message => "is not a valid number"
+  validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => false, :message => "is not a valid number"
 
     
   #Scopes
@@ -22,7 +23,6 @@ class Event < ActiveRecord::Base
   scope :past, where('date < ?', Date.today)
   scope :upcoming, where('date >= ?', Date.today)
   scope :current, where('date = ?', Date.today)
-
 
   def self.by_date(date_query)
     if  date_query.nil?
@@ -46,9 +46,18 @@ class Event < ActiveRecord::Base
     attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id).select('students.id').map{|s|s.id}
     absentees = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
     all_students = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
-    return all_students if attendees.length < 1 && !all_students.empty? else return nil
-    absentees
+    if(!absentees.empty?)
+      absentees
+    elsif(attendees.length <1 && !all_students.empty?)
+      all_students
+    else
+      nil
+    #return all_students if attendees.length < 1 && !all_students.empty? else return nil
+    #absentees
+    end
   end
   
+  #need validation for event must have end_time if after current date, Look into this CRON
+  #validation for duplicate events not created
 end
 

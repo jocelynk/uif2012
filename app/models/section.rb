@@ -4,6 +4,7 @@ class Section < ActiveRecord::Base
   belongs_to :program
   has_many :registrations
   has_many :section_events
+  has_many :events, :through => :section_events
   
   #Nested attributes
   accepts_nested_attributes_for :registrations

@@ -14,16 +14,18 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :registrations, :allow_destroy => true
   
   #Validations
-  validates_presence_of :first_name, :last_name, :grade, :date_of_birth, :cell_phone
+  validates_presence_of :first_name, :last_name, :grade, :date_of_birth
   validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
-  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => false, :message => "should be 10 digits (area code needed) and delimited with dashes only"
+  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes or spaces only"
+  #/^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+  validates_numericality_of :grade, :only_integer => true, :message => "is not a valid number"
+  validates_inclusion_of :grade, :in => 1..12, :message => "grades are between 1 and 12"
   
   #Scopes
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
   scope :alphabetical, order('last_name, first_name')
-  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes only"
 
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]

@@ -16,7 +16,7 @@ class LocationTest < ActiveSupport::TestCase
   should_not allow_value("bad").for(:zip)
   should_not allow_value("1512").for(:zip)
   should_not allow_value("152134").for(:zip)
-  should_not allow_value("15213-0983").for(:zip)
+  should allow_value("15213-0983").for(:zip)
   
   # tests for lat/lon
   should allow_value(19.23).for(:lat)

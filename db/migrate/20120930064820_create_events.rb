@@ -7,7 +7,7 @@ class CreateEvents < ActiveRecord::Migration
       t.time :end_time
       t.integer :location_id
       t.boolean :gospel_shared
-      t.integer :meals_server
+      t.integer :meals_server, :default => 0
       t.integer :bibles_distributed
 
       t.timestamps
