@@ -1,4 +1,4 @@
-<%= simple_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :barcode_number %>
@@ -11,6 +11,14 @@
   <%= f.input :photo %>
   <%= f.input :email %>
   <%= f.input :status %>
+  
+  <div id="registration_nested_form">
+    <%= f.fields_for :registrations do |registration_form| %>
+      <%= render 'registration_fields', f: registration_form %>
+    <% end %>
+    <p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
+  </div>
+  
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

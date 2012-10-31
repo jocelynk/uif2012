@@ -1,0 +1,12 @@
+<%= simple_form_for @section, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.association :program, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Program" %>
+  <%= f.input :name %>
+  <%= f.input :max_capacity, :as => :integer, :min => 0 %>
+  <%= f.input :active, :input_html => { :value => '1' } %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                sections_path, :class => 'btn' %>
+
+  </div>
+<% end %>

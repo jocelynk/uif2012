@@ -1,0 +1,9 @@
+<%- if @event.errors.any? %>
+  console.log('Error');
+  $('#popup').html('<%= escape_javascript(render('quick_add_form')) %>');
+<%- else %>
+  console.log('Created');
+  $('#popup').dialog('close');
+  $(":input:not(input[type=submit])").val("");
+          $("#events_list").html("<%= escape_javascript( render(:partial => "events") ) %>");
+<%- end %>

@@ -1,4 +1,4 @@
-class Attendence < ActiveRecord::Base
+class Attendance < ActiveRecord::Base
   attr_accessible :event_id, :exempt, :student_id
   
   #Relationships

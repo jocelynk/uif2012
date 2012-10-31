@@ -1,4 +1,4 @@
-class Attendence < ActiveRecord::Base
+class Attendance < ActiveRecord::Base
   attr_accessible :event_id, :exempt, :student_id
   
   #Relationships
@@ -21,7 +21,7 @@ class Attendence < ActiveRecord::Base
   def student_is_current_in_system
     all_current_students = Student.current.all.map{|s| s.id}
     unless all_current_students.include?(self.student_id)
-      errors.add(:student_id, "is not a current project in the system")
+      errors.add(:student_id, "is not a current student in the system")
     end
   end 
   

@@ -9,6 +9,14 @@ class FixColumns < ActiveRecord::Migration
     #adds column back in
     add_column :programs, :active, :boolean
     
-    rename_column :registrations, :team_id, :group_id
+    rename_column :registrations, :team_id, :section_id
+    
+    add_column :programs, :start_date, :date
+    
+    add_column :programs, :end_date, :date
+    
+    rename_table :attendences, :attendances
+    
+    #rename_table :groups, :sections
   end
 end

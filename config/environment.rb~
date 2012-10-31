@@ -1,0 +1,10 @@
+# Load the rails application
+require File.expand_path('../application', __FILE__)
+
+# Initialize the rails application
+Uif2012::Application.initialize!
+
+date_formats = { :default => '%d/%m/%Y' } 
+time_formats = { :default =>'%l:%M %p' }
+ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.merge!(time_formats) 
+ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(date_formats) 

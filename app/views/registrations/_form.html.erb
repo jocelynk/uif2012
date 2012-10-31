@@ -1,29 +1,18 @@
-<%= form_for(@registration) do |f| %>
-  <% if @registration.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@registration.errors.count, "error") %> prohibited this registration from being saved:</h2>
-
-      <ul>
-      <% @registration.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.number_field :student_id %>
+    <%= f.label :program %><br />
+    <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
   </div>
   <div class="field">
-    <%= f.label :program_id %><br />
-    <%= f.number_field :program_id %>
+    <%= f.label :section %><br />
+    <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
   </div>
   <div class="field">
-    <%= f.label :group_id %><br />
-    <%= f.number_field :group_id %>
+    <%= f.association :student, :label_method => @registration.student, :value_method => :id, :include_blank => false %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_path, :class => 'btn' %>
   </div>
 <% end %>

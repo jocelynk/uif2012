@@ -40,17 +40,18 @@ class StudentAllergiesController < ApplicationController
   # POST /student_allergies
   # POST /student_allergies.json
   def create
-    @student_allergy = StudentAllergy.new(params[:student_allergy])
 
-    respond_to do |format|
-      if @student_allergy.save
-        format.html { redirect_to @student_allergy, notice: 'Student allergy was successfully created.' }
-        format.json { render json: @student_allergy, status: :created, location: @student_allergy }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @student_allergy.errors, status: :unprocessable_entity }
-      end
-    end
+    #@student_allergy = StudentAllergy.new(params[:student_allergy])
+
+    #respond_to do |format|
+     # if @student_allergy.save
+     #   format.html { redirect_to @student_allergy, notice: 'Student allergy was successfully created.' }
+     #   format.json { render json: @student_allergy, status: :created, location: @student_allergy }
+     # else
+     #   format.html { render action: "new" }
+      #  format.json { render json: @student_allergy.errors, status: :unprocessable_entity }
+     # end
+   # end
   end
 
   # PUT /student_allergies/1
