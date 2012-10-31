@@ -13,10 +13,12 @@
   </p>
 <% end %>
 
-<table class="table table-striped">
+
+	<table class="table table-hover">
   <thead>
+
     <tr>
-     <th><%= model_class.human_attribute_name(:id) %></th> 
+     <th><i class="icon-user"></i></th> 
       <th><%= model_class.human_attribute_name(:first_name) %></th>
       <th><%= model_class.human_attribute_name(:last_name) %></th>
       <th><%= model_class.human_attribute_name(:barcode_number) %></th>
@@ -32,7 +34,9 @@
       <!-- <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
+
   </thead>
+
   <tbody>
     <% @students.each do |student| %>
       <tr>
@@ -53,6 +57,7 @@
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_student_path(student), :class => 'btn btn-mini' %>
+
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       student_path(student),
                       :method => :delete,

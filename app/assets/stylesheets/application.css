@@ -31,7 +31,7 @@ h2 {font-size:2em;margin-bottom:0.75em;}
 h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
 h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
-h6 {font-size:1em;font-weight:bold;}
+h6 {font-size:1em;font-weight:bold;margin:0; padding:0;}
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
 p {margin:0 0 1.5em;}
 p img.left {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;}
@@ -58,7 +58,7 @@ dd {margin-left:1.5em;}
 table {margin-bottom:1.4em;width:100%;}
 th {font-weight:bold;}
 thead th {background:#c3d9ff;}
-th, td, caption {padding:4px 10px 4px 5px;}
+
 tr.even td {background:#efefef;}
 tfoot {font-style:italic;}
 caption {background:#eee;}
@@ -131,6 +131,10 @@ h1, h2, h3, h4 {
   margin-bottom: 12px;
 }
 
+h6 {
+	margin:0;
+	;
+}
 table {
   width: 100%;
 }
@@ -232,10 +236,7 @@ a.src_link {
   padding-left: 18px;
 }
 
-tr, td {
-  margin: 0;
-  padding: 0;
-}
+
 
 th {
   white-space: nowrap;
@@ -250,7 +251,8 @@ th span.ui-icon {
 }
 
 td {
-  padding: 4px 8px;
+padding-top:-30px;
+line-height: 0px;
 }
 
 td.strong {
@@ -322,7 +324,7 @@ td.strong {
 #footer {
   color: #ddd;
   font-size: 12px;
-  font-weight: bold;
+
   margin-top: 12px;
   text-align: right;
 }
@@ -439,21 +441,20 @@ div.span8
     width:100px !important;
 }
 
-td a.btn.btn-mini
+.pull-left2 input
 {
-    margin-left:-50px;
-    position:absolute;
-    display:inline;
+    width:75px !important;
 }
-td a.btn-danger
+
+.pull-left2 input:focus
 {
-    right:-190px;
-    position:absolute;
-    display:inline;
+    width:115px !important;
 }
+
 
 #footer {
     color:black;
     height: 60px;
     width:100%;
+	background-color:#dcdcdc;
 }
