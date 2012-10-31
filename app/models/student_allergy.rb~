@@ -4,6 +4,9 @@ class StudentAllergy < ActiveRecord::Base
   belongs_to :allergy
   belongs_to :student
   
-  #Scopes
-  scope :test, joins(:student, :allergy)
+  #Validations
+  validates_numericality_of :allergy, :only_integer => true, :greater_than_or_equal_to => 0
+  validates_numericality_of :student, :only_integer => true
+
+
 end
