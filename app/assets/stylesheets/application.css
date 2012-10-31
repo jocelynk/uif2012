@@ -439,21 +439,19 @@ div.span8
     width:100px !important;
 }
 
-td a.btn.btn-mini
-{
-    margin-left:-50px;
-    position:absolute;
-    display:inline;
-}
-td a.btn-danger
-{
-    right:-190px;
-    position:absolute;
-    display:inline;
-}
 
 #footer {
     color:black;
     height: 60px;
     width:100%;
+}
+
+a.btn.btn-primary
+{
+    margin-top:50px;
+}
+
+.digg_pagination 
+{
+ 
 }
