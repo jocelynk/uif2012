@@ -1,4 +1,4 @@
 <h1>Home</h1>
 <p>Today's Events</p>
-<%= render :partial => "./events/_events" %>
+<%= render :partial => "./events/events" %>
 
