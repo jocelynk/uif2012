@@ -449,9 +449,8 @@ div.span8
 .navbar + .container
 {
     margin-top:160px;
+    margin-bottom:100px;
 }
-
-
 
 
 a.btn.btn-primary
@@ -465,6 +464,12 @@ a.btn.btn-primary
     border-bottom:none !important;
 }
 
+
+
+/* ============================== */
+/* =========== Events =========== */
+/* ============================== */
+
 #events_list
 {
     float:left;
@@ -475,6 +480,44 @@ a.btn.btn-primary
 {
     float:right;
 }
+
+#events-details-nav
+{
+    position:relative;
+    float:right;
+    height:300px;
+    top:-356px;
+}
+
+.attended-list li 
+{
+    margin-bottom:-20px;
+        margin-top:-20px;
+}
+
+.attended-list li:hover
+{
+background-color:yellow;
+}
+
+
+.dropdown
+{
+    visibility:visible;
+    height:200px;
+}
+.dl-horizontal
+{
+width:300px !important;
+display:inline !important;
+}
+
+.form-actions
+{
+    margin-top:50px !important;
+}
+
+
 
 /* ============================== */
 /* =========== Footer =========== */
@@ -501,7 +544,7 @@ right:0;
     top:0px;
     left:35%;
     width:70%;
-/*    background-color:white;*/
+    /*    background-color:white;*/
 }
 
 
