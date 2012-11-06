@@ -11,6 +11,8 @@
 *= require_self
 *= require_tree .
 */
+
+
 /* reset.css */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
 article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;}
@@ -22,9 +24,10 @@ blockquote:before, blockquote:after, q:before, q:after {content:"";}
 blockquote, q {quotes:"" "";}
 a img {border:none;}
 
+
 /* typography.css */
 html {font-size:100.01%;}
-body {font-size:82%;color:#222;background:#fff;font-family:"FontAwesome", Arial, Helvetica, sans-serif;}
+body {font-size:82%;color:#222;background:#fff;font-family:"header";}
 h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;}
 h1 {font-size:3em;line-height:1;margin-bottom:0.5em;}
 h2 {font-size:2em;margin-bottom:0.75em;}
@@ -75,6 +78,8 @@ caption {background:#eee;}
 .top {margin-top:0;padding-top:0;}
 .bottom {margin-bottom:0;padding-bottom:0;}
 
+
+
 /* forms.css */
 label {font-weight:bold;}
 fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid #ccc;}
@@ -119,12 +124,13 @@ a:hover {
 }
 
 body {
-    font-family: "Lucida Grande", Helvetica, "Helvetica Neue", Arial, sans-serif;
+    font-family:"Nobile" !important;
     padding: 12px;
     background-color: #333;
 }
 
 h1, h2, h3, h4 {
+    font-family:"Ubuntu" !important;
     color: #1C2324;
     margin: 0;
     padding: 0;
@@ -383,7 +389,8 @@ td.strong {
 }
 
 
-@import "fontawesome";
+/*@import "fontawesome";*/
+@import "font-awesome.less";
 
 /* =============================================*/
 /* custom css */
@@ -439,22 +446,18 @@ div.span8
     width:100px !important;
 }
 
-
-#footer {
-    color:black;
-    height: 60px;
-    width:100%;
+.navbar + .container
+{
+    margin-top:160px;
 }
+
+
+
 
 a.btn.btn-primary
 {
     margin-top:50px;
     clear:both;
-}
-
-.digg_pagination 
-{
-
 }
 
 .page-header
@@ -465,24 +468,46 @@ a.btn.btn-primary
 #events_list
 {
     float:left;
-    clear:both;
-    width:300px;
+    width:60%;
 }
 
 #creation-bar
 {
-    position:absolute;
-    right:-48%;
-    width:200px;
-
+    float:right;
 }
 
-/*the reason for all my troubles */
-.span8
-{
+/* ============================== */
+/* =========== Footer =========== */
+/* ============================== */
+/*.container + .container > #footer
+{margin-top:100px;}
 
+#footer {
+color:black;
+height: 100%;
+position:absolute;
+left:0;
+right:0;
 }
-.side-nav-grp button
-{
+*/
 
+.navbar-fixed-bottom .navbar-inner .container
+{
+    height:30px;
+}
+
+.navbar-fixed-bottom .navbar-inner .container .nav
+{
+    top:0px;
+    left:35%;
+    width:70%;
+/*    background-color:white;*/
+}
+
+
+.uif
+{
+    top:10px;
+    float:right;
+    position:relative;
 }
