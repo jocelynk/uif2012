@@ -32,6 +32,8 @@
   <dd><%= @student.photo %></dd>
 </dl>
 
+<%= render :partial => 'recent_activities' %>
+
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               students_path, :class => 'btn'  %>

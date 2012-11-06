@@ -5,7 +5,7 @@ displayunicode = ->
   unicode = document.getElementById("Input").value
   display = document.getElementById("add-here")
   val = ""
-  if unicode.length is 12
+  if true
     count++
     unicode = document.getElementById("Input").value
     val = "<div class='ani'>" + "<span>" + count + "</span>" + ":" + unicode + "</div>"
@@ -20,6 +20,7 @@ displayunicode = ->
       success: (data) -> #make a flash alert or something }// this is the rendered response
 
 $(document).ready ->
+  alert("asdf")
   $("#Input").focus()
   count = 0
 

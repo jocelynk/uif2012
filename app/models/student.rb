@@ -60,10 +60,10 @@ class Student < ActiveRecord::Base
   def recent_activity
     #not working b/c section not changing
     Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id INNER JOIN section_events se ON se.event_id = e.id INNER JOIN sections ON sections.id = se.section_id').
-    where('students.id = ?', 1).select('sections.name AS "section",students.last_name, e.date').first
+    where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('sections.name AS "section",students.last_name AS "ln", e.date AS "date"')
     
-    Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id').
-    where('students.id = ? AND e.date > ?', 1, 5.days.ago.to_date).select('students.last_name, e.date')
+    #Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id').
+    #where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('students.last_name AS "ln", e.date AS "date"')
   end
   
   # Callback code
