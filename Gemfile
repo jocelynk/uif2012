@@ -1,7 +1,5 @@
 source 'http://rubygems.org'
 
-# gem 'carrierwave'
-
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'will_paginate'
@@ -11,6 +9,9 @@ gem 'validates_timeliness', '3.0.8'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem 'time_date_helpers'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'mini_magick'  
 
 # Gems used only in development
 group :development do

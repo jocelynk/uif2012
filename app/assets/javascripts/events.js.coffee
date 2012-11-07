@@ -27,8 +27,7 @@ $(document).ready ->
     else
       $('#event_sections').empty()
       $('#event_sections').parent().hide()
-      
-  <%= @current_controller%>
+     
     
 
 
