@@ -2,7 +2,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.search(params[:query])
+    @students = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,7 @@ class StudentsController < ApplicationController
   # GET /students/1.json
   def show
     @student = Student.find(params[:id])
-    @recent_activity = @student.recent_activity
+    @recent_activities = @student.recent_activity
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @student }

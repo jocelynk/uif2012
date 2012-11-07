@@ -63,7 +63,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @students, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_student_path,
             :class => 'btn btn-primary' %>

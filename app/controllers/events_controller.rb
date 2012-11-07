@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
-
+    @section_select_data = Section.all.map{|s| s.id}
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }
@@ -43,15 +43,31 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    @section_select_data = Section.all.collect{|s| [s.name, s.id]}
   end
 
   # POST /events
   # POST /events.json
   def create
+    params[:event][:sections].shift
+    sections = params[:event][:sections]
+    puts "section #{sections}"
+    event_id = params[:event][:id]
+    puts "event+id #{event_id}"
+    params[:event].delete "sections"
     @event = Event.new(params[:event])
-
+    
+    @section_select_data = Section.all.collect{|s| [s.name, s.id]}
     respond_to do |format|
        if @event.save
+        puts @event.id
+        sections.each do |section_id|
+          puts "created a section_event"
+          puts section_id
+          @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})
+          puts @section
+          @section.save
+        end 
         if request.xhr?
           flash[:notice] = "Event was successfully created."
           format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
@@ -92,7 +108,7 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
-
+    @section_select_data = Section.all.collect{|s| [s.name, s.id]}
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }

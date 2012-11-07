@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
-  attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id
+  attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id, :sections
 
+  #Callbacks
+  after_save :assign_sections
+  
   #Relationships
   belongs_to :program
   belongs_to :location
@@ -24,6 +27,19 @@ class Event < ActiveRecord::Base
   scope :upcoming, where('date >= ?', Date.today)
   scope :current, where('date = ?', Date.today)
 
+  # virtual attributes section_ids - corresponds with ids of sections of each event
+  def section_names
+    Section.all.collect{|s| s.name}.join(', ')
+  end
+  
+  def section_id
+    @section_ids ||  Section.all.collect{|s| s.id}
+  end
+  
+  def section_ids=(id_array)
+    @sections_ids = id_array.collect{|id| id.to_i}
+  end
+    
   def self.by_date(date_query)
     if  date_query.nil?
       where('date = ?', Date.today)
@@ -55,6 +71,31 @@ class Event < ActiveRecord::Base
     #return all_students if attendees.length < 1 && !all_students.empty? else return nil
     #absentees
     end
+  end
+  
+   #create or remove SectionEvents records that Event is associated with in the Sections specified in @section_ids
+ 
+  private  
+  def assign_sections
+  puts "asdfasdfasdfasdfasdfasdfadfawefawefaew"
+     #if @section_ids
+      #new_ids = @section_ids
+      #old_ids = Section.all.collect{|p| p.id}
+      #ids_to_delete = old_ids - (old_ids & new_ids)
+      #ids_to_add = new_ids - (old_ids & new_ids)
+      #event_id = id
+ 
+      #ids_to_delete.each do |section_id|
+      #  SectionEvent.destroy_all(:event_id => event_id, :section_id => section_id)
+      #end
+      puts self.sections
+      
+      puts "BLABLAHBA"
+      self.sections.each do |section_id|
+        SectionEvent.create(:event_id => event_id, :section_id => section_id)
+      end
+    #end
+      
   end
   
   #need validation for event must have end_time if after current date, Look into this CRON
