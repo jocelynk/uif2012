@@ -11,7 +11,7 @@ $(document).ready ->
     height: 300
     width: 350
     modal: true
-    
+
   $('#event_sections').parent().hide()
   sections = $('#event_sections').html()
   console.log("section: " + sections)
@@ -27,6 +27,8 @@ $(document).ready ->
     else
       $('#event_sections').empty()
       $('#event_sections').parent().hide()
+      
+  <%= @current_controller%>
     
 
 

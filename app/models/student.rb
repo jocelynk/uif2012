@@ -4,9 +4,9 @@ class Student < ActiveRecord::Base
   
   #Relationships
   belongs_to :household
-  has_many :attendances
-  has_many :registrations
-  has_many :student_allergies
+  has_many :attendances, :dependent => :delete_all
+  has_many :registrations, :dependent => :delete_all
+  has_many :student_allergies, :dependent => :delete_all
   has_many :allergies, :through => :student_allergies
   has_many :events, :through => :attendances
   

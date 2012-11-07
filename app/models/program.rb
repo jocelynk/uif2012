@@ -4,8 +4,8 @@ class Program < ActiveRecord::Base
 
   #Relationships
   belongs_to :department
-  has_many :events
-  has_many :sections
+  has_many :events, :dependent => :delete_all
+  has_many :sections, :dependent => :delete_all
   has_many :registrations, :through => :sections
   has_many :locations, :through => :events
   

@@ -7,8 +7,8 @@ class Event < ActiveRecord::Base
   #Relationships
   belongs_to :program
   belongs_to :location
-  has_many :attendances
-  has_many :section_events
+  has_many :attendances, :dependent => :delete_all
+  has_many :section_events, :dependent => :delete_all
   has_many :students, :through => :attendances
   has_many :sections, :through => :section_events
    

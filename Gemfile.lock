@@ -56,6 +56,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.3.3)
+    coffeebeans (1.0.1)
+      actionpack (>= 3.0.0)
+      coffee-script
     commonjs (0.2.6)
     cucumber (1.2.1)
       builder (>= 2.1.2)
@@ -209,6 +212,7 @@ DEPENDENCIES
   bcrypt-ruby
   cancan
   coffee-rails (~> 3.2.1)
+  coffeebeans
   cucumber-rails
   database_cleaner
   factory_girl_rails
@@ -227,6 +231,7 @@ DEPENDENCIES
   simplecov
   sqlite3
   tconsole
+  therubyracer
   thin
   time_date_helpers
   twitter-bootstrap-rails
