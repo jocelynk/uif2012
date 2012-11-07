@@ -11,6 +11,7 @@ gem 'validates_timeliness', '3.0.8'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
 gem 'time_date_helpers'
+gem 'carrierwave'
 
 # Gems used only in development
 group :development do
