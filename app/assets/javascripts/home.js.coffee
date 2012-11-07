@@ -1,7 +1,14 @@
+count = 0
+$(document).ready ->
+  $("#Input").focus()
+  $("#Input").keyup(displayunicode)
+   
 displayunicode = ->
+  arr = undefined
+  display = undefined
+  unicode = undefined
+  val = undefined
   arr = new Array()
-  
-  # var unicode=e.keyCode? e.keyCode : e.charCode
   unicode = document.getElementById("Input").value
   display = document.getElementById("add-here")
   val = ""
@@ -13,14 +20,6 @@ displayunicode = ->
     document.getElementById("Input").value = ""
     $.ajax
       url: "/"
-      data: #IN HERE IS A JSON OBJECT CONTAINING ALL THE JS VARIABLES YOU
-        #WANT TO PASS TO CONTROLLER
+      data:
         barcode: unicode
-
-      success: (data) -> #make a flash alert or something }// this is the rendered response
-
-$(document).ready ->
-  $("#Input").focus()
-  count = 0
-
-#from the RoR controller }
+      success: (data) ->

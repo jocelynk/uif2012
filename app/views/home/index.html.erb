@@ -2,60 +2,6 @@
 <p>Today's Events</p>
 <%= render :partial => "./events/events" %>
 
-
-<head>
-    <!-- jQuery -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-
-
-
-    <script type="text/javascript">
-
-    $(document).ready(function()
-    {
-        $("#Input").focus(); 
-        count = 0; 
-    }); 
-
-
-
-
-    function displayunicode()
-    {
-        
-        var arr = new Array(); 
-        // var unicode=e.keyCode? e.keyCode : e.charCode
-        var unicode = document.getElementById("Input").value; 
-        var display = document.getElementById("add-here"); 
-        var val = ""; 
-
-        if (unicode.length === 12)
-        {
-            count++; 
-            unicode = document.getElementById("Input").value;
-            val = "<div class='ani'>" + "<span>"+count + "</span>" +":" + unicode + "</div>"; 
-            display.innerHTML += val;
-
-
-            document.getElementById("Input").value = ""; 
-            $.ajax({
-                url: '/',
-                data: { //IN HERE IS A JSON OBJECT CONTAINING ALL THE JS VARIABLES YOU
-                    //WANT TO PASS TO CONTROLLER
-                    barcode:unicode
-                },
-                success: function(data){ }//make a flash alert or something }// this is the rendered response
-                //from the RoR controller }
-            });
-        }
-
-    }
-    </script>
-</head>
-
-
-<body>
     
     
     <div class="container">
@@ -97,7 +43,7 @@
       
     <div id="content">
 
-        <input id ="Input" type="text" onkeyup="displayunicode();"> </input>
+        <input id ="Input" type="text"> </input>
 
         <h2 id = "bcode"> Barcodes: </h2>
 
@@ -106,5 +52,3 @@
 
     </div>
 
-
-</body>
