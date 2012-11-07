@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   def index
     # @students = Student.search(params[:query])
     # we need to figure out a way to do both
+    @query = Student.search(params[:query])
     @students = Student.paginate(:page => params[:page], :per_page => 15)
     respond_to do |format|
       format.html # index.html.erb

@@ -13,45 +13,15 @@
 </p>
 <% end %>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th><%= model_class.human_attribute_name(:barcode_number) %></th>
-            <th><%= model_class.human_attribute_name(:last_name) %></th>
-            <th><%= model_class.human_attribute_name(:first_name) %></th>
-            <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
-            <th><%= model_class.human_attribute_name(:cell_phone) %></th>
-            <th><%=t '.actions', :default => t("helpers.actions") %></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @students.each do |student| %>
-        <tr>
-            <td><%= link_to student.barcode_number, student_path(student) %></td>
-            <td><%= student.last_name %></td>
-            <td><%= student.first_name %></td>
-            <td><%= student.date_of_birth %></td>
-            <td><%= student.cell_phone %></td>
-            <td>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_student_path(student), :class => 'btn btn-mini' %>
-                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                student_path(student),
-                :method => :delete,
-                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                :class => 'btn btn-mini btn-danger' %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+<% if @query == 0 %>
+<%= puts "nil!!"%>
+<%= render :partial => "normal-table" %>
+<% else %>
+<%= puts "not nil"%>
+<%= render :partial => "query-table"%>
+<% end %>
 
-<div class="digg_pagination">
-    <div clas="page_info">
-        <%= page_entries_info @students %>
-    </div>
-    <%= will_paginate @students, :container => true %>
-</div>
+
 
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
