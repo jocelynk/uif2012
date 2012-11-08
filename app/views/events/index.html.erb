@@ -1,7 +1,11 @@
 <%- model_class = Event -%>
+<div class="container-fluid">
+  <div class="row-fluid">
+	<div class="span10">
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
+
 <table class="table table-hover">
   <thead>
     <tr>
@@ -11,9 +15,9 @@
       <th><%= model_class.human_attribute_name(:start_time) %></th>
       <th><%= model_class.human_attribute_name(:end_time) %></th>
       <th><%= model_class.human_attribute_name(:location_id) %></th>
-      <th><%= model_class.human_attribute_name(:gospel_shared) %></th>
-      <th><%= model_class.human_attribute_name(:meals_served) %></th>
-      <th><%= model_class.human_attribute_name(:bibles_distributed) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:gospel_shared) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:meals_served) %></th>-->
+      <!--<th><%#= model_class.human_attribute_name(:bibles_distributed) %></th>-->
       <!-- <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -27,9 +31,9 @@
         <td><%= event.start_time %></td>
         <td><%= event.end_time %></td>
         <td><%= event.location_id %></td>
-        <td><%= event.gospel_shared %></td>
-        <td><%= event.meals_served %></td>
-        <td><%= event.bibles_distributed %></td>
+        <!--<td><%= event.gospel_shared %></td>-->
+        <!--<td><%= event.meals_served %></td>-->
+        <!--<td><%= event.bibles_distributed %></td>-->
         <!--<td><%= event.created_at %></td> -->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -44,7 +48,19 @@
     <% end %>
   </tbody>
 </table>
-
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_event_path,
             :class => 'btn btn-primary' %>
+</div>
+
+	<div class="span2">
+		<div id="otherSide">
+<h3>Alerts</h3>
+<div class="alert">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  Event on 11/13 needs to be deleted.
+</div>
+		</div>
+	</div>
+	
+</div></div>

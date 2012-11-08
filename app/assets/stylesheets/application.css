@@ -473,3 +473,17 @@ width:200px;
 position:absolute;
 
 }
+#otherSide {
+
+
+border-color:#FFF;
+border-style:solid;
+border-width:1px;
+float: right;
+   height: 80%;
+   margin-top: 15px;
+padding:15px;
+width:200px;
+position:absolute;
+
+}

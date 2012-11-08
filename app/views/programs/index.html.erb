@@ -7,7 +7,7 @@
     <tr>
       <th><i class="icon-bullhorn"></i></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:description) %></th>-->
       <th><%= model_class.human_attribute_name(:department_id) %></th>
       <th><%= model_class.human_attribute_name(:min_grade) %></th>
       <th><%= model_class.human_attribute_name(:max_grade) %></th>
@@ -24,7 +24,7 @@
       <tr>
         <td><%= link_to program.id, program_path(program) %></td>
         <td><%= program.name %></td>
-        <td><%= program.description %></td>
+        <!--<td><%= program.description %></td>-->
         <td><%= program.department_id %></td>
         <td><%= program.min_grade %></td>
         <td><%= program.max_grade %></td>
