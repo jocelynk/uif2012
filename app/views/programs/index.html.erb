@@ -30,7 +30,7 @@
         <td><%= program.max_grade %></td>
         <td><%= program.max_capacity %></td>
         <td><%= program.active %></td>
-        <td><%= program.start_date %></td>
+        <td><%= program.start_date.strftime("%b %d, %Y") %></td>
         <td><%= program.end_date %></td>
         <!--<td><%=l program.created_at %></td>-->
         <td>
