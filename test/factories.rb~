@@ -10,15 +10,15 @@ FactoryGirl.define do
     association :department
     name "Choir"
     description "Children who sing"
-    start_date 1.year.ago
-    end_date 1.month.ago
+    start_date 1.year.ago.to_date
+    end_date 1.month.ago.to_date
     max_capacity 60
     max_grade 12
     min_grade 6
     active true
   end
   
-  factory :group do
+  factory :section do
     name "HS Choir"
     max_capacity 20
     active true
@@ -42,10 +42,17 @@ FactoryGirl.define do
     gospel_shared true
     bibles_distributed true
   end
-
- 
   
-  factory :attendence do
+  factory :student do
+    first_name "Alexander"
+    last_name "Heimann"
+    grade 20
+    is_male false
+    email "G3ptballer22@yahoo.com"
+    household_id 123456
+  end
+  
+  factory :attendance do
     association :event
     association :student
     exempt true

@@ -18,7 +18,8 @@ FactoryGirl.define do
     active true
   end
   
-  factory :group do
+  factory :section do
+    association :program
     name "HS Choir"
     max_capacity 20
     active true
@@ -42,10 +43,17 @@ FactoryGirl.define do
     gospel_shared true
     bibles_distributed true
   end
-
- 
   
-  factory :attendence do
+  factory :student do
+    first_name "Alexander"
+    last_name "Heimann"
+    grade 20
+    is_male false
+    email "G3ptballer22@yahoo.com"
+    household_id 123456
+  end
+  
+  factory :attendance do
     association :event
     association :student
     exempt true

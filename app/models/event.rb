@@ -1,17 +1,23 @@
 class Event < ActiveRecord::Base
-  attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id
+  attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id, :sections
 
+  #Callbacks
+  after_save :assign_sections
+  
   #Relationships
   belongs_to :program
   belongs_to :location
-  has_many :attendences
-    
+  has_many :attendances, :dependent => :delete_all
+  has_many :section_events, :dependent => :delete_all
+  has_many :students, :through => :attendances
+  has_many :sections, :through => :section_events
+   
   #Validations
   validates_date :date
-  validates_time :start_time
+  validates_time :start_time, :message => "must enter a start time"
   validates_time :end_time, :after => :start_time, :allow_blank => true, :after_message => "must be after the start of the event"
-  validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0
-  validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0
+  validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0, :message => "is not a valid number"
+  validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => false, :message => "is not a valid number"
 
     
   #Scopes
@@ -19,12 +25,24 @@ class Event < ActiveRecord::Base
   scope :chronological, order(:date, :start_time)
   scope :past, where('date < ?', Date.today)
   scope :upcoming, where('date >= ?', Date.today)
+  scope :current, where('date = ?', Date.today)
 
-#join events, registrations, attendences, students, left join, find null
-
+  # virtual attributes section_ids - corresponds with ids of sections of each event
+  def section_names
+    Section.all.collect{|s| s.name}.join(', ')
+  end
+  
+  def section_id
+    @section_ids ||  Section.all.collect{|s| s.id}
+  end
+  
+  def section_ids=(id_array)
+    @sections_ids = id_array.collect{|id| id.to_i}
+  end
+    
   def self.by_date(date_query)
     if  date_query.nil?
-      where(:date => Date.today)
+      where('date = ?', Date.today)
     elsif date_query.to_a[0][1].blank?
       scoped
     else
@@ -32,5 +50,55 @@ class Event < ActiveRecord::Base
     end
 
   end
+  
+  def self.attendees(id)
+    attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id) 
+
+    return nil if attendees.empty?
+    attendees # return as a single object, not an array
+  end
+  
+  def self.absentees(id)
+    attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id).select('students.id').map{|s|s.id}
+    absentees = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
+    all_students = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
+    if(!absentees.empty?)
+      absentees
+    elsif(attendees.length <1 && !all_students.empty?)
+      all_students
+    else
+      nil
+    #return all_students if attendees.length < 1 && !all_students.empty? else return nil
+    #absentees
+    end
+  end
+  
+   #create or remove SectionEvents records that Event is associated with in the Sections specified in @section_ids
+ 
+  private  
+  def assign_sections
+  puts "asdfasdfasdfasdfasdfasdfadfawefawefaew"
+     #if @section_ids
+      #new_ids = @section_ids
+      #old_ids = Section.all.collect{|p| p.id}
+      #ids_to_delete = old_ids - (old_ids & new_ids)
+      #ids_to_add = new_ids - (old_ids & new_ids)
+      #event_id = id
+ 
+      #ids_to_delete.each do |section_id|
+      #  SectionEvent.destroy_all(:event_id => event_id, :section_id => section_id)
+      #end
+      puts self.sections
+      
+      puts "BLABLAHBA"
+      self.sections.each do |section_id|
+        SectionEvent.create(:event_id => event_id, :section_id => section_id)
+      end
+    #end
+      
+  end
+  
+  #need validation for event must have end_time if after current date, Look into this CRON
+  #validation for duplicate events not created
 end
 

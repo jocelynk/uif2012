@@ -1,43 +1,23 @@
+<<<<<<< HEAD
 <h1>Listing events</h1>
+
+
 
 <%= form_tag events_path, :method => 'get' do %>
   <p>
-    <%= date_select :date_query, params[:date_query] %>
+    <%= date_select :date_query, params[:date_query], :include_blank => true%>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Program</th>
-    <th>Start time</th>
-    <th>End time</th>
-    <th>Location</th>
-    <th>Gospel shared</th>
-    <th>Meals served</th>
-    <th>Bibles distributed</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.date %></td>
-    <td><%= event.program_id %></td>
-    <td><%= event.start_time %></td>
-    <td><%= event.end_time %></td>
-    <td><%= event.location_id %></td>
-    <td><%= event.gospel_shared %></td>
-    <td><%= event.meals_served %></td>
-    <td><%= event.bibles_distributed %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<button id="clickme">Click Me</button>
 
-<br />
+<div id="popup">
+    <%= render :partial => 'quick_add_form' %>
+</div>
+<div id="events_list"><%= render :partial => "events" %></div>
 
-<%= link_to 'New Event', new_event_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_event_path,
+            :class => 'btn btn-primary' %>
+

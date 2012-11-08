@@ -8,6 +8,8 @@
   <dd><%= @student.first_name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
   <dd><%= @student.last_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
+  <dd><%= @student.age %></dd>
   <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
   <dd><%= @student.barcode_number %></dd>
   <dt><strong><%= model_class.human_attribute_name(:household_id) %>:</strong></dt>
@@ -22,13 +24,15 @@
   <dd><%= @student.cell_phone %></dd>
   <dt><strong><%= model_class.human_attribute_name(:can_text) %>:</strong></dt>
   <dd><%= @student.can_text %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
-  <dd><%= @student.photo %></dd>
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @student.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @student.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
+  <dd> <%= image_tag @student.photo_url(:thumb) %>  </dd>
 </dl>
+
+<%= render :partial => 'recent_activities' %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

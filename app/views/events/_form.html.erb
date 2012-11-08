@@ -1,15 +1,29 @@
 <%= simple_form_for @event, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :date %>
-  <%= f.input :program_id %>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :location_id %>
-  <%= f.input :gospel_shared %>
-  <%= f.input :meals_served %>
-  <%= f.input :bibles_distributed %>
+  <%= f.input :date, :as => :date, :start_year => Date.today.year, :day => Date.today.day,
+                              :end_year => Date.today.year - 12,
+                              :order => [:month, :day, :year] %>
+  <%= f.association :program, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Program" %>
+  
+  <!--div class="field"-->
+    <%# f.label :program %><br />
+    <%# f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
+  <!--/div-->
+  <div class="field">
+    <%= f.label :sections %><br />
+    <%= f.grouped_collection_select :sections, Program.all, :sections, :name, :id, :name, {:include_blank => false}, { :multiple => true } %>
+  </div>
+  
+
+  <%= f.input :start_time, :as => :time %>
+  <%= f.input :end_time, :as => :time %>
+  <%= f.association :location, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Location" %>
+  <%= f.input :gospel_shared, :input_html => { :value => '1' } %>
+  <%= f.input :meals_served, :as => :integer, :min => 0 %>
+  <%= f.input :bibles_distributed, :as => :integer, :min => 0 %> 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 events_path, :class => 'btn' %>
+
   </div>
 <% end %>

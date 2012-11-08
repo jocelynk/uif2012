@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class HouseholdTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   
   # Relationships
   should have_many(:guardians)
@@ -14,7 +11,6 @@ class HouseholdTest < ActiveSupport::TestCase
   should validate_presence_of(:street)
   should validate_presence_of(:city)
   should validate_presence_of(:zip)
-  should validate_presence_of(:insurance_company)
   
   should validate_format_of(:zip).with(/^\d{5}(\-\d{4})?$/)
   

@@ -11,8 +11,8 @@
 </p>
 
 <p>
-  <b>Team:</b>
-  <%= @registration.group_id %>
+  <b>Section:</b>
+  <%= @registration.section_id %>
 </p>
 
 

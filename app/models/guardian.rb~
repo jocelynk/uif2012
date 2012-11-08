@@ -4,13 +4,13 @@ class Guardian < ActiveRecord::Base
   before_save :reformat_phone
   #Relationships
   belongs_to :household
-  # has_many :registrations
-  # has_many :programs, :through => :registrations
+  
 
   #Validations
   validates_presence_of :first_name, :last_name, :guardian_type, :household_id
   validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes only"
-  validates_format_of :email, :with => /^[-!#$%&'*+/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+/0-9=?A-Z^_a-z{|}~])*@[a-zA-Z](-?[a-zA-Z0-9])*(\.[a-zA-Z](-?[a-zA-Z0-9])*)+$/
+  validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+    
   # Callback code
   # -----------------------------
   private

@@ -5,7 +5,7 @@ class ProgramTest < ActiveSupport::TestCase
   should belong_to(:department)
   should have_many(:events)
   should have_many(:registrations)
-  should have_many(:groups).through(:registrations)
+  should have_many(:sections).through(:registrations)
   should have_many(:locations).through(:events)
   
   #Test validations
