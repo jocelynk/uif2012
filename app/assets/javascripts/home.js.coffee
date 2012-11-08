@@ -19,7 +19,26 @@ displayunicode = ->
     display.innerHTML += val
     document.getElementById("Input").value = ""
     $.ajax
-      url: "/"
+      url: "/checkin"
       data:
-        barcode: unicode
+        barcode: unicode,
+        e_id: url_query("event_id") 
       success: (data) ->
+      
+      
+      
+# Parse URL Queries
+url_query = (query) ->
+  query = query.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
+  expr = "[\\?&]" + query + "=([^&#]*)"
+  regex = new RegExp(expr)
+  results = regex.exec(window.location.href)
+  if results isnt null
+    results[1]
+  else
+    false
+
+# Example usage - http://www.kevinleary.net/?load=yes
+url_param = url_query("load")
+alert url_param  if url_param # "yes"
+

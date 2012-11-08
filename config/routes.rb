@@ -1,7 +1,6 @@
 Uif2012::Application.routes.draw do
-  
-  resources :section_events
-
+ 
+  match 'checkin', :controller => 'home', :action => 'checkin'
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
@@ -20,6 +19,7 @@ Uif2012::Application.routes.draw do
   resources :programs
   resources :departments
   resources :registrations
+  resources :section_events
   
   #Root url
   root :to => 'home#index'
