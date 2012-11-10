@@ -11,6 +11,9 @@ class Guardian < ActiveRecord::Base
   validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :message => "should be 10 digits (area code needed) and delimited with dashes only"
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
     
+  #scope
+  scope :alphabetical,   order("last_name, first_name")
+  
   # Callback code
   # -----------------------------
   private

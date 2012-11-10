@@ -21,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @groups, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
 <%= link_to 'New Group', new_group_path %>
