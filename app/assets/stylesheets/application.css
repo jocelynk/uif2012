@@ -418,9 +418,12 @@ body
 /*    background-color:#f6de89 !important; */
 }
 
-.navbar-inner .container {
-/*background-color:black !important;*/
-}
+
+
+/* ============================== */
+/* ========== Navbar ============ */
+/* ============================== */
+
 
 ul.nav
 {
@@ -431,35 +434,63 @@ ul.nav
 
 ul.nav li a
 {
+    color:white !important;
     font-size:15px;
+    text-shadow:none !important;
 }
 
+/* ============================== */
+/* =========== Logo =========== */
+/* ============================== */
 .brand
 {
+    /*add transitions for all browsers*/
+    -webkit-transition: all 1s linear;
     opacity:0.7;
 }
 
 .brand:hover
 {
+    -webkit-transition: all 1s linear;
     opacity:1;
-    background-color:#FFD200 !important;
+/*    background-color:#FFD200 !important;*/
 }
 
-div.span8
-{
-    position:relative;
-    margin-top:100px;
-}
 
-.pull-left input
+
+
+
+/* ============================== */
+/* =========== Search =========== */
+/* ============================== */
+/*.pull-left input
 {
+    -webkit-transition: 0.5s width ease-in;
     width:40px !important;
 }
 
-.pull-left input:focus
+.pull-left input:hover
 {
-    width:100px !important;
+   -webkit-transition: 0.5s width ease-out;
+   
+}*/
+
+.navbar-search .search-query 
+{
+-webkit-transition: 0.5s width ease-in;
+ width:50px !important;
+ height:10px !important;
+
 }
+
+.navbar-search .search-query:focus 
+{
+-webkit-transition: 0.5s width ease-in;
+ width:100px !important;
+}
+
+
+
 
 .navbar + .container
 {
@@ -549,6 +580,7 @@ right:0;
 }
 */
 
+
 .navbar-fixed-bottom .navbar-inner .container
 {
     height:30px;
@@ -562,10 +594,28 @@ right:0;
     /*    background-color:white;*/
 }
 
+/* text in footer*/
+.navbar-fixed-bottom .navbar-inner .container .nav li a
+{
+    font-size:12px !important;
+}
+
+/*ul.nav li a*/
+
 
 .uif
 {
     top:10px;
     float:right;
     position:relative;
+}
+
+
+
+/* ======================================= */
+/* =========== Header & Footer =========== */
+/* ======================================= */
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner
+{
+background-color:black;
 }
