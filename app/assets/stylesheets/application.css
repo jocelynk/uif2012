@@ -434,10 +434,36 @@ ul.nav
 
 ul.nav li a
 {
+    -webkit-transition: color 0.3s ease-in;
     color:white !important;
     font-size:15px;
     text-shadow:none !important;
 }
+
+ul.nav li a:hover
+{
+    -webkit-transition: color 0.3s ease-in;
+    color:#ffd200 !important;
+}
+
+ul.nav li.active 
+{
+    box-shadow:none;
+}
+
+ul.nav li.active a:focus
+{
+    background-color:none !important;
+    color:#ffd200 !important;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus 
+{
+background-color: inherit !important; 
+color:#ffd200 !important;
+}
+
+
 
 /* ============================== */
 /* =========== Logo =========== */
@@ -477,16 +503,38 @@ ul.nav li a
 
 .navbar-search .search-query 
 {
--webkit-transition: 0.5s width ease-in;
+-webkit-transition: 0.5s all ease-in;
  width:50px !important;
  height:10px !important;
+ opacity:0.9;
+}
 
+.navbar-search 
+{
+/*-webkit-transition: 0.5s width ease-in;*/
+ position:absolute !important;
+ right:-20px; 
+}
+
+.nav 
+{
+    width: 80% !important;
+/*    background-color:white !important;*/
+}
+
+.navbar-inner .container
+{
+    padding-left:40px;
+    padding-right: 40px ;
+    margin-left:65px !important;
+    width: 85% !important;
 }
 
 .navbar-search .search-query:focus 
 {
--webkit-transition: 0.5s width ease-in;
+-webkit-transition: 0.5s all ease-in;
  width:100px !important;
+  opacity:1;
 }
 
 
