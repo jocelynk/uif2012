@@ -126,6 +126,7 @@ a:hover {
 body {
     font-family:"Nobile" !important;
     padding: 12px;
+    
     background-color: #333;
 }
 
@@ -405,6 +406,20 @@ thead tr th
 {
     width:108px;
     height:83px;
+}
+
+.container div
+{
+/*    background-color:#FAC23D !important;*/
+}
+
+body
+{
+/*    background-color:#f6de89 !important; */
+}
+
+.navbar-inner .container {
+/*background-color:black !important;*/
 }
 
 ul.nav
