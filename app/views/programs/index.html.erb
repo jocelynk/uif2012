@@ -46,7 +46,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @programs, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_program_path,
             :class => 'btn btn-primary' %>

@@ -2,7 +2,7 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.all
+    @programs = Program.paginate(:page => params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
