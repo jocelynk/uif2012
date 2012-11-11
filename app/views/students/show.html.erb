@@ -43,9 +43,11 @@
   <dd><%= @student.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
   <dd><%= @student.status %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
-  <dd><%= @student.photo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
+  <dd> <%= image_tag @student.photo_url(:thumb) %>  </dd>
 </dl>
+
+<%= render :partial => 'recent_activities' %>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),

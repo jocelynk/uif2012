@@ -2,7 +2,7 @@ class Department < ActiveRecord::Base
   attr_accessible :active, :description, :name
 
   #Relationships
-  has_many :programs
+  has_many :programs, :dependent => :delete_all
   validates_presence_of :name
   validates_uniqueness_of :name
   

@@ -1,12 +1,15 @@
+require 'carrierwave/orm/activerecord'
 class Student < ActiveRecord::Base
   attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :registrations_attributes
   before_save :reformat_phone
   
+  mount_uploader :photo, PhotoUploader
+  
   #Relationships
   belongs_to :household
-  has_many :attendances
-  has_many :registrations
-  has_many :student_allergies
+  has_many :attendances, :dependent => :delete_all
+  has_many :registrations, :dependent => :delete_all
+  has_many :student_allergies, :dependent => :delete_all
   has_many :allergies, :through => :student_allergies
   has_many :events, :through => :attendances
   
@@ -14,16 +17,18 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :registrations, :allow_destroy => true
   
   #Validations
-  validates_presence_of :first_name, :last_name, :grade, :date_of_birth, :cell_phone
+  validates_presence_of :first_name, :last_name, :grade, :date_of_birth
   validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
-  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => false, :message => "should be 10 digits (area code needed) and delimited with dashes only"
+  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes or spaces only"
+  #/^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :message => "is not a valid format"
+  validates_numericality_of :grade, :only_integer => true, :message => "is not a valid number"
+  validates_inclusion_of :grade, :in => 1..12, :message => "grades are between 1 and 12"
   
   #Scopes
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
   scope :alphabetical, order('last_name, first_name')
-  validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes only"
 
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
@@ -60,10 +65,10 @@ class Student < ActiveRecord::Base
   def recent_activity
     #not working b/c section not changing
     Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id INNER JOIN section_events se ON se.event_id = e.id INNER JOIN sections ON sections.id = se.section_id').
-    where('students.id = ?', 1).select('sections.name AS "section",students.last_name, e.date').first
+    where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('sections.name AS "section",e.id AS "event", e.date AS "date"').order('"date"')
     
-    Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id').
-    where('students.id = ? AND e.date > ?', 1, 5.days.ago.to_date).select('students.last_name, e.date')
+    #Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id').
+    #where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('students.last_name AS "ln", e.id AS "event", e.date AS "date"')
   end
   
   # Callback code

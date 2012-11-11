@@ -1,16 +1,16 @@
-<%= simple_nested_form_for @student, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_nested_form_for @student, :html => { :class => 'form-horizontal', :multipart => true } do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :barcode_number %>
-  <%= f.input :household_id %>
+  <%= f.input :household_id, :collection => get_households %>
   <%= f.input :is_male %>
   <%= f.input :grade %>
   <%= f.input :date_of_birth %>
   <%= f.input :cell_phone %>
   <%= f.input :can_text %>
-  <%= f.input :photo %>
   <%= f.input :email %>
-  <%= f.input :status %>
+  <%= f.input :status, :collection => Student::STATUS_LIST%>
+  <%= f.file_field :photo, :label => 'Your photo please' %>
   
   <div id="registration_nested_form">
     <%= f.fields_for :registrations do |registration_form| %>

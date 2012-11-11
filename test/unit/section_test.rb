@@ -3,7 +3,9 @@ require 'test_helper'
 class SectionTest < ActiveSupport::TestCase
   #Test Relationships
   should have_many(:registrations)
-  should have_many(:programs).through(:registrations)
+  should belong_to(:program)
+  should have_many(:section_events)
+  should have_many(:events).through(:section_events)
   
   #Test Validations
   should validate_presence_of(:name)

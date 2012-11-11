@@ -1,9 +1,25 @@
 <%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
+
   <%= f.input :student_id %>
   <%= f.input :section_id %>
+
+  <div class="field">
+    <%= f.label :program %><br />
+    <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
+  </div>
+  <div class="field">
+    <%= f.label :section %><br />
+    <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
+    <%= puts :sections %>  
+  </div>
+  <div class="field">
+    <%= f.association :student, :label_method => @registration.student, :value_method => :id, :include_blank => false %>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 registrations_path, :class => 'btn' %>
   </div>
 <% end %>
+

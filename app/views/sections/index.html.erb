@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Program</th>
     <th>Name</th>
     <th>Max capacity</th>
     <th>Active</th>
@@ -12,6 +13,7 @@
 
 <% @sections.each do |section| %>
   <tr>
+    <td><%= section.program.name %></td>
     <td><%= section.name %></td>
     <td><%= section.max_capacity %></td>
     <td><%= section.active %></td>

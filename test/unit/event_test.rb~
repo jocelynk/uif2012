@@ -4,8 +4,9 @@ class EventTest < ActiveSupport::TestCase
   #Test relationships
   should belong_to(:program)
   should belong_to(:location)
-  should have_many(:attendences)
-
+  should have_many(:attendances)
+  should have_many(:events).through(:section_events)
+  
   #Test values
   should allow_value(4).for(:location_id)
   should allow_value(1000001).for(:location_id)
@@ -23,6 +24,7 @@ class EventTest < ActiveSupport::TestCase
   should allow_value(2).for(:program_id)
 
   should allow_value(2).for(:meals_served)
+  should allow_value(0).for(:meals_served)
   should_not allow_value(-13).for(:meals_served)
   should_not allow_value("bah").for(:meals_served)
   should_not allow_value(3.14159).for(:meals_served)
@@ -43,7 +45,7 @@ class EventTest < ActiveSupport::TestCase
        @mon_class = FactoryGirl.create(:event, :location => @cmu, :program => @choir)
        @tues_class = FactoryGirl.create(:event, :location => @cmu, :program => @soccer, :date => 3.days.ago.to_date, :start_time => Time.local(2012,10,3,16,0), :end_time => Time.local(2012,10,3,17,0))
        @wed_class = FactoryGirl.create(:event, :location => @cmu, :program => @sat_prep, :date => 4.days.from_now.to_date, :start_time => Time.local(2012,10,10,16,0), :end_time => nil)
-     
+       @today_class = FactoryGirl.create(:event, :location => @cmu, :program => @sat_prep, :date => Date.today, :start_time => Time.local(2012,10,10,16,0), :end_time => nil)
      end
 
      # and provide a teardown method as well
@@ -61,6 +63,7 @@ class EventTest < ActiveSupport::TestCase
        @mon_class.destroy
        @tues_class.destroy
        @wed_class.destroy
+       @today_class.destroy
      end
      
     # test validations
@@ -122,7 +125,7 @@ class EventTest < ActiveSupport::TestCase
     end
     
     should "have a scope to order chronologically" do
-      assert_equal ["Soccer","Choir","SAT Prep"], Event.chronological.map{|s| s.program.name}
+      assert_equal ["Soccer","Choir","SAT Prep", "SAT Prep"], Event.chronological.map{|s| s.program.name}
     end
     
     should "have a scope for happening events" do

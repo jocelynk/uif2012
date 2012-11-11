@@ -8,7 +8,6 @@
     <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
   </div>
   <div class="field">
-  <% @registration.student.name %>
     <%= f.association :student, :label_method => @registration.student, :value_method => :id, :include_blank => false %>
   </div>
   <div class="form-actions">

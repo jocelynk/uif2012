@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
   
+  def set_controller_and_action_names
+    @current_controller = controller_name
+    @current_action = action_name
+  end
+
+  
   
   private
   # Handling authentication
