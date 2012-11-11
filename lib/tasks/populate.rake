@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
     
     # Step 0: clear any old data in the db
-    [Department, Program, Event, Group, Attendence, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
+    [Department, Program, Event, Section, SectionEvent, Attendance, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
    
     # Step 1: Add Departments
     pa = Department.new
@@ -73,7 +73,7 @@ namespace :db do
       end
 
   
-       Event.populate 5 do |event|
+       Event.populate 3 do |event|
          if(program.active)
            event.date = (program.start_date..Date.today).to_a.sample
          else
@@ -139,25 +139,24 @@ namespace :db do
        
       end
     end  
-    #Step 4 Create Groups
+    #Step 4 Create Sections
 
-
-    Group.populate 24 do |group|
-        group.name = Populator.words(1..3).titleize
-        group.active = true
-        group.max_capacity = Populator.value_in_range(20..60)
+    program_ids = Program.all.map(&:id)
+    Section.populate 24 do |section|
+        section.name = Populator.words(1..3).titleize
+        section.active = true
+        section.max_capacity = Populator.value_in_range(20..60)
+        section.program_id = program_ids.sample
     end
     
     #Step 5 Create Registrations
-    group_ids = Group.all.map(&:id)
-    program_ids = Program.all.map(&:id)
+    section_ids = Section.all.map(&:id)
     student_ids = Student.all.map(&:id)
     student_ids.each do |student|
         n = (1..2).to_a.sample 
         Registration.populate n do |registration|
             registration.student_id = student
-            registration.program_id = program_ids.sample
-            registration.group_id = group_ids.sample
+            registration.section_id = section_ids.sample
                 
         end
     end
@@ -198,5 +197,32 @@ namespace :db do
            guardian.active = true
         end
     end
+    
+    #Step 8 Create SectionEvents
+
+     se_ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
+     se_ids.each do |obj|
+        se = SectionEvent.new
+        se.event_id = obj.event
+        se.section_id = obj.section
+        se.save!
+     end
+     
+     att_ids = Program.joins({:sections => [{:registrations => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
+
+     att_ids.each do |obj|
+        att = Attendance.new
+        att.event_id = obj.event
+        att.student_id = obj.student
+        exempt = rand(5)
+           if exempt.zero?
+             att.exempt = false
+           else
+             att.exempt = true
+           end
+        att.save!
+     end
+ 
+
   end
 end

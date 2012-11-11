@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011055559) do
+ActiveRecord::Schema.define(:version => 20121030161427) do
 
   create_table "allergies", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20121011055559) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "attendences", :force => true do |t|
+  create_table "attendances", :force => true do |t|
     t.integer  "student_id"
     t.integer  "event_id"
     t.boolean  "exempt"
@@ -48,14 +48,6 @@ ActiveRecord::Schema.define(:version => 20121011055559) do
     t.integer  "bibles_distributed"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "groups", :force => true do |t|
-    t.string   "name"
-    t.integer  "max_capacity"
-    t.boolean  "active"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
   end
 
   create_table "guardians", :force => true do |t|
@@ -115,10 +107,25 @@ ActiveRecord::Schema.define(:version => 20121011055559) do
 
   create_table "registrations", :force => true do |t|
     t.integer  "student_id"
-    t.integer  "program_id"
-    t.integer  "group_id"
+    t.integer  "section_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "section_events", :force => true do |t|
+    t.integer  "section_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.integer  "max_capacity"
+    t.boolean  "active"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "program_id"
   end
 
   create_table "student_allergies", :force => true do |t|
@@ -143,6 +150,20 @@ ActiveRecord::Schema.define(:version => 20121011055559) do
     t.string   "status"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "password_confirmation"
+    t.string   "role"
+    t.integer  "department_id"
+    t.boolean  "active"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
 end

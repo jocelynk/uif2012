@@ -1,0 +1,3 @@
+class SectionEvent < ActiveRecord::Base
+  attr_accessible :event_id, :section_id
+end

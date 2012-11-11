@@ -3,8 +3,7 @@
 <table>
   <tr>
     <th>Student</th>
-    <th>Program</th>
-    <th>Group</th>
+    <th>Section</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +13,7 @@
   <tr>
     <td><%= registration.student_id %></td>
     <td><%= registration.program_id %></td>
-    <td><%= registration.team_id %></td>
+    <td><%= registration.section_id %></td>
     <td><%= link_to 'Show', registration %></td>
     <td><%= link_to 'Edit', edit_registration_path(registration) %></td>
     <td><%= link_to 'Destroy', registration, method: :delete, data: { confirm: 'Are you sure?' } %></td>

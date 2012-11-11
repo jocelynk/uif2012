@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @section.name %>
+</p>
+
+<p>
+  <b>Max capacity:</b>
+  <%= @section.max_capacity %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @section.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

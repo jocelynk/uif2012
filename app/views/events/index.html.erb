@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%- model_class = Event -%>
 <div class="container-fluid">
   <div class="row-fluid">
@@ -64,3 +65,33 @@
 	</div>
 	
 </div></div>
+=======
+<!-- <h1>Listing events</h1> -->
+
+
+
+<!-- <%= form_tag events_path, :method => 'get' do %>
+<p>
+<%= date_select :date_query, params[:date_query], :include_blank => true%>
+<%= submit_tag "Search", :name => nil %>
+</p>
+<% end %> -->
+
+<!-- <button id="clickme">Click Me</button> -->
+
+<div id="popup">
+    <%= render :partial => 'quick_add_form' %>
+</div>
+<div id="events_list">
+    
+    <%= render :partial => "events" %>
+</div>
+
+<div id ="creation-bar">
+    <%= render :partial => "events-creation-nav"%>
+</div>
+
+
+
+
+>>>>>>> pre-design

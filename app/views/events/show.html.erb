@@ -1,12 +1,24 @@
+
 <%- model_class = Event -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+  <h3><%= @event.program.name %> </h3>
+  <h4><%= @event.date.strftime("%b %d, %Y") %></h4>
 </div>
+<% if @attendees.nil? && @absentees.nil? %>
+<p>Fix this error - some events created without section events fix Populate file</p>
+<% else %>
+<div>
+<%= render :partial => "attendees" %>
+<p></p>
 
+<%= render :partial => "absentees" %>
+</div>
+<% end %>
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
   <dd><%= @event.date %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:program_id) %>:</strong></dt>
+  <dt><strong><%= model_class.human_attribute_name(@event.program.name) %>:</strong></dt>
   <dd><%= @event.program_id %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
   <dd><%= @event.start_time %></dd>
@@ -22,6 +34,11 @@
   <dd><%= @event.bibles_distributed %></dd>
 </dl>
 
+<div id ="events-details-nav">
+    <%= render :partial => "events-details-nav"%>
+</div>
+
+<!-- have to figure this out -->
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               events_path, :class => 'btn'  %>
@@ -33,3 +50,5 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+

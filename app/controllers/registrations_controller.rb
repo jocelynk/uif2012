@@ -2,8 +2,8 @@ class RegistrationsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
   def index
-    @registrations = Registration.all
-
+    # @registrations = Registration.all
+    @registrations = Registration.paginate(:page => params[:page], :per_page => 15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @registrations }
@@ -39,8 +39,9 @@ class RegistrationsController < ApplicationController
 
   # POST /registrations
   # POST /registrations.json
-  def create
-    @registration = Registration.new(params[:registration])
+  def create 
+    #remove first element in hash so program doesn't get submitted in form
+    @registration = Registration.new(params[:registration].shift)
 
     respond_to do |format|
       if @registration.save

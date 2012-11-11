@@ -4,7 +4,7 @@ class EventTest < ActiveSupport::TestCase
   #Test relationships
   should belong_to(:program)
   should belong_to(:location)
-  should have_many(:attendences)
+  should have_many(:attendances)
 
   #Test values
   should allow_value(4).for(:location_id)

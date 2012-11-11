@@ -18,7 +18,7 @@ FactoryGirl.define do
     active true
   end
   
-  factory :group do
+  factory :section do
     name "HS Choir"
     max_capacity 20
     active true
@@ -45,7 +45,7 @@ FactoryGirl.define do
 
  
   
-  factory :attendence do
+  factory :attendance do
     association :event
     association :student
     exempt true

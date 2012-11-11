@@ -1,12 +1,19 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  def index
+  before_filter :load
+  
+  def load
     @events = Event.by_date(params[:date_query])
-
+    @event = Event.new
+  end
+  
+  def index
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
+      format.js
     end
   end
 
@@ -14,7 +21,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-
+    @attendees = Event.attendees(params[:id])
+    @absentees = Event.absentees(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -43,13 +51,40 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 
     respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render json: @event, status: :created, location: @event }
+       if @event.save
+        if request.xhr?
+          flash[:notice] = "Event was successfully created."
+          format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
+          # format.json { render json: @event, status: :created, location: @event }
+          format.js
+          @events = Event.by_date(params[:date_query])
+        else
+          flash[:notice] = "Event was successfully created."
+          format.html { redirect_to events_url, notice: 'Event was successfully created.' }
+          format.json { render json: @event, status: :created, location: @event }
+          format.js
+        end
       else
-        format.html { render action: "new" }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+        if request.xhr?
+          format.html #{ render action: "new" }
+       #  format.json { render json: @event.errors, status: :unprocessable_entity }
+          format.js
+        else
+          format.html { render action: "new" }
+          format.json { render json: @event.errors, status: :unprocessable_entity }
+          format.js
+        end
+
+    end
+     # if @event.save
+      #  format.html { redirect_to @event, notice: 'Event was successfully created.' }
+      #  format.json { render json: @event, status: :created, location: @event }
+      #  format.js
+     # else
+      #  format.html { render action: "new" }
+      #  format.json { render json: @event.errors, status: :unprocessable_entity }
+      #  format.js
+
     end
   end
 
@@ -62,9 +97,11 @@ class EventsController < ApplicationController
       if @event.update_attributes(params[:event])
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -76,8 +113,16 @@ class EventsController < ApplicationController
     @event.destroy
 
     respond_to do |format|
-      format.html { redirect_to events_url }
-      format.json { head :no_content }
+      if request.xhr?
+        format.html
+        format.json { head :no_content }
+        format.js
+      else
+        format.html { redirect_to events_url }
+        format.json { head :no_content }
+        format.js
+      end
+       
     end
   end
 end

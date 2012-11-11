@@ -2,8 +2,10 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.search(params[:query])
-
+    # @students = Student.search(params[:query])
+    # we need to figure out a way to do both
+    @query = Student.search(params[:query])
+    @students = Student.paginate(:page => params[:page], :per_page => 15)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }
@@ -40,6 +42,13 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
+    #remove program field in params
+    if !params[:student][:registrations_attributes].nil?
+      params[:student] ||= {}
+      params[:student][:registrations_attributes] ||= []
+      params[:student][:registrations_attributes].each { |key, value| value.shift}
+    end
+    
     @student = Student.new(params[:student])
 
     respond_to do |format|
@@ -56,6 +65,13 @@ class StudentsController < ApplicationController
   # PUT /students/1
   # PUT /students/1.json
   def update
+    #remove program field in params
+    if !params[:student][:registrations_attributes].nil?
+      params[:student] ||= {}
+      params[:student][:registrations_attributes] ||= []
+      params[:student][:registrations_attributes].each { |key, value| value.shift}
+    end
+    
     @student = Student.find(params[:id])
 
     respond_to do |format|
