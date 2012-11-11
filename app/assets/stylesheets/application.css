@@ -684,3 +684,16 @@ table, thead, tr, tbody
 
 
 
+
+/* =============================================== */
+/* =========== Individual Student View =========== */
+/* =============================================== */
+.student-img-container
+{
+    background-color:grey;
+    height:100px;
+    width:100px;
+}
+
+
+
