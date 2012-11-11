@@ -47,7 +47,7 @@
         <!-- <td><%= l event.start_time %></td> -->
 
           <td><%=l event.date %></td>
-        <% end %>
+        <%# end %>
         <% if controller.controller_name == "events" %>          
           <td><%= link_to event.program.name, event_path(event) %></td>
         <% elsif %>  

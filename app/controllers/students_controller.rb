@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
     # we need to figure out a way to do both
     # @query = Student.search(params[:query])
     @students = Student.paginate(:page => params[:page], :per_page => 15)
-    @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
+    @query = Student.search(params[:query])
+    # @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
 
     respond_to do |format|

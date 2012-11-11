@@ -420,6 +420,49 @@ body
 
 
 
+
+/* ================================== */
+/* ========== Pagination ============ */
+/* ================================== */
+.pagination ul li.active a
+{
+    background-color:#ffd200;
+    color:black;
+}
+
+
+
+
+
+/* =========================================== */
+/* ========== Main Body Container ============ */
+/* =========================================== */
+
+.navbar.navbar-fixed-top + .container
+{
+/*    background-color:#525158 !important;*/
+    position:absolute !important;
+    left:100px;
+    min-width:500px;
+    margin-top:100px !important;
+}
+
+/*generally really nice charcoal grey background-color:#525158 !important; */
+
+
+body
+{
+    /*background-color:#525158 !important;*/
+}
+
+
+
+
+
+
+
+
+
 /* ============================== */
 /* ========== Navbar ============ */
 /* ============================== */
@@ -679,6 +722,22 @@ background-color:black;
 table, thead, tr, tbody
 {
     color:black !important;
+}
+
+tbody tr td a:hover
+{
+    -webkit-transition:0.4s all linear;
+    text-decoration:none !important;
+    background-color:transparent !important;
+    color:#AEC4F7 !important;
+    font-size:15px;
+}
+tbody tr td a
+{
+    -webkit-transition:0.4s all linear;
+    background-color:transparent !important;
+    color:black !important;
+    font-size:100%;
 }
 
 
