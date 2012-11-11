@@ -583,6 +583,7 @@ a.btn.btn-primary
     top:-356px;
 }
 
+
 .attended-list li 
 {
     margin-bottom:-20px;
@@ -667,3 +668,19 @@ right:0;
 {
 background-color:black;
 }
+
+
+
+
+/* ============================== */
+/* =========== Tables =========== */
+/* ============================== */
+
+table, thead, tr, tbody
+{
+    color:black !important;
+}
+
+
+
+
