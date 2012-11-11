@@ -1,7 +1,7 @@
 <%- model_class = Student -%>
 <div class="container-fluid">
   <div class="row-fluid">
-	<div class="span10">
+	<div class="span9">
 		<div class="page-header">
   			<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 		</div>
@@ -11,8 +11,6 @@
 <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>
 <br><br><br>
 
-
-<<<<<<< HEAD
 		<dl class="dl-horizontal">
   		<dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt> 
   			<dd><%= @student.first_name %></dd> 
@@ -38,36 +36,7 @@
   			<dd><%= @student.status %></dd>
 		</dl>
 </table>
-=======
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt>
-  <dd><%= @student.first_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-  <dd><%= @student.last_name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:age) %>:</strong></dt>
-  <dd><%= @student.age %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
-  <dd><%= @student.barcode_number %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:household_id) %>:</strong></dt>
-  <dd><%= @student.household_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:is_male) %>:</strong></dt>
-  <dd><%= @student.is_male %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:grade) %>:</strong></dt>
-  <dd><%= @student.grade %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:date_of_birth) %>:</strong></dt>
-  <dd><%= @student.date_of_birth %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
-  <dd><%= @student.cell_phone %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:can_text) %>:</strong></dt>
-  <dd><%= @student.can_text %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-  <dd><%= @student.email %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
-  <dd><%= @student.status %></dd>
-    <dt><strong><%= model_class.human_attribute_name(:photo) %>:</strong></dt>
-  <dd><%= @student.photo %></dd>
-</dl>
->>>>>>> pre-design
+
 
 		<div class="form-actions">
   			<%= link_to t('.back', :default => t("helpers.links.back")),

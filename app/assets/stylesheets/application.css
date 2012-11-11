@@ -136,6 +136,9 @@ h1, h2, h3, h4 {
     padding: 0;
     margin-bottom: 12px;
 }
+h1{
+	padding: -30px;
+}
 
 h6 {
 	margin:0;
@@ -242,14 +245,12 @@ a.src_link {
     padding-left: 18px;
 }
 
-<<<<<<< HEAD
 
-=======
 tr, td {
     margin: 0;
     padding: 0;
 }
->>>>>>> pre-design
+
 
 th {
     white-space: nowrap;
@@ -264,12 +265,9 @@ th span.ui-icon {
 }
 
 td {
-<<<<<<< HEAD
-padding-top:-30px;
-line-height: 0px;
-=======
+
     padding: 4px 8px;
->>>>>>> pre-design
+
 }
 
 td.strong {
@@ -339,19 +337,13 @@ td.strong {
 }
 
 #footer {
-<<<<<<< HEAD
-  color: #ddd;
-  font-size: 12px;
 
-  margin-top: 12px;
-  text-align: right;
-=======
     color: #ddd;
     font-size: 12px;
     font-weight: bold;
     margin-top: 12px;
     text-align: right;
->>>>>>> pre-design
+
 }
 #footer a {
     color: #eee;
@@ -467,7 +459,7 @@ div.span8
     width:100px !important;
 }
 
-<<<<<<< HEAD
+
 .pull-left2 input
 {
     width:75px !important;
@@ -479,12 +471,7 @@ div.span8
 }
 
 
-#footer {
-    color:black;
-    height: 60px;
-    width:100%;
-	background-color:#dcdcdc;
-}
+
 
 #studentSide {
 
@@ -512,11 +499,11 @@ float: right;
 padding:15px;
 width:200px;
 position:absolute;
+}
 
-=======
 .navbar + .container
 {
-    margin-top:160px;
+    margin-top:70px;
     margin-bottom:100px;
 }
 
@@ -621,5 +608,5 @@ right:0;
     top:10px;
     float:right;
     position:relative;
->>>>>>> pre-design
+
 }
