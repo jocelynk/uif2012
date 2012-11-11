@@ -43,7 +43,7 @@ class Student < ActiveRecord::Base
   end
   
   def self.search(query)
-    if query.length < 1
+    if !query
         return 0
     else
       sql = query.split.map do |word|
