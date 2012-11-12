@@ -7,12 +7,17 @@
                 <a class = "brand" href="/"><%= image_tag("uif-logo.gif", :class => "logo") %></a>
 
                 <ul class="nav">
-                    <li><a href=<%= students_path %>><i class="icon-user"></i>Students</a></li>
-                    <li><a href=<%= events_path %>><i class="icon-file"></i>Events</a></li>
-                    <li><a href=<%= programs_path %>><i class="icon-bullhorn"></i>Programs</a></li>
+                    <!-- some weird ish is happening...on active two icons appear -->
+                    <!-- <p><%#= params[:controller] %></p> -->
+                    <li class="<%= 'active' if params[:controller] == 'students' %>"><a href=<%= students_path %>><i class="icon-user"></i>Students</a></li>
+                    <li class="<%= 'active' if params[:controller] == 'events' %>"><a href=<%= events_path %>><i class="icon-file"></i>Events</a></li>
+                    <li class="<%= 'active' if params[:controller] == 'programs' %>"><a href=<%= programs_path %>><i class="icon-bullhorn"></i>Programs</a></li>
                     <form class="navbar-search pull-left">
                         <input type="text" class="search-query" placeholder="Search" width="100px">
                     </form>
+                    <li class="">
+                    <a>&nbsp; Welcome Admin | Login </a>
+                    </li>
                 </ul>
             </div>
         </div>

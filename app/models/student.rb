@@ -48,15 +48,16 @@ class Student < ActiveRecord::Base
   end
   
   def self.search(query)
-    if query
+    # .length works sometimes, but for now use !query
+    if !query
+        return 0
+    else
       sql = query.split.map do |word|
         %w[first_name last_name].map do |column|
           sanitize_sql ["#{column} LIKE ?", "%#{word}%"]
         end.join(" or ")
       end.join(") and (")
       where(sql)
-    else
-      scoped
     end
   end
   

@@ -19,7 +19,7 @@
   <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
   <dd><%= @program.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
-  <dd><%= @program.start_date %></dd>
+  <dd><%= @program.start_date.strftime("%B %d, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
   <dd><%= @program.end_date %></dd>
 </dl>

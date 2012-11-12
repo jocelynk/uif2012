@@ -98,6 +98,12 @@ class Event < ActiveRecord::Base
       
   end
   
+  def self.get_todays_date
+    t = Time.now
+    return t.strftime("%b %d")
+  end
+  
+
   #need validation for event must have end_time if after current date, Look into this CRON
   #validation for duplicate events not created
 end
