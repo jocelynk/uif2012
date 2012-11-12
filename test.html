@@ -23,16 +23,25 @@ function fetchAllergyData(id){
 
 function createAllergy(){
   $.ajax({
-      url: "http://localhost:3000/allergies",
+      url: "http://localhost:3000/ajax_allergies",
+      beforeSend: function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")},
       dataType: "jsonp",
-      type: "POST",
-      data: {"name": "Pollen", "warning_text": "take medicine"},
-      contentType: "application/json",
+      type: "GET",
+     // processData: false,
+	contentType: "application/json",
+	data: {"name": "Testing this", "warning_text": "take LOTS OF MEDICINE"},
+	//data: "{\"list\":{\"title\":\"test\"}}"
       success: function(data) {
-        console.log(data);
-        console.log("success");
+       // console.log(data);
+       // console.log("success");
+       // return false;
+      },
+      error: function(err) {
+      console.log(err);
       }
     });
+    
+    alert("asdfasdfasdf");
 };
 
 
