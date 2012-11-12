@@ -1,6 +1,9 @@
 class AllergiesController < ApplicationController
   # GET /allergies
   # GET /allergies.json
+  #skip_before_filter :verify_authenticity_token
+  respond_to :html, :json, :js, :xml
+  
   def index
     @allergies = Allergy.all
 
@@ -15,9 +18,9 @@ class AllergiesController < ApplicationController
   def show
     @allergy = Allergy.find(params[:id])
 
-    respond_to do |format|
+    respond_with(@allergy) do |format|
       format.html # show.html.erb
-      format.json { render json: @allergy }
+      format.js { render json: @allergy, :callback => params[:callback] }
     end
   end
 
@@ -26,9 +29,9 @@ class AllergiesController < ApplicationController
   def new
     @allergy = Allergy.new
 
-    respond_to do |format|
+    respond_with(@allergy) do |format|
       format.html # new.html.erb
-      format.json { render json: @allergy }
+      format.js { render json: @allergy, :callback => params[:callback] }
     end
   end
 
@@ -45,9 +48,11 @@ class AllergiesController < ApplicationController
     respond_to do |format|
       if @allergy.save
         format.html { redirect_to @allergy, notice: 'Allergy was successfully created.' }
+        format.js { render json: @allergy, :callback => params[:callback] }
         format.json { render json: @allergy, status: :created, location: @allergy }
       else
         format.html { render action: "new" }
+        format.js { render json: @allergy.errors, :callback => params[:callback] }
         format.json { render json: @allergy.errors, status: :unprocessable_entity }
       end
     end

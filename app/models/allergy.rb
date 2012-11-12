@@ -1,5 +1,6 @@
 class Allergy < ActiveRecord::Base
   attr_accessible :active, :name, :warning_text
+  devise :token_authenticatable
   
   has_many :student_allergies
   has_many :students, :through => :student_allergies

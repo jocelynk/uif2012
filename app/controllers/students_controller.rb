@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
+  respond_to :html, :xml, :json, :js
   def index
     @students = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
@@ -16,9 +17,8 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @recent_activities = @student.recent_activity
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @student }
+    respond_with(@student) do |format|
+      format.js { render json: @student, :callback => params[:callback] }
     end
   end
 
