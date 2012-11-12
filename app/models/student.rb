@@ -48,7 +48,6 @@ class Student < ActiveRecord::Base
   end
   
   def self.search(query)
-      
     # .length works sometimes, but for now use !query
     if !query
         return 0

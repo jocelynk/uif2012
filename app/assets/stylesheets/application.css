@@ -34,7 +34,7 @@ h2 {font-size:2em;margin-bottom:0.75em;}
 h3 {font-size:1.5em;line-height:1;margin-bottom:1em;}
 h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;}
 h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;}
-h6 {font-size:1em;font-weight:bold;}
+h6 {font-size:1em;font-weight:bold;margin:0; padding:0;}
 h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;}
 p {margin:0 0 1.5em;}
 p img.left {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;}
@@ -61,7 +61,7 @@ dd {margin-left:1.5em;}
 table {margin-bottom:1.4em;width:100%;}
 th {font-weight:bold;}
 thead th {background:#c3d9ff;}
-th, td, caption {padding:4px 10px 4px 5px;}
+
 tr.even td {background:#efefef;}
 tfoot {font-style:italic;}
 caption {background:#eee;}
@@ -137,7 +137,14 @@ h1, h2, h3, h4 {
     padding: 0;
     margin-bottom: 12px;
 }
+h1{
+	padding: -30px;
+}
 
+h6 {
+	margin:0;
+	;
+}
 table {
     width: 100%;
 }
@@ -239,10 +246,12 @@ a.src_link {
     padding-left: 18px;
 }
 
+
 tr, td {
     margin: 0;
     padding: 0;
 }
+
 
 th {
     white-space: nowrap;
@@ -257,7 +266,9 @@ th span.ui-icon {
 }
 
 td {
+
     padding: 4px 8px;
+
 }
 
 td.strong {
@@ -327,11 +338,13 @@ td.strong {
 }
 
 #footer {
+
     color: #ddd;
     font-size: 12px;
     font-weight: bold;
     margin-top: 12px;
     text-align: right;
+
 }
 #footer a {
     color: #eee;
@@ -548,7 +561,7 @@ color:#ffd200 !important;
 {
 -webkit-transition: 0.5s all ease-in;
  width:50px !important;
- height:10px !important;
+ height:12px !important;
  opacity:0.9;
 }
 
@@ -581,11 +594,51 @@ color:#ffd200 !important;
 }
 
 
+.pull-left2 input
+{
+    width:75px !important;
+}
+
+.pull-left2 input:focus
+{
+    width:115px !important;
+}
+
+
+
+
+#studentSide {
+
+
+border-color:#dcdcdc;
+border-style:solid;
+border-width:1px;
+float: right;
+   height: 80%;
+   margin-top: 15px;
+padding:15px;
+width:200px;
+position:absolute;
+
+}
+#otherSide {
+
+
+border-color:#FFF;
+border-style:solid;
+border-width:1px;
+float: right;
+   height: 80%;
+   margin-top: 15px;
+padding:15px;
+width:200px;
+position:absolute;
+}
 
 
 .navbar + .container
 {
-    margin-top:160px;
+    margin-top:70px;
     margin-bottom:100px;
 }
 
@@ -700,6 +753,7 @@ right:0;
     top:10px;
     float:right;
     position:relative;
+
 }
 
 
@@ -726,15 +780,17 @@ table, thead, tr, tbody
 
 tbody tr td a:hover
 {
-    -webkit-transition:0.4s all linear;
+    -webkit-transition:0.2s all linear;
     text-decoration:none !important;
     background-color:transparent !important;
     color:#AEC4F7 !important;
     font-size:15px;
+    text-shadow: #000 1px 1px 1px;
+
 }
 tbody tr td a
 {
-    -webkit-transition:0.4s all linear;
+    -webkit-transition:0.2s all linear;
     background-color:transparent !important;
     color:black !important;
     font-size:100%;
@@ -753,6 +809,4 @@ tbody tr td a
     height:100px;
     width:100px;
 }
-
-
 
