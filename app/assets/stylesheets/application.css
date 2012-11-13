@@ -126,7 +126,7 @@ a:hover {
 body {
     font-family:"Nobile" !important;
     padding: 12px;
-    
+
     background-color: #333;
 }
 
@@ -138,12 +138,12 @@ h1, h2, h3, h4 {
     margin-bottom: 12px;
 }
 h1{
-	padding: -30px;
+    padding: -30px;
 }
 
 h6 {
-	margin:0;
-	;
+    margin:0;
+    ;
 }
 table {
     width: 100%;
@@ -454,10 +454,11 @@ body
 .navbar.navbar-fixed-top + .container
 {
 /*    background-color:#525158 !important;*/
-    position:absolute !important;
-    left:100px;
-    min-width:500px;
-    margin-top:100px !important;
+position:absolute !important;
+left:100px;
+/*    min-width:500px;*/
+width: 81% !important;
+margin-top:100px !important;
 }
 
 /*generally really nice charcoal grey background-color:#525158 !important; */
@@ -479,7 +480,6 @@ body
 /* ============================== */
 /* ========== Navbar ============ */
 /* ============================== */
-
 
 ul.nav
 {
@@ -515,8 +515,8 @@ ul.nav li.active a:focus
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus 
 {
-background-color: inherit !important; 
-color:#ffd200 !important;
+    background-color: inherit !important; 
+    color:#ffd200 !important;
 }
 
 
@@ -535,7 +535,7 @@ color:#ffd200 !important;
 {
     -webkit-transition: all 1s linear;
     opacity:1;
-/*    background-color:#FFD200 !important;*/
+    /*    background-color:#FFD200 !important;*/
 }
 
 
@@ -547,35 +547,35 @@ color:#ffd200 !important;
 /* ============================== */
 /*.pull-left input
 {
-    -webkit-transition: 0.5s width ease-in;
-    width:40px !important;
+-webkit-transition: 0.5s width ease-in;
+width:40px !important;
 }
 
 .pull-left input:hover
 {
-   -webkit-transition: 0.5s width ease-out;
-   
+-webkit-transition: 0.5s width ease-out;
+
 }*/
 
 .navbar-search .search-query 
 {
--webkit-transition: 0.5s all ease-in;
- width:50px !important;
- height:12px !important;
- opacity:0.9;
+    -webkit-transition: 0.5s all ease-in;
+    width:50px !important;
+    height:12px !important;
+    opacity:0.9;
 }
 
 .navbar-search 
 {
 /*-webkit-transition: 0.5s width ease-in;*/
- position:absolute !important;
- right:-20px; 
+position:absolute !important;
+right:-20px; 
 }
 
 .nav 
 {
     width: 80% !important;
-/*    background-color:white !important;*/
+    /*    background-color:white !important;*/
 }
 
 .navbar-inner .container
@@ -588,9 +588,9 @@ color:#ffd200 !important;
 
 .navbar-search .search-query:focus 
 {
--webkit-transition: 0.5s all ease-in;
- width:100px !important;
-  opacity:1;
+    -webkit-transition: 0.5s all ease-in;
+    width:100px !important;
+    opacity:1;
 }
 
 
@@ -610,29 +610,31 @@ color:#ffd200 !important;
 #studentSide {
 
 
-border-color:#dcdcdc;
-border-style:solid;
-border-width:1px;
-float: right;
-   height: 80%;
-   margin-top: 15px;
-padding:15px;
-width:200px;
-position:absolute;
+    border-color:#dcdcdc;
+    border-style:solid;
+    border-width:1px;
+    float: right;
+    height: 80%;
+    margin-top: 15px;
+    padding:15px;
+    width:200px;
+    position:absolute;
 
 }
+
+
 #otherSide {
 
 
-border-color:#FFF;
-border-style:solid;
-border-width:1px;
-float: right;
-   height: 80%;
-   margin-top: 15px;
-padding:15px;
-width:200px;
-position:absolute;
+    border-color:#FFF;
+    border-style:solid;
+    border-width:1px;
+    float: right;
+    height: 80%;
+    margin-top: 15px;
+    padding:15px;
+    width:200px;
+    position:absolute;
 }
 
 
@@ -683,12 +685,12 @@ a.btn.btn-primary
 .attended-list li 
 {
     margin-bottom:-20px;
-        margin-top:-20px;
+    margin-top:-20px;
 }
 
 .attended-list li:hover
 {
-background-color:yellow;
+    background-color:yellow;
 }
 
 
@@ -699,8 +701,8 @@ background-color:yellow;
 }
 .dl-horizontal
 {
-width:300px !important;
-display:inline !important;
+    width:300px !important;
+    display:inline !important;
 }
 
 .form-actions
@@ -713,20 +715,7 @@ display:inline !important;
 /* ============================== */
 /* =========== Footer =========== */
 /* ============================== */
-/*.container + .container > #footer
-{margin-top:100px;}
-
-#footer {
-color:black;
-height: 100%;
-position:absolute;
-left:0;
-right:0;
-}
-*/
-
-
-.navbar-fixed-bottom .navbar-inner .container
+.navbar-fixed-bottom .navbar-inner
 {
     height:30px;
 }
@@ -734,8 +723,7 @@ right:0;
 .navbar-fixed-bottom .navbar-inner .container .nav
 {
     top:0px;
-    left:35%;
-    width:70%;
+    width:100% !important;
     /*    background-color:white;*/
 }
 
@@ -746,14 +734,24 @@ right:0;
 }
 
 /*ul.nav li a*/
-
-
 .uif
 {
     top:10px;
     float:right;
     position:relative;
+}
 
+.uif a:hover
+{
+    text-decoration:none !important;
+    background-color:inherit!important;
+    color:#AEC4F7; 
+    -webkit-transition:0.2s all linear;
+}
+
+.uif a
+{
+    -webkit-transition:0.2s all linear;
 }
 
 
@@ -763,7 +761,7 @@ right:0;
 /* ======================================= */
 .navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner
 {
-background-color:black;
+    background-color:black;
 }
 
 
