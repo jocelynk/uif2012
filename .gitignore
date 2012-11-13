@@ -1,1 +1,6 @@
 tmp
+*~
+public/uploads
+*.log
+coverage
+db/*.sqlite3
