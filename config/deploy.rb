@@ -17,7 +17,7 @@ set :branch, 'deploy'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log']
+set :shared_paths, ['config/database.yml', 'log', 'public/uploads']
 
 # Optional settings:
 set :user, 'deploy'   # Username in the server to SSH to.
@@ -45,6 +45,12 @@ task :setup => :environment do
 
   queue! %[mkdir -p "#{deploy_to}/shared/config"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
+
+  queue! %[mkdir -p #{deploy_to}/shared/tmp]
+  queue! %[chmod g+rwx,u+rwx "#{deploy_to}/shared/tmp"]
+
+  queue! %[mkdir -p /var/log/unicorn]
+  queue! %[chmod g+rw,u+rw /var/log/unicorn]
 end
 
 desc "Deploys the current version to the server."
@@ -59,7 +65,9 @@ task :deploy => :environment do
     invoke :'rails:assets_precompile'
 
     to :launch do
-      queue 'touch tmp/restart.txt'
+      queue 'sudo service nginx reload'
+      queue "sudo #{deploy_to}/shared/unicorn rotate"
+      queue "sudo #{deploy_to}/shared/unicorn reload"
     end
   end
 end
