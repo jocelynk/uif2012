@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :load, :set_controller_and_action_names
+  before_filter :load, :set_controller_and_action_names, :check_login
 
   def load
     @events = Event.by_date(params[:date_query])

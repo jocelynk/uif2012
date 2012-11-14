@@ -1,4 +1,5 @@
 class AttendencesController < ApplicationController
+  before_filter :check_login
   # GET /attendences
   # GET /attendences.json
   def index

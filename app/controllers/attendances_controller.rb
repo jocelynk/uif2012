@@ -1,6 +1,8 @@
 class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
+  before_filter :check_login
+  
   def index
     @attendances = Attendance.all
 

@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_filter :check_login
   # GET /locations
   # GET /locations.json
   def index

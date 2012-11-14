@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
   # GET /registrations
   # GET /registrations.json
+  before_filter :check_login
+  
   def index
     # @registrations = Registration.all
     @registrations = Registration.paginate(:page => params[:page], :per_page => 15)

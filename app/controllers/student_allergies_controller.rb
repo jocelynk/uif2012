@@ -1,4 +1,6 @@
 class StudentAllergiesController < ApplicationController
+  before_filter :check_login
+  
   # GET /student_allergies
   # GET /student_allergies.json
   def index
