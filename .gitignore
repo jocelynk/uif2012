@@ -1,5 +1,6 @@
 tmp
 *~
+public/assets
 public/uploads
 *.log
 coverage
