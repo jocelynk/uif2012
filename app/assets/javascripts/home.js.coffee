@@ -23,9 +23,7 @@ displayunicode = ->
       data:
         barcode: unicode,
         e_id: url_query("event_id") 
-      success: (data) ->
-      
-      
+      success: (data) -> 
       
 # Parse URL Queries
 url_query = (query) ->

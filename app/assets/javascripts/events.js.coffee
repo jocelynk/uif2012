@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  $("#clickme").button().click ->
+  $("#event_creation").button().click ->
     $("#popup").dialog "open"
 
   $("#popup").dialog

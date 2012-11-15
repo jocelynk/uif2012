@@ -77,7 +77,6 @@ class Event < ActiveRecord::Base
  
   private  
   def assign_sections
-  puts "asdfasdfasdfasdfasdfasdfadfawefawefaew"
      #if @section_ids
       #new_ids = @section_ids
       #old_ids = Section.all.collect{|p| p.id}
@@ -90,7 +89,6 @@ class Event < ActiveRecord::Base
       #end
       puts self.sections
       
-      puts "BLABLAHBA"
       self.sections.each do |section_id|
         SectionEvent.create(:event_id => event_id, :section_id => section_id)
       end

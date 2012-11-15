@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def load
     @events = Event.by_date(params[:date_query])
+    #@events_months = Event.all.group_by { |t| t.date.beginning_of_month }
     @event = Event.new
   end
   
