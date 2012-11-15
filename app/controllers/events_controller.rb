@@ -48,23 +48,21 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    if !params[:event][:sections].nil?
-      params[:event][:sections].shift
-      sections = params[:event][:sections]
-      event_id = params[:event][:id]
-      params[:event].delete "sections"
-    end
+
+    params[:event][:sections].shift
+    sections = params[:event][:sections]
+    event_id = params[:event][:id]
+    params[:event].delete "sections"
+
     
     @event = Event.new(params[:event])
     
     respond_to do |format|
        if @event.save
-       if !params[:event][:sections].nil?
-        sections.each do |section_id|
-          @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})
-          @section.save
-        end 
-       end
+          sections.each do |section_id|
+            @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})
+            @section.save
+          end 
         if request.xhr?
           flash[:notice] = "Event was successfully created."
           format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
