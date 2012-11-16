@@ -104,8 +104,48 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+    
+    params[:event][:sections].shift
+    new_sections = params[:event][:sections].to_a
+    event_id = params[:event][:id]
+    params[:event].delete "sections"
+    
+    old_sections = SectionEvent.where(:event_id => event_id)
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        if(old_sections.length == new_sections.length)
+          count1 = 0;
+          old_sections.each do |section|
+            @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count1]})
+            @section.save
+            count1 += 1
+          end 
+        elsif (old_sections.length > new_sections.length)
+          count2 = 0;
+          old_sections.each do |section|
+            if(count >= new_sections.length)
+              @section = SectionEvent.find(section.id)
+              @section.destroy
+              count2 += 1
+            else
+              @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count2]})
+              @section.save
+              count2 += 1
+            end
+          end
+        else
+          count3 = 0;
+          old_sections.each do |section|
+            @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count3]})
+            @section.save
+            count3 += 1
+          end
+          while (count3 < new_sections.length)
+            @section = SectionEvent.new({:event_id => @event.id, :section_id => new_sections[count3]})
+            @section.save
+            count3 += 1
+          end
+        end
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
         format.js

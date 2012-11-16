@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  respond_to :html, :json, :js
   def index
    @events = Event.current
   end
@@ -36,6 +37,12 @@ class HomeController < ApplicationController
        @attendance = Attendance.new({:student_id => @student_id.first.id, :event_id =>  @event_id})
        @attendance.save
        flash[:notice] = "Barcode was successfully scanned"
+       respond_to do |format|
+        format.html #{ redirect_to checkin_url, notice: 'asdfasdfadsf' }
+        format.json {render json: @event_details, status: "test", location: "testtest"}
+        format.js {render json: @event_details, status: "test", location: "testtest"}
+       end
+       
      else
        flash[:notice] = "There was something wrong with the scanning!" 
      end

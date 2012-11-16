@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id, :sections
 
   #Callbacks
-  after_save :assign_sections
+  #after_create :assign_sections
   
   #Relationships
   belongs_to :program
