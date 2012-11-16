@@ -107,27 +107,15 @@ class EventsController < ApplicationController
     
     params[:event][:sections].shift
     new_sections = params[:event][:sections].to_a
-    puts '&&&&&&&&&&&&&&&&&&'
-    puts new_sections
-    puts '&&&&&&&&&&&&&&&&&&'
     params[:event].delete "sections"
     
     old_sections = SectionEvent.where(:event_id => @event.id)
-    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    puts old_sections
-    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     respond_to do |format|
       if @event.update_attributes(params[:event])
         if(old_sections.length == new_sections.length)
           count1 = 0;
           old_sections.each do |section|
             @section = SectionEvent.find(section.id)
-              puts '+++++++SECTIONEVENT++++++++'
-              puts @section
-              puts '++++++++EVENT+++++++++++++'
-              puts @section.event_id
-              puts '++++++++SECTION+++++++++++'
-              puts @section.section_id
             @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count1]})
             count1 += 1
           end 
@@ -136,15 +124,7 @@ class EventsController < ApplicationController
           old_sections.each do |section|
             @section = SectionEvent.find(section.id)
             if(count2 >= new_sections.length)
-              puts '+++++++SECTIONEVENT++++++++'
-              puts @section
-              puts '++++++++EVENT+++++++++++++'
-              puts @section.event_id
-              puts '++++++++SECTION+++++++++++'
-              puts @section.section_id
-              puts '+++++++++DESTROY++++++++++++'
               @section.destroy
-              puts '+++++++++++++++++++++++++++'
               count2 += 1
             else
               @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count2]})
