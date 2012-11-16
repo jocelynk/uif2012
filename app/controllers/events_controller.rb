@@ -107,37 +107,55 @@ class EventsController < ApplicationController
     
     params[:event][:sections].shift
     new_sections = params[:event][:sections].to_a
-    event_id = params[:event][:id]
+    puts '&&&&&&&&&&&&&&&&&&'
+    puts new_sections
+    puts '&&&&&&&&&&&&&&&&&&'
     params[:event].delete "sections"
     
-    old_sections = SectionEvent.where(:event_id => event_id)
+    old_sections = SectionEvent.where(:event_id => @event.id)
+    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    puts old_sections
+    puts '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
     respond_to do |format|
       if @event.update_attributes(params[:event])
         if(old_sections.length == new_sections.length)
           count1 = 0;
           old_sections.each do |section|
-            @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count1]})
-            @section.save
+            @section = SectionEvent.find(section.id)
+              puts '+++++++SECTIONEVENT++++++++'
+              puts @section
+              puts '++++++++EVENT+++++++++++++'
+              puts @section.event_id
+              puts '++++++++SECTION+++++++++++'
+              puts @section.section_id
+            @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count1]})
             count1 += 1
           end 
         elsif (old_sections.length > new_sections.length)
           count2 = 0;
           old_sections.each do |section|
-            if(count >= new_sections.length)
-              @section = SectionEvent.find(section.id)
+            @section = SectionEvent.find(section.id)
+            if(count2 >= new_sections.length)
+              puts '+++++++SECTIONEVENT++++++++'
+              puts @section
+              puts '++++++++EVENT+++++++++++++'
+              puts @section.event_id
+              puts '++++++++SECTION+++++++++++'
+              puts @section.section_id
+              puts '+++++++++DESTROY++++++++++++'
               @section.destroy
+              puts '+++++++++++++++++++++++++++'
               count2 += 1
             else
-              @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count2]})
-              @section.save
+              @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count2]})
               count2 += 1
             end
           end
         else
           count3 = 0;
           old_sections.each do |section|
-            @section = section.update_attributes({:event_id => @event.id, :section_id => new_sections[count3]})
-            @section.save
+            @section = SectionEvent.find(section.id)
+            @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count3]})
             count3 += 1
           end
           while (count3 < new_sections.length)
