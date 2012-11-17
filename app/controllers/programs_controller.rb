@@ -3,7 +3,7 @@ class ProgramsController < ApplicationController
   # GET /programs.json
   def index
     @programs = Program.all
-
+    # @department = @programs.department
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @programs }

@@ -1,6 +1,10 @@
 <h2>Checkin</h2>
 <p>Scanning...</p>
+<% if @event_details.first.section.nil? || @event_details.first.date.nil?%>
+<%= "Event Section and Date Unavailable At This Moment..."%>
+<% else %>
 <%= @event_details.first.section %> - <%= @event_details.first.date %> 
+<% end %>
 
     
     
