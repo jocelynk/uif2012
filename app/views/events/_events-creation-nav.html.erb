@@ -5,8 +5,8 @@
 </div>
 <%= form_tag events_path, :method => 'get' do %>
 <p>
-<%= date_select :date_query, params[:date_query], :include_blank => true%>
-<%= submit_tag "Search", :name => nil %>
+<%= date_select :date_query, params[:date_query], :include_blank => true, :label_method => :name%>
+<%= submit_tag "Search", :name => nil, :class=>"btn btn-large" %>
 </p>
 <% end %>
 

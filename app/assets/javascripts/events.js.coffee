@@ -2,9 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).ready ->
+$(document).ready -> 
   $("#clickme").button().click ->
     $("#popup").dialog "open"
+    $('.container').css('opacity', '0.2')
 
   $("#popup").dialog
     autoOpen: false
@@ -27,6 +28,7 @@ $(document).ready ->
     else
       $('#event_sections').empty()
       $('#event_sections').parent().hide()
+      
      
     
 

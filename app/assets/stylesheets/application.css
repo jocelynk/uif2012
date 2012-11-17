@@ -131,11 +131,12 @@ body {
 }
 
 h1, h2, h3, h4 {
-    font-family:"Ubuntu" !important;
+    font-family:"Lato" !important;
     color: #1C2324;
     margin: 0;
     padding: 0;
     margin-bottom: 12px;
+    font-weight:100;
 }
 h1{
     padding: -30px;
@@ -727,6 +728,18 @@ a.btn.btn-primary
     /*    background-color:white;*/
 }
 
+#popup
+{
+/*    background-color:red;*/
+
+width: 800px !important;
+height: 600px !important;
+position:absolute;
+top:-150px;
+left:-200px;
+margin-bottom:100px;
+}
+
 /* text in footer*/
 .navbar-fixed-bottom .navbar-inner .container .nav li a
 {
@@ -828,4 +841,24 @@ tbody tr td a
 #creation-bar
 {
     margin-bottom:200px !important;
+}
+
+
+
+.stu-side-nav
+{
+    position:absolute;
+    right:250px;
+    top:-10px;
+    height:60%;
+}
+
+#studentSide .page-header h1
+{
+    margin-top:-15px !important;
+}
+
+.form-actions
+{
+    margin-bottom:100px !important;
 }
