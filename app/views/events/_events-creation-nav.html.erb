@@ -3,6 +3,12 @@
 <div class="page-header">
   <h1>Creation</h1>
 </div>
+<%= form_tag events_path, :method => 'get' do %>
+<p>
+<%= date_select :date_query, params[:date_query], :include_blank => true%>
+<%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
 
 <div class="side-nav-grp">
 <div class="btn-group">
@@ -16,5 +22,5 @@
   </ul>
 </div>
 
-<button class="btn btn-large">New Event</button>
+<button id="clickme" class="btn btn-large">New Event</button>
 </div>

@@ -808,4 +808,24 @@ tbody tr td a
     width:100px;
 }
 
+.alert-success
+{
+    height:20px;
+}
 
+
+.simple_form
+{
+    margin-bottom:100px !important;
+}
+
+#creation-bar form select
+{
+    width:90% !important;
+    display:block !important;
+}
+
+#creation-bar
+{
+    margin-bottom:200px !important;
+}

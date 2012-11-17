@@ -1,3 +1,5 @@
+<h1>Derin </h1>
+
 <%= simple_form_for @event, :remote => true, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :date, :as => :date, :start_year => Date.today.year, :day => Date.today.day,
                               :end_year => Date.today.year - 12,
@@ -11,7 +13,7 @@
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 events_path, :class => 'btn' %>
-
+                <h1>this is the quick add events</h1>
   </div>
 <% end %>
 
