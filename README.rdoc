@@ -1,1 +1,0 @@
-The is the dev version of UIF's attendance management system

@@ -1,0 +1,54 @@
+<h2>List of UIF Users</h2>
+
+<% if current_user.is_admin? %>
+<p>
+Below is a listing of the users that are currently in the system.
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th width="140">Username</th>
+      <th width="300">Email</th>
+	    <th width="20">&nbsp;</th>
+	    <th width="20">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+	    <tr>
+	      <td>
+				  <%= link_to user.name, user_path(user) %>
+			  </td>
+	      <td>
+			    <%= user.username %>
+			  </td>
+			  <td>
+			    <%= mail_to user.email unless user.email.nil? %>
+			  </td>
+
+			  <td align="center">
+    	  	<%= link_to(image_tag("icons/edit_dg.gif", :border => 0), edit_user_path(user))  %>
+  	  	</td>
+			  <td align="center">
+  				<%= link_to(image_tag("icons/delete_dg.gif", :border => 0), user_path(user), :confirm => 'Are you sure you wish to delete this information?', :method => :delete) %>
+  	  	</td>
+	    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<span class="wp"><%= will_paginate @users, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %></span>
+<p>&nbsp;</p>
+<p>
+<% if current_user.is_admin? %>
+  <p class="supertiny">&nbsp;</p>
+  <%= button_to "Add User", new_user_path, :method => :get %>
+<% end %>
+
+
+<% else %>
+  <p>&nbsp;</p>
+  <h3 >Are you trying to access information you do not have authority to see?  I hope not...</h3>
+<% end %>
