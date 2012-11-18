@@ -27,6 +27,4 @@ $(document).ready ->
       
      
     
->>>>>>> f4ad9f68ec467bec85ef6b5ebd81e9115a8d60ad
-
 
