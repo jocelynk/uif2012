@@ -39,15 +39,6 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <% if controller.controller_name == "events" %> 
-
-                <!-- <td><%= l event.date %></td> -->
-        <% end %>         
-        <td><%= link_to event.program.name, event_path(event) %></td>
-        <!-- <td><%= l event.start_time %></td> -->
-
-          <td><%=l event.date %></td>
-        <%# end %>
         <% if controller.controller_name == "events" %>          
           <td><%= link_to event.program.name, event_path(event) %></td>
         <% elsif %>  
@@ -55,17 +46,8 @@
         <% end %>
         <td><% event.sections.each do |section|%><%= section.name %>&nbsp;<% end %></td>
         <td><%= l event.start_time %></td>
-
         <td><%= l event.end_time %></td>
-        <% if controller.controller_name == "events" %> 
-                <!-- <td><%= event.location.name %></td> -->
-                <!-- <td><%= event.gospel_shared %></td> -->
-                <!-- <td><%= event.meals_served %></td> -->
-                <!-- <td><%= event.bibles_distributed %></td> -->
-                <!-- <td><%=l event.created_at %></td> -->
-        <% end %>   
         <td>
-        <%#request.xhr %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-mini' %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),

@@ -28,6 +28,7 @@ $(document).ready ->
     $("#event_sections").parent().hide()
   else
     $("#event_sections").parent().show()
+    console.log(@section_select_data)
     changeSection(sections)
   $("#event_program_id").change ->
     changeSection(sections)

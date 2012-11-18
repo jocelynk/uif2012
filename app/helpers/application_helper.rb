@@ -16,7 +16,7 @@ module ApplicationHelper
   #  end
   #end
   
-  #def reload_flash
-   # page.replace "flash_messages", :partial => 'layouts/flash'
-  #end
+  def reload_flash
+    page.replace "flash_messages", :partial => 'layouts/flash'
+  end
 end

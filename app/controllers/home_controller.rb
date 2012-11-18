@@ -41,7 +41,7 @@ class HomeController < ApplicationController
         flash[:notice] = "Barcode was successfully scanned"
          puts "+++++++++++++++++++++++++"
         puts flash[:notice]
-        page.reload_flash
+        #page.reload_flash
        end
 
        #respond_to do |format|
