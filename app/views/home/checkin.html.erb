@@ -1,27 +1,21 @@
 <h2>Checkin</h2>
 <p>Scanning...</p>
-<%= @event_details.first.section %> - <%= @event_details.first.date %> 
+<%= @event_details.first.section %> - <%= @event_details.first.date %>
 
-    
-    
+
+
     <div class="container">
       <%= render :partial => './layouts/flash', :locals => {:flash => flash} %>
 
 
 
 	  </div>
-	
-	
+
+
     <!-- <h3> Barcode Test </h3> -->
 
-      
+
     <div id="content">
-
         <input id ="Input" type="text"> </input>
-
-        <h2 id = "bcode"> Barcodes: </h2>
-
-        <%= flash[:messages] %>
-        <span id="add-here"> </span>
-
+        <span id="add-here"></span>
     </div>
