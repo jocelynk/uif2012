@@ -5,7 +5,6 @@
   console.log('Created');
   $('#popup').dialog('close');
   $(":input:not(input[type=submit])").val("");
-  $
   $("#events_list").hide().html("<%= escape_javascript( render(:partial => "events") ) %>").fadeIn();
  
 <%- end %>

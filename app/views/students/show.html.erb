@@ -1,9 +1,6 @@
 <%- model_class = Student -%>
 
 
-<%#= render :partial => 'recent_activities' %>
-
-
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="page-header">
@@ -48,21 +45,7 @@
     <div class="stu-side-nav">
         <div id="studentSide">
             <div class="page-header">
-                <h1>
-                    Alerts
-                </h1>
-                </div>
-            <div class="alert">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong><%= @student.first_name %></strong> has to get a new barcode.
-            </div>
-            <div class="alert alert-error">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong><%= @student.first_name %></strong> hasn't been to the past <strong>3</strong> events.
-            </div>
-            <div class="alert alert-info">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>Heads up!</strong> Jazz band will be moved to classroom <strong>E2300</strong>
+              	<%= render :partial => 'recent_activities' %>
             </div>
         </div>
     </div>

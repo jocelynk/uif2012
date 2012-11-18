@@ -26,6 +26,10 @@ class Program < ActiveRecord::Base
   scope :active, where('active = ? AND end_date IS NULL', true)
   scope :by_name, order('name')
   #Methods
+  def name=(s)
+    write_attribute(:name, s.to_s.titleize)
+  end
+  
   def max_grade_greater_than_min_grade
     errors.add(:max_grade, "must be greater than min grade") unless self.max_grade.to_i > self.min_grade.to_i
   end
@@ -33,5 +37,20 @@ class Program < ActiveRecord::Base
   def grade_range
     "#{min_grade} - #{max_grade}"
   end
-
+  
+  def enddateformat
+    if self.end_date
+      return self.end_date.strftime("%b %d, %Y")
+	  else
+      "N/A"
+    end
+	end
+	
+	def hasdescription
+    if self.description.length >0
+      return self.description
+    else
+      return 'N/A'
+    end
+  end
 end

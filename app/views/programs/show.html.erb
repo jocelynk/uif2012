@@ -7,21 +7,17 @@
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @program.name %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @program.description %></dd>
+  <dd><%= @program.hasdescription %> </dd>
   <dt><strong><%= model_class.human_attribute_name(:department_id) %>:</strong></dt>
-  <dd><%= @program.department_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:min_grade) %>:</strong></dt>
-  <dd><%= @program.min_grade %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:max_grade) %>:</strong></dt>
-  <dd><%= @program.max_grade %></dd>
+  <dd><%= @program.department.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:grade_range) %>:</strong></dt>
+  <dd><%= @program.grade_range %></dd>
   <dt><strong><%= model_class.human_attribute_name(:max_capacity) %>:</strong></dt>
   <dd><%= @program.max_capacity %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:active) %>:</strong></dt>
-  <dd><%= @program.active %></dd>
   <dt><strong><%= model_class.human_attribute_name(:start_date) %>:</strong></dt>
   <dd><%= @program.start_date.strftime("%B %d, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
-  <dd><%= @program.end_date %></dd>
+  <dd><%= @program.enddateformat %></dd>
 </dl>
 
 <div class="form-actions">
