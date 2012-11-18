@@ -12,7 +12,7 @@ gem 'simple_form'
 gem 'time_date_helpers'
 gem 'validates_timeliness', '3.0.8'
 gem 'will_paginate'
-gem 'kgio'
+gem 'kgio', '2.7.4'
 
 # Gems used only in development
 group :development do
