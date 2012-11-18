@@ -896,3 +896,35 @@ tbody tr td a
 {
     margin-bottom:100px !important;
 }
+
+
+
+/* =============================================== */
+/* ============= Dashboard Admin View ============ */
+/* =============================================== */
+
+.events
+{
+   width:300px !important; 
+   position:relative;
+   float:left;
+   display:block !important;
+}
+
+.issues
+{
+    margin-left:100px;
+    float:right !important;
+}
+
+.past.events
+{
+    
+}
+
+/*.upcoming, .past
+{
+ width:300px !important; 
+ float:left;  
+}*/
+

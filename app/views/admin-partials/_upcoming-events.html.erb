@@ -13,12 +13,13 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            
+
             <th><%= model_class.human_attribute_name(:program_id) %></th>
-             <th><%= model_class.human_attribute_name(:date) %></th>
+            <th><%= model_class.human_attribute_name(:date) %></th>
             <th><%= model_class.human_attribute_name(:sections) %></th>
+            <th> Scan </th>
             <!-- <th><%= model_class.human_attribute_name(:start_time) %></th>
-                   <th><%= model_class.human_attribute_name(:end_time) %></th> -->
+            <th><%= model_class.human_attribute_name(:end_time) %></th> -->
 
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
@@ -26,9 +27,9 @@
     <tbody>
         <% @all_events.each do |event| %>
         <% if event.date > Date.today %>
-        
-        
-        
+
+
+
         <tr>
             <td>
                 <%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %>
@@ -40,23 +41,24 @@
                 <% event.sections.each do |section|%>
                 <%= section.name %>&nbsp;
                 <% end %> 
-            <!-- </td>
+                <!-- </td>
                 <td><%= l event.start_time %></td>
                 <td><%= l event.end_time %></td>
                 <td> -->
-                <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
-            </td>
+                    <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
+                </td>
+                <td>       <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a>
+                </td>
+                <td>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_event_path(event), :class => 'btn btn-mini' %>
+                </td>
+            </tr>
+            <% end %>
+            <% end %>
+        </tbody>
+    </table>
 
-            <td>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_event_path(event), :class => 'btn btn-mini' %>
-            </td>
-        </tr>
-        <% end %>
-        <% end %>
-    </tbody>
-</table>
-
-<%= link_to t('.new', :default => t("helpers.links.new")),
-new_event_path,
-:class => 'btn btn-primary' %>
+    <%= link_to t('.new', :default => t("helpers.links.new")),
+    new_event_path,
+    :class => 'btn btn-primary' %>
