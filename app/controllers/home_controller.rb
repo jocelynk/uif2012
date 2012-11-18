@@ -18,8 +18,9 @@ class HomeController < ApplicationController
   end
 
   def checkin
-    @event_details = Event.joins('INNER JOIN section_events AS se ON se.event_id = events.id INNER JOIN sections s ON s.id = se.section_id').where('events.id = ?', params[:event_id]).select('s.name AS section, events.date')
-    if params[:barcode] && params[:event_id]
+    session[:event] = params[:event_id]
+    @event_details = Event.joins('INNER JOIN section_events AS se ON se.event_id = events.id INNER JOIN sections s ON s.id = se.section_id').where('events.id = ?', session[:event]).select('s.name AS section, events.date')
+    if params[:barcode] && session[:event]
       @student = Student.find_by_barcode_number(params[:barcode])
       if @student && @student.attendances.create(event_id: params[:event_id])
         render :json => { message: "#{@student.proper_name} was successfully scanned!" }
