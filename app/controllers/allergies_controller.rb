@@ -23,7 +23,7 @@ class AllergiesController < ApplicationController
   end
   
   def index
-    @allergies = Allergy.all
+    @allergies = Allergy.paginate(:page => params[:page]).per_page(5)
 
     respond_to do |format|
       format.html # index.html.erb
