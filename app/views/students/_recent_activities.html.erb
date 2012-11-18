@@ -5,7 +5,11 @@
 <br>
 <ul>
   <% @recent_activities.each do |activity| %>
+<<<<<<< HEAD
         <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></div>
+=======
+        <li>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></li>
+>>>>>>> 898b519fd5a58e6baa91a9919792f9b073a2676c
   <% end %>
 </ul>
 <% end %>
