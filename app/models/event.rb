@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
   validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0, :message => "is not a valid number"
   validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => false, :message => "is not a valid number"
 
+  
     
   #Scopes
   scope :happening_events, where('end_time IS NULL AND date = ?', Date.today)

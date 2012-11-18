@@ -480,6 +480,19 @@ body
 /* ============================== */
 /* ========== Navbar ============ */
 /* ============================== */
+#login
+{
+    margin-left:-25px;
+    color:#98ACD8;
+    font-size:12px;
+}
+
+#login span
+{
+    padding-left:20px;
+    color:white !important;
+}
+
 
 ul.nav
 {
@@ -487,6 +500,17 @@ ul.nav
     top:30px;
 }
 
+/*figured out what the problem is!!*/
+/*icon size is not the regular sizae. we keep changing it*/
+.icon-user
+{
+/*    font-size:50% !important;   */
+}
+
+.icon-barcode
+{
+    font-size:20px;
+}
 
 ul.nav li a
 {
@@ -527,7 +551,7 @@ ul.nav li.active a:focus
 
 .brand + .nav li:nth-child(4) a
 {
-    font-size:11px !important;
+    font-size:12px !important;
     text-decoration:none !important;
 }
 
