@@ -11,4 +11,7 @@ class Household < ActiveRecord::Base
   validates_format_of :zip, :with => /^\d{5}(\-\d{4})?$/, :message => "should be five digits long"
   validates_numericality_of :lat, :lon, :allow_blank => true
   
+  #Scopes
+  scope :alphabetical,   order("name")
+  
 end

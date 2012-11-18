@@ -3,7 +3,7 @@ class SectionsController < ApplicationController
   # GET /sections.json
   before_filter :check_login
   def index
-    @sections = Section.all
+    @sections = Section.paginate(:page => params[:page]).per_page(10)
 
     respond_to do |format|
       format.html # index.html.erb

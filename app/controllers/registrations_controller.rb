@@ -4,7 +4,6 @@ class RegistrationsController < ApplicationController
   before_filter :check_login
   
   def index
-    # @registrations = Registration.all
     @registrations = Registration.paginate(:page => params[:page], :per_page => 15)
     respond_to do |format|
       format.html # index.html.erb
