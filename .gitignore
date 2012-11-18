@@ -6,5 +6,6 @@ public/uploads
 coverage
 db/*.sqlite3
 .rvmrc
+.rvmrc*
 .DS_Store
 
