@@ -14,7 +14,6 @@ changeSection = (sections) ->
     $("#event_sections").parent().hide()
 $(document).ready ->
   sections = undefined
-  console.log typeof $("#action").val()
   $("#event_creation").button().click ->
     $("#popup").dialog "open"
 
@@ -30,7 +29,6 @@ $(document).ready ->
   else
     $("#event_sections").parent().show()
     changeSection(sections)
-  console.log "section: " + sections
   $("#event_program_id").change ->
     changeSection(sections)
 
