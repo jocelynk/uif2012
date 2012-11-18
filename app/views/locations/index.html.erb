@@ -29,7 +29,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @locations, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
 <%= link_to 'New Location', new_location_path %>

@@ -1,34 +1,28 @@
-count = 0
 $(document).ready ->
   $("#Input").focus()
-  $("#Input").keyup(displayunicode)
-   
-displayunicode = ->
-  arr = undefined
-  display = undefined
-  unicode = undefined
-  val = undefined
-  arr = new Array()
-  unicode = document.getElementById("Input").value
-  display = document.getElementById("add-here")
-  val = ""
-  if unicode.length is 12
-    count++
-    unicode = document.getElementById("Input").value
-    val = "<div class='ani'>" + "<span>" + count + "</span>" + ":" + unicode + "</div>"
-    display.innerHTML += val
-    document.getElementById("Input").value = ""
+  $("#Input").keyup(displayUnicode)
+
+displayUnicode = ->
+  @input = $('#Input')
+  @display = $('#add-here')
+
+  if @input.val()?.length == 12
     $.ajax
-      url: "/checkin"
+      url: '/checkin'
       data:
-        barcode: unicode,
-        e_id: url_query("event_id") 
-      success: (data) -> 
-        console.log("asdfasdfasdfasdfas")
-        console.log(data)
-      err: (err) ->
-        console.log(err)
-      
+        barcode: @input.val(),
+        event_id: url_query 'event_id'
+      success: (data) =>
+        # Success if called regardless of whether the actual call succeed, since
+        # we are just returning JSON
+        if data.error
+          console.error "Error scanning #{@input.val()}!"
+          alert data.error
+        else
+          @display.html "<div>#{data.message}</div>"
+
+    @input.val('')
+
 # Parse URL Queries
 url_query = (query) ->
   query = query.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")

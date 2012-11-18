@@ -9,6 +9,9 @@ changeSection = (sections) ->
   if options
     $("#event_sections").html options
     $("#event_sections").parent().show()
+    if gon
+      for id of gon.event_sections
+       $('#event_sections').find('option[value='+gon.event_sections[id].section_id+']').prop('selected','selected')
   else
     $("#event_sections").empty()
     $("#event_sections").parent().hide()
@@ -27,7 +30,6 @@ $(document).ready ->
   if $("#action").val() isnt "edit"
     $("#event_sections").parent().hide()
   else
-    $("#event_sections").parent().show()
     changeSection(sections)
   $("#event_program_id").change ->
     changeSection(sections)

@@ -21,7 +21,7 @@
   </tr>
 <% end %>
 </table>
-
+<%= will_paginate @attendances, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
 <%= link_to 'New Attendence', new_attendence_path %>

@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   end
   
   def index
+    @events = Event.paginate(:page => params[:page]).per_page(10)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -43,7 +44,8 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
-    @section_select_data = Section.all.collect{|s| [s.name, s.id]}
+    @sections = Section.joins('INNER JOIN section_events se ON se.section_id = sections.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', @event.id).select('sections.id as section_id');
+    gon.event_sections = @sections
   end
 
   # POST /events
