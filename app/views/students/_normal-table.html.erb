@@ -17,7 +17,7 @@
             <td><%= link_to student.barcode_number, student_path(student) %></td>
             <td><%= student.last_name %></td>
             <td><%= student.first_name %></td>
-            <td><%= student.date_of_birth %></td>
+            <td><%= student.date_of_birth.strftime("%b %d, %Y") %></td>
             <td><%= student.cell_phone %></td>
             <td>
                 <%= link_to t('.edit', :default => t("helpers.links.edit")),

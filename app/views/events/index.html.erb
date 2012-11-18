@@ -1,25 +1,10 @@
-
-<!-- <h1>Listing events</h1> -->
-
-
-
-<%= form_tag events_path, :method => 'get' do %>
-<p>
-<%= date_select :date_query, params[:date_query], :include_blank => true%>
-<%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
-
-<div id="popup">
-    <%= render :partial => 'quick_add_form' %>
-</div>
 <div id="events_list">
-    
+    <div id="popup">
+          <%= render :partial => 'quick_add_form' %>
+      </div>
     <%= render :partial => "events" %>
 </div>
 
 <div id ="creation-bar">
     <%= render :partial => "events-creation-nav"%>
 </div>
-
-

@@ -9,10 +9,10 @@
       <th><%= model_class.human_attribute_name(:name) %></th>
       <!--<th><%#= model_class.human_attribute_name(:description) %></th>-->
       <th><%= model_class.human_attribute_name(:department_id) %></th>
-      <th><%= model_class.human_attribute_name(:min_grade) %></th>
-      <th><%= model_class.human_attribute_name(:max_grade) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:min_grade) %></th>
+      <th><%#= model_class.human_attribute_name(:max_grade) %></th> -->
       <th><%= model_class.human_attribute_name(:max_capacity) %></th>
-      <th><%= model_class.human_attribute_name(:active) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:active) %></th> -->
       <th><%= model_class.human_attribute_name(:start_date) %></th>
       <th><%= model_class.human_attribute_name(:end_date) %></th>
       <!--<th><%#= model_class.human_attribute_name(:created_at) %></th> -->
@@ -24,23 +24,24 @@
       <tr>
         <td><%= link_to program.id, program_path(program) %></td>
         <td><%= program.name %></td>
-        <!--<td><%= program.description %></td>-->
-        <td><%= program.department_id %></td>
-        <td><%= program.min_grade %></td>
-        <td><%= program.max_grade %></td>
+        <!--<td><%#= program.description %></td>-->
+        <td><%= program.department.name %></td>
+        <!-- <td><%#= program.min_grade %></td>
+        <td><%#= program.max_grade %></td> -->
         <td><%= program.max_capacity %></td>
-        <td><%= program.active %></td>
+        <!-- <td><%= program.active %></td> -->
         <td><%= program.start_date.strftime("%b %d, %Y") %></td>
-        <td><%= program.end_date %></td>
+        <td>
+        <% if program.end_date.nil?%>
+        <%= "N/A"%>
+        <%else %>
+        <%= program.end_date.strftime("%b %d, %Y") %>
+        <%end%>
+            </td>
         <!--<td><%=l program.created_at %></td>-->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_program_path(program), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      program_path(program),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
