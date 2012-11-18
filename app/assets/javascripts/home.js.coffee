@@ -2,6 +2,12 @@ count = 0
 $(document).ready ->
   $("#Input").focus()
   $("#Input").keyup(displayunicode)
+
+$(document).ajaxComplete (event, request) ->
+  console.log("adfs")
+  msg = request.getResponseHeader("X-Message")
+  console.log(msg)
+  alert msg  if msg
    
 displayunicode = ->
   arr = undefined

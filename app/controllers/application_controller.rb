@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  after_filter :flash_to_headers
+  #after_filter :discard_flash_if_xhr
   
   # just show a flash message instead of full CanCan exception
   rescue_from CanCan::AccessDenied do |exception|
@@ -12,7 +14,18 @@ class ApplicationController < ActionController::Base
     @current_action = action_name
   end
 
-  
+  #protected
+  #def discard_flash_if_xhr
+  #  flash.discard if request.xhr?
+  #end
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = 'foo'#  unless flash[:notice].blank?
+    # repeat for other flash types...
+
+    flash.discard  # don't want the flash to appear when you reload page
+  end 
   
   private
   # Handling authentication

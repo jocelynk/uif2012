@@ -8,11 +8,15 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
   
-  def flash_class(level)
-    case level
-    when :notice then "info"
-    when :error then "error"
-    when :alert then "warning"
-    end
-  end
+  #def flash_class(level)
+  #  case level
+  #  when :notice then "info"
+  #  when :error then "error"
+  #  when :alert then "warning"
+  #  end
+  #end
+  
+  #def reload_flash
+   # page.replace "flash_messages", :partial => 'layouts/flash'
+  #end
 end
