@@ -10,7 +10,7 @@ require 'mina/git'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'localhost'
+set :domain, 'urbanimpact.hss.cmu.edu'
 set :deploy_to, '/var/www/urban-impact'
 set :repository, 'git@github.com:cmu-is-projects/uif2012.git'
 set :branch, 'deploy'
@@ -22,7 +22,6 @@ set :shared_paths, ['config/database.yml', 'log', 'public/uploads']
 # Optional settings:
 set :user, 'deploy'   # Username in the server to SSH to.
 set :group, 'deploy'
-set :port, '2222'     # SSH port number.
 set :forward_agent, true
 
 # This task is the environment that is loaded for most commands, such as
