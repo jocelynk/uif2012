@@ -517,6 +517,18 @@ ul.nav li.active a:focus
     color:#ffd200 !important;
 }
 
+.brand + .nav li:nth-child(4)
+{
+    padding:10px;
+    padding-left:40px;
+}
+
+.brand + .nav li:nth-child(4) a
+{
+    font-size:11px !important;
+    text-decoration:none !important;
+}
+
 
 
 /* ============================== */
@@ -555,10 +567,10 @@ width:40px !important;
 <<<<<<< HEAD
 -webkit-transition: 0.5s width ease-out;
 =======
-   -webkit-transition: 0.5s width ease-out;
+-webkit-transition: 0.5s width ease-out;
 >>>>>>> be39605e637ddead2290fe3cc0578f0f4707a756
 =======
-   -webkit-transition: 0.5s width ease-out;
+-webkit-transition: 0.5s width ease-out;
 >>>>>>> a587b98be5ef994fe4ab89050e4d205435729947
 
 }*/
