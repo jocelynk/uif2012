@@ -4,7 +4,7 @@
 <h2>Recent Activity</h2>
 <ul>
   <% @recent_activities.each do |activity| %>
-        <li>Attended&nbsp;<%#= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></li>
+        <li>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></li>
   <% end %>
 </ul>
 <% end %>
