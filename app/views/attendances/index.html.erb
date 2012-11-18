@@ -1,0 +1,27 @@
+<h1>Listing attendances</h1>
+
+<table>
+  <tr>
+    <th>Student</th>
+    <th>Event</th>
+    <th>Exempt</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= attendance.student_id %></td>
+    <td><%= attendance.event_id %></td>
+    <td><%= attendance.exempt %></td>
+    <td><%= link_to 'Show', attendance %></td>
+    <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
+    <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @attendances, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<br />
+
+<%= link_to 'New Attendence', new_attendance_path %>

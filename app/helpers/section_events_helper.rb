@@ -1,0 +1,2 @@
+module SectionEventsHelper
+end

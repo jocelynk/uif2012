@@ -1,0 +1,9 @@
+<h2>Register New User</h2>
+
+<% if current_user.is_admin? %>
+<%= render 'form' %>
+
+<% else %> 
+  <p>&nbsp;</p>
+  <h3>Are you trying to access information you do not have authority to see?  I hope not...</h3>
+<% end %>

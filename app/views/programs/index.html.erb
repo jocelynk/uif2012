@@ -1,0 +1,60 @@
+<%- model_class = Program -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th><i class="icon-bullhorn"></i></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:description) %></th>-->
+      <th><%= model_class.human_attribute_name(:department_id) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:min_grade) %></th>
+      <th><%#= model_class.human_attribute_name(:max_grade) %></th> -->
+      <th><%= model_class.human_attribute_name(:max_capacity) %></th>
+      <!-- <th><%= model_class.human_attribute_name(:active) %></th> -->
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
+      <!--<th><%#= model_class.human_attribute_name(:created_at) %></th> -->
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= link_to program.id, program_path(program) %></td>
+        <td><%= program.name %></td>
+        <!--<td><%#= program.description %></td>-->
+        <td><%= program.department.name %></td>
+        <!-- <td><%#= program.min_grade %></td>
+        <td><%#= program.max_grade %></td> -->
+        <td><%= program.max_capacity %></td>
+        <!-- <td><%= program.active %></td> -->
+        <td><%= program.start_date.strftime("%b %d, %Y") %></td>
+        <td>
+        <% if program.end_date.nil?%>
+        <%= "N/A"%>
+        <%else %>
+        <%= program.end_date.strftime("%b %d, %Y") %>
+        <%end%>
+            </td>
+        <!--<td><%=l program.created_at %></td>-->
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_program_path(program), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="digg_pagination">
+    <div clas="page_info">
+        <%= page_entries_info @programs %>
+    </div>
+    <%= will_paginate @programs, :container => true %>
+</div>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_program_path,
+            :class => 'btn btn-primary' %>

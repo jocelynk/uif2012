@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2012-09-30 02:48:20
+  program_id: 1
+  start_time: 2012-09-30 02:48:20
+  end_time: 2012-09-30 02:48:20
+  location_id: 1
+  gospel_shared: false
+  meals_server: 1
+  bibles_distributed: 1
+
+two:
+  date: 2012-09-30 02:48:20
+  program_id: 1
+  start_time: 2012-09-30 02:48:20
+  end_time: 2012-09-30 02:48:20
+  location_id: 1
+  gospel_shared: false
+  meals_server: 1
+  bibles_distributed: 1

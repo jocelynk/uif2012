@@ -1,0 +1,28 @@
+<%- model_class = Student -%>
+<div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+<%= form_tag students_path, :method => 'get' do %>
+<%# hidden_field_tag :direction, params[:query] %>
+<%# hidden_field_tag :sort, params[:sort] %>
+<p>
+    <!-- we can remove this and move the code to the top search bar -->
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", :name => nil %>
+</p>
+<% end %>
+
+
+<% if @query == 0 %>
+<%= puts "nil!!"%>
+<%= render :partial => "normal-table" %>
+<% else %>
+<%= puts "not nil"%>
+<%= render :partial => "query-table"%>
+<% end %>
+
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_student_path,
+:class => 'btn btn-primary' %>
