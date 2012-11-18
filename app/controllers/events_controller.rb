@@ -46,7 +46,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @sections = Section.joins('INNER JOIN section_events se ON se.section_id = sections.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', @event.id).select('sections.id as section_id');
     gon.event_sections = @sections
-
   end
 
   # POST /events
