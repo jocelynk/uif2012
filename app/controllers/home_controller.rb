@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   respond_to :html, :json, :js
   def index
    @events = Event.current
+   @all_events = Event.all
   end
 
   def about
