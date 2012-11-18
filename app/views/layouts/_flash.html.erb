@@ -1,0 +1,28 @@
+ <% flash.each do |name, msg| %>
+			<% if name == :notice %>
+				<!-- Successful alerts haha -->
+				<div class="alert alert-success fade in">
+					<a class="close" data-dismiss="alert">×</a>
+					<%= msg %>
+				</div>
+			<% elsif name == :warning %>
+				<!-- Error Alerts -->
+				<div class="alert alert-error fade in">
+					<a class="close" data-dismiss="alert">×</a>
+					<%= msg %>
+				</div>
+			<% elsif name == :alert %>
+				<!-- Error Alerts -->
+				<div class="alert alert-error fade in">
+					<a class="close" data-dismiss="alert">×</a>
+					<%= msg %>
+				</div>
+			<% else %>
+				<!-- Other alerts or alerts I don't know exist -->
+				<div class="alert fade in" data=<%= name %>>
+					<a class="close" data-dismiss="alert">×</a>
+					<%= msg %>
+				</div>
+			<% end %>
+	  <% end %>
+

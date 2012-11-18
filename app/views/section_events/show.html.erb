@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Section:</b>
+  <%= @section_event.section_id %>
+</p>
+
+<p>
+  <b>Event:</b>
+  <%= @section_event.event_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_section_event_path(@section_event) %> |
+<%= link_to 'Back', section_events_path %>
