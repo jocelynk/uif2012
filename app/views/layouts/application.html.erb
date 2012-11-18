@@ -5,24 +5,23 @@
 <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
     <!-- <link href='http://fonts.googleapis.com/css?family=Bevan' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
-    
+
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
-    
+
     <link href='http://fonts.googleapis.com/css?family=Corben:bold' rel='stylesheet' type='text/css'>
     -->
-    
+
     <!-- currently using -->
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Nobile' rel='stylesheet' type='text/css'>
     <!-- <link href='http://fonts.googleapis.com/css?family=Ubuntu:bold' rel='stylesheet' type='text/css'> -->
-    
+
     <%= include_gon %>
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-
 </head>
 <body>
 <%= render :partial => "partials/header" %>
@@ -30,10 +29,10 @@
 <div class = "container">
 
     <!-- <div class="span8"> -->
-        <%= yield %> 
+        <%= yield %>
     <!-- </div> -->
 
-</div> 
+</div>
 <%= render :partial => "partials/footer"%>
 
 <script type="text/javascript">
