@@ -16,15 +16,15 @@ gem 'will_paginate'
 # Gems used only in development
 group :development do
   gem 'mina'
-	gem 'populator3'
-	gem 'faker'
-	gem 'hirb'
-	gem 'wirble'
-	gem 'thin'
-	gem 'quiet_assets'
-	gem 'sqlite3'
+  gem 'populator3'
+  gem 'faker'
+  gem 'hirb'
+  gem 'wirble'
+  gem 'thin'
+  gem 'quiet_assets'
+  gem 'sqlite3'
 end
-
+# 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -34,18 +34,18 @@ group :assets do
   gem 'coffeebeans'
   gem 'therubyracer'
 end
-
+# 
 group :test do
-	gem 'shoulda'
-	gem 'shoulda-matchers'
-	gem 'simplecov'
-	gem 'cucumber-rails', :require => false
-	gem 'factory_girl_rails'
-	gem 'database_cleaner'
-	gem 'tconsole'
-	gem 'sqlite3'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'cucumber-rails', :require => false
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'tconsole'
+  gem 'sqlite3'
 end
-
+# 
 group :production do
   gem 'pg'
   gem 'unicorn'
