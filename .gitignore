@@ -9,3 +9,4 @@ db/*.sqlite3
 .rvmrc*
 .DS_Store
 log/*.log
+.bundle
