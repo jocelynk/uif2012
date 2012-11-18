@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :load, :set_controller_and_action_names
+  before_filter :load, :set_controller_and_action_names, :check_login
 
   def load
     @events = Event.by_date(params[:date_query])
+    #@events_months = Event.all.group_by { |t| t.date.beginning_of_month }
     @event = Event.new
   end
   
@@ -49,18 +50,21 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+
     params[:event][:sections].shift
     sections = params[:event][:sections]
     event_id = params[:event][:id]
     params[:event].delete "sections"
+
+    
     @event = Event.new(params[:event])
     
     respond_to do |format|
        if @event.save
-        sections.each do |section_id|
-          @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})
-          @section.save
-        end 
+          sections.each do |section_id|
+            @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})
+            @section.save
+          end 
         if request.xhr?
           flash[:notice] = "Event was successfully created."
           format.html #{ redirect_to events_url, notice: 'Event was successfully created.' }
@@ -101,8 +105,46 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     @event = Event.find(params[:id])
+    
+    params[:event][:sections].shift
+    new_sections = params[:event][:sections].to_a
+    params[:event].delete "sections"
+    
+    old_sections = SectionEvent.where(:event_id => @event.id)
     respond_to do |format|
       if @event.update_attributes(params[:event])
+        if(old_sections.length == new_sections.length)
+          count1 = 0;
+          old_sections.each do |section|
+            @section = SectionEvent.find(section.id)
+            @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count1]})
+            count1 += 1
+          end 
+        elsif (old_sections.length > new_sections.length)
+          count2 = 0;
+          old_sections.each do |section|
+            @section = SectionEvent.find(section.id)
+            if(count2 >= new_sections.length)
+              @section.destroy
+              count2 += 1
+            else
+              @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count2]})
+              count2 += 1
+            end
+          end
+        else
+          count3 = 0;
+          old_sections.each do |section|
+            @section = SectionEvent.find(section.id)
+            @section.update_attributes({:event_id => @event.id, :section_id => new_sections[count3]})
+            count3 += 1
+          end
+          while (count3 < new_sections.length)
+            @section = SectionEvent.new({:event_id => @event.id, :section_id => new_sections[count3]})
+            @section.save
+            count3 += 1
+          end
+        end
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { head :no_content }
         format.js

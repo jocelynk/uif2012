@@ -1,8 +1,10 @@
 class GroupsController < ApplicationController
+  before_filter :check_login
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.paginate(:page => params[:page]).per_page(10)
+
+    @groups = Group.paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb

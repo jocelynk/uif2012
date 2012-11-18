@@ -1,9 +1,16 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
+  before_filter :check_login
+  
+  respond_to :html, :xml, :json, :js
   def index
-    @students = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
-
+    # @students = Student.search(params[:query])
+    # we need to figure out a way to do both
+    # @query = Student.search(params[:query])
+    @students = Student.paginate(:page => params[:page], :per_page => 15)
+    @query = Student.search(params[:query])
+    # @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,9 +23,8 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @recent_activities = @student.recent_activity
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @student }
+    respond_with(@student) do |format|
+      format.js { render json: @student, :callback => params[:callback] }
     end
   end
 

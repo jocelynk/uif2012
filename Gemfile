@@ -1,21 +1,22 @@
-source 'http://rubygems.org'
+source :rubygems
 
+gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'cancan'
+gem 'carrierwave'
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
-gem 'will_paginate'
-gem 'simple_form'
-gem 'cancan'
-gem 'validates_timeliness', '3.0.8'
-gem "bcrypt-ruby", :require => "bcrypt"
-gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
-gem 'time_date_helpers'
-gem 'carrierwave'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+gem 'mini_magick'
 gem 'rmagick'
-gem 'mini_magick'  
-
+gem 'simple_form'
+gem 'time_date_helpers'
+gem 'validates_timeliness', '3.0.8'
+gem 'will_paginate'
+gem 'kgio'
 
 # Gems used only in development
 group :development do
+  gem 'mina'
 	gem 'populator3'
 	gem 'faker'
 	gem 'hirb'
@@ -47,5 +48,6 @@ group :test do
 end
 
 group :production do
-  # gem 'pg'
+  gem 'pg'
+  gem 'unicorn'
 end

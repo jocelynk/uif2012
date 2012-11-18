@@ -1,3 +1,31 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#for_date
+{
+margin-top:-15px;
+margin-bottom:30px; 
+font-size:20px; 
+}
+
+.calendar-buttons
+{   
+width:100%;
+text-align:center;
+margin-bottom:20px;
+}
+
+.calendar-buttons button
+{
+    font-size:15px; 
+}
+
+.calendar-buttons button:nth-child(1)
+{
+float:left;
+}
+.calendar-buttons button:nth-child(3)
+{
+float:right;
+}

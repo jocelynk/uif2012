@@ -1,4 +1,5 @@
 class HouseholdsController < ApplicationController
+  before_filter :check_login
   # GET /households
   # GET /households.json
   def index
