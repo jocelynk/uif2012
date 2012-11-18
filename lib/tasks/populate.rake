@@ -132,13 +132,15 @@ namespace :db do
     Household.populate 100 do |household|
       household.name = Faker::Name.last_name
       household.street = Faker::Address.street_address
-      household.street2 = Faker::Address.street_address
-      household.zip = Faker::Address.zip_code
-      household.city = Faker::Address.city
+      if rand(4).zero?
+        household.street2 = Faker::Address.street_address
+      end
+      household.zip = ['15212','15213','15233','15214','15136','15222','15219','15201','15204','15220','15203','15224']
+      household.city = "Pittsburgh"
       household.church = Populator.words(1).titleize
       household.insurance_company = Populator.words(1..2).titleize
       household.insurance_number = rand(8**8).to_s.rjust(8, '0')
-      not_active = rand(4)
+      not_active = rand(5)
       if not_active.zero?
         household.active = false
       else
@@ -158,9 +160,11 @@ namespace :db do
         else
           student.can_text = true
         end
-        student.cell_phone = Faker::PhoneNumber.phone_number 
+        unless rand(3).zero?
+          student.cell_phone = "412" + rand(10 ** 10).to_s.rjust(10,'0')[0..6] 
+        end
         student.date_of_birth = (22.years.ago.to_date..15.years.ago.to_date).to_a.sample
-        student.email = Faker::Internet.email
+        student.email = "#{student.first_name.downcase}.#{student.last_name.downcase}@example.com"
         male = rand(4)
         if male.zero?
           student.is_male = false
@@ -210,14 +214,14 @@ namespace :db do
            guardian.last_name = v
            guardian.household_id = k
            guardian.guardian_type = types.to_a.sample
-           guardian.cell_phone = Faker::PhoneNumber.phone_number 
+           guardian.cell_phone = "412" + rand(10 ** 10).to_s.rjust(10,'0')[0..6] 
            can_text = rand(5)
            if can_text.zero?
              guardian.can_text = false
            else
              guardian.can_text = true
            end
-           guardian.email = Faker::Internet.email
+           guardian.email = "#{guardian.first_name.downcase}.#{guardian.last_name.downcase}@example.com"
            guardian.active = true
         end
     end
