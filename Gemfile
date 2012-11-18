@@ -12,7 +12,6 @@ gem 'simple_form'
 gem 'time_date_helpers'
 gem 'validates_timeliness', '3.0.8'
 gem 'will_paginate'
-gem 'kgio', '2.7.4'
 
 # Gems used only in development
 group :development do
@@ -30,7 +29,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', '2.1.4'
   gem 'jquery-ui-rails'
   gem 'coffeebeans'
   gem 'therubyracer'
