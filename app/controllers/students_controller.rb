@@ -1,6 +1,8 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
+  before_filter :check_login
+  
   respond_to :html, :xml, :json, :js
   def index
     # @students = Student.search(params[:query])

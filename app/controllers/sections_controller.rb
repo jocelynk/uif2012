@@ -1,6 +1,7 @@
 class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
+  before_filter :check_login
   def index
     @sections = Section.all
 

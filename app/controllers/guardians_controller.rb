@@ -1,4 +1,5 @@
 class GuardiansController < ApplicationController
+  before_filter :check_login
   # GET /guardians
   # GET /guardians.json
   def index

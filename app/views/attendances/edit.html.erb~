@@ -1,6 +1,0 @@
-<h1>Editing attendence</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @attendence %> |
-<%= link_to 'Back', attendences_path %>

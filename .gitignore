@@ -1,1 +1,10 @@
 tmp
+*~
+public/assets
+public/uploads
+*.log
+coverage
+db/*.sqlite3
+.rvmrc
+.DS_Store
+
