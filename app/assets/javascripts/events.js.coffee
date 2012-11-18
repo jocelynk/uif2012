@@ -16,7 +16,7 @@ $(document).ready ->
   sections = undefined
   $("#event_creation").button().click ->
     $("#popup").dialog "open"
-
+    $('.container').css('opacity', '0.1')
   $("#popup").dialog
     autoOpen: false
     height: 300

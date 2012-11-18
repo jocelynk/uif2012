@@ -33,6 +33,10 @@ class Event < ActiveRecord::Base
     Section.all.collect{|s| s.name}.join(', ')
   end
   
+  def method_name
+    
+  end
+  
   def section_id
     @section_ids ||  Section.all.collect{|s| s.id}
   end
