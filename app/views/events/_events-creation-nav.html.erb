@@ -1,0 +1,28 @@
+
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1>Creation</h1>
+</div>
+<!-- make it like jquery ui calendar widget -->
+<!-- an actual search for events function, NOT sort function  -->
+<%= form_tag events_path, :method => 'get' do %>
+<p>
+<%= date_select :date_query, params[:date_query], :include_blank => true, :label_method => :name%>
+<%= submit_tag "Search", :name => nil, :class=>"btn btn-large" %>
+</p>
+<% end %>
+
+<div class="side-nav-grp">
+<div class="btn-group">
+  <button class="btn btn-large">Action</button>
+  <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+      <li> <a>Action</a> </li>
+    <!-- dropdown menu links -->
+  </ul>
+</div>
+
+<button id="event_creation" class="btn btn-large">New Event</button>
+</div>

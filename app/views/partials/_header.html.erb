@@ -1,0 +1,24 @@
+<div class="container"> 
+    <!-- place into a partial -->
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+
+                <a class = "brand" href="/"><%= image_tag("uif-logo.gif", :class => "logo") %></a>
+
+                <ul class="nav">
+                    <!-- some weird ish is happening...on active two icons appear -->
+                    <!-- <p><%#= params[:controller] %></p> -->
+                    <li class="<%= 'active' if params[:controller] == 'students' %>"><a href=<%= students_path %>><i class="icon-user"></i>Students</a></li>
+                    <li class="<%= 'active' if params[:controller] == 'events' %>"><a href=<%= events_path %>><i class="icon-file"></i>Events</a></li>
+                    <li class="<%= 'active' if params[:controller] == 'programs' %>"><a href=<%= programs_path %>><i class="icon-bullhorn"></i>Programs</a></li>
+                    <li class="">
+                        <span><%= render :partial => "users/login" %></span>
+                    </li>
+                    <form class="navbar-search pull-left">
+                        <input type="text" class="search-query" placeholder="Search" width="100px">
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </div>

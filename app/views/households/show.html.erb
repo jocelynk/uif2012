@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @household.name %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @household.street %>
+</p>
+
+<p>
+  <b>Street2:</b>
+  <%= @household.street2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @household.city %>
+</p>
+
+<p>
+  <b>Zip:</b>
+  <%= @household.zip %>
+</p>
+
+<p>
+  <b>Insurance company:</b>
+  <%= @household.insurance_company %>
+</p>
+
+<p>
+  <b>Insurance number:</b>
+  <%= @household.insurance_number %>
+</p>
+
+<p>
+  <b>Church:</b>
+  <%= @household.church %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @household.lat %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%= @household.lon %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @household.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_household_path(@household) %> |
+<%= link_to 'Back', households_path %>

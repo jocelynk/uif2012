@@ -1,0 +1,22 @@
+ <h1>Quick Add Events</h1>
+<%= simple_form_for @event, :remote => true, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :date, :as => :date, :start_year => Date.today.year, :day => Date.today.day,
+                              :end_year => Date.today.year - 12,
+                              :order => [:month, :day, :year] %>
+  <%= f.association :program, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Program" %>
+  
+  <div class="field">
+    <%= f.label :sections %><br />
+    <%= f.grouped_collection_select :sections, Program.all, :sections, :name, :id, :name, {:include_blank => false}, { :multiple => true } %>
+  </div>
+  <%= f.input :start_time, :as => :time %>
+  <%= f.input :end_time, :as => :time %>
+  <%= f.association :location, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Location" %>
+
+  <div class="form-actions">
+    <%= f.button :submit, :class => 'btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                events_path, :class => 'btn' %>
+  </div>
+<% end %>
+
