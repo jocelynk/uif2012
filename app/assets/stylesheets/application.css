@@ -513,17 +513,8 @@ ul.nav li.active a:focus
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
 {
-<<<<<<< HEAD
-
     background-color: inherit !important; 
     color:#ffd200 !important;
-    /*choose one*/
-background-color: inherit !important;
-color:#ffd200 !important;
-=======
-    background-color: inherit !important; 
-    color:#ffd200 !important;
->>>>>>> a587b98be5ef994fe4ab89050e4d205435729947
 }
 
 
@@ -583,18 +574,8 @@ width:40px !important;
 .navbar-search
 {
 /*-webkit-transition: 0.5s width ease-in;*/
-<<<<<<< HEAD
-<<<<<<< HEAD
 position:absolute !important;
 right:-20px; 
-=======
- position:absolute !important;
- right:-20px;
->>>>>>> be39605e637ddead2290fe3cc0578f0f4707a756
-=======
- position:absolute !important;
- right:-20px;
->>>>>>> a587b98be5ef994fe4ab89050e4d205435729947
 }
 
 .nav
