@@ -9,4 +9,3 @@ db/*.sqlite3
 .rvmrc*
 .DS_Store
 log/*.log
-db/development.sqlite3
