@@ -22,58 +22,6 @@
 <%= render :partial => "query-table"%>
 <% end %>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-     <th><%= model_class.human_attribute_name(:id) %></th> 
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:barcode_number) %></th>
-      <!-- <th><%#= model_class.human_attribute_name(:household_id) %></th> -->
-      <!-- <th><%#= model_class.human_attribute_name(:is_male) %></th> -->
-      <th><%= model_class.human_attribute_name(:grade) %></th>
-      <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
-      <th><%= model_class.human_attribute_name(:cell_phone) %></th>
-      <!-- <th><%#= model_class.human_attribute_name(:can_text) %></th> -->
-      <!-- <th><%#= model_class.human_attribute_name(:photo) %></th> -->
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <!-- <th><%#= model_class.human_attribute_name(:status) %></th> -->
-      <!-- <th><%#= model_class.human_attribute_name(:created_at) %></th> -->
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-        <td><%= link_to student.id, student_path(student) %></td>
-        <td><%= student.first_name %></td>
-        <td><%= student.last_name %></td>
-        <td><%= student.barcode_number %></td>
-        <!-- <td><%= student.household_id %></td> -->
-        <!-- <td><%= student.is_male %></td> -->
-        <td><%= student.grade %></td>
-        <td><%= student.date_of_birth %></td>
-        <td><%= student.cell_phone %></td>
-        <!-- <td><%= student.can_text %></td> -->
-        <!-- <td><%= student.photo %></td> -->
-        <td><%= student.email %></td>
-        <!-- <td><%= student.status %></td> -->
-        <!-- <td><%=l student.created_at %></td> -->
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_student_path(student), :class => 'btn btn-mini' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="digg_pagination">
-    <div clas="page_info">
-        <%= page_entries_info @students %>
-    </div>
-    <%= will_paginate @students, :container => true %>
-</div>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
 new_student_path,
