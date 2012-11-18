@@ -3,26 +3,38 @@
 <table class="table table-striped">
   <thead>
       <tr>
-          <th><%= model_class.human_attribute_name(:barcode_number) %></th>
-          <th><%= model_class.human_attribute_name(:last_name) %></th>
-          <th><%= model_class.human_attribute_name(:first_name) %></th>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:grade) %></th>
           <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
           <th><%= model_class.human_attribute_name(:cell_phone) %></th>
+          <th><%= model_class.human_attribute_name(:email) %></th>
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
   </thead>
   <tbody>
       <% @students.each do |student| %>
       <tr>
-          <td><%= link_to student.barcode_number, student_path(student) %></td>
-          <td><%= student.last_name %></td>
-          <td><%= student.first_name %></td>
-          <td><%= student.date_of_birth.strftime("%b %d, %Y") %></td>
-          <td><%= student.cell_phone %></td>
-          <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_student_path(student), :class => 'btn btn-mini' %>
-          </td>
+
+        <!-- <td><%= link_to student.id, student_path(student) %></td> -->
+        <td><%= link_to student.name, student_path(student) %></td>
+		<!-- <td><%= student.name %></td> -->
+        <!--<td><%= student.last_name %></td>-->
+        <!-- <td><%= student.barcode_number %></td> -->
+        <!-- <td><%= student.household_id %></td> -->
+        <!-- <td><%= student.is_male %></td> -->
+        <td><%= student.grade %></td>
+        <td><%= student.date_of_birth.strftime("%B %d, %Y") %></td>
+        <td><%= number_to_phone(student.cell_phone) %></td>
+        <!-- <td><%= student.can_text %></td> -->
+        <!-- <td><%= student.photo %></td> -->
+        <td><%= mail_to(student.email) %></td>
+        <!-- <td><%= student.status %></td> -->
+        <!-- <td><%=l student.created_at %></td> -->
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_student_path(student), :class => 'btn btn-mini' %>
+        </td>
+
       </tr>
       <% end %>
   </tbody>
