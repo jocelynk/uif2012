@@ -11,7 +11,7 @@ changeSection = (sections) ->
     $("#event_sections").parent().show()
     if gon
       for id of gon.event_sections
-       $('#event_sections').find('option[value='+gon.event_sections[id].section_id+']').prop('selected','selected')
+        $('#event_sections').find('option[value='+gon.event_sections[id].section_id+']').prop('selected','selected')
   else
     $("#event_sections").empty()
     $("#event_sections").parent().hide()

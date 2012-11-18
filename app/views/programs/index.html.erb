@@ -25,14 +25,7 @@
         <td><%= program.grade_range %></td>
         <td><%= program.max_capacity %></td>
         <td><%= program.start_date.strftime("%b %d, %Y") %></td>
-        <td>
-			<% if program.end_date %> 
-			<%= program.end_date.strftime("%b %d, %Y") %>
-			<% else %>
-			N/A
-			<% end %>
-			<!-- Requires an if statement because end date can be null. -->
-		</td>
+        <td><%= program.enddateformat %></td>
         <!--<td><%=l program.created_at %></td>-->
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -42,14 +35,12 @@
     <% end %>
   </tbody>
 </table>
-
 <div class="digg_pagination">
-    <div clas="page_info">
+    <div class="page_info">
         <%= page_entries_info @programs %>
     </div>
     <%= will_paginate @programs, :container => true %>
 </div>
-
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_program_path,
             :class => 'btn btn-primary' %>
