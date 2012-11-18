@@ -9,4 +9,7 @@ db/*.sqlite3
 .rvmrc*
 .DS_Store
 log/*.log
+<<<<<<< HEAD
 db/development.sqlite3
+=======
+>>>>>>> 3fe925fd9662c0b0ba15504ad4cc854ce574e832
