@@ -5,13 +5,13 @@ class EventsController < ApplicationController
 
   def load
     @events = Event.by_date(params[:date_query])
+    # @ev = Event.all
     #@events_months = Event.all.group_by { |t| t.date.beginning_of_month }
     @event = Event.new
   end
   
   def index
     @events = Event.paginate(:page => params[:page]).per_page(10)
-    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
