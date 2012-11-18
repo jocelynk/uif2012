@@ -458,7 +458,8 @@ position:absolute !important;
 left:100px;
 /*    min-width:500px;*/
 width: 81% !important;
-margin-top:100px !important;
+margin-top:60px !important;
+padding-bottom:100px;
 }
 
 /*generally really nice charcoal grey background-color:#525158 !important; */

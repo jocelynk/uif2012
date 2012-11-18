@@ -2,11 +2,9 @@ tmp
 *~
 public/assets
 public/uploads
-*.log
 coverage
 db/*.sqlite3
 .rvmrc
-.rvmrc*
 .DS_Store
 log/*.log
 .bundle
