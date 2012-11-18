@@ -1,64 +1,44 @@
 <h2>Check-in</h2>
 <p>Scanning...</p>
 
-<!-- <%# if @event_details.first.section.nil? || @event_details.first.date.nil?%>
-<%#= "Event Section and Date Unavailable At This Moment..."%>
-<%# else %>
-<%#= @event_details.first.section %> - <%#= @event_details.first.date %> 
-<%# end %> -->
+<%= @event_details.first.section %> - <%= @event_details.first.date %>
 
-    
-    
-    <div class="container">
-    	<div id="alert" class="alert alert-success fade in">
-					<a id="a" class="close" data-dismiss="alert">×</a>
-					</div>
-	  <% flash.each do |name, msg| %>
-			<% if name == :notice %>
-				<!-- Successful alerts haha -->
-			  <%= msg %>
-				</div>
-			<% elsif name == :warning %>
-				<!-- Error Alerts -->
-				<div class="alert alert-error fade in">
-					<a class="close" data-dismiss="alert">×</a>
-					<%= msg %>
-				</div>
-			<% elsif name == :alert %>
-				<!-- Error Alerts -->
-				<div class="alert alert-error fade in">
-					<a class="close" data-dismiss="alert">×</a>
-					<%= msg %>
-				</div>
-			<% else %>
-				<!-- Other alerts or alerts I don't know exist -->
-				<div class="alert fade in" data=<%= name %>>
-					<a class="close" data-dismiss="alert">×</a>
-					<%= msg %>
-				</div>
-			<% end %>
-	  <% end %>
+<div class="container">
+	<div id="alert" class="alert alert-success fade in">
+			<a id="a" class="close" data-dismiss="alert">×</a>
+			</div>
+<% flash.each do |name, msg| %>
+	<% if name == :notice %>
+		<!-- Successful alerts haha -->
+	  <%= msg %>
+		</div>
+	<% elsif name == :warning %>
+		<!-- Error Alerts -->
+		<div class="alert alert-error fade in">
+			<a class="close" data-dismiss="alert">×</a>
+			<%= msg %>
+		</div>
+	<% elsif name == :alert %>
+		<!-- Error Alerts -->
+		<div class="alert alert-error fade in">
+			<a class="close" data-dismiss="alert">×</a>
+			<%= msg %>
+		</div>
+	<% else %>
+		<!-- Other alerts or alerts I don't know exist -->
+		<div class="alert fade in" data=<%= name %>>
+			<a class="close" data-dismiss="alert">×</a>
+			<%= msg %>
+		</div>
+	<% end %>
+<% end %>
 
 
-      <div id="content">
-      <%= render :partial => './layouts/flash', :locals => {:flash => flash} %>
+<div id="content">
+  <%= render :partial => 'layouts/flash', :locals => {:flash => flash} %>
+</div>
 
-
-
-	  </div>
-	
-	
-    <!-- <h3> Barcode Test </h3> -->
-
-          <input id ="Input" type="text"> </input>
-
-          <h2 id = "bcode"> Barcodes: </h2>
-
-          <%= flash[:messages] %>
-          <span id="add-here"> </span>
-
-      </div>
-	</div>
-
-
-    <!-- <h3> Barcode Test </h3> -->
+<div id="content">
+    <input id ="Input" type="text"> </input>
+    <span id="add-here"></span>
+</div>

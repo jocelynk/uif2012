@@ -31,7 +31,6 @@
   </tr>
 <% end %>
 </table>
-
-<br />
+<%= will_paginate @guardians, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 
 <%= link_to 'New Guardian', new_guardian_path %>

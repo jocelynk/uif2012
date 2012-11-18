@@ -48,6 +48,13 @@
   </tbody>
 </table>
 
+<div class="digg_pagination">
+    <div clas="page_info">
+        <%= page_entries_info @programs %>
+    </div>
+    <%= will_paginate @programs, :container => true %>
+</div>
+
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_program_path,
             :class => 'btn btn-primary' %>

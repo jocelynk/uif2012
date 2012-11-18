@@ -539,7 +539,7 @@ ul.nav li.active a:focus
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
 {
-    background-color: inherit !important; 
+    background-color: inherit !important;
     color:#ffd200 !important;
 }
 
@@ -589,16 +589,7 @@ width:40px !important;
 
 .pull-left input:hover
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
 -webkit-transition: 0.5s width ease-out;
-=======
--webkit-transition: 0.5s width ease-out;
->>>>>>> be39605e637ddead2290fe3cc0578f0f4707a756
-=======
--webkit-transition: 0.5s width ease-out;
->>>>>>> a587b98be5ef994fe4ab89050e4d205435729947
-
 }*/
 
 .navbar-search .search-query
@@ -613,7 +604,7 @@ width:40px !important;
 {
 /*-webkit-transition: 0.5s width ease-in;*/
 position:absolute !important;
-right:-20px; 
+right:-20px;
 }
 
 .nav
@@ -801,7 +792,7 @@ margin-bottom:100px;
 {
     text-decoration:none !important;
     background-color:inherit!important;
-    color:#AEC4F7; 
+    color:#AEC4F7;
     -webkit-transition:0.2s all linear;
 }
 
