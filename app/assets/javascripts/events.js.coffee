@@ -30,8 +30,6 @@ $(document).ready ->
   if $("#action").val() isnt "edit"
     $("#event_sections").parent().hide()
   else
-    
-    console.log(gon.event_sections[1].section_id) if gon
     changeSection(sections)
   $("#event_program_id").change ->
     changeSection(sections)
