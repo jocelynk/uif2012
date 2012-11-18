@@ -48,38 +48,91 @@ namespace :db do
       
     # Step 2: Add Some Programs for each Department and add Sections to Programs
     dept_ids = Department.all.map(&:id)
-    Program.populate 12 do |program|
-      num = Populator.value_in_range(1..11)
-      num1 = num+1
-      range = num1..12
-      program.department_id = dept_ids.sample
-      program.name = Populator.words(1..3).titleize
-      program.description = Populator.sentences(2..10)
-      program.max_capacity = Populator.value_in_range(60..100)
-      program.max_grade = Populator.value_in_range(range)
-      program.min_grade = num
-      not_active = rand(5)
+    programs = [
+      ['Performing Arts Academy',1,1,12],['Urban Impact Choir',1,6,12],['Urban Impact Children\'s Choir',1,1,5],['Urban Impact Singers',1,8,12],['Urban Impact Shakes',1,8,12],
+      ['Intramural Basketball',2,1,12],['High School Travel Basketball Teams',2,9,12],['Middle School Travel Basketball Teams',2,6,8],['Boys HS & MS Basketball Leagues',2,6,12],['Baseball',2,1,8],['Soccer',2,1,8],
+      ['SAT Classes',3,10,12],['Summer Day Camp',3,1,12]
+    ]
+    programs.each do |program|
+      p = Program.new
+      p.name = program[0]
+      p.department_id = program[1]
+      p.description = Populator.sentences(2..10)
+      p.max_capacity = (60..100).step(5).to_a.sample
+      p.min_grade = program[2]
+      p.max_grade = program[3]
+      not_active = rand(10)
       if not_active.zero?
-        program.active = false
+        p.active = false
       else
-        program.active = true
+        p.active = true
       end
-      program.start_date = (2.years.ago.to_date..3.months.ago.to_date).to_a.sample
-      if program.active
-        program.end_date = nil
+      p.start_date = (2.years.ago.to_date..3.months.ago.to_date).to_a.sample
+      if p.active
+        p.end_date = nil
       else
-        program.end_date = (2.months.ago.to_date..2.days.ago.to_date).to_a.sample
+        p.end_date = (2.months.ago.to_date..2.days.ago.to_date).to_a.sample
       end
+      p.save!
+    end
+    # Program.populate 12 do |program|
+    #   num = Populator.value_in_range(1..11)
+    #   num1 = num+1
+    #   range = num1..12
+    #   program.department_id = dept_ids.sample
+    #   program.name = Populator.words(1..3).titleize
+    #   program.description = Populator.sentences(2..10)
+    #   program.max_capacity = Populator.value_in_range(60..100)
+    #   program.max_grade = Populator.value_in_range(range)
+    #   program.min_grade = num
+    #   not_active = rand(5)
+    #   if not_active.zero?
+    #     program.active = false
+    #   else
+    #     program.active = true
+    #   end
+    #   program.start_date = (2.years.ago.to_date..3.months.ago.to_date).to_a.sample
+    #   if program.active
+    #     program.end_date = nil
+    #   else
+    #     program.end_date = (2.months.ago.to_date..2.days.ago.to_date).to_a.sample
+    #   end
 
     #Step 3 Create Sections
-      Section.populate 1..3 do |section|
-        section.name = Populator.words(1..3).titleize
-        section.active = true
-        section.max_capacity = Populator.value_in_range(20..60)
-        section.program_id = program.id
+    prg_ids = Program.all.map(&:id)
+    prg_ids.each do |p_id|
+      s1 = Section.new
+      s1.name = Populator.words(1..3).titleize
+      s1.active = true
+      s1.max_capacity = (20..60).step(5).to_a.sample
+      s1.program_id = p_id
+      s1.save!
+      
+      if p_id%2==0
+        s2 = Section.new
+        s2.name = Populator.words(1..3).titleize
+        s2.active = true
+        s2.max_capacity = (20..60).step(5).to_a.sample
+        s2.program_id = p_id
+        s2.save!
       end
-    
+      if p_id%4==0
+        s3 = Section.new
+        s3.name = Populator.words(1..3).titleize
+        s3.active = true
+        s3.max_capacity = (20..60).step(5).to_a.sample
+        s3.program_id = p_id
+        s3.save!
+      end
     end
+      # Section.populate 1..3 do |section|
+      #   section.name = Populator.words(1..3).titleize
+      #   section.active = true
+      #   section.max_capacity = Populator.value_in_range(20..60)
+      #   section.program_id = program.id
+      # end
+    
+    # end
     
     #Step 4 Create Events and SectionEvents
     program_info = Program.joins(:sections).select('programs.id as program, sections.id as section, programs.start_date as start_date, programs.end_date as end_date, programs.active as pro_active')
