@@ -1,1 +1,22 @@
-<%= render :partial => "./events/events" %>
+<!-- if your role is an admin -->
+<div class = "upcoming events">
+<%= render :partial => "./admin-partials/upcoming-events" %>
+</div>
+
+<div class="issues events">
+    <%= render :partial => "./admin-partials/upcoming-events" %>
+<%#= render :partial => "./admin-partials/issues" %>
+<div>
+    
+<div class="past events">
+    <%= render :partial => "./admin-partials/upcoming-events" %>
+<%#= render :partial => "./events/events" %>
+<%#= render :partial => "./admin-partials/past-events" %>
+</div>
+
+
+        
+<div class="studentIssues events">
+    <%= render :partial => "./admin-partials/upcoming-events" %>
+<%#= render :partial => "./admin-partials/student-issues" %>
+</div>

@@ -49,18 +49,22 @@ class StudentsController < ApplicationController
   def create
     #remove program field in params
     if !params[:student][:registrations_attributes].nil?
-      params[:student] ||= {}
-      params[:student][:registrations_attributes] ||= []
-      params[:student][:registrations_attributes].each { |key, value| value.shift}
+      @registrations = params[:student][:registrations_attributes]
     end
-    
+    params[:student].delete "registrations_attributes"
+    puts @registrations
     @student = Student.new(params[:student])
-
+    puts @student.save
     respond_to do |format|
       if @student.save
+        @registrations.each do |reg|
+          @registration = Registration.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
+          @registration.save
+        end
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
+        puts "NEW NEW NEW NEW NEW"
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
@@ -76,7 +80,7 @@ class StudentsController < ApplicationController
       params[:student][:registrations_attributes] ||= []
       params[:student][:registrations_attributes].each { |key, value| value.shift}
     end
-    
+    puts params[:student]
     @student = Student.find(params[:id])
 
     respond_to do |format|

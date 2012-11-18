@@ -458,7 +458,8 @@ position:absolute !important;
 left:100px;
 /*    min-width:500px;*/
 width: 81% !important;
-margin-top:100px !important;
+margin-top:60px !important;
+padding-bottom:100px;
 }
 
 /*generally really nice charcoal grey background-color:#525158 !important; */
@@ -896,3 +897,36 @@ tbody tr td a
 {
     margin-bottom:100px !important;
 }
+=======
+}
+
+
+
+/* =============================================== */
+/* ============= Dashboard Admin View ============ */
+/* =============================================== */
+
+.events
+{
+   width:300px !important; 
+   position:relative;
+   float:left;
+   display:block !important;
+}
+
+.issues
+{
+    margin-left:100px;
+    float:right !important;
+}
+
+.past.events
+{
+    
+}
+
+/*.upcoming, .past
+{
+ width:300px !important; 
+ float:left;  
+}*/
