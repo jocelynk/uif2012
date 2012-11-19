@@ -20,6 +20,7 @@ class HomeController < ApplicationController
 
   def checkin
     session[:event] = params[:event_id]
+    # session[:event] = params[:format]
     @event_details = Event.joins('INNER JOIN section_events AS se ON se.event_id = events.id INNER JOIN sections s ON s.id = se.section_id').where('events.id = ?', session[:event]).select('s.name AS section, events.date')
     @attendees = Event.attendees(session[:event])
     @absentees = Event.absentees(session[:event])

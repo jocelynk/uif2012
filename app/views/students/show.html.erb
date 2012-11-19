@@ -16,27 +16,25 @@
         <br><br><br>
 
         <dl class="dl-horizontal">
-            <dt><strong><%= model_class.human_attribute_name(:first_name) %>:</strong></dt> 
-            <dd><%= @student.first_name %></dd> 
-            <dt><strong><%= model_class.human_attribute_name(:last_name) %>:</strong></dt>
-            <dd><%= @student.last_name %></dd> 
-            <dt><strong><%= model_class.human_attribute_name(:date_of_birth) %>:</strong></dt>
+            <dt><strong>Name:</strong></dt> 
+            <dd><%= @student.proper_name %></dd> 
+            <dt><strong>Date of Birth:</strong></dt>
             <dd><%= @student.date_of_birth.strftime("%B %d, %Y") %></dd>
             <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
-            <dd><%= @student.cell_phone %></dd>
+            <dd><%= number_to_phone @student.cell_phone %></dd>
             <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
             <dd><%= @student.email %></dd>
             <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
             <dd><%= @student.barcode_number %></dd> 
-            <dt><strong><%= model_class.human_attribute_name(:household_id) %>:</strong></dt>
-            <dd><%= @student.household_id %></dd> 
-            <dt><strong><%= model_class.human_attribute_name(:is_male) %>:</strong></dt>
-            <dd><%= @student.is_male %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:grade) %>:</strong></dt>
+            <dt><strong>Household:</strong></dt>
+            <dd><%= @student.household.name %> Family (<%= @student.household.street %>)</dd> 
+            <dt><strong>Gender:</strong></dt>
+            <dd><%= @student.is_male ? "Male" : "Female" %></dd>
+            <dt><strong>Grade:</strong></dt>
             <dd><%= @student.grade %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:can_text) %>:</strong></dt>
-            <dd><%= @student.can_text %></dd>
-            <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+            <dt><strong>Can text:</strong></dt>
+            <dd><%= @student.can_text ? "Yes" : "No" %></dd>
+            <dt><strong>Status:</strong></dt>
             <dd><%= @student.status %></dd>
         </dl>
     </table>

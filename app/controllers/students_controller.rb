@@ -57,9 +57,11 @@ class StudentsController < ApplicationController
     puts @student.save
     respond_to do |format|
       if @student.save
-        @registrations.each do |reg|
-          @registration = Registration.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
-          @registration.save
+        unless @registrations.nil? || @registrations.empty?
+          @registrations.each do |reg|
+            @registration = Registration.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
+            @registration.save
+          end
         end
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }

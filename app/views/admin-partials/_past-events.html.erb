@@ -44,7 +44,7 @@
                 <td> -->
                     <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
                 </td>
-                <td>       <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a>
+                <td>       <a href=<%= checkin_path(:event_id => event.id) %>><i class="icon-large icon-barcode"></i></a>
                 </td>
                 <td>
                     <%= link_to t('.edit', :default => t("helpers.links.edit")),

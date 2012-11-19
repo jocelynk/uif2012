@@ -27,6 +27,9 @@ class Event < ActiveRecord::Base
   scope :past, where('date < ?', Date.today)
   scope :upcoming, where('date >= ?', Date.today)
   scope :current, where('date = ?', Date.today)
+  scope :by_date, order('date')
+  scope :by_date_desc, order('date DESC')
+  
 
   # virtual attributes section_ids - corresponds with ids of sections of each event
   def section_names
