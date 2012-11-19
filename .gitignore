@@ -9,3 +9,6 @@ db/*.sqlite3
 .DS_Store
 log/*.log
 .bundle
+log/development.log
+tmp/pids/server.pid
+db/development.sqlite3
