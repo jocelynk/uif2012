@@ -458,7 +458,7 @@ position:absolute !important;
 left:100px;
 /*    min-width:500px;*/
 width: 81% !important;
-margin-top:60px !important;
+margin-top:100px !important;
 padding-bottom:100px;
 }
 
@@ -903,19 +903,41 @@ tbody tr td a
 /* =============================================== */
 /* ============= Dashboard Admin View ============ */
 /* =============================================== */
-
-.events
+.navbar + .container
 {
-   width:300px !important; 
-   position:relative;
-   float:left;
-   display:block !important;
+/*    background-color:red;*/
+}
+.left-nav, .right-nav
+{
+    position:relative;
+/*    background-color:blue;*/
+}
+
+.left-nav
+{
+    float:left;
+    width:60% !important;
+}
+
+.right-nav
+{
+    float:right;
+    width:20% !important;
+}
+
+.upcoming
+{
+    margin-bottom:100px !important;
+}
+
+.right-nav
+{
+    
 }
 
 .issues
 {
-    margin-left:100px;
-    float:right !important;
+    margin-bottom:100px !important;
 }
 
 .past.events
@@ -927,4 +949,62 @@ tbody tr td a
 {
  width:300px !important; 
  float:left;  
-}*/
+}
+
+
+/* alerts */
+
+
+div.alerts a
+{
+    font-size:4px !important;
+}
+
+div.close
+{
+    top:-10px !important;
+    position:relative !important;
+    font-size:20px;
+    float:right;
+}
+
+
+a:hover
+{
+    text-decoration:none !important;
+}
+
+.alerts a:hover
+{
+     background-color:blue !important;
+}
+
+
+
+div.alerts
+{
+padding: 8px 35px 8px 14px;
+margin-bottom: 20px;
+color: #C09853;
+position:relative;
+width:10px!important;
+text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+background-color: #FCF8E3;
+border: 1px solid #FBEED5;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.error
+{
+    color: #B94A48 !important;
+    background-color: #F2DEDE !important;
+    border-color: #EED3D7 !important;
+}
+
+/*.good
+{
+    
+}
+*/
