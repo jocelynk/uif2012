@@ -7,7 +7,7 @@
   <%= f.input :max_grade, :collection =>1..13, :prompt => 'Choose' %>
   <%= f.input :max_capacity %>
   <%= f.input :start_date, :order => [:month, :day, :year] %>
-  <%= f.input :end_date, :order => [:month, :day, :year] %>
+  <%= f.input :end_date, :order => [:month, :day, :year], :prompt => 'Choose' %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

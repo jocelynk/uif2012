@@ -1,7 +1,7 @@
 $(document).ready ->
   $("#Input").focus()
   $("#Input").keyup(displayUnicode)
-
+  
 displayUnicode = ->
   @input = $('#Input')
   @display = $('#add-here')
@@ -20,7 +20,35 @@ displayUnicode = ->
           alert data.error
         else
           @display.html "<div>#{data.message}</div>"
-
+          console.log(data.attendees)
+          console.log(data.absentees)
+          if data.attendees isnt null
+            attendees = $('<table/>').addClass("table table-striped")
+            headers = $('<thead />')
+            headers.append('<tr><th>Student</th><th>Barcode</th></tr>')
+            attendees.append(headers)
+            attendees_body = $('<tbody/>')
+            for i of data.attendees
+              row = $('<tr />')
+              row.append('<td>'+data.attendees[i]['last_name']+ ', ' + data.attendees[i]['first_name'] + '</td>')
+              row.append('<td>'+data.attendees[i]['barcode_number']+'</td>')
+              attendees_body.append(row)
+            attendees.append(attendees_body)
+            $('#attend').hide().html(attendees).show()
+          if data.absentees isnt null
+            absentees = $('<table/>').addClass("table table-striped")
+            headers = $('<thead />')
+            headers.append('<th>Student</th><th>Barcode</th>')
+            absentees.append(headers)
+            absentees_body = $('<tbody/>')
+            for i of data.absentees
+              row = $('<tr />')
+              row.append('<td>'+data.absentees[i]['last_name']+ ', ' + data.absentees[i]['first_name'] + '</td>')
+              row.append('<td>'+data.absentees[i]['barcode_number']+'</td>')
+              absentees_body.append(row)
+            absentees.append(absentees_body)
+            $('#absent').hide().html(absentees).show()  
+            
     @input.val('')
 
 # Parse URL Queries

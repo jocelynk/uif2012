@@ -19,8 +19,8 @@ class Guardian < ActiveRecord::Base
   private
   # We need to strip non-digits before saving to db
   def reformat_phone
-    phone = self.phone.to_s # change to string in case input as all numbers
+    phone = self.cell_phone.to_s # change to string in case input as all numbers
     phone.gsub!(/[^0-9]/,"") # strip all non-digits
-    self.phone = phone # reset self.phone to new string
+    self.cell_phone = phone # reset self.phone to new string
   end
 end
