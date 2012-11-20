@@ -1,4 +1,4 @@
-class Registration < ActiveRecord::Base
+class Enrollment < ActiveRecord::Base
   attr_accessible :student_id, :section_id
 
   #Relationships

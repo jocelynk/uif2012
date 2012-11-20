@@ -63,7 +63,7 @@ class AllergiesController < ApplicationController
   # POST /allergies.json
   def create
     @allergy = Allergy.new(params[:allergy])
-    respond_with Allergy.create(params[:allergy])
+    #respond_with Allergy.create(params[:allergy])
     respond_to do |format|
       if @allergy.save
         format.html { redirect_to @allergy, notice: 'Allergy was successfully created.' }
