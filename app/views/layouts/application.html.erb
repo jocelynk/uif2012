@@ -27,7 +27,10 @@
 <%= render :partial => "partials/header" %>
 
 <div class = "container">
-        <%= yield %>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+       
+       <%= yield %>
 </div>
 <%= render :partial => "partials/footer"%>
 

@@ -17,6 +17,7 @@ gem 'mini_magick'
 gem 'uservoice-ruby'
 gem 'validates_timeliness', '3.0.8'
 gem 'will_paginate'
+gem 'devise'
 
 # Gems used only in development
 group :development do
