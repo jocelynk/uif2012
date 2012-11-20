@@ -1,7 +1,8 @@
 class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
-  before_filter :check_login
+  #before_filter :check_login
+  before_filter :authenticate_user!
   
   def index
     @attendances = Attendance.paginate(:page => params[:page]).per_page(10)

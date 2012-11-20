@@ -2,7 +2,8 @@ class AllergiesController < ApplicationController
   # GET /allergies
   # GET /allergies.json
   skip_before_filter :verify_authenticity_token
-  before_filter :check_login
+  before_filter :authenticate_user!
+  #before_filter :check_login
   
   respond_to :html, :json, :js, :xml
   def ajax_allergies

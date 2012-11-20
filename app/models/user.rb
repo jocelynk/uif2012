@@ -1,4 +1,12 @@
 class User < ActiveRecord::Base  
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   
   
   
@@ -45,16 +53,16 @@ class User < ActiveRecord::Base
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :first_name, :last_name, :username 
-  validates_uniqueness_of :username
+  #validates_presence_of :first_name, :last_name, :username 
+  #validates_uniqueness_of :username
   #validates_uniqueness_of :email, :allow_blank => true
   #validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net))$/i, :message => "is not a valid format", :allow_blank => true
   #validates_presence_of :password, :on => :create 
   #validates_presence_of :password_confirmation, :on => :create 
   #validates_confirmation_of :password, :message => "does not match"
  # validates_length_of :password, :minimum => 6, :message => "must be at least 6 characters long", :allow_blank => true
-  validates_inclusion_of :active, :in => [true, false], :message => "must be either true or false"
-  validates_inclusion_of :role, :in => %w( admin checkin ), :message => "is not recognized in the system"
+  #validates_inclusion_of :active, :in => [true, false], :message => "must be either true or false"
+  #validates_inclusion_of :role, :in => %w( admin checkin ), :message => "is not recognized in the system"
   
   # Callbacks
   # -----------------------------

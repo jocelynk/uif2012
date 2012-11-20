@@ -1,4 +1,6 @@
 Uif2012::Application.routes.draw do
+  devise_for :users
+
 require 'api_constraints' 
   match 'checkin', :controller => 'home', :action => 'checkin'
   match 'home' => 'home#index', :as => :home
@@ -36,9 +38,9 @@ require 'api_constraints'
   
   # Authentication routes
   resources :users
-  resources :sessions
-  match 'register' => 'users#new', :as => :register
-  match 'logout' => 'sessions#destroy', :as => :logout
-  match 'login' => 'sessions#new', :as => :login
+  #resources :sessions
+  #match 'register' => 'users#new', :as => :register
+ # match 'logout' => 'sessions#destroy', :as => :logout
+  #match 'login' => 'sessions#new', :as => :login
 
 end

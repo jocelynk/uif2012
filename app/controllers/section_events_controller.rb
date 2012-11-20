@@ -1,7 +1,8 @@
 class SectionEventsController < ApplicationController
-  before_filter :check_login
+  #before_filter :check_login
   # GET /section_events
   # GET /section_events.json
+  before_filter :authenticate_user!
   def index
     @section_events = SectionEvent.all
 

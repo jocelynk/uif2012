@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
-  before_filter :check_login
+  #before_filter :check_login
+  before_filter :authenticate_user!
   
   respond_to :html, :xml, :json, :js
   def index
