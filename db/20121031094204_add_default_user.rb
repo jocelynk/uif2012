@@ -1,4 +1,4 @@
-class AddDefaultUser < ActiveRecord::Migration
+=beginclass AddDefaultUser < ActiveRecord::Migration
   def up
     profh = User.new
     profh.first_name = "Professor"
@@ -17,3 +17,4 @@ class AddDefaultUser < ActiveRecord::Migration
     prof.destroy
   end
 end
+=end

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SectionTest < ActiveSupport::TestCase
   #Test Relationships
-  should have_many(:registrations)
+  should have_many(:enrollments)
   should belong_to(:program)
   should have_many(:section_events)
   should have_many(:events).through(:section_events)

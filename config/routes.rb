@@ -28,7 +28,7 @@ require 'api_constraints'
   resources :events
   resources :programs
   resources :departments
-  resources :registrations
+  resources :enrollments
   resources :section_events
   
   #Root url

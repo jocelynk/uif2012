@@ -6,7 +6,7 @@ class Program < ActiveRecord::Base
   belongs_to :department
   has_many :events, :dependent => :delete_all
   has_many :sections, :dependent => :delete_all
-  has_many :registrations, :through => :sections
+  has_many :enrollments, :through => :sections
   has_many :locations, :through => :events
   
   #Validations

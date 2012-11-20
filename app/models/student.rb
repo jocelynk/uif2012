@@ -1,7 +1,7 @@
 require 'carrierwave/orm/activerecord'
 
 class Student < ActiveRecord::Base
-  attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :registrations_attributes
+  attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes
   before_save :reformat_phone
   
   mount_uploader :photo, PhotoUploader
@@ -9,13 +9,13 @@ class Student < ActiveRecord::Base
   #Relationships
   belongs_to :household
   has_many :attendances, :dependent => :delete_all
-  has_many :registrations, :dependent => :delete_all
+  has_many :enrollments, :dependent => :delete_all
   has_many :student_allergies, :dependent => :delete_all
   has_many :allergies, :through => :student_allergies
   has_many :events, :through => :attendances
   
   #Nested Attributes
-  accepts_nested_attributes_for :registrations, :allow_destroy => true
+  accepts_nested_attributes_for :enrollments, :allow_destroy => true
   
   #Validations
   validates_presence_of :first_name, :last_name, :grade, :date_of_birth

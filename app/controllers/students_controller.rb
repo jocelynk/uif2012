@@ -48,19 +48,19 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     #remove program field in params
-    if !params[:student][:registrations_attributes].nil?
-      @registrations = params[:student][:registrations_attributes]
+    if !params[:student][:enrollments_attributes].nil?
+      @enrollments = params[:student][:enrollments_attributes]
     end
-    params[:student].delete "registrations_attributes"
-    puts @registrations
+    params[:student].delete "enrollments_attributes"
+    puts @enrollments
     @student = Student.new(params[:student])
     puts @student.save
     respond_to do |format|
       if @student.save
-        unless @registrations.nil? || @registrations.empty?
-          @registrations.each do |reg|
-            @registration = Registration.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
-            @registration.save
+        unless @enrollments.nil? || @enrollments.empty?
+          @enrollments.each do |reg|
+            @enrollment = Enrollment.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
+            @enrollment.save
           end
         end
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
@@ -77,10 +77,10 @@ class StudentsController < ApplicationController
   # PUT /students/1.json
   def update
     #remove program field in params
-    if !params[:student][:registrations_attributes].nil?
+    if !params[:student][:enrollments_attributes].nil?
       params[:student] ||= {}
-      params[:student][:registrations_attributes] ||= []
-      params[:student][:registrations_attributes].each { |key, value| value.shift}
+      params[:student][:enrollments_attributes] ||= []
+      params[:student][:enrollments_attributes].each { |key, value| value.shift}
     end
     puts params[:student]
     @student = Student.find(params[:id])

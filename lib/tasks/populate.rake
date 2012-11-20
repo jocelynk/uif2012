@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
     
     # Step 0: clear any old data in the db
-    [Department, Program, Event, Section, SectionEvent, Attendance, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
+    [Department, Program, Event, Section, SectionEvent, Attendance, Guardian, Household, Location, Enrollment, Student, StudentAllergy].each(&:delete_all)
    
     # Step 1: Add Departments
     pa = Department.new
@@ -165,7 +165,7 @@ namespace :db do
      #se_ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
      
      
-     #att_ids = Program.joins({:sections => [{:registrations => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
+     #att_ids = Program.joins({:sections => [{:enrollments => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
 
     # att_ids.each do |obj|
     #    att = Attendance.new
@@ -230,14 +230,14 @@ namespace :db do
     end  
     
     
-    #Step 6 Create Registrations
+    #Step 6 Create Enrollments
     section_ids = Section.all.map(&:id)
     student_ids = Student.all.map(&:id)
     student_ids.each do |student|
         n = (1..2).to_a.sample 
-        Registration.populate n do |registration|
-            registration.student_id = student
-            registration.section_id = section_ids.sample
+        Enrollment.populate n do |enrollment|
+            enrollment.student_id = student
+            enrollment.section_id = section_ids.sample
                 
         end
     end

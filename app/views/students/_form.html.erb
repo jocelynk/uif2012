@@ -12,11 +12,11 @@
   <%= f.input :status, :collection => Student::STATUS_LIST, :prompt => 'Choose Status' %>
   <%= f.input :photo, :label => 'Your photo please' %>
   
-  <div id="registration_nested_form">
-    <%= f.fields_for :registrations do |registration_form| %>
-      <%= render 'registration_fields', f: registration_form %>
+  <div id="enrollment_nested_form">
+    <%= f.fields_for :enrollments do |enrollment_form| %>
+      <%= render 'enrollment_fields', f: enrollment_form %>
     <% end %>
-    <p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
+    <p><%= link_to_add_fields "Add a enrollment", f, :enrollments %></p>
   </div>
   
   <div class="form-actions">

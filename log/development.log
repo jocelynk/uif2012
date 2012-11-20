@@ -5261,3 +5261,589 @@ ActionController::RoutingError (No route matches [GET] "/home/privacy"):
   Rendered /Users/rosannama/.rvm/gems/ruby-1.9.2-p136/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (275.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (240.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064145')
+  [1m[36m (303.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDepartments (20120930064431)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "departments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064431')
+  [1m[36m (293.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePrograms (20120930064619)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064619')
+  [1m[36m (347.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEvents (20120930064820)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_server" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064820')
+  [1m[36m (375.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLocations (20120930144434)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "city" varchar(255), "zip" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930144434')
+  [1m[36m (353.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAttendences (20120930144555)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "attendences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "event_id" integer, "exempt" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930144555')
+  [1m[36m (320.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGroups (20121004044339)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "max_capacity" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004044339')
+  [1m[36m (313.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateStudents (20121004060419)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "barcode_number" varchar(255), "household_id" integer, "is_male" boolean, "grade" integer, "date_of_birth" date, "cell_phone" varchar(255), "can_text" boolean, "photo" varchar(255), "email" varchar(255), "status" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060419')
+  [1m[36m (282.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateHouseholds (20121004060609)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "households" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "street2" varchar(255), "city" varchar(255), "zip" varchar(255), "insurance_company" varchar(255), "insurance_number" varchar(255), "church" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060609')
+  [1m[36m (324.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateStudentAllergies (20121004060748)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "student_allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "allergy_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060748')
+  [1m[36m (304.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGuardians (20121004060933)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "guardians" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "household_id" integer, "guardian_type" varchar(255), "cell_phone" varchar(255), "can_text" boolean, "email" varchar(255), "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060933')
+  [1m[36m (358.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAllergies (20121011055559)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "warning_text" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121011055559')
+  [1m[36m (303.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20121023093141)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121023093141')
+  [1m[36m (279.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSectionEvents (20121030161427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "section_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121030161427')
+  [1m[36m (293.0ms)[0m  [1mcommit transaction[0m
+Migrating to FixColumns (20121030171426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("programs")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "programs"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "programs"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_programs")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_programs"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_programs"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "programs" ADD "active" boolean[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "start_date" date
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "programs" ADD "end_date" date[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "attendences" RENAME TO "attendances"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "groups" RENAME TO "sections"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" RENAME TO "enrollments"
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("programs")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "programs"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "programs"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_programs")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_programs"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_programs"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "active" boolean
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "programs" ADD "start_date" date[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "end_date" date
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "registrations"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "registrations"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_registrations"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_registrations"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "attendences" RENAME TO "attendances"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "groups" RENAME TO "sections"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" RENAME TO "enrollments"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "events"
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "events"[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("altered_events")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_events"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_events"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("programs")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "programs"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "programs"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_programs")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_programs"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_programs"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "active" boolean
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "programs" ADD "start_date" date[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "end_date" date
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "registrations"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "registrations"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_registrations"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_registrations"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "registrations"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "registrations"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_registrations")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_registrations"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_registrations"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "attendences" RENAME TO "attendances"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "groups" RENAME TO "sections"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "registrations" RENAME TO "enrollments"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "sections" ADD "program_id" integer
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "users"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_users"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36m (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "users"
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "altered_users"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "altered_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_users")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_users"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_users"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121030171426')[0m
+  [1m[35m (490.1ms)[0m  commit transaction
+Migrating to AddDefaultUser (20121031094204)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+Migrating to AddDefaultUser (20121031094204)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+Migrating to AddDefaultUser (20121031094204)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (466.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (315.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064145')
+  [1m[36m (358.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDepartments (20120930064431)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "departments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064431')
+  [1m[36m (302.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreatePrograms (20120930064619)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064619')
+  [1m[36m (291.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateEvents (20120930064820)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_server" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930064820')
+  [1m[36m (388.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateLocations (20120930144434)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "locations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "city" varchar(255), "zip" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930144434')
+  [1m[36m (291.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAttendences (20120930144555)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "attendences" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "event_id" integer, "exempt" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120930144555')
+  [1m[36m (337.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGroups (20121004044339)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "groups" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "max_capacity" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004044339')
+  [1m[36m (570.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateStudents (20121004060419)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "barcode_number" varchar(255), "household_id" integer, "is_male" boolean, "grade" integer, "date_of_birth" date, "cell_phone" varchar(255), "can_text" boolean, "photo" varchar(255), "email" varchar(255), "status" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060419')
+  [1m[36m (290.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateHouseholds (20121004060609)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "households" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "street" varchar(255), "street2" varchar(255), "city" varchar(255), "zip" varchar(255), "insurance_company" varchar(255), "insurance_number" varchar(255), "church" varchar(255), "lat" float, "lon" float, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060609')
+  [1m[36m (325.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateStudentAllergies (20121004060748)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "student_allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "allergy_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060748')
+  [1m[36m (493.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateGuardians (20121004060933)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "guardians" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "household_id" integer, "guardian_type" varchar(255), "cell_phone" varchar(255), "can_text" boolean, "email" varchar(255), "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121004060933')
+  [1m[36m (336.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAllergies (20121011055559)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "allergies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "warning_text" text, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121011055559')
+  [1m[36m (305.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateUsers (20121023093141)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "username" varchar(255), "email" varchar(255), "password_digest" varchar(255), "password_confirmation" varchar(255), "role" varchar(255), "department_id" integer, "active" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121023093141')
+  [1m[36m (325.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateSectionEvents (20121030161427)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "section_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "section_id" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121030161427')
+  [1m[36m (737.7ms)[0m  [1mcommit transaction[0m
+Migrating to FixColumns (20121030171426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" datetime, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "events"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "program_id" integer, "start_time" time, "end_time" time, "location_id" integer, "gospel_shared" boolean, "meals_served" integer DEFAULT 0, "bibles_distributed" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_events")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_events"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_events"
+  [1m[36m (0.2ms)[0m  [1mCREATE TEMPORARY TABLE "altered_programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "active" boolean, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("programs")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "programs"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "programs"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "programs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "description" text, "department_id" integer, "min_grade" integer, "max_grade" integer, "max_capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("altered_programs")
+  [1m[36m (0.1ms)[0m  [1mSELECT * FROM "altered_programs"[0m
+  [1m[35m (0.1ms)[0m  DROP TABLE "altered_programs"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "programs" ADD "active" boolean[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "programs" ADD "start_date" date
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "programs" ADD "end_date" date[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "program_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("registrations")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "registrations"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "registrations"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "team_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_registrations")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_registrations"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_registrations"[0m
+  [1m[35m (0.2ms)[0m  CREATE TEMPORARY TABLE "altered_registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("registrations")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "registrations"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "registrations"[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "section_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("altered_registrations")[0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "altered_registrations"
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "altered_registrations"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "attendences" RENAME TO "attendances"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "groups" RENAME TO "sections"[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "registrations" RENAME TO "enrollments"
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "sections" ADD "program_id" integer[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121030171426')
+  [1m[36m (463.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddDefaultUser (20121031094204)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+Migrating to AddDefaultUser (20121031094204)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateRegistrations (20120930064145)
+Migrating to CreateDepartments (20120930064431)
+Migrating to CreatePrograms (20120930064619)
+Migrating to CreateEvents (20120930064820)
+Migrating to CreateLocations (20120930144434)
+Migrating to CreateAttendences (20120930144555)
+Migrating to CreateGroups (20121004044339)
+Migrating to CreateStudents (20121004060419)
+Migrating to CreateHouseholds (20121004060609)
+Migrating to CreateStudentAllergies (20121004060748)
+Migrating to CreateGuardians (20121004060933)
+Migrating to CreateAllergies (20121011055559)
+Migrating to CreateUsers (20121023093141)
+Migrating to CreateSectionEvents (20121030161427)
+Migrating to FixColumns (20121030171426)
+  [1m[35m (0.5ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("allergies")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("attendances")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("departments")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("enrollments")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("events")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("guardians")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("households")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("locations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("programs")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("section_events")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("sections")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("student_allergies")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("students")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-20 14:01:23 -0500
+Processing by HomeController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" LIMIT 5 OFFSET 0[0m
+  Rendered admin-partials/_upcoming-events.html.erb (426.6ms)
+  Rendered admin-partials/_past-events.html.erb (6.2ms)
+  Rendered admin-partials/_issues.html.erb (0.6ms)
+  Rendered admin-partials/_student-issues.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (499.0ms)
+Compiled enrollments.css  (129ms)  (pid 9975)
+Compiled application.css  (180ms)  (pid 9975)
+Compiled students.js  (237ms)  (pid 9975)
+Compiled enrollments.js  (5ms)  (pid 9975)
+Compiled sections.js  (1ms)  (pid 9975)
+Compiled application.js  (113ms)  (pid 9975)
+  Rendered users/_login.html.erb (1.5ms)
+  Rendered partials/_header.html.erb (5.0ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+Completed 200 OK in 1998ms (Views: 1904.1ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/enrollments" for 127.0.0.1 at 2012-11-20 14:01:36 -0500
+Processing by EnrollmentsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-11-20 14:01:36 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (2.2ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 71ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2012-11-20 14:01:40 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-11-20 14:01:40 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (2.9ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 193ms (Views: 192.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2012-11-20 14:02:44 -0500
+Processing by UsersController#new as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-11-20 14:02:44 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (14.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 143ms (Views: 141.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2012-11-20 14:03:49 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (2.2ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 74ms (Views: 73.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/register" for 127.0.0.1 at 2012-11-20 14:03:51 -0500
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (65.5ms)
+Completed 500 Internal Server Error in 166ms
+
+ActionView::Template::Error (undefined method `is_admin?' for nil:NilClass):
+    1: <h2>Register New User</h2>
+    2: 
+    3: <% if current_user.is_admin? %>
+    4: <%= render 'form' %>
+    5: 
+    6: <% else %> 
+  app/views/users/new.html.erb:3:in `_app_views_users_new_html_erb___3660656139140090124_34356220'
+
+
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.4ms)
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.6ms)
