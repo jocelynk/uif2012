@@ -30,6 +30,9 @@ class FixColumns < ActiveRecord::Migration
     #adds column program_id to sections
     add_column :sections, :program_id, :integer    
     
-    
+    #remove columns to remove nifty and configure for devise
+    remove_column :users, :email
+    remove_column :users, :password_digest
+    remove_column :users, :password_confirmation
   end
 end
