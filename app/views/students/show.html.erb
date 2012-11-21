@@ -1,5 +1,6 @@
 <%- model_class = Student -%>
 
+<% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>
 
 <div class="container-fluid">
     <div class="row-fluid">
@@ -21,7 +22,13 @@
             <dt><strong>Date of Birth:</strong></dt>
             <dd><%= @student.date_of_birth.strftime("%B %d, %Y") %></dd>
             <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
-            <dd><%= number_to_phone @student.cell_phone %></dd>
+            <dd>
+              <% if @student.cell_phone.nil? %>
+                "N/A"
+              <% else %>
+                <%= number_to_phone @student.cell_phone %>
+              <% end %>
+            </dd>
             <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
             <dd><%= @student.email %></dd>
             <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
