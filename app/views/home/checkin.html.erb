@@ -1,12 +1,14 @@
 <h2>Check-in</h2>
-<p>Scanning...</p>
 
-<%= @event_details.first.section %> - <%= @event_details.first.date %>
-<div id="container">
-  <h2>Attendees</h2><p/><div id="attend"><%= render :partial => "attendees" %></div>
-  <h2>Absentees</h2><p/><div id="absent"><%= render :partial => "absentees" %></div>
-</div>
+<h4><%= @event_details.first.section %> - <%= @event_details.first.date.strftime("%b %d, %Y") %></h4>
+<p>Scanning...</p>
 <div id="content">
       <input id ="Input" type="text"> </input>
       <span id="add-here"></span>
 </div>
+
+<div id="container">
+  <h2>Attendees</h2><p/><div id="attend"><%= render :partial => "attendees" %></div>
+  <h2>Absentees</h2><p/><div id="absent"><%= render :partial => "absentees" %></div>
+</div>
+
