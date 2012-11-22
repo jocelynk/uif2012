@@ -3,6 +3,7 @@ Uif2012::Application.routes.draw do
 
   require 'api_constraints' 
   match 'checkin', :controller => 'home', :action => 'checkin'
+  match 'meals_served', :controller => 'event', :action => 'meals_served'
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
@@ -35,7 +36,9 @@ Uif2012::Application.routes.draw do
   resources :sections
   resources :attendances
   resources :locations
-  resources :events
+  resources :events do
+    get 'meals_served', :on => :member
+  end
   resources :programs
   resources :departments
   resources :enrollments

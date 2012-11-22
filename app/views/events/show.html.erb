@@ -37,11 +37,16 @@
               events_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_event_path(@event), :class => 'btn' %>
+  <%= link_to t('.meals_served', :default => t("helpers.links.add_meals_served")),
+              meals_served_event_path(@event), :class => 'btn'  %> 
+              
+                        
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               event_path(@event),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
+  
 </div>
 </div>
 
