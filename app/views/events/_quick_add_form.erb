@@ -9,11 +9,11 @@
     <%= f.label :sections %><br />
     <%= f.grouped_collection_select :sections, Program.all, :sections, :name, :id, :name, {:include_blank => false}, { :multiple => true } %>
   </div>
-  <%= f.input :start_time, :as => :time %>
-  <%= f.input :end_time, :as => :time %>
+  <%= f.input :start_time, :as => :time, :ampm => true, :minute_step => 15 %>
+  <%= f.input :end_time, :as => :time, :ampm => true, :minute_step => 15 %>
   <%= f.association :location, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Location" %>
 
-  <div class="form-actions">
+  <div id="#form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 events_path, :class => 'btn' %>

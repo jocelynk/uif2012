@@ -6,13 +6,14 @@ $(document).ready ->
   sections = undefined
   $("#event_creation").button().click ->
     $("#popup").dialog "open"
-    $('.container').css('opacity', '0.1')
+    #$('.container').css('opacity', '0.1')
   $("#popup").dialog
     autoOpen: false
     height: 300
     width: 350
     modal: true
-
+    open: (event, ui) ->
+      $(".ui-dialog-titlebar-close").hide()
   sections = $("#event_sections").html()
   if $("#action").val() isnt "edit"
     $("#event_sections").parent().hide()
@@ -33,9 +34,10 @@ changeSection = (sections) ->
   if options
     $("#event_sections").html options
     $("#event_sections").parent().show()
-    if gon
-      for id of gon.event_sections
-        $('#event_sections').find('option[value='+gon.event_sections[id].section_id+']').prop('selected','selected')
+    if typeof gon isnt "undefined"
+      if gon
+        for id of gon.event_sections
+          $('#event_sections').find('option[value='+gon.event_sections[id].section_id+']').prop('selected','selected')
   else
     $("#event_sections").empty()
     $("#event_sections").parent().hide()

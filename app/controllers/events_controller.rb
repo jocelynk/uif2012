@@ -4,14 +4,12 @@ class EventsController < ApplicationController
   before_filter :load, :set_controller_and_action_names, :authenticate_user!#, #:check_login
 
   def load
-    @events = Event.by_date(params[:date_query])
-    # @ev = Event.all
-    #@events_months = Event.all.group_by { |t| t.date.beginning_of_month }
+    @events = Event.by_date(params[:date_query]).paginate(:page => params[:page]).per_page(5)
     @event = Event.new
   end
   
   def index
-    @events = Event.paginate(:page => params[:page]).per_page(10)
+    #@events = Event
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
