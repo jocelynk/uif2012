@@ -206,7 +206,7 @@ namespace :db do
         student.last_name = household.name
         student.grade = (1..12).to_a.sample
         student.household_id = household.id
-        student.barcode_number = rand(12 ** 12).to_s.rjust(12,'0').chop
+        student.barcode_number = rand(12 ** 12).to_s.chop.rjust(12,'0')
         can_text = rand(5)
         if can_text.zero?
           student.can_text = false

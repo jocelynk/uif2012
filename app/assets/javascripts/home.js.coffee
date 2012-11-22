@@ -26,12 +26,16 @@ displayUnicode = ->
           if data.attendees isnt null
             attendees = $('<table/>').addClass("table table-striped")
             headers = $('<thead />')
-            headers.append('<tr><th>Student</th><th>Barcode</th></tr>')
+            headers.append('<tr><th>Student</th><th>Phone Number</th><th>Barcode Number</th></tr>')
             attendees.append(headers)
             attendees_body = $('<tbody/>')
             for i of data.attendees
               row = $('<tr />')
-              row.append('<td>'+data.attendees[i]['last_name']+ ', ' + data.attendees[i]['first_name'] + '</td>')
+              row.append('<td><a href="/students/'+data.attendees[i]['id']+'">'+data.attendees[i]['last_name']+ ', ' + data.attendees[i]['first_name'] + '</a></td>')
+              if data.attendees[i]['cell_phone'] is null
+                row.append('<td>No Phone Number</td>')
+              else
+                row.append('<td>'+formatPhone(data.attendees[i]['cell_phone'])+'</td>')
               row.append('<td>'+data.attendees[i]['barcode_number']+'</td>')
               attendees_body.append(row)
             attendees.append(attendees_body)
@@ -39,12 +43,16 @@ displayUnicode = ->
           if data.absentees isnt null
             absentees = $('<table/>').addClass("table table-striped")
             headers = $('<thead />')
-            headers.append('<th>Student</th><th>Barcode</th>')
+            headers.append('<tr><th>Student</th><th>Phone Number</th><th>Barcode Number</th></tr>')
             absentees.append(headers)
             absentees_body = $('<tbody/>')
             for i of data.absentees
               row = $('<tr />')
-              row.append('<td>'+data.absentees[i]['last_name']+ ', ' + data.absentees[i]['first_name'] + '</td>')
+              row.append('<td><a href="/students/'+data.absentees[i]['id']+'">'+data.absentees[i]['last_name']+ ', ' + data.absentees[i]['first_name'] + '</a></td>')
+              if data.absentees[i]['cell_phone'] is null
+                row.append('<td>No Phone Number</td>')
+              else
+                row.append('<td>'+formatPhone(data.attendees[i]['cell_phone'])+'</td>')
               row.append('<td>'+data.absentees[i]['barcode_number']+'</td>')
               absentees_body.append(row)
             absentees.append(absentees_body)
@@ -67,3 +75,14 @@ url_query = (query) ->
 url_param = url_query("load")
 alert url_param  if url_param # "yes"
 
+
+formatPhone = (phonenum) ->
+  regexObj = /^(\d{3})(\d{3})(\d{4})$/
+  if regexObj.test(phonenum)
+    parts = phonenum.match(regexObj)
+    phone = ""
+    phone += parts[1] + "-" + parts[2] + "-" + parts[3]
+    phone
+  else
+    #invalid phone number
+    phonenum
