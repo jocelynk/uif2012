@@ -1,10 +1,10 @@
 $(document).ready ->
-  $("#Input").focus()
-  $("#Input").keyup(displayUnicode)
+  $("#attendance_barcodes input").focus()
+  $("#attendance_barcodes input").keyup(displayUnicode)
   
 displayUnicode = ->
-  @input = $('#Input')
-  @display = $('#add-here')
+  @input = $("#attendance_barcodes input")
+  @display = $('#student_checked')
 
   if @input.val()?.length == 12
     $.ajax
@@ -12,6 +12,7 @@ displayUnicode = ->
       data:
         barcode: @input.val(),
         event_id: url_query 'event_id'
+        type: url_query 'type'
       success: (data) =>
         # Success if called regardless of whether the actual call succeed, since
         # we are just returning JSON

@@ -17,10 +17,10 @@
             <th><%= model_class.human_attribute_name(:program_id) %></th>
             <th><%= model_class.human_attribute_name(:date) %></th>
             <th><%= model_class.human_attribute_name(:sections) %></th>
-            <th> Scan </th>
+            <th>Scan by Attendees </th>
             <!-- <th><%= model_class.human_attribute_name(:start_time) %></th>
             <th><%= model_class.human_attribute_name(:end_time) %></th> -->
-
+            <th>Scan by Absentees </th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
     </thead>
@@ -29,7 +29,7 @@
         <% if event.date >= Date.today %>
         <tr>
             <td>
-                <%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %>
+                <%= event.program.name %>
             </td>
             <td>
                 <%= event.date.strftime("%B %d, %Y") %>
@@ -44,7 +44,10 @@
                 <td> -->
                     <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
                 </td>
-                <td>       <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a>
+                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id, :type => "attendees"}, {:class => "icon-large icon-barcode"} %>
+                </td>
+                 </td>
+                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id, :type => "absentees"}, {:class => "icon-large icon-barcode"} %>
                 </td>
                 <td>
                     <%= link_to t('.edit', :default => t("helpers.links.edit")),

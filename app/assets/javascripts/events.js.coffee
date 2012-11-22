@@ -45,7 +45,7 @@ displayUni = ->
   @input = $('input')
   console.log(@input)
   console.log(@input.val())
-  @display = $('#add-here')
+  @display = $('#meal_number')
   if gon
     @id = gon.event_id
     console.log(@id)
