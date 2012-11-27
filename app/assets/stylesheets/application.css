@@ -126,14 +126,14 @@ a:hover {
 }
 
 body {
-    font-family:"Nobile" !important;
+    font-family:"Lato", sans-serif !important;
     padding: 12px;
 
     background-color: #333;
 }
 
 h1, h2, h3, h4 {
-    font-family:"Lato" !important;
+    font-family:"Nobile" !important;
     color: #1C2324;
     margin: 0;
     padding: 0;
