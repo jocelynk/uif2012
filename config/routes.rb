@@ -7,6 +7,7 @@ Uif2012::Application.routes.draw do
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
+  match 'privacy' => 'home#privacy', :as => :privacy
   match 'search' => 'home#search', :as => :search
 
   
