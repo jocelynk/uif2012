@@ -28,7 +28,7 @@
     <% @events.each do |event| %>
       <tr>
         <% if controller.controller_name == "events" %>
-          <th><%= l event.date %></th>
+          <td><%= l event.date %></td>
           <td><%= link_to event.program.name, event_path(event) %></td>
         <% elsif %>
           <td><%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %></td>
@@ -53,3 +53,10 @@
 <%= link_to t('.new', :default => t("helpers.links.new")),
 new_event_path,
 :class => 'btn btn-primary' %>
+
+<div class="digg_pagination">
+    <div clas="page_info">
+        <%= page_entries_info @events %>
+    </div>
+    <%= will_paginate @events, :container => true %>
+</div>

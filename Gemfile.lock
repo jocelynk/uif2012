@@ -281,5 +281,5 @@ DEPENDENCIES
   unicorn
   uservoice-ruby
   validates_timeliness (= 3.0.8)
-  will_paginate
+  will_paginate (~> 3.0.3)
   wirble
