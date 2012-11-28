@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :load, :set_controller_and_action_names, :authenticate_user!, :only => [:index, :edit, :update]#, #:check_login :authenticate, :only => [:index, :edit, :update]
+  require 'will_paginate/array' 
+  before_filter :load, :set_controller_and_action_names, :authenticate_user!
+  #, #:check_login :authenticate, :only => [:index, :edit, :update]
 
   def load
     @title = "All events"
