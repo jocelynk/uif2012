@@ -36,10 +36,6 @@ class Event < ActiveRecord::Base
     Section.all.collect{|s| s.name}.join(', ')
   end
   
-  def method_name
-    
-  end
-  
   def section_id
     @section_ids ||  Section.all.collect{|s| s.id}
   end
@@ -80,8 +76,6 @@ class Event < ActiveRecord::Base
     #absentees
     end
   end
-  
-   #create or remove SectionEvents records that Event is associated with in the Sections specified in @section_ids
  
   private  
   def assign_sections
@@ -99,16 +93,13 @@ class Event < ActiveRecord::Base
       
       self.sections.each do |section_id|
         SectionEvent.create(:event_id => event_id, :section_id => section_id)
-      end
-    #end
-      
+      end      
   end
   
   def self.get_todays_date
     t = Time.now
     return t.strftime("%b %d")
   end
-  
 
   #need validation for event must have end_time if after current date, Look into this CRON
   #validation for duplicate events not created

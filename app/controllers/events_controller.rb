@@ -1,10 +1,24 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :load, :set_controller_and_action_names, :authenticate_user!#, #:check_login
+  require 'will_paginate/array' 
+  before_filter :load, :set_controller_and_action_names, :authenticate_user!
+  #, #:check_login :authenticate, :only => [:index, :edit, :update]
 
+
+  #Methods for mobile
+  def getTodaysEvents
+    @events = Event.joins("INNER JOIN section_events se ON se.event_id = events.id INNER JOIN sections s ON s.id = se.section_id").where("events.date = ?","2012-11-22" )
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events, :callback => params[:callback] }
+      format.js
+    end  
+  end
+  
   def load
-    @events = Event.by_date(params[:date_query]).paginate(:page => params[:page]).per_page(5)
+    @title = "All events"
+    @events = Event.paginate(:page => params[:page]).per_page(5).by_date(params[:date_query])
     @event = Event.new
   end
   

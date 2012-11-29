@@ -126,14 +126,14 @@ a:hover {
 }
 
 body {
-    font-family:"Nobile" !important;
+    font-family:"Lato", sans-serif !important;
     padding: 12px;
 
     background-color: #333;
 }
 
 h1, h2, h3, h4 {
-    font-family:"Lato" !important;
+    font-family:"Nobile" !important;
     color: #1C2324;
     margin: 0;
     padding: 0;
@@ -829,10 +829,8 @@ tbody tr td a:hover
     -webkit-transition:0.2s all linear;
     text-decoration:none !important;
     background-color:transparent !important;
+    
     color:#AEC4F7 !important;
-    font-size:15px;
-    text-shadow: #000 1px 1px 1px;
-
 }
 tbody tr td a
 {
@@ -840,6 +838,8 @@ tbody tr td a
     background-color:transparent !important;
     color:black !important;
     font-size:100%;
+    
+    
 }
 
 

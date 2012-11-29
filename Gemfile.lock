@@ -141,6 +141,8 @@ GEM
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-cors (0.2.7)
+      rack
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.2)
@@ -264,6 +266,7 @@ DEPENDENCIES
   pg
   populator3
   quiet_assets
+  rack-cors
   rails (= 3.2.8)
   rmagick
   sass-rails (~> 3.2.3)
@@ -281,5 +284,5 @@ DEPENDENCIES
   unicorn
   uservoice-ruby
   validates_timeliness (= 3.0.8)
-  will_paginate
+  will_paginate (~> 3.0.3)
   wirble

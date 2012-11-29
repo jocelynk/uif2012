@@ -3,6 +3,7 @@
   $('#popup').html('<%= escape_javascript(render('quick_add_form')) %>');
 <%- else %>
   console.log('Created');
+  $('.container').css('opacity', '1');
   $('#popup').dialog('close');
   $(":input:not(input[type=submit])").val("");
   $("#events_list").hide().html("<%= escape_javascript( render(:partial => "events") ) %>").fadeIn();
