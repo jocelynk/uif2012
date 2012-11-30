@@ -1,4 +1,6 @@
 Uif2012::Application.routes.draw do
+  resources :notes
+
   devise_for :users
 
   #require 'api_constraints' 
