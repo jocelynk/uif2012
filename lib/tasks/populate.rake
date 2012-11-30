@@ -61,6 +61,7 @@ namespace :db do
       p.max_capacity = (60..100).step(5).to_a.sample
       p.min_grade = program[2]
       p.max_grade = program[3]
+      p.scan_by_absence = false
       not_active = rand(10)
       if not_active.zero?
         p.active = false
@@ -162,24 +163,6 @@ namespace :db do
       end
     end
 
-     #se_ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
-     
-     
-     #att_ids = Program.joins({:sections => [{:enrollments => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
-
-    # att_ids.each do |obj|
-    #    att = Attendance.new
-   #     att.event_id = obj.event
-   #     att.student_id = obj.student
-   #     exempt = rand(5)
-   #        if exempt.zero?
-   #          att.exempt = false
-   #        else
-    #         att.exempt = true
-    #       end
-    #    att.save!
-   #  end
-      
     statuses = %w[College Active Unactive Graduated Missing ]
     #Step 5 Add Households and Students to Household
     Household.populate 100 do |household|

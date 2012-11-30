@@ -1,6 +1,10 @@
 <% javascript 'home.js.coffee' %>
 <h4>Date: <%= @event.date.strftime("%b %d, %Y") %></h4>
-<h4>Attendance Scan for Following Sections:</h4>
+<%- if @event.program.scan_by_absence %>
+  <h4>Absence Scan for Following Sections:</h4>
+<%- else %>
+  <h4>Attendance Scan for Following Sections:</h4>
+<%- end %>
 <ul>
 <% @event.sections.each do |event| %>
   <li><%= event.name %></li>
