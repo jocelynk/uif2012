@@ -10,6 +10,7 @@
                 <%#=t '.title', :default => model_class.model_name.human %>
             </h1>
         </div>
+<div class="span8">
         <img src="http://placehold.it/140x140" class="img-polaroid">&nbsp;&nbsp;
         <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;
         <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp;
@@ -45,19 +46,7 @@
             <dd><%= @student.status %></dd>
         </dl>
     </table>
-
-
-    <div class="stu-side-nav">
-        <div id="studentSide">
-            <div class="page-header">
-              	<%= render :partial => 'recent_activities' %>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="form-actions">
+ <div class="form-actions">
         <%= link_to t('.back', :default => t("helpers.links.back")),
         students_path, :class => 'btn'  %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -68,6 +57,18 @@
                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                :class => 'btn btn-danger' %> -->
     </div>
+</div>
+<div class="span3">
+        <div id="studentSide">
+            <div class="page-header">
+              	<%= render :partial => 'recent_activities' %>
+            </div>
+        </div>
+</div>
+
+
+
+   
 </div>
 
 </div>
