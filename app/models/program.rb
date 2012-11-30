@@ -1,6 +1,6 @@
 class Program < ActiveRecord::Base 
 
-  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name, :start_date, :end_date
+  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name, :start_date, :end_date, :scan_by_absence
 
   #Relationships
   belongs_to :department

@@ -67,8 +67,12 @@ class Event < ActiveRecord::Base
     absentees = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
     all_students = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
     if(!absentees.empty?)
+      puts "Absentees is not empty"
+      puts absentees.length
       absentees
     elsif(attendees.length <1 && !all_students.empty?)
+      puts "Returning All students"
+            puts all_students.length
       all_students
     else
       nil

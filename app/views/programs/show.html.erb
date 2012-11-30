@@ -18,6 +18,8 @@
   <dd><%= @program.start_date.strftime("%B %d, %Y") %></dd>
   <dt><strong><%= model_class.human_attribute_name(:end_date) %>:</strong></dt>
   <dd><%= @program.enddateformat %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:scan_by_absence) %>:</strong></dt>
+  <dd><%= @program.scan_by_absence %></dd>
 </dl>
 
 <div class="form-actions">

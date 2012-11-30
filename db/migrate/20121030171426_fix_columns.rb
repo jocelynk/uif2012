@@ -34,5 +34,8 @@ class FixColumns < ActiveRecord::Migration
     remove_column :users, :email
     remove_column :users, :password_digest
     remove_column :users, :password_confirmation
+    
+    #scan type
+    add_column :programs, :scan_by_absence, :boolean, :default => false
   end
 end

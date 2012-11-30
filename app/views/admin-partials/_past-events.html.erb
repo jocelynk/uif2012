@@ -17,8 +17,7 @@
            <th><%= model_class.human_attribute_name(:program_id) %></th>
             <th><%= model_class.human_attribute_name(:date) %></th>
             <th><%= model_class.human_attribute_name(:sections) %></th>
-            <th>Scan by Attendees </th>
-            <th>Scan by Absentees </th>
+            <th>Scan</th>
             <th><%=t '.actions', :default => t("helpers.actions") %></th>
         </tr>
     </thead>
@@ -36,11 +35,8 @@
                 <% event.sections.each do |section|%>
                 <%= section.name %>&nbsp;
                 <% end %>
-                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id, :type => "attendees"}, {:class => "icon-large icon-barcode"} %>
+                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
                 </td>
-                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id, :type => "absentees"}, {:class => "icon-large icon-barcode"} %>
-                </td>
-             
                 <td>
                     <%= link_to t('.edit', :default => t("helpers.links.edit")),
                     edit_event_path(event), :class => 'btn btn-mini' %>

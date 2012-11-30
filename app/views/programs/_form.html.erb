@@ -8,6 +8,7 @@
   <%= f.input :max_capacity %>
   <%= f.input :start_date, :order => [:month, :day, :year] %>
   <%= f.input :end_date, :order => [:month, :day, :year], :prompt => 'Choose' %>
+  <%= f.input :scan_by_absence %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
