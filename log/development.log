@@ -24951,3 +24951,793 @@ ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halfling
   Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.2ms)
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-11-30 21:57:46 -0500
+Processing by NotesController#index as HTML
+  [1m[36mNote Load (0.5ms)[0m  [1mSELECT "notes".* FROM "notes" [0m
+  Rendered notes/index.html.erb within layouts/application (563.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (72.7ms)
+  Rendered partials/_header.html.erb (76.7ms)
+  Rendered partials/_footer.html.erb (0.6ms)
+Completed 200 OK in 1116ms (Views: 1105.7ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 21:57:50 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-11-30 21:57:54 -0500
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (83.2ms)
+  Rendered notes/new.html.erb within layouts/application (86.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.2ms)
+  Rendered partials/_header.html.erb (4.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 251ms (Views: 233.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 21:57:57 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-11-30 22:00:24 -0500
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (22.5ms)
+  Rendered notes/new.html.erb within layouts/application (24.3ms)
+Compiled scaffolds.css  (237ms)  (pid 50484)
+Compiled application.css  (24ms)  (pid 50484)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (2.2ms)
+  Rendered partials/_header.html.erb (4.5ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 729ms (Views: 728.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:00:27 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-11-30 22:01:06 -0500
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (22.2ms)
+  Rendered notes/new.html.erb within layouts/application (23.9ms)
+Compiled scaffolds.css  (25ms)  (pid 50484)
+Compiled application.css  (11ms)  (pid 50484)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.8ms)
+  Rendered partials/_header.html.erb (5.4ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 292ms (Views: 290.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:01:08 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:03:57 -0500
+Processing by HomeController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (date = '2012-11-30')
+  Rendered admin-partials/_upcoming-events.html.erb (9.4ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" 
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 1
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 2
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 3
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 5
+  Rendered admin-partials/_past-events.html.erb (419.0ms)
+  Rendered admin-partials/_issues.html.erb (0.6ms)
+  Rendered admin-partials/_student-issues.html.erb (0.5ms)
+  Rendered home/index.html.erb within layouts/application (444.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.3ms)
+  Rendered partials/_header.html.erb (4.7ms)
+  Rendered partials/_footer.html.erb (0.0ms)
+Completed 200 OK in 631ms (Views: 585.6ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:04:00 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:04:37 -0500
+Processing by HomeController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (date = '2012-11-30')
+  Rendered admin-partials/_upcoming-events.html.erb (3.4ms)
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events" 
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 2
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 3
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 5
+  Rendered admin-partials/_past-events.html.erb (28.5ms)
+  Rendered admin-partials/_issues.html.erb (0.1ms)
+  Rendered admin-partials/_student-issues.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (38.3ms)
+Compiled scaffolds.css  (28ms)  (pid 50484)
+Compiled application.css  (13ms)  (pid 50484)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.6ms)
+  Rendered partials/_header.html.erb (6.0ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 286ms (Views: 282.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:04:39 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.0ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-11-30 22:04:52 -0500
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.2ms)[0m  SELECT "notes".* FROM "notes" 
+  Rendered notes/index.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.1ms)
+  Rendered partials/_header.html.erb (4.1ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 85ms (Views: 83.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:04:54 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/notes" for 127.0.0.1 at 2012-11-30 22:05:05 -0500
+Processing by NotesController#index as HTML
+  [1m[35mNote Load (0.2ms)[0m  SELECT "notes".* FROM "notes" 
+  Rendered notes/index.html.erb within layouts/application (3.4ms)
+Compiled scaffolds.css  (27ms)  (pid 50484)
+Compiled application.css  (13ms)  (pid 50484)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.2ms)
+  Rendered partials/_header.html.erb (4.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 282ms (Views: 280.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:05:07 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/notes/new" for 127.0.0.1 at 2012-11-30 22:05:32 -0500
+Processing by NotesController#new as HTML
+  Rendered notes/_form.html.erb (109.3ms)
+  Rendered notes/new.html.erb within layouts/application (111.4ms)
+Compiled scaffolds.css  (28ms)  (pid 50484)
+Compiled application.css  (13ms)  (pid 50484)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (2.7ms)
+  Rendered partials/_header.html.erb (5.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 378ms (Views: 376.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:05:34 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/notes" for 127.0.0.1 at 2012-11-30 22:07:19 -0500
+Processing by NotesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lVemAooXtqywRAKt01jfFmqiJ5K1wBaK3/qc/QUrkec=", "note"=>{"user_id"=>"", "date(1i)"=>"2012", "date(2i)"=>"11", "date(3i)"=>"30", "contents"=>"dafafda", "notable_type"=>"", "notable_id"=>"", "priority"=>""}, "commit"=>"Create Note"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (21.8ms)[0m  [1mINSERT INTO "notes" ("contents", "created_at", "date", "notable_id", "notable_type", "priority", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["contents", "dafafda"], ["created_at", Fri, 30 Nov 2012 22:07:20 EST -05:00], ["date", Fri, 30 Nov 2012], ["notable_id", nil], ["notable_type", ""], ["priority", ""], ["updated_at", Fri, 30 Nov 2012 22:07:20 EST -05:00], ["user_id", 1]]
+  [1m[35m (11.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/notes/1
+Completed 302 Found in 199ms (ActiveRecord: 36.2ms)
+
+
+Started GET "/notes/1" for 127.0.0.1 at 2012-11-30 22:07:20 -0500
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.4ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered notes/show.html.erb within layouts/application (6.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (2.4ms)
+  Rendered partials/_header.html.erb (4.8ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 99ms (Views: 96.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:07:21 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/notes/1" for 127.0.0.1 at 2012-11-30 22:08:15 -0500
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.2ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered notes/show.html.erb within layouts/application (7.7ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (134.0ms)
+  Rendered partials/_header.html.erb (136.3ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 246ms (Views: 223.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:08:18 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/notes/1" for 127.0.0.1 at 2012-11-30 22:08:24 -0500
+Processing by NotesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mNote Load (0.3ms)[0m  [1mSELECT "notes".* FROM "notes" WHERE "notes"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  Rendered notes/show.html.erb within layouts/application (5.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (57.9ms)
+  Rendered partials/_header.html.erb (60.5ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 234ms (Views: 210.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:08:27 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-11-30 22:09:29 -0500
+Processing by HomeController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-11-30')[0m
+  Rendered admin-partials/_upcoming-events.html.erb (6.2ms)
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" LIMIT 5 OFFSET 0
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events" [0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 1[0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 2[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 3[0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 5[0m
+  Rendered admin-partials/_past-events.html.erb (224.9ms)
+  Rendered admin-partials/_issues.html.erb (0.1ms)
+  Rendered admin-partials/_student-issues.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (236.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/_login.html.erb (2.3ms)
+  Rendered partials/_header.html.erb (4.7ms)
+  Rendered partials/_footer.html.erb (0.1ms)
+Completed 200 OK in 420ms (Views: 385.7ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-11-30 22:09:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-30 22:09:33 -0500
+
+ActionController::RoutingError (undefined method `before_save' for UsersController:Class):
+  app/controllers/users_controller.rb:6:in `<class:UsersController>'
+  app/controllers/users_controller.rb:1:in `<top (required)>'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-30 22:09:36 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/index.html.erb within layouts/application (30.1ms)
+Completed 500 Internal Server Error in 76ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    16:     </tr>
+    17:   </thead>
+    18:   <tbody>
+    19:     <% @users.each do |user| %>
+    20: 	    <tr>
+    21: 	      <td>
+    22: 				  <%= link_to user.name, user_path(user) %>
+  app/views/users/index.html.erb:19:in `_app_views_users_index_html_erb___3702609307222169597_70349504744580'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.7ms)
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-11-30 22:09:39 -0500
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered users/index.html.erb within layouts/application (1.1ms)
+Completed 500 Internal Server Error in 7ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    16:     </tr>
+    17:   </thead>
+    18:   <tbody>
+    19:     <% @users.each do |user| %>
+    20: 	    <tr>
+    21: 	      <td>
+    22: 				  <%= link_to user.name, user_path(user) %>
+  app/views/users/index.html.erb:19:in `_app_views_users_index_html_erb___3702609307222169597_70349504744580'
+
+
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered /Users/aderinsolaakintilo/.rvm/gems/ruby-1.9.3-p194@uif2012/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.1ms)
+Connecting to database specified by database.yml
