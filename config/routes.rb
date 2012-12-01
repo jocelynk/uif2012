@@ -15,8 +15,8 @@ Uif2012::Application.routes.draw do
   match 'getToken' => 'tokens#create', :via => :post
   match 'destroyToken' => 'tokens#destroy', :via => :delete
   match 'ajax_allergies' => 'allergies#ajax_allergies', :via => :get
-  match 'getTodaysEvents' => 'events#getTodaysEvents', :via => :get
-
+  match 'getTodaysEvents' => 'mobile#getTodaysEvents', :via => :get
+  match 'createAttendances' => 'mobile#createAttendances', :via => :post
   
 
   #Generated model routes
