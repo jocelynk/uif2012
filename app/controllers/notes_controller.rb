@@ -14,7 +14,7 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
-
+    @user_name = @note.user_id.username
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @note }
@@ -42,7 +42,6 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(params[:note])
     @note.user_id = current_user.id
-    @user_name = current_user.name
     respond_to do |format|
       if @note.save
         format.html { redirect_to @note, notice: 'Note was successfully created.' }
