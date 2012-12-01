@@ -1026,3 +1026,14 @@ border-radius: 4px;
     border-color: #EED3D7 !important;
 }
 
+
+
+
+/* =============================================== */
+/* ============= General ============ */
+/* =============================================== */
+ body:nth-child(2)
+{
+    margin-top:50px !important;
+    margin-bottom:100px !important;
+}
