@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def index
    @events = Event.current
    @all_events = Event.paginate(:page => params[:page], :per_page => 5)
+   @all_notes = Note.all
   end
 
   def about
