@@ -1,14 +1,15 @@
 <%- model_class = Event -%>
+
+<% if @past.count() == 0 %>
+<div class="page-header">
+    <h1> There Are No Past Events </h1>
+</div>
+<% else %>
 <div class="page-header">
     <h1>Past Events</h1>
 </div>
 
 
-<!-- <div class="calendar-buttons">
-<button class="btn btn-mini">Daily</button>
-<button class="btn btn-mini">Monthly</button>
-<button class="btn btn-mini">Yearly</button>
-</div> -->
 
 <table class="table table-striped">
     <thead>
@@ -22,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @all_events.each do |event| %>
+        <% @past.each do |event| %>
         <% if event.date < Date.today %>
         <tr>
             <td>
@@ -49,11 +50,11 @@
     
     <div class="digg_pagination">
         <div clas="page_info">
-            <%= page_entries_info @all_events %>
+            <%= page_entries_info @past %>
         </div>
-        <%= will_paginate @all_events, :container => true %>
+        <%= will_paginate @past, :container => true %>
     </div>
-    
+    <% end %>
 
     <%= link_to t('.new', :default => t("helpers.links.new")),
     new_event_path,
