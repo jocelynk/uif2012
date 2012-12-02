@@ -65,7 +65,7 @@ class HomeController < ApplicationController
           elsif
             render :json => { error:'There was an error scanning.', message:  "#{@student.proper_name} was not scanned. Try again."}
           end
-        else
+        else  
           @attendees = Event.attendees(session[:event])
           @absentees = Event.absentees(session[:event])
           render :json => { message:"#{@student.proper_name} is already absent.",attendees: @attendees, absentees: @absentees }
@@ -74,5 +74,14 @@ class HomeController < ApplicationController
         render :json => { error:'There was an error scanning.' }
       end    
     end
+  end
+  
+  def statistics
+    Department.all.map {|d| d.id}
+    @attendance_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',12,2012).select("d.name AS department, programs.name AS program, COUNT(a.id) AS attendances").group("d.id, programs.id").order("d.name, programs.name")
+    
+    @event_details_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',12,2012).select("d.name AS department, programs.name AS program,  SUM(e.meals_served) AS meals, SUM(e.bibles_distributed) AS bibles, SUM(CASE WHEN e.gospel_shared = 't' THEN 1 ELSE 0 END) AS gospel").group("d.id, programs.id").order("d.name, programs.name")
+
+    @gospel = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ? AND e.gospel_shared = ?',12,2012, true).select("d.name AS department, programs.name AS program,  COUNT(e.gospel_shared) AS gospel").group("d.id, programs.id").order("d.name, programs.name")
   end
 end

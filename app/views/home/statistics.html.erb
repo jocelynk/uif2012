@@ -1,0 +1,10 @@
+<h1>UIF Statistics</h1>
+
+<%= form_tag :id => 'statistics', "/home/statistics" do %>
+  <%= label_tag 'year', 'Select a Year' %>
+   <%= select_year(Date.today) %>
+   
+  <%= label_tag 'month', 'Select a Month' %>
+  <%= select_month(Date.today) %>
+  <%= submit_tag "Save" %>
+<% end %>

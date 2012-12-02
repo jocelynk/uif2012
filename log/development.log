@@ -30651,3 +30651,872 @@ Processing by TokensController#create as */*
   [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'prof@cmu.edu' LIMIT 1[0m
 User prof@cmu.edu failed signin, user cannot be found.
 Completed 200 OK in 16ms (Views: 0.4ms | ActiveRecord: 5.3ms)
+Connecting to database specified by database.yml
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:54:56 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"prof@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'prof@cmu.edu' LIMIT 1[0m
+User prof@cmu.edu failed signin, user cannot be found.
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 5.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:05 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 410ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:08 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 370ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:51 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 377ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:52 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 409ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:58 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 369ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:55:59 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 430ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:57:25 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 365ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 22:57:29 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 377ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:00:18 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 374ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:00:20 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 387ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:00:37 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (3.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 369ms (Views: 0.2ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:00:38 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 404ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:00:53 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 367ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:01:04 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 410ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:01:14 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 375ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/getToken" for 128.237.254.224 at 2012-12-01 23:02:43 -0500
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:02:43 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 365ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/getToken" for 128.237.254.224 at 2012-12-01 23:05:49 -0500
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:05:49 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 366ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:34 -0500
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:34 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:40 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:41 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:41 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:41 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:42 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:42 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:46 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:46 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:47 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:47 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:06:47 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"Lj9pafJ4CaYHqpkLay5b"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'Lj9pafJ4CaYHqpkLay5b' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/getToken" for 128.237.254.224 at 2012-12-01 23:07:09 -0500
+
+
+Started POST "/getToken" for 128.237.254.224 at 2012-12-01 23:07:09 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1[0m
+Completed 200 OK in 393ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421268112" for 128.237.254.224 at 2012-12-01 23:07:48 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421268112" for 128.237.254.224 at 2012-12-01 23:07:48 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421268112"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE (date = '2012-12-01')
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+Completed 200 OK in 516ms (Views: 101.7ms | ActiveRecord: 3.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421270336" for 128.237.254.224 at 2012-12-01 23:07:50 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421270336" for 128.237.254.224 at 2012-12-01 23:07:50 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421270336"}
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" WHERE (date = '2012-12-01')
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21[0m
+  [1m[35mProgram Load (0.4ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23[0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+Completed 200 OK in 59ms (Views: 22.9ms | ActiveRecord: 2.3ms)
+
+
+Started OPTIONS "/destroyToken" for 128.237.242.217 at 2012-12-01 23:09:09 -0500
+
+
+Started DELETE "/destroyToken" for 128.237.242.217 at 2012-12-01 23:09:09 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"udxoLehQ8TCNAM2JG2m1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'udxoLehQ8TCNAM2JG2m1' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'kLuZVWGFts2awu1ZUV2S' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (19.0ms)[0m  [1mUPDATE "users" SET "authentication_token" = 'kLuZVWGFts2awu1ZUV2S', "updated_at" = '2012-12-01 23:09:09.171364' WHERE "users"."id" = 1[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 21.7ms)
+
+
+Started OPTIONS "/destroyToken" for 128.237.254.224 at 2012-12-01 23:09:13 -0500
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:09:13 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"udxoLehQ8TCNAM2JG2m1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'udxoLehQ8TCNAM2JG2m1' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:09:15 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"udxoLehQ8TCNAM2JG2m1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'udxoLehQ8TCNAM2JG2m1' LIMIT 1
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/destroyToken" for 128.237.254.224 at 2012-12-01 23:09:16 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"udxoLehQ8TCNAM2JG2m1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'udxoLehQ8TCNAM2JG2m1' LIMIT 1[0m
+Token not found.
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started OPTIONS "/getToken" for 128.237.242.217 at 2012-12-01 23:09:22 -0500
+
+
+Started POST "/getToken" for 128.237.242.217 at 2012-12-01 23:09:22 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 362ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421363508" for 128.237.242.217 at 2012-12-01 23:09:24 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421363508" for 128.237.242.217 at 2012-12-01 23:09:24 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354421363508"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 20ms (Views: 8.5ms | ActiveRecord: 1.2ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421508160" for 128.237.242.217 at 2012-12-01 23:11:50 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421508160" for 128.237.242.217 at 2012-12-01 23:11:50 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354421508160"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 8.5ms | ActiveRecord: 1.5ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421641703" for 128.237.242.217 at 2012-12-01 23:14:03 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421641703" for 128.237.242.217 at 2012-12-01 23:14:03 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354421641703"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 21ms (Views: 9.0ms | ActiveRecord: 1.3ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421670112" for 128.237.242.217 at 2012-12-01 23:14:32 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421670112" for 128.237.242.217 at 2012-12-01 23:14:32 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354421670112"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 8.6ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421676642" for 128.237.254.224 at 2012-12-01 23:14:36 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421676642" for 128.237.254.224 at 2012-12-01 23:14:36 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421676642"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.4ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 89ms (Views: 67.3ms | ActiveRecord: 2.0ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421684823" for 128.237.254.224 at 2012-12-01 23:14:44 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421684823" for 128.237.254.224 at 2012-12-01 23:14:44 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421684823"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (3.5ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 32ms (Views: 14.2ms | ActiveRecord: 4.9ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421695059" for 128.237.254.224 at 2012-12-01 23:14:55 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421695059" for 128.237.254.224 at 2012-12-01 23:14:55 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421695059"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.1ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.1ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 21ms (Views: 9.4ms | ActiveRecord: 1.3ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421710763" for 128.237.254.224 at 2012-12-01 23:15:10 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421710763" for 128.237.254.224 at 2012-12-01 23:15:10 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421710763"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.4ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 35ms (Views: 20.1ms | ActiveRecord: 1.8ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421723370" for 128.237.254.224 at 2012-12-01 23:15:23 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421723370" for 128.237.254.224 at 2012-12-01 23:15:23 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421723370"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.4ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 59ms (Views: 39.1ms | ActiveRecord: 2.0ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421735849" for 128.237.254.224 at 2012-12-01 23:15:35 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421735849" for 128.237.254.224 at 2012-12-01 23:15:35 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421735849"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 8.0ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421769160" for 128.237.254.224 at 2012-12-01 23:16:09 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421769160" for 128.237.254.224 at 2012-12-01 23:16:09 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421769160"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 23ms (Views: 8.6ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421785085" for 128.237.254.224 at 2012-12-01 23:16:25 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421785085" for 128.237.254.224 at 2012-12-01 23:16:25 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421785085"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.5ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.4ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 24ms (Views: 8.7ms | ActiveRecord: 2.1ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421896601" for 128.237.254.224 at 2012-12-01 23:18:16 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421896601" for 128.237.254.224 at 2012-12-01 23:18:16 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421896601"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 117ms (Views: 101.0ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421921633" for 128.237.254.224 at 2012-12-01 23:18:41 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421921633" for 128.237.254.224 at 2012-12-01 23:18:41 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421921633"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 44ms (Views: 8.7ms | ActiveRecord: 1.8ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421953811" for 128.237.254.224 at 2012-12-01 23:19:13 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354421953811" for 128.237.254.224 at 2012-12-01 23:19:13 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354421953811"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.4ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 25ms (Views: 10.7ms | ActiveRecord: 1.8ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421965933" for 128.237.242.217 at 2012-12-01 23:19:28 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354421965933" for 128.237.242.217 at 2012-12-01 23:19:28 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354421965933"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 9.4ms | ActiveRecord: 1.4ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422027947" for 128.237.254.224 at 2012-12-01 23:20:27 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422027947" for 128.237.254.224 at 2012-12-01 23:20:27 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354422027947"}
+  [1m[36mEvent Load (0.7ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.5ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 38ms (Views: 21.4ms | ActiveRecord: 2.3ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422051657" for 128.237.254.224 at 2012-12-01 23:20:51 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422051657" for 128.237.254.224 at 2012-12-01 23:20:51 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354422051657"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 42ms (Views: 25.8ms | ActiveRecord: 1.8ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422154317" for 128.237.254.224 at 2012-12-01 23:22:34 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422154317" for 128.237.254.224 at 2012-12-01 23:22:34 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354422154317"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 8.3ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422166627" for 128.237.254.224 at 2012-12-01 23:22:46 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354422166627" for 128.237.254.224 at 2012-12-01 23:22:46 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354422166627"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 22ms (Views: 9.3ms | ActiveRecord: 1.7ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354422887735" for 128.237.242.217 at 2012-12-01 23:34:49 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=kLuZVWGFts2awu1ZUV2S&_=1354422887735" for 128.237.242.217 at 2012-12-01 23:34:49 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"kLuZVWGFts2awu1ZUV2S", "_"=>"1354422887735"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.3ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 82ms (Views: 67.4ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423168550" for 128.237.254.224 at 2012-12-01 23:39:28 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423168550" for 128.237.254.224 at 2012-12-01 23:39:28 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354423168550"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 31ms (Views: 12.5ms | ActiveRecord: 1.6ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423224325" for 128.237.254.224 at 2012-12-01 23:40:24 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423224325" for 128.237.254.224 at 2012-12-01 23:40:24 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354423224325"}
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.4ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.4ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 35ms (Views: 17.5ms | ActiveRecord: 2.1ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423255915" for 128.237.254.224 at 2012-12-01 23:40:55 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423255915" for 128.237.254.224 at 2012-12-01 23:40:56 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354423255915"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 32ms (Views: 9.5ms | ActiveRecord: 1.9ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423268821" for 128.237.254.224 at 2012-12-01 23:41:08 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423268821" for 128.237.254.224 at 2012-12-01 23:41:08 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354423268821"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 20ms (Views: 8.7ms | ActiveRecord: 1.3ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423328247" for 128.237.254.224 at 2012-12-01 23:42:08 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=udxoLehQ8TCNAM2JG2m1&_=1354423328247" for 128.237.254.224 at 2012-12-01 23:42:08 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"udxoLehQ8TCNAM2JG2m1", "_"=>"1354423328247"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.2ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.1ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 19ms (Views: 7.7ms | ActiveRecord: 1.3ms)
+
+
+Started OPTIONS "/destroyToken" for 128.237.242.217 at 2012-12-01 23:45:39 -0500
+
+
+Started DELETE "/destroyToken" for 128.237.242.217 at 2012-12-01 23:45:39 -0500
+Processing by TokensController#destroy as */*
+  Parameters: {"id"=>"kLuZVWGFts2awu1ZUV2S"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'kLuZVWGFts2awu1ZUV2S' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."authentication_token" = 'gcUPcu2HwXh5NRCFB433' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "authentication_token" = 'gcUPcu2HwXh5NRCFB433', "updated_at" = '2012-12-01 23:45:39.182637' WHERE "users"."id" = 1
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started OPTIONS "/getToken" for 128.237.242.217 at 2012-12-01 23:50:45 -0500
+
+
+Started POST "/getToken" for 128.237.242.217 at 2012-12-01 23:50:45 -0500
+Processing by TokensController#create as */*
+  Parameters: {"email"=>"profh@cmu.edu", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'profh@cmu.edu' LIMIT 1
+Completed 200 OK in 361ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+
+
+Started OPTIONS "/getTodaysEvents.json?auth_token=gcUPcu2HwXh5NRCFB433&_=1354423863285" for 128.237.242.217 at 2012-12-01 23:51:04 -0500
+
+
+Started GET "/getTodaysEvents.json?auth_token=gcUPcu2HwXh5NRCFB433&_=1354423863285" for 128.237.242.217 at 2012-12-01 23:51:04 -0500
+Processing by MobileController#getTodaysEvents as JSON
+  Parameters: {"auth_token"=>"gcUPcu2HwXh5NRCFB433", "_"=>"1354423863285"}
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date = '2012-12-01')[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 21
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1[0m
+  [1m[35mLocation Load (0.1ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+  [1m[36mSection Load (0.1ms)[0m  [1mSELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 23
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = 2 LIMIT 1
+Completed 200 OK in 21ms (Views: 8.0ms | ActiveRecord: 1.5ms)

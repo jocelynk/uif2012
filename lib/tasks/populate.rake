@@ -49,9 +49,9 @@ namespace :db do
     # Step 2: Add Some Programs for each Department and add Sections to Programs
     dept_ids = Department.all.map(&:id)
     programs = [
-      ['Performing Arts Academy',1,1,12],['Urban Impact Choir',1,6,12],['Urban Impact Children\'s Choir',1,1,5],['Urban Impact Singers',1,8,12],['Urban Impact Shakes',1,8,12],
-      ['Intramural Basketball',2,1,12],['High School Travel Basketball Teams',2,9,12],['Middle School Travel Basketball Teams',2,6,8],['Boys HS & MS Basketball Leagues',2,6,12],['Baseball',2,1,8],['Soccer',2,1,8],
-      ['SAT Classes',3,10,12],['Summer Day Camp',3,1,12]
+       ['Performing Arts Academy',1,1,12,false],['Urban Impact Choir',1,6,12,true],['Urban Impact Children\'s Choir',1,1,5,true],['Urban Impact Singers',1,8,12, false],['Urban Impact Shakes',1,8,12,false],
+      ['Intramural Basketball',2,1,12,false],['High School Travel Basketball Teams',2,9,12,false],['Middle School Travel Basketball Teams',2,6,8,false],['Boys HS & MS Basketball Leagues',2,6,12,false],['Baseball',2,1,8,false],['Soccer',2,1,8,false],
+      ['SAT Classes',3,10,12,false],['Summer Day Camp',3,1,12,false]
     ]
     programs.each do |program|
       p = Program.new
@@ -61,7 +61,7 @@ namespace :db do
       p.max_capacity = (60..100).step(5).to_a.sample
       p.min_grade = program[2]
       p.max_grade = program[3]
-      p.scan_by_absence = false
+      p.scan_by_absence = program[4]
       not_active = rand(10)
       if not_active.zero?
         p.active = false
@@ -153,9 +153,9 @@ namespace :db do
       start_day = (event.date.day..30).to_a.sample
       event.start_time = Time.local(event.date.year,start_month,start_day,start_hour,0,0)
       event.end_time = Time.local(event.date.year,start_month,start_day,start_hour+3,0,0)
-      event.bibles_distributed = true
+      event.bibles_distributed = Populator.value_in_range(0..60)
       event.gospel_shared = true
-      event.meals_served = Populator.value_in_range(40..60)
+      event.meals_served = Populator.value_in_range(0..60)
       
       SectionEvent.populate 1 do |sectionevent|
         sectionevent.event_id = event.id
