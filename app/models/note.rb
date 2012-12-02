@@ -4,4 +4,7 @@ class Note < ActiveRecord::Base
   
   belongs_to :user, :polymorphic => true
   
+  # Priorities for drop-down, etc.
+  PRIORITIES = [['High', 'high'],['Medium', 'medium'],['Low', 'low']]
+  
 end
