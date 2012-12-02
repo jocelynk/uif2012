@@ -1,5 +1,6 @@
 <%- model_class = Student -%>
 
+<!-- might remove later -->
 <% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>
 
 <div class="container-fluid">
@@ -7,11 +8,11 @@
         <div class="page-header">
             <h1>
                 <%= @student.proper_name%>'s Profile
-                <%#=t '.title', :default => model_class.model_name.human %>
             </h1>
         </div>
 <div class="span8">
-        <img src="http://placehold.it/140x140" class="img-polaroid">&nbsp;&nbsp;
+    <!-- src="http://placehold.it/140x140" -->
+        <img class="img-polaroid" src="<%= @src %>">&nbsp;&nbsp;
         <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;
         <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp;
         <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>

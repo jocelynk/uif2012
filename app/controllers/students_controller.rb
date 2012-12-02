@@ -24,6 +24,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
+    if @student.
     puts "CELL: #{@student.cell_phone}"
     @recent_activities = @student.recent_activity
     respond_with(@student) do |format|
