@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20121130034918) do
     t.integer  "location_id"
     t.boolean  "gospel_shared"
     t.integer  "meals_served",       :default => 0
-    t.integer  "bibles_distributed"
+    t.integer  "bibles_distributed", :default => 0
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
   end

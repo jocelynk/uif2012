@@ -4,14 +4,19 @@ Uif2012::Application.routes.draw do
   devise_for :users
 
   #require 'api_constraints' 
+  
+  #barcode scanning routes
   match 'checkin', :controller => 'home', :action => 'checkin'
   match 'meals_served', :controller => 'event', :action => 'meals_served'
+  
+  #General Home
   match 'home' => 'home#index', :as => :home
   match 'about' => 'home#about', :as => :about
   match 'contact' => 'home#contact', :as => :contact
   match 'privacy' => 'home#privacy', :as => :privacy
   match 'search' => 'home#search', :as => :search
-
+  match 'statistics' => 'home#statistics', :as => :statistics
+  
   #mobile routes
   resources :tokens,:only => [:create, :destroy]
   match 'getToken' => 'tokens#create', :via => :post
