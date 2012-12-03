@@ -71,6 +71,25 @@ class Student < ActiveRecord::Base
     end
   end
   
+  def params_to_query(params)
+    params.map {|p, v| "#{p}=#{URI.escape(v.to_s)}"}.join('&')
+  end
+
+  def append_url(url, params = {})
+    uri = URI.parse(url)
+    uri.query = uri.query.nil? ? params_to_query(params) : [uri.query, params_to_query(params)].join('&') unless params.empty?
+    uri.to_s
+  end
+  
+  def newbarcode
+    append_url('http://www.barcodesinc.com/generator/image.php?style=421&type=C128A&width=400&height=100&xres=2&font=5', {:code => self.barcode_number.to_s})
+ 	  #system("open", append_url('http://www.barcodesinc.com/generator/image.php?style=421&type=C128A&width=400&height=100&xres=2&font=5', {:code => self.barcode_number.to_s}).to_s)
+ end
+ 
+ def test
+    test = "http://dl.dropbox.com/u/14519788/Tags/" + "8P.jpg"
+ end
+    
   def recent_activity
     Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id INNER JOIN section_events se ON se.event_id = e.id INNER JOIN sections ON sections.id = se.section_id').
     where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('sections.name AS "section",e.id AS "event", e.date AS "date"').order('"date"')
