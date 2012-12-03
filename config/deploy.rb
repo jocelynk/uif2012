@@ -13,7 +13,7 @@ require 'mina/git'
 set :domain, 'urbanimpact.hss.cmu.edu'
 set :deploy_to, '/var/www/urban-impact'
 set :repository, 'git@github.com:cmu-is-projects/uif2012.git'
-set :branch, 'master'
+set :branch, 'exp'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
