@@ -838,7 +838,7 @@ tbody tr td a:hover
     -webkit-transition:0.2s all linear;
     text-decoration:none !important;
     background-color:transparent !important;
-    
+
     color:#AEC4F7 !important;
 }
 tbody tr td a
@@ -847,8 +847,8 @@ tbody tr td a
     background-color:transparent !important;
     color:black !important;
     font-size:100%;
-    
-    
+
+
 }
 
 
@@ -919,7 +919,7 @@ tbody tr td a
 .left-nav, .right-nav
 {
     position:relative;
-/*    background-color:blue;*/
+    /*    background-color:blue;*/
 }
 
 .left-nav
@@ -941,7 +941,7 @@ tbody tr td a
 
 .right-nav
 {
-    
+
 }
 
 .issues
@@ -951,13 +951,13 @@ tbody tr td a
 
 .past.events
 {
-    
+
 }
 
 /*.upcoming, .past
 {
- width:300px !important; 
- float:left;  
+width:300px !important; 
+float:left;  
 }
 
 
@@ -985,31 +985,45 @@ a:hover
 
 .alerts a:hover
 {
-     background-color:blue !important;
+    background-color:blue !important;
 }
 
 
 
 div.alerts
 {
-padding: 8px 35px 8px 14px;
-margin-bottom: 20px;
-color: #C09853;
-position:relative;
-width:10px!important;
-text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-background-color: #FCF8E3;
-border: 1px solid #FBEED5;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
+    padding: 8px 35px 8px 14px;
+    margin-bottom: 20px;
+    color: #C09853;
+    position:relative;
+    width:10px!important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    background-color: #FCF8E3;
+    border: 1px solid #FBEED5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
-.error
+.high
 {
     color: #B94A48 !important;
     background-color: #F2DEDE !important;
     border-color: #EED3D7 !important;
+}
+
+.medium
+{
+    color: #C09853 !important;
+    background-color: #FCF8E3 !important;
+    border-color: #FBEED5 !important;
+}
+
+.low
+{
+    color: #3A87AD !important;
+    background-color: #D9EDF7 !important;
+    border-color: #BCE8F1 !important;
 }
 
 
@@ -1018,7 +1032,7 @@ border-radius: 4px;
 /* =============================================== */
 /* ============= General ============ */
 /* =============================================== */
- body:nth-child(2)
+body:nth-child(2)
 {
     margin-top:50px !important;
     margin-bottom:100px !important;
