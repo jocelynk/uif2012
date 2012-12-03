@@ -77,11 +77,39 @@ class HomeController < ApplicationController
   end
   
   def statistics
-    Department.all.map {|d| d.id}
-    @attendance_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',12,2012).select("d.name AS department, programs.name AS program, COUNT(a.id) AS attendances").group("d.id, programs.id").order("d.name, programs.name")
-    
-    @event_details_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',12,2012).select("d.name AS department, programs.name AS program,  SUM(e.meals_served) AS meals, SUM(e.bibles_distributed) AS bibles, SUM(CASE WHEN e.gospel_shared = 't' THEN 1 ELSE 0 END) AS gospel").group("d.id, programs.id").order("d.name, programs.name")
+    @department = Department.all
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    if !params[:date].nil?
+      @month = params[:date][:month]
+      
+      @w_month = months[@month.to_i-1]
+      @year = params[:date][:year]
+     # @attendance_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',month,year).select("d.name AS department, programs.name AS program, COUNT(a.id) AS attendances").group("d.id, programs.id").order("d.name, programs.name")  
+      
+      @attendance_by_month_year = ActiveRecord::Base.connection.execute('SELECT d.name AS department, programs.name AS program, COUNT(a.id) AS attendances FROM "programs" INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id WHERE (strftime("%m", date) + 0 = '+@month+' AND strftime("%Y", date) + 0 ='+@year+') GROUP BY d.name, programs.name ORDER BY department, program')
+      
+      
+      @events_by_month_year = ActiveRecord::Base.connection.execute('SELECT d.name AS department, programs.name AS program, SUM(e.meals_served) AS meals, SUM(e.bibles_distributed) AS bibles, SUM(CASE WHEN e.gospel_shared = \'t\' THEN 1 ELSE 0 END) AS gospel FROM "programs" INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id WHERE (strftime("%m", date) + 0 = '+@month+' AND strftime("%Y", date) + 0 = '+@year+') GROUP BY d.id, programs.id ORDER BY d.name, programs.name')
+      
+      @join = @attendance_by_month_year.zip(@events_by_month_year)
 
-    @gospel = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ? AND e.gospel_shared = ?',12,2012, true).select("d.name AS department, programs.name AS program,  COUNT(e.gospel_shared) AS gospel").group("d.id, programs.id").order("d.name, programs.name")
+      
+      #@events_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',12,2012).select("d.name AS department, programs.name AS program,  SUM(e.meals_served) AS meals, SUM(e.bibles_distributed) AS bibles, SUM(CASE WHEN e.gospel_shared = 't' THEN 1 ELSE 0 END) AS gospel").group("d.id, programs.id").order("d.name, programs.name")
+      
+      
+      respond_to do |format|
+        format.html
+        format.json
+        format.js  
+      end
+    else
+      @error = "Please search again."
+      respond_to do |format|
+        format.html
+        format.json { render error: "Please search again"}
+        format.js  
+      end
+    end
   end
+  
 end
