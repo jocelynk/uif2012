@@ -1,7 +1,7 @@
 class FixColumns < ActiveRecord::Migration
   def change
     #rename column from typo
-    rename_column :events, :meals_server, :meals_served
+    # rename_column :events, :meals_server, :meals_served
     
     #change datetime field in table to date field (#change_column :your_table, :your_column, :type)
     change_column :events, :date, :date 
