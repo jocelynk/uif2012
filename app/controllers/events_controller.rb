@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    #@events = Event
+    @events = Event.by_date_desc.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
