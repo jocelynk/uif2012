@@ -28,18 +28,28 @@ Uif2012::Application.routes.draw do
 
   #Generated model routes
   resources :allergies
-  resources :guardians
+  resources :guardians do
+    resources :notes
+  end
   resources :student_allergies
-  resources :households
-  resources :students
+  resources :households do 
+    resources :notes
+  end
+  resources :students do
+    resources :notes
+  end
   resources :sections
   resources :attendances
-  resources :locations
+  resources :locations do
+    resources :notes
+  end
   resources :events do
     resources :notes
     get 'meals_served', :on => :member
   end
-  resources :programs
+  resources :programs do
+    resources :notes
+  end
   resources :departments
   resources :enrollments
   resources :section_events
