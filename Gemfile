@@ -19,6 +19,7 @@ gem 'validates_timeliness', '3.0.8'
 gem 'will_paginate', "~> 3.0.3"
 gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'jquery-ui-rails'
 
 # Gems used only in development
 group :development do
@@ -36,8 +37,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  gem 'twitter-bootstrap-rails', '2.1.4'
-  gem 'jquery-ui-rails'
+  # gem 'twitter-bootstrap-rails', '2.1.4'
   gem 'coffeebeans'
   gem 'therubyracer'
 end
