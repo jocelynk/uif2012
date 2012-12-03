@@ -1,0 +1,54 @@
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% if controller.controller_name == "events" %>
+        <th>Date</th>
+      <% end %>
+      <th>Program</th>
+      <!-- <th>Sections</th> -->
+      <th>Time</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+	
+  <tbody id="list">
+    <% @events.each do |event| %>
+      <tr>
+        <% if controller.controller_name == "events" %>
+          <td><%= l(event.date, :format =>'%b %d, %Y') %></td>
+          <td><%= link_to event.program.name, event_path(event) %></td>
+        <% elsif %>
+          <td><%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %></td>
+        <% end %>
+        <!-- <td><%# event.sections.each do |section|%><%# section.name %>&nbsp;<%# end %></td> -->
+        <td><%= l event.start_time %> - <%= l event.end_time %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_event_path(event), :class => 'btn btn-mini' %>
+          <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      event_path(event), :remote => true,
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger delete_event' %>
+        </td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%# will_paginate @events %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_event_path,
+:class => 'btn btn-primary' %>
+
+<!-- <div class="digg_pagination">
+    <div clas="page_info">
+        <%# page_entries_info @events %>
+    </div>
+    <%# will_paginate @events, :container => true %>
+</div> -->

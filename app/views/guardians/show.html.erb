@@ -40,6 +40,7 @@
   <%= @guardian.active %>
 </p>
 
+<%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @guardian} %>
 
 <%= link_to 'Edit', edit_guardian_path(@guardian) %> |
 <%= link_to 'Back', guardians_path %>

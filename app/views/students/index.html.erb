@@ -1,17 +1,44 @@
+<script type="text/javascript">
+  // Use jQuery to hide items in the various index lists
+  $(function() {
+  	$('#query').focus().keyup(function() {
+
+  		// get rid of backspaces
+  		var txt = $(this).val().replace(/\\b/,"");
+
+  		if (txt.length == 0) {
+  			// if the txt sent is empty, show all
+  			$('#list tr').show();
+  		}
+  		else{
+  			// else show only what we want and hide the rest...
+  			$('#list tr:not(:contains("' + txt + '"))').hide();
+  			$('#list tr:contains("' + txt + '")').show();
+  		};
+	});
+  });
+
+</script>
+<div id="search">
+	<%= form_tag('/students/search') do %>
+		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+	<% end %>
+</div>
+
 <%- model_class = Student -%>
 <div class="page-header">
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-<%= form_tag students_path, :method => 'get' do %>
+<%# form_tag students_path, :method => 'get' do %>
 <%# hidden_field_tag :direction, params[:query] %>
 <%# hidden_field_tag :sort, params[:sort] %>
-<p>
+<!-- <p> -->
     <!-- we can remove this and move the code to the top search bar -->
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", :name => nil %>
-</p>
-<% end %>
+    <%# text_field_tag :query, params[:query] %>
+    <%# submit_tag "Search", :name => nil %>
+<!-- </p> -->
+<%# end %>
 
 
 <% if @query == 0 %>

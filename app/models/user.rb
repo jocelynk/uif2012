@@ -11,24 +11,7 @@ class User < ActiveRecord::Base
   has_many :notes
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   
   
   #nifty generated  

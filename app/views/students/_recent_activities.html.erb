@@ -1,14 +1,19 @@
 <% if @recent_activities.nil? %>
-<h2>No Recent Activities</h2>
+<div class="page-header">
+   <h1> No Recent Activities </h1>
+</div>
 <% else %>
-<h3>Recent Activity</h3>
+<div class="page-header">
+    <h1>Recent Activity </h1>
+</div>
+
 <br>
 <ul>
-  <% @recent_activities.each do |activity| %>
+    <% @recent_activities.each do |activity| %>
 
-        <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></div>
+    <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></div>
 
-  <% end %>
+    <% end %>
 </ul>
 <% end %>
 

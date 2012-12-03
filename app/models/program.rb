@@ -8,6 +8,7 @@ class Program < ActiveRecord::Base
   has_many :sections, :dependent => :delete_all
   has_many :enrollments, :through => :sections
   has_many :locations, :through => :events
+  has_many :notes, :as => :notable, :dependent => :destroy
   
   #Validations
   validates_presence_of :name, :department_id, :max_grade, :min_grade, :max_capacity

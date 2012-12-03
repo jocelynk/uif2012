@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     # @students = Student.search(params[:query])
     # we need to figure out a way to do both
     # @query = Student.search(params[:query])
-    @students = Student.alphabetical.paginate(:page => params[:page], :per_page => 15)
+    @students = Student.alphabetical.all #paginate(:page => params[:page], :per_page => 15)
     @query = Student.search(params[:query])
     # @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
@@ -26,6 +26,8 @@ class StudentsController < ApplicationController
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
     puts "CELL: #{@student.cell_phone}"
     @recent_activities = @student.recent_activity
+    @notes = @student.notes
+    @notable = @student
     respond_with(@student) do |format|
       format.js { render json: @student, :callback => params[:callback] }
     end
