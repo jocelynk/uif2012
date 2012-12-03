@@ -696,7 +696,7 @@ a.btn.btn-primary
     clear:both;
 
 }
-a.btn:visited { color: #fff; }
+a.btn.btn-primary:visited { color: #fff; }
 .page-header
 {
     border-bottom:none !important;
