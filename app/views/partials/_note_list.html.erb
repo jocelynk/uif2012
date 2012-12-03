@@ -4,7 +4,7 @@
     <strong><%= note.title %></strong><br>
     <%= note.contents %><br>	
 		by <strong><%= note.user.proper_name %></strong>
-	  <em>on <%= comment.date.strftime('%b %d, %Y') %></em>
+	  <em>on <%= note.date.strftime('%b %d, %Y') %></em>
   </div>
 <% end %>
 </div>

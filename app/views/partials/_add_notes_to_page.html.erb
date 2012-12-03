@@ -1,5 +1,5 @@
 <p>
-	<strong><%= obj.comments.size.zero? ? "No notes yet" : pluralize(obj.comments.size, 'note') %> on this <%= "#{obj.class.to_s.downcase}" %></strong><br>
+	<strong><%= obj.notes.size.zero? ? "No notes yet" : pluralize(obj.notes.size, 'note') %> on this <%= "#{obj.class.to_s.downcase}" %></strong><br>
 	<% unless @notes.empty? || @notes.nil? %>
 		<%= render :partial => "partials/note_list" %>
 	<% end %>

@@ -4,6 +4,7 @@ class Guardian < ActiveRecord::Base
   before_save :reformat_phone
   #Relationships
   belongs_to :household
+  has_many :notes, :as => :notable, :dependent => :destroy
   
 
   #Validations

@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
   #Relationships
   has_many :events
   has_many :programs, :through => :events
+  has_many :notes, :as => :notable, :dependent => :destroy
 
   #Validations
   validates_presence_of :name, :street, :city
