@@ -44,6 +44,14 @@ class Student < ActiveRecord::Base
   def proper_name
     "#{first_name} #{last_name}"
   end
+  
+  def image
+  if self.is_male
+    "male"
+  else
+    "female"
+  end
+  end
     
   def age
     (Time.now.to_s(:number).to_i - date_of_birth.to_time.to_s(:number).to_i)/10e9.to_i
