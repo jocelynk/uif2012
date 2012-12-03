@@ -692,10 +692,11 @@ right:-20px;
 
 a.btn.btn-primary
 {
-    margin-top:50px;
+    margin-top:5px;
     clear:both;
-}
 
+}
+a.btn:visited { color: #fff; }
 .page-header
 {
     border-bottom:none !important;
