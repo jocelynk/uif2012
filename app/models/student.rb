@@ -19,7 +19,8 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :enrollments, :allow_destroy => true
   
   #Validations
-  validates_presence_of :first_name, :last_name, :grade, :date_of_birth
+  validates_presence_of :first_name, :last_name
+  validates_presence_of :grade, :date_of_birth#, :unless Proc.new { |s| s.is_visitor == 't'}
   validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
   validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes or spaces only"
   #/^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/

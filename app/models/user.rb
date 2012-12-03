@@ -2,17 +2,14 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
+  before_save :ensure_authentication_token
+  
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :username, :login, :role, :first_name, :last_name, :active, :department_id
+attr_accessor :login
   has_many :notes
-  
-  
-
-  
   
   #nifty generated  
   # Use built-in rails support for password protection
@@ -39,9 +36,9 @@ class User < ActiveRecord::Base
   # -----------------------------
   # make sure required fields are present
   #validates_presence_of :first_name, :last_name, :username 
-  #validates_uniqueness_of :username
-  #validates_uniqueness_of :email, :allow_blank => true
-  #validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net))$/i, :message => "is not a valid format", :allow_blank => true
+  validates_uniqueness_of :username
+  validates_uniqueness_of :email, :allow_blank => true
+  validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net))$/i, :message => "is not a valid format", :allow_blank => true
   #validates_presence_of :password, :on => :create 
   #validates_presence_of :password_confirmation, :on => :create 
   #validates_confirmation_of :password, :message => "does not match"
@@ -78,6 +75,16 @@ class User < ActiveRecord::Base
     true
   end
   
+   def self.find_first_by_auth_conditions(warden_conditions)
+     puts "asdf"
+      conditions = warden_conditions.dup
+      if login = conditions.delete(:login)
+        where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      else
+        where(conditions).first
+      end
+    end
+  
 =begin
   # login by username address
   def self.authenticate(username, password)
@@ -92,4 +99,5 @@ class User < ActiveRecord::Base
     PostOffice.new_user_msg(new_user, pswd).deliver
   end
 =end
+
 end

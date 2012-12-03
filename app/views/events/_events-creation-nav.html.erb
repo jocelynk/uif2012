@@ -8,7 +8,7 @@
 <%= form_tag events_path, :method => 'get' do %>
 <p>
 <%= date_select :date_query, params[:date_query], :include_blank => true, :label_method => :name%>
-<%= submit_tag "Search", :name => nil, :class=>"btn btn-large" %>
+<%= submit_tag "Search", :name => nil, :class=>"btn" %>
 </p>
 <% end %>
 
@@ -16,7 +16,6 @@
     <div class="page-header">
         <h1>Quick Add Section</h1>
     </div>
-    <button class="btn btn-large">Create Something</button>
     
-    <%= button_to "Create Location", new_location_path, :method => "get", :class=> "btn btn-large"%>
+    <%= button_to "Create Location", new_location_path, :method => "get", :class=> "btn btn-primary"%>
 </div>
