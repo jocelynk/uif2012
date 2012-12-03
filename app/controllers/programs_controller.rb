@@ -16,6 +16,8 @@ class ProgramsController < ApplicationController
   # GET /programs/1.json
   def show
     @program = Program.find(params[:id])
+    @notes = @program.notes
+    @notable = @program
 
     respond_to do |format|
       format.html # show.html.erb

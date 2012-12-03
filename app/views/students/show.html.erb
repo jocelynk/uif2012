@@ -13,7 +13,6 @@
         <div class="span8">
             <!-- src="http://placehold.it/140x140" -->
             <% @src = "" %>
-
             <% if @student.is_male %>
             <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;
             <%# @img_src = image_tag("male.jpg")%>
@@ -69,6 +68,7 @@
                 :class => 'btn btn-danger' %> -->
             </div>
         </div>
+        <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
     </div>
 
     <div id="studentSide">   
