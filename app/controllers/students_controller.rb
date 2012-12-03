@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
     # @students = Student.search(params[:query])
     # we need to figure out a way to do both
     # @query = Student.search(params[:query])
-    @students = Student.alphabetical.paginate(:page => params[:page], :per_page => 15)
+    @students = Student.alphabetical.all #paginate(:page => params[:page], :per_page => 15)
     @query = Student.search(params[:query])
     # @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
