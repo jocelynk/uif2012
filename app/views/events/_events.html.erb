@@ -1,9 +1,23 @@
 <%- model_class = Event -%>
+
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-
+<div class="row">
+  <div class="span6">
+<div id="search">
+	<%= form_tag('/events/search') do %>
+		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+	<% end %>
+</div>
+</div>
+<div class="span1">
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_event_path,
+:class => 'btn btn-primary' %>
+</div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -42,9 +56,7 @@
   </tbody>
 </table>
 <%# will_paginate @events %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-new_event_path,
-:class => 'btn btn-primary' %>
+
 
 <!-- <div class="digg_pagination">
     <div clas="page_info">
@@ -52,3 +64,8 @@ new_event_path,
     </div>
     <%# will_paginate @events, :container => true %>
 </div> -->
+<br>
+<br>
+<br>
+<br>
+<br>

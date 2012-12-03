@@ -5,23 +5,23 @@ class TokensController  < ApplicationController
     
     respond_to :json 
     def create
-      email = params[:email]
+      login = params[:email]
       password = params[:password]
 
-      if email.nil? or password.nil?
+      if login.nil? or password.nil?
          respond_to do |format|
 
-          format.json { render :json=>{:message=>"Please enter your user name and password."}, :callback => params[:callback] }
+          format.json { render :json=>{:message=>"Please enter your login and password."}, :callback => params[:callback] }
          end
       end
 
-    @user=User.find_by_email(email.downcase)
+    @user=User.where("users.email = ? OR users.username = ?", login, login).first
 
       if @user.nil?
-        logger.info("User #{email} failed signin, user cannot be found.")
+        logger.info("User #{login} failed signin, user cannot be found.")
         respond_to do |format|
 
-          format.json { render :json=>{:message=>"Invalid email."}, :callback => params[:callback] }
+          format.json { render :json=>{:message=>"Invalid login."}, :callback => params[:callback] }
         end
         return
       end
@@ -30,7 +30,7 @@ class TokensController  < ApplicationController
     @user.ensure_authentication_token!
 
       if not @user.valid_password?(password)
-        logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
+        logger.info("User #{login} failed signin, password \"#{password}\" is invalid")
         respond_to do |format|
 
           format.json { render :json=>{:message=>"Invalid password."}, :callback => params[:callback] }

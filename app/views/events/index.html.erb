@@ -19,11 +19,7 @@
   });
 
 </script>
-<div id="search">
-	<%= form_tag('/events/search') do %>
-		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
-	<% end %>
-</div>
+<br>
 
 <!-- <h1>Listing events</h1> -->
 
@@ -46,3 +42,4 @@
 <div id ="creation-bar">
     <%= render :partial => "events-creation-nav"%>
 </div>
+

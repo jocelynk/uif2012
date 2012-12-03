@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20121202232741) do
     t.integer  "location_id"
     t.boolean  "gospel_shared"
     t.integer  "meals_served",       :default => 0
-    t.integer  "bibles_distributed"
+    t.integer  "bibles_distributed", :default => 0
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
   end
@@ -117,11 +117,12 @@ ActiveRecord::Schema.define(:version => 20121202232741) do
     t.integer  "min_grade"
     t.integer  "max_grade"
     t.integer  "max_capacity"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "active"
     t.date     "start_date"
     t.date     "end_date"
+    t.boolean  "scan_by_absence", :default => false
   end
 
   create_table "section_events", :force => true do |t|

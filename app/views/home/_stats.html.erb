@@ -1,45 +1,34 @@
-<h1><%=@w_month%>, <%=@year%> Statistics</h1>
+<h3><%=@w_month%> <%=@year%> </h3>
+
 <% @department.each do |dep| %>
-  <h4><%= dep.name %></h4><br/>
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Program</th>
-      <th>Participants</th>
-      <th>Meals Served</th>
-      <th>Bibles Distributed</th>
-      <th>Gospel Shared</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @join.each do |record| %>
-      <% if record.first["department"] == dep.name %>
-        <tr>
-          <td><%= record.first["program"] %></td>
-          <td><%= record.first["attendances"] %></td> 
-          <td><%= record.second["meals"] %></td>
-          <td><%= record.second["bibles"] %></td>
-          <td><%= record.second["gospel"] %></td>          
-        </tr>
-       <% end %>
-    <% end %>
-  </tbody>
-</table>
-<br/>
+
+  		<h4><%= dep.name %></h4><br/>
+  		<table class="table table-striped">
+  			<thead>
+    			<tr>
+      				<th>Program</th>
+      				<th>Participants</th>
+      				<th>Meals Served</th>
+      				<th>Bibles Distributed</th>
+      				<th>Gospel Shared</th>
+    			</tr>
+  			</thead>
+  			<tbody>
+		<% @join.each do |record| %>
+			<% if record.first["department"] == dep.name %>
+        		<tr>
+          			<td><%= record.first["program"] %></td>
+          			<td><%= record.first["attendances"] %></td> 
+          			<td><%= record.second["meals"] %></td>
+          			<td><%= record.second["bibles"] %></td>
+          			<td><%= record.second["gospel"] %></td>          
+        		</tr>
+       		<% end %>
+    	<% end %>
+  			</tbody>
+		</table>
+	
 <% end %>
 
-  <% @join.each do |record| %>
-   1. <%= record.first %>
-    2. <%= record.second %>
-  <% end %>
 
-
-
-count of attendances
-
-name of department
-program name
-sum of meals served
-sum of bible distr.
-sum of gospel shared
 
