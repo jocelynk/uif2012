@@ -12,20 +12,21 @@
         </div>
         <div class="span8">
             <!-- src="http://placehold.it/140x140" -->
-            <% @src = "" %>
-            <% if @student.is_male %>
-            <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;
-            <%# @img_src = image_tag("male.jpg")%>
-            <% else %>  
-            <div class="img-polaroid"> <%= image_tag("female.jpg") %></div>&nbsp;&nbsp;
-            <%# @img_src =image_tag("female.jpg") %> 
+            <% if !@student.photo.blank? %>
+              <div class="img-polaroid"><%= image_tag(@student.photo_url(:thumb))%></div>
+            <% else %>
+              <% if @student.is_male %>
+                <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;
+              <% else %>  
+                <div class="img-polaroid"> <%= image_tag("female.jpg") %></div>&nbsp;&nbsp;
+              <% end %>
             <% end %>
+          
 
             <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;
             <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp;
             <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>
             <br><br><br>
-
             <div class="student-info">
                 <dl class="dl-horizontal">
                     <dt><strong>Name:</strong></dt> 
@@ -44,7 +45,7 @@
                     <dd><%= @student.email %></dd>
                     <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
                     <dd><%= @student.barcode_number %></dd> 
-                    <dt><strong>Household:</strong></dt>
+                       <dt><strong>Household:</strong></dt>
                     <dd><%= @student.household.name %> Family (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-group"></i> </a></dd> 
                     <dt><strong>Gender:</strong></dt>
                     <dd><%= @student.is_male ? "Male" : "Female" %></dd>

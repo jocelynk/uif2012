@@ -19,10 +19,14 @@ Below is a listing of the users that are currently in the system.
     <% @users.each do |user| %>
 	    <tr>
 	      <td>
-				  <%= link_to user.name, user_path(user) %>
+				  <% if user.first_name.nil? %>
+				    <span>No Name Listed</span>
+				  <% else %>
+				    <%= user.name %>
+				  <% end %>
 			  </td>
 	      <td>
-			    <%= user.username %>
+			    <%= link_to user.username, user_path(user) %>
 			  </td>
 			  <td>
 			    <%= mail_to user.email unless user.email.nil? %>
