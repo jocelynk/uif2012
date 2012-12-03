@@ -13,6 +13,7 @@ class Student < ActiveRecord::Base
   has_many :student_allergies, :dependent => :delete_all
   has_many :allergies, :through => :student_allergies
   has_many :events, :through => :attendances
+  has_many :notes, :as => :notable, :dependent => :destroy
   
   #Nested Attributes
   accepts_nested_attributes_for :enrollments, :allow_destroy => true

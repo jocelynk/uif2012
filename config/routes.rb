@@ -36,6 +36,7 @@ Uif2012::Application.routes.draw do
   resources :attendances
   resources :locations
   resources :events do
+    resources :notes
     get 'meals_served', :on => :member
   end
   resources :programs
