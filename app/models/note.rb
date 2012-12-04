@@ -10,6 +10,8 @@ class Note < ActiveRecord::Base
   # Scopes
   scope :by_priority, order('priority')
   # Priorities for drop-down, etc.
-  PRIORITIES = [['High', 'high'],['Medium', 'medium'],['Low', 'low']]
+  PRIORITIES = [['High', '1'],['Medium', '2'],['Low', '3']]
+  
+  
   
 end

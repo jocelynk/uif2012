@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
     puts "CELL: #{@student.cell_phone}"
     @recent_activities = @student.recent_activity
-    @notes = @student.notes
+    @notes = @student.notes.by_priority.limit(4)
     @notable = @student
     respond_with(@student) do |format|
       format.js { render json: @student, :callback => params[:callback] }

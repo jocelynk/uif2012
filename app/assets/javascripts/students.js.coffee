@@ -2,7 +2,9 @@ jQuery ->
   obj = 
     count: 0
   checked = document.getElementById("student_is_visitor")
-  if checked is not null
+  console.log(checked)
+  if checked isnt null
+    console.log("asdfadsfasdfasdf")
     if document.getElementById("student_is_visitor").checked
       $(document.getElementById("student_barcode_number")).parent().parent().hide()
       $(document.getElementById("student_household_id")).parent().parent().hide()    
@@ -12,6 +14,7 @@ jQuery ->
       $(document.getElementById("student_household_id")).parent().parent().show()    
       $(document.getElementById("visitor_households")).hide()
     $("#student_is_visitor").click ->
+      console.log("asdf")
       if document.getElementById("student_is_visitor").checked
         $(document.getElementById("student_barcode_number")).parent().parent().hide()
         $(document.getElementById("student_household_id")).parent().parent().hide()
