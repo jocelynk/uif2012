@@ -48,8 +48,9 @@ task :setup => :environment do
   queue! %[mkdir -p #{deploy_to}/shared/tmp]
   queue! %[chmod g+rwx,u+rwx "#{deploy_to}/shared/tmp"]
 
-  queue! %[mkdir -p /var/log/unicorn]
-  queue! %[chmod g+rw,u+rw /var/log/unicorn]
+  queue! %[sudo mkdir -p /var/log/unicorn]
+  queue! %[sudo chmod g+rw,u+rw /var/log/unicorn]
+  queue! %[sudo chown -R #{user}:#{group} /var/log/unicorn]
 end
 
 desc "Deploys the current version to the server."
@@ -65,7 +66,7 @@ task :deploy => :environment do
 
     to :launch do
       queue 'sudo service nginx reload'
-      queue "sudo #{deploy_to}/shared/unicorn reload"
+      queue "sudo #{deploy_to}/shared/unicorn restart"
     end
   end
 end
