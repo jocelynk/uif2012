@@ -4,9 +4,9 @@
 </div>
 
 <% @all_notes.each do |note| %>
-    <% if note.priority == "high" %>
+    <% if note.priority == "1" %>
     <% @class = "alert high"%>
-    <% elsif note.priority == "medium" %>
+    <% elsif note.priority == "2" %>
     <% @class = "alert medium"%>
     <% else %>
     <% @class = "alert low"%>
