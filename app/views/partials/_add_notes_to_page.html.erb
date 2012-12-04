@@ -3,6 +3,10 @@
 	<% unless @notes.empty? || @notes.nil? %>
 		<%= render :partial => "partials/note_list" %>
 	<% end %>
+	<% if obj.notes.size > 4 %>
+	  <%= link_to "More Notes",
+                notes_path, :class => 'btn' %>
+	<% end %>
 </p>
 <p>
 	<%= render :partial => "partials/note_form" %>

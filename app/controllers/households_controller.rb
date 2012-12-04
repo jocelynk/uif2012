@@ -16,7 +16,7 @@ class HouseholdsController < ApplicationController
   # GET /households/1.json
   def show
     @household = Household.find(params[:id])
-    @notes = @household.notes
+    @notes = @household.notes.by_priority
     @notable = @household
 
     respond_to do |format|
