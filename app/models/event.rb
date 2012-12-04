@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
   has_many :section_events, :dependent => :delete_all
   has_many :students, :through => :attendances
   has_many :sections, :through => :section_events
+  has_many :notes, :as => :notable, :dependent => :destroy
    
   #Validations
   validates_date :date

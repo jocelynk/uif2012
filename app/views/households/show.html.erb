@@ -55,6 +55,7 @@
   <%= @household.active %>
 </p>
 
+<%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @household} %>
 
 <%= link_to 'Edit', edit_household_path(@household) %> |
 <%= link_to 'Back', households_path %>

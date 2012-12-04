@@ -4,20 +4,22 @@
 </div>
 
 <% @all_notes.each do |note| %>
-<% if note.priority == "high" %>
-    <% @class = "alert error"%>
-<% elsif note.priority == "medium" %>
- <% @class = "alert"%>
-<% end %>
- <%= "the class #{@class}"%>
-<div class="<%= @class %>">
-    <a href="#"> <%= note.contents %>
-    </a>
-    <div class="close" data-dismiss="alert">
-        x
+    <% if note.priority == "high" %>
+    <% @class = "alert high"%>
+    <% elsif note.priority == "medium" %>
+    <% @class = "alert medium"%>
+    <% else %>
+    <% @class = "alert low"%>
+    <% end %>
+    <%= "the class #{@class}"%>
+    <div class="<%= @class %>">
+        <a href="#"> <%= note.title %>
+        </a>
+        <div class="close" data-dismiss="alert">
+            x
+        </div>
     </div>
-</div>
-<% end %>
+    <% end %>
 
 
 

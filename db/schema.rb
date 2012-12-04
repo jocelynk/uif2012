@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121130034918) do
+ActiveRecord::Schema.define(:version => 20121202232741) do
 
   create_table "allergies", :force => true do |t|
     t.string   "name"
@@ -107,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20121130034918) do
     t.string   "priority"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "title"
   end
 
   create_table "programs", :force => true do |t|
@@ -160,8 +161,9 @@ ActiveRecord::Schema.define(:version => 20121130034918) do
     t.string   "photo"
     t.string   "email"
     t.string   "status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "is_visitor",     :default => false
   end
 
   create_table "users", :force => true do |t|

@@ -2,8 +2,35 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :barcode_number %>
+  
   <%= f.input :household_id, :collection => get_households, :prompt => 'Choose Household' %>
-  <%= f.input :is_male, :label => "Gender", :as => :radio, :collection => [["Male ",true], ["Female ",false]], :item_wrapper_class => 'inline' %>
+  <%= f.input :is_male, :label => "Gender", :as => :radio_buttons, :collection => [["Male ",true], ["Female ",false]], :item_wrapper_class => 'inline' %> 
+  <%= f.input :is_visitor %>
+  <div id="visitor_households">
+    <span>Visitor Information</span>
+    <%= fields_for :household do |h| %>
+        
+            <%= h.label :family_name %><br />
+            <%= h.text_field :name %>
+
+        <div class="field">   
+            <%= h.label :street %><br />
+            <%= h.text_field :street %>
+        </div>
+        <div class="field">   
+            <%= h.label :street2 %><br />
+            <%= h.text_field :street2 %>
+        </div>
+        <div class="field">   
+            <%= h.label :city %><br />
+            <%= h.text_field :city %>
+        </div>
+        <div class="field">   
+            <%= h.label :zip %><br />
+            <%= h.text_field :zip %>
+        </div>
+    <% end %>
+  </div>
   <%= f.input :grade, :collection => (1..12).to_a, :prompt => 'Choose Grade' %>
   <%= f.input :date_of_birth, :order => [:month, :day, :year], :start_year => Date.today.year, :end_year => Date.today.year - 20 %>
   <%= f.input :cell_phone %>
@@ -11,7 +38,6 @@
   <%= f.input :email %>
   <%= f.input :status, :collection => Student::STATUS_LIST, :prompt => 'Choose Status' %>
   <%= f.input :photo, :label => 'Your photo please' %>
-  
   <div id="enrollment_nested_form">
     <%= f.fields_for :enrollments do |enrollment_form| %>
       <%= render 'enrollment_fields', f: enrollment_form %>
@@ -21,7 +47,13 @@
   
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                students_path, :class => 'btn' %>
+    <% if @data.blank? %> 
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  students_path, :class => 'btn' %>
+    <%else%>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  home_path, :class => 'btn' %>
+    <%end%>
   </div>
 <% end %>
+  

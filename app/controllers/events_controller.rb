@@ -8,11 +8,13 @@ class EventsController < ApplicationController
   def load
     @title = "All events"
     @events = Event.paginate(:page => params[:page]).per_page(5).by_date(params[:date_query])
+    # @events = Event.all
     @event = Event.new
   end
   
   def index
-    #@events = Event
+    @events = Event.by_date_desc.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -26,6 +28,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @attendees = Event.attendees(params[:id])
     @absentees = Event.absentees(params[:id])
+    @notes = @event.notes
+    @notable = @event
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
@@ -36,6 +40,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @data = params[:data]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }

@@ -16,6 +16,8 @@ class GuardiansController < ApplicationController
   # GET /guardians/1.json
   def show
     @guardian = Guardian.find(params[:id])
+    @notes = @guardian.notes
+    @notable = @guardian
 
     respond_to do |format|
       format.html # show.html.erb

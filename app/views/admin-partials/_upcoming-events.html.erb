@@ -1,4 +1,12 @@
 <%- model_class = Event -%>
+
+<!-- finding all upcoming event -->
+
+<% if @upcoming.count() == 0 %>
+<div class="page-header">
+    <h1> There Are No Upcoming Events </h1>
+</div>
+<% else %>
 <div class="page-header">
     <h1>Upcoming Events</h1>
 </div>
@@ -24,7 +32,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @events.each do |event| %>
+        <% @upcoming.each do |event| %>
         <% if event.date >= Date.today %>
         <tr>
             <td>
@@ -37,25 +45,26 @@
                 <% event.sections.each do |section|%>
                 <%= section.name %>&nbsp;
                 <% end %> 
-                <!-- </td>
-                <td><%= l event.start_time %></td>
-                <td><%= l event.end_time %></td>
-                <td> -->
-                    <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
                 </td>
                 <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
                 </td>
-                 </td>
-                <td>
-                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                    edit_event_path(event), :class => 'btn btn-mini' %>
-                </td>
-            </tr>
-            <% end %>
-            <% end %>
-        </tbody>
-    </table>
+            </td>
+            <td>
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_event_path(event), :class => 'btn btn-mini' %>
+            </td>
+        </tr>
+        <% end %>
+        <% end %>
+    </tbody>
+</table>
+<div class="digg_pagination">
+    <div clas="page_info">
+        <%= page_entries_info @upcoming %>
+    </div>
+    <%= will_paginate @upcoming, :container => true %>
+</div>
 
-    <%= link_to t('.new', :default => t("helpers.links.new")),
-    new_event_path,
-    :class => 'btn btn-primary' %>
+<% end %>
+
+
