@@ -11,3 +11,8 @@ en:
   date:
     formats:
       default: "%m/%d/%Y"
+  helpers:
+    links:
+      edit: 'Edit'
+      new: 'New'
+      cancel: 'Cancel'
