@@ -10,8 +10,6 @@
 *
 *= require_self
 *= require_tree .
-
-
 */
 
 
@@ -963,8 +961,8 @@ tbody tr td a
 
 /*.upcoming, .past
 {
-width:300px !important; 
-float:left;  
+width:300px !important;
+float:left;
 }
 
 

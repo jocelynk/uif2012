@@ -1,7 +1,7 @@
 $(document).ready ->
   $("#attendance_barcodes input").focus()
   $("#attendance_barcodes input").keyup(displayUnicode)
-  
+
 displayUnicode = ->
   @input = $("#attendance_barcodes input")
   @display = $('#student_checked')
@@ -19,9 +19,8 @@ displayUnicode = ->
           console.error "Error scanning #{@input.val()}!"
           alert data.error
         else
-          console.log(data.message)
           @display.html "<div>#{data.message}</div>"
-        
+
           if data.attendees isnt null
             $('#attend').html('')
             attendees = $('<table/>').addClass("table table-striped")
@@ -63,9 +62,9 @@ displayUnicode = ->
               row.append('<td>'+data.absentees[j]['barcode_number']+'</td>')
               absentees_body.append(row)
             absentees.append(absentees_body)
-            $('#absent').hide().html(absentees).show()  
+            $('#absent').hide().html(absentees).show()
           else
-            $('#absent').html('<h4>No Absentees</h4>')   
+            $('#absent').html('<h4>No Absentees</h4>')
     @input.val('')
 
 # Parse URL Queries
