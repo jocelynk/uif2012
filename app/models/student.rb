@@ -49,9 +49,9 @@ class Student < ActiveRecord::Base
   
   def image
   if self.is_male
-    "male"
+    "male.jpg"
   else
-    "female"
+    "female.jpg"
   end
   end
     

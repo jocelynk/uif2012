@@ -182,6 +182,13 @@ class EventsController < ApplicationController
        
     end
   end
+
+  def barcodes
+    puts params[:id]
+    @event = Event.find_by_id(params[:id])
+    @attendees = Event.attendees(params[:id])
+    @absentees = Event.absentees(params[:id])
+  end
   
   def meals_served
     puts '++++++++++++++++++++'
