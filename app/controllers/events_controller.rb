@@ -1,17 +1,18 @@
 class EventsController < ApplicationController
   # GET /events
   # GET /events.json
-  before_filter :load, :set_controller_and_action_names, :check_login
-
+  require 'will_paginate/array' 
+  before_filter :load, :set_controller_and_action_names, :authenticate_user!
+  #, #:check_login :authenticate, :only => [:index, :edit, :update]
+  
   def load
-    @events = Event.by_date(params[:date_query])
-    # @ev = Event.all
-    #@events_months = Event.all.group_by { |t| t.date.beginning_of_month }
+    @title = "All events"
+    @events = Event.paginate(:page => params[:page]).per_page(5).by_date(params[:date_query])
     @event = Event.new
   end
   
   def index
-    @events = Event.paginate(:page => params[:page]).per_page(10)
+    #@events = Event
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -174,6 +175,38 @@ class EventsController < ApplicationController
         format.js
       end
        
+    end
+  end
+  
+  def meals_served
+    puts '++++++++++++++++++++'
+    puts params[:id]
+    puts '++++++++++++++++++++'
+    if !params[:id].nil?
+      gon.event_id = params[:id]
+    end
+    puts'_______________________'
+    puts gon.event_id
+    puts '++++++++++++++++++++'
+    # session[:event] = params[:format]
+    @event = Event.find(gon.event_id)
+    puts @event
+    puts params[:barcode]
+    puts ")))))))))))))))))))"
+    if params[:barcode]
+      @student = Student.find_by_barcode_number(params[:barcode])
+      if @student
+        @meals_served = @event.meals_served
+        puts @meals_served
+        @new_meal = @meals_served+1
+        puts @new_meal
+        puts '+++++++++++++++++++++++++++++'
+        @event.update_attributes({:meals_served => @new_meal})
+        puts @event.update_attributes({:meals_served => @new_meal})
+        render :json => { message: "Meals Served: #{@new_meal}"}
+      else
+        render :json => { error: 'There was something wrong with the scan!' }
+      end
     end
   end
 end

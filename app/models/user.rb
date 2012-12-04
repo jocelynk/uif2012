@@ -1,9 +1,42 @@
 class User < ActiveRecord::Base  
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
+
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  has_many :notes
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  #nifty generated  
   # Use built-in rails support for password protection
-  has_secure_password
+  #has_secure_password
   
   # Specify fields that can be accessible through mass assignment (not password_digest)
-  attr_accessible :first_name, :last_name, :username, :email, :password, :password_confirmation, :active, :role, :department_id
+  #attr_accessible :first_name, :last_name, :username, :email, :password, :password_confirmation, :active, :role, :department_id
   
   # Relationships
   # -----------------------------
@@ -22,16 +55,16 @@ class User < ActiveRecord::Base
   # Validations
   # -----------------------------
   # make sure required fields are present
-  validates_presence_of :first_name, :last_name, :username 
-  validates_uniqueness_of :username
-  validates_uniqueness_of :email, :allow_blank => true
-  validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net))$/i, :message => "is not a valid format", :allow_blank => true
-  validates_presence_of :password, :on => :create 
-  validates_presence_of :password_confirmation, :on => :create 
-  validates_confirmation_of :password, :message => "does not match"
-  validates_length_of :password, :minimum => 6, :message => "must be at least 6 characters long", :allow_blank => true
-  validates_inclusion_of :active, :in => [true, false], :message => "must be either true or false"
-  validates_inclusion_of :role, :in => %w( admin checkin ), :message => "is not recognized in the system"
+  #validates_presence_of :first_name, :last_name, :username 
+  #validates_uniqueness_of :username
+  #validates_uniqueness_of :email, :allow_blank => true
+  #validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([a-z0-9.-]+\.)+(com|edu|org|net))$/i, :message => "is not a valid format", :allow_blank => true
+  #validates_presence_of :password, :on => :create 
+  #validates_presence_of :password_confirmation, :on => :create 
+  #validates_confirmation_of :password, :message => "does not match"
+ # validates_length_of :password, :minimum => 6, :message => "must be at least 6 characters long", :allow_blank => true
+  #validates_inclusion_of :active, :in => [true, false], :message => "must be either true or false"
+  #validates_inclusion_of :role, :in => %w( admin checkin ), :message => "is not recognized in the system"
   
   # Callbacks
   # -----------------------------
@@ -62,7 +95,7 @@ class User < ActiveRecord::Base
     true
   end
   
-
+=begin
   # login by username address
   def self.authenticate(username, password)
     find_by_username(username).try(:authenticate, password)
@@ -75,4 +108,5 @@ class User < ActiveRecord::Base
     pswd = self.password
     PostOffice.new_user_msg(new_user, pswd).deliver
   end
+=end
 end

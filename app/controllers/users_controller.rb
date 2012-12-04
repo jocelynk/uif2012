@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
 
-  before_filter :check_login
+  #before_filter :check_login
   # authorize_resource
-
+  before_filter :authenticate_user!
+  before_save :ensure_authentication_token
   def index
     if current_user.is_admin?
+    puts current_user.is_admin?
+    puts current_user.username
       @users = User.alphabetical.paginate(:page => params[:page]).per_page(10)
     else
       redirect_to user_path(current_user), error: "You do not have permission to view all system users."
@@ -35,6 +38,8 @@ class UsersController < ApplicationController
     if current_user.is_admin?
       @user = User.new(params[:user])
       @pswd = params[:user][:password]
+      puts '++++++++++++++++++++++++++++++++++++++++++'
+      puts @user
       if @user.save
         ### moved to callback to handle emails with db:add_user rake task
         # PostOffice.new_user_msg(@user, @pswd).deliver  

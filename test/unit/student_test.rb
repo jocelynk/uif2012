@@ -6,7 +6,7 @@ class StudentTest < ActiveSupport::TestCase
   should belong_to(:household)
   should have_many(:student_allergies)
   should have_many(:attendances)
-  should have_many(:registrations)
+  should have_many(:enrollments)
   
   #test Presences
   should validate_presence_of(:first_name)

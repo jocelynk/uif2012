@@ -18,6 +18,7 @@ class Event < ActiveRecord::Base
   validates_time :end_time, :after => :start_time, :allow_blank => true, :after_message => "must be after the start of the event"
   validates_numericality_of :location_id, :program_id, :only_integer => true, :greater_than => 0, :message => "is not a valid number"
   validates_numericality_of :meals_served, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => false, :message => "is not a valid number"
+   validates_numericality_of :bibles_distributed, :only_integer => true, :greater_than_or_equal_to => 0, :allow_blank => false, :message => "is not a valid number"
 
   
     
@@ -27,14 +28,13 @@ class Event < ActiveRecord::Base
   scope :past, where('date < ?', Date.today)
   scope :upcoming, where('date >= ?', Date.today)
   scope :current, where('date = ?', Date.today)
+  scope :by_date, order('date')
+  scope :by_date_desc, order('date DESC')
+  
 
   # virtual attributes section_ids - corresponds with ids of sections of each event
   def section_names
     Section.all.collect{|s| s.name}.join(', ')
-  end
-  
-  def method_name
-    
   end
   
   def section_id
@@ -65,11 +65,15 @@ class Event < ActiveRecord::Base
   
   def self.absentees(id)
     attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id).select('students.id').map{|s|s.id}
-    absentees = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
-    all_students = Student.joins('INNER JOIN registrations r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
+    absentees = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
+    all_students = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
     if(!absentees.empty?)
+      puts "Absentees is not empty"
+      puts absentees.length
       absentees
     elsif(attendees.length <1 && !all_students.empty?)
+      puts "Returning All students"
+            puts all_students.length
       all_students
     else
       nil
@@ -77,8 +81,6 @@ class Event < ActiveRecord::Base
     #absentees
     end
   end
-  
-   #create or remove SectionEvents records that Event is associated with in the Sections specified in @section_ids
  
   private  
   def assign_sections
@@ -96,16 +98,13 @@ class Event < ActiveRecord::Base
       
       self.sections.each do |section_id|
         SectionEvent.create(:event_id => event_id, :section_id => section_id)
-      end
-    #end
-      
+      end      
   end
   
   def self.get_todays_date
     t = Time.now
     return t.strftime("%b %d")
   end
-  
 
   #need validation for event must have end_time if after current date, Look into this CRON
   #validation for duplicate events not created

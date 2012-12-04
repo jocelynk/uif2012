@@ -1,35 +1,54 @@
+<%- model_class = Note -%>
 <div class="page-header">
     <h1>Issues</h1>
 </div>
 
-<div class="alert error">
-    <a href="#"> Something Happened
+<% @all_notes.each do |note| %>
+<% if note.priority == "high" %>
+    <% @class = "alert error"%>
+<% elsif note.priority == "medium" %>
+ <% @class = "alert"%>
+<% end %>
+ <%= "the class #{@class}"%>
+<div class="<%= @class %>">
+    <a href="#"> <%= note.contents %>
     </a>
     <div class="close" data-dismiss="alert">
         x
     </div>
+</div>
+<% end %>
+
+
+
+<!-- <div class="alert error">
+<a href="#"> Something Happened
+</a>
+<div class="close" data-dismiss="alert">
+x
+</div>
 </div>
 
 <div class="alert error">
-    <a href="#"> Finalize Event
-    </a>
-    <div class="close" data-dismiss="alert">
-        x
-    </div>
+<a href="#"> Finalize Event
+</a>
+<div class="close" data-dismiss="alert">
+x
+</div>
 </div>
 
 <div class="alert">
-    <a href="#"> New Section Created
-    </a>
-    <div class="close" data-dismiss="alert">
-        x
-    </div>
+<a href="#"> New Section Created
+</a>
+<div class="close" data-dismiss="alert">
+x
+</div>
 </div>
 
 <div class="alert">
-    <a href="#"> Program Deleted
-    </a>
-    <div class="close" data-dismiss="alert">
-        x
-    </div>
+<a href="#"> Program Deleted
+</a>
+<div class="close" data-dismiss="alert">
+x
 </div>
+</div> -->

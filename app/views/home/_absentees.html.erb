@@ -1,10 +1,11 @@
 <% if @absentees.nil? %>
-<h2>No Absentees</h2>
+<h4>No Absentees</h4>
 <% else %>
 <table id="absentees" class="table table-striped">
   <thead>
     <tr>
       <th><%= Student.human_attribute_name(:name) %></th>
+      <th><%= Student.human_attribute_name(:phone_number) %></th>
       <th><%= Student.human_attribute_name(:barcode_number) %></th>
     </tr>
   </thead>
@@ -12,7 +13,12 @@
     <% @absentees.each do |student| %>
       <tr>
         <td><%= link_to student.name, student_path(student) %></td>
-        <td><%= student.barcode_number %></td>     
+        <%- if student.cell_phone.nil? -%>
+          <td>No Phone Number</td> 
+        <% else %>
+          <td><%= number_to_phone student.cell_phone %></td> 
+        <% end %> 
+        <td><%= student.barcode_number %></td>            
       </tr>
     <% end %>
   </tbody>

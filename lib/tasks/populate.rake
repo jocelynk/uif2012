@@ -13,7 +13,7 @@ namespace :db do
     require 'faker'
     
     # Step 0: clear any old data in the db
-    [Department, Program, Event, Section, SectionEvent, Attendance, Guardian, Household, Location, Registration, Student, StudentAllergy].each(&:delete_all)
+    [Department, Program, Event, Section, SectionEvent, Attendance, Guardian, Household, Location, Enrollment, Student, StudentAllergy].each(&:delete_all)
    
     # Step 1: Add Departments
     pa = Department.new
@@ -49,9 +49,9 @@ namespace :db do
     # Step 2: Add Some Programs for each Department and add Sections to Programs
     dept_ids = Department.all.map(&:id)
     programs = [
-      ['Performing Arts Academy',1,1,12],['Urban Impact Choir',1,6,12],['Urban Impact Children\'s Choir',1,1,5],['Urban Impact Singers',1,8,12],['Urban Impact Shakes',1,8,12],
-      ['Intramural Basketball',2,1,12],['High School Travel Basketball Teams',2,9,12],['Middle School Travel Basketball Teams',2,6,8],['Boys HS & MS Basketball Leagues',2,6,12],['Baseball',2,1,8],['Soccer',2,1,8],
-      ['SAT Classes',3,10,12],['Summer Day Camp',3,1,12]
+       ['Performing Arts Academy',1,1,12,false],['Urban Impact Choir',1,6,12,true],['Urban Impact Children\'s Choir',1,1,5,true],['Urban Impact Singers',1,8,12, false],['Urban Impact Shakes',1,8,12,false],
+      ['Intramural Basketball',2,1,12,false],['High School Travel Basketball Teams',2,9,12,false],['Middle School Travel Basketball Teams',2,6,8,false],['Boys HS & MS Basketball Leagues',2,6,12,false],['Baseball',2,1,8,false],['Soccer',2,1,8,false],
+      ['SAT Classes',3,10,12,false],['Summer Day Camp',3,1,12,false]
     ]
     programs.each do |program|
       p = Program.new
@@ -61,6 +61,7 @@ namespace :db do
       p.max_capacity = (60..100).step(5).to_a.sample
       p.min_grade = program[2]
       p.max_grade = program[3]
+      p.scan_by_absence = program[4]
       not_active = rand(10)
       if not_active.zero?
         p.active = false
@@ -152,9 +153,9 @@ namespace :db do
       start_day = (event.date.day..30).to_a.sample
       event.start_time = Time.local(event.date.year,start_month,start_day,start_hour,0,0)
       event.end_time = Time.local(event.date.year,start_month,start_day,start_hour+3,0,0)
-      event.bibles_distributed = true
+      event.bibles_distributed = Populator.value_in_range(0..60)
       event.gospel_shared = true
-      event.meals_served = Populator.value_in_range(40..60)
+      event.meals_served = Populator.value_in_range(0..60)
       
       SectionEvent.populate 1 do |sectionevent|
         sectionevent.event_id = event.id
@@ -162,24 +163,6 @@ namespace :db do
       end
     end
 
-     #se_ids = Program.joins(:sections, :events).select('programs.id as program, sections.id as section, events.id as event')
-     
-     
-     #att_ids = Program.joins({:sections => [{:registrations => [:student]}]}, :events).select('programs.id as program, students.id as student, events.id as event')
-
-    # att_ids.each do |obj|
-    #    att = Attendance.new
-   #     att.event_id = obj.event
-   #     att.student_id = obj.student
-   #     exempt = rand(5)
-   #        if exempt.zero?
-   #          att.exempt = false
-   #        else
-    #         att.exempt = true
-    #       end
-    #    att.save!
-   #  end
-      
     statuses = %w[College Active Unactive Graduated Missing ]
     #Step 5 Add Households and Students to Household
     Household.populate 100 do |household|
@@ -206,7 +189,7 @@ namespace :db do
         student.last_name = household.name
         student.grade = (1..12).to_a.sample
         student.household_id = household.id
-        student.barcode_number = rand(12 ** 12).to_s.rjust(12,'0').chop
+        student.barcode_number = rand(12 ** 12).to_s.chop.rjust(12,'0')
         can_text = rand(5)
         if can_text.zero?
           student.can_text = false
@@ -230,14 +213,14 @@ namespace :db do
     end  
     
     
-    #Step 6 Create Registrations
+    #Step 6 Create Enrollments
     section_ids = Section.all.map(&:id)
     student_ids = Student.all.map(&:id)
     student_ids.each do |student|
         n = (1..2).to_a.sample 
-        Registration.populate n do |registration|
-            registration.student_id = student
-            registration.section_id = section_ids.sample
+        Enrollment.populate n do |enrollment|
+            enrollment.student_id = student
+            enrollment.section_id = section_ids.sample
                 
         end
     end

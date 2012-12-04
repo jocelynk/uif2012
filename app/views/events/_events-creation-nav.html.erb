@@ -1,7 +1,7 @@
 
 <%- model_class = Event -%>
 <div class="page-header">
-  <h1>Creation</h1>
+    <h1>Filter Events</h1>
 </div>
 <!-- make it like jquery ui calendar widget -->
 <!-- an actual search for events function, NOT sort function  -->
@@ -13,16 +13,13 @@
 <% end %>
 
 <div class="side-nav-grp">
-<div class="btn-group">
-  <button class="btn btn-large">Action</button>
-  <button class="btn btn-large dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-      <li> <a>Action</a> </li>
-    <!-- dropdown menu links -->
-  </ul>
-</div>
-
-<button id="event_creation" class="btn btn-large">New Event</button>
+    <div class="page-header">
+        <h1>New Event</h1>
+    </div>
+    <button id="event_creation" class="btn btn-large">Create</button>
+    
+    <div class="page-header">
+        <h1>New Location</h1>
+    </div>
+    <%= button_to "Create", new_location_path, :method => "get", :class=> "btn btn-large"%>
 </div>

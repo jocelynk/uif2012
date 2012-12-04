@@ -16,7 +16,9 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'uservoice-ruby'
 gem 'validates_timeliness', '3.0.8'
-gem 'will_paginate'
+gem 'will_paginate', "~> 3.0.3"
+gem 'devise'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Gems used only in development
 group :development do

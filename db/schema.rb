@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030161427) do
+ActiveRecord::Schema.define(:version => 20121130034918) do
 
   create_table "allergies", :force => true do |t|
     t.string   "name"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(:version => 20121030161427) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "enrollments", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "section_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.date     "date"
     t.integer  "program_id"
@@ -45,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20121030161427) do
     t.integer  "location_id"
     t.boolean  "gospel_shared"
     t.integer  "meals_served",       :default => 0
-    t.integer  "bibles_distributed"
+    t.integer  "bibles_distributed", :default => 0
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
   end
@@ -91,6 +98,17 @@ ActiveRecord::Schema.define(:version => 20121030161427) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "notes", :force => true do |t|
+    t.integer  "user_id"
+    t.date     "date"
+    t.text     "contents"
+    t.string   "notable_type"
+    t.integer  "notable_id"
+    t.string   "priority"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "programs", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -98,18 +116,12 @@ ActiveRecord::Schema.define(:version => 20121030161427) do
     t.integer  "min_grade"
     t.integer  "max_grade"
     t.integer  "max_capacity"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "active"
     t.date     "start_date"
     t.date     "end_date"
-  end
-
-  create_table "registrations", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "section_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "scan_by_absence", :default => false
   end
 
   create_table "section_events", :force => true do |t|
@@ -156,14 +168,25 @@ ActiveRecord::Schema.define(:version => 20121030161427) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "password_confirmation"
     t.string   "role"
     t.integer  "department_id"
     t.boolean  "active"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

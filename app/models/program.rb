@@ -1,12 +1,12 @@
 class Program < ActiveRecord::Base 
 
-  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name, :start_date, :end_date
+  attr_accessible :active, :department_id, :description, :max_capacity, :max_grade, :min_grade, :name, :start_date, :end_date, :scan_by_absence
 
   #Relationships
   belongs_to :department
   has_many :events, :dependent => :delete_all
   has_many :sections, :dependent => :delete_all
-  has_many :registrations, :through => :sections
+  has_many :enrollments, :through => :sections
   has_many :locations, :through => :events
   
   #Validations

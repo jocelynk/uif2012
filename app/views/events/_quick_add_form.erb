@@ -1,3 +1,12 @@
+<script>
+function changeBg()
+{
+    alert("it has been changed"); 
+    console.log("it has been called"); 
+}
+
+</script>
+
  <h1>Quick Add Events</h1>
 <%= simple_form_for @event, :remote => true, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :date, :as => :date, :start_year => Date.today.year, :day => Date.today.day,
@@ -9,14 +18,13 @@
     <%= f.label :sections %><br />
     <%= f.grouped_collection_select :sections, Program.all, :sections, :name, :id, :name, {:include_blank => false}, { :multiple => true } %>
   </div>
-  <%= f.input :start_time, :as => :time %>
-  <%= f.input :end_time, :as => :time %>
+  <%= f.input :start_time, :as => :time, :ampm => true, :minute_step => 15 %>
+  <%= f.input :end_time, :as => :time, :ampm => true, :minute_step => 15 %>
   <%= f.association :location, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Location" %>
 
-  <div class="form-actions">
-    <%= f.button :submit, :class => 'btn-primary' %>
+  <div id="#form-actions">
+    <%= f.button :submit, :id => 'change_bg', :class => 'btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 events_path, :class => 'btn' %>
   </div>
 <% end %>
-

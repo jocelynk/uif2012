@@ -2,21 +2,21 @@
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :barcode_number %>
-  <%= f.input :household_id, :collection => get_households %>
-  <%= f.input :is_male %>
-  <%= f.input :grade %>
-  <%= f.input :date_of_birth %>
+  <%= f.input :household_id, :collection => get_households, :prompt => 'Choose Household' %>
+  <%= f.input :is_male, :label => "Gender", :as => :radio, :collection => [["Male ",true], ["Female ",false]], :item_wrapper_class => 'inline' %>
+  <%= f.input :grade, :collection => (1..12).to_a, :prompt => 'Choose Grade' %>
+  <%= f.input :date_of_birth, :order => [:month, :day, :year], :start_year => Date.today.year, :end_year => Date.today.year - 20 %>
   <%= f.input :cell_phone %>
   <%= f.input :can_text %>
   <%= f.input :email %>
-  <%= f.input :status, :collection => Student::STATUS_LIST%>
-  <%= f.file_field :photo, :label => 'Your photo please' %>
+  <%= f.input :status, :collection => Student::STATUS_LIST, :prompt => 'Choose Status' %>
+  <%= f.input :photo, :label => 'Your photo please' %>
   
-  <div id="registration_nested_form">
-    <%= f.fields_for :registrations do |registration_form| %>
-      <%= render 'registration_fields', f: registration_form %>
+  <div id="enrollment_nested_form">
+    <%= f.fields_for :enrollments do |enrollment_form| %>
+      <%= render 'enrollment_fields', f: enrollment_form %>
     <% end %>
-    <p><%= link_to_add_fields "Add a registration", f, :registrations %></p>
+    <p><%= link_to_add_fields "Add a enrollment", f, :enrollments %></p>
   </div>
   
   <div class="form-actions">

@@ -126,14 +126,14 @@ a:hover {
 }
 
 body {
-    font-family:"Nobile" !important;
+    font-family:"Lato", sans-serif !important;
     padding: 12px;
 
     background-color: #333;
 }
 
 h1, h2, h3, h4 {
-    font-family:"Lato" !important;
+    font-family:"Nobile" !important;
     color: #1C2324;
     margin: 0;
     padding: 0;
@@ -544,16 +544,37 @@ ul.nav li.active a:focus
     color:#ffd200 !important;
 }
 
-.brand + .nav li:nth-child(4)
+.brand + .nav li:nth-child(5)
 {
-    padding:10px;
-    padding-left:40px;
+    font-size:5px　!important;
+    margin-left:100px !important;
+}
+
+/*the sign in line*/
+.brand + .nav li:nth-child(5) a
+{
+    font-size:5px　!important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    display:inline-block !important;
+    /*      background-color:red;*/
+}
+#suer_nav
+{
+    position:relative;
+    right:0;
+    clear:none;
+}
+
+#user_nav a
+{
+    font-size:12px !important;
 }
 
 .brand + .nav li:nth-child(4) a
 {
-    font-size:12px !important;
-    text-decoration:none !important;
+/*    font-size:12px !important;
+text-decoration:none !important;*/
 }
 
 
@@ -566,6 +587,8 @@ ul.nav li.active a:focus
     /*add transitions for all browsers*/
     -webkit-transition: all 1s linear;
     opacity:0.7;
+    position:relative;
+    left:-45px;
 }
 
 .brand:hover
@@ -650,9 +673,9 @@ right:-20px;
     border-style:solid;
     border-width:1px;
     float: right;
-    height: 80%;
-    margin-top: 15px;
-    padding:15px;
+    height: 65%;
+    margin-top: 10px;
+    padding:25px;
     width:200px;
     position:absolute;
 
@@ -829,10 +852,8 @@ tbody tr td a:hover
     -webkit-transition:0.2s all linear;
     text-decoration:none !important;
     background-color:transparent !important;
+    
     color:#AEC4F7 !important;
-    font-size:15px;
-    text-shadow: #000 1px 1px 1px;
-
 }
 tbody tr td a
 {
@@ -840,6 +861,8 @@ tbody tr td a
     background-color:transparent !important;
     color:black !important;
     font-size:100%;
+    
+    
 }
 
 
@@ -1003,8 +1026,14 @@ border-radius: 4px;
     border-color: #EED3D7 !important;
 }
 
-/*.good
+
+
+
+/* =============================================== */
+/* ============= General ============ */
+/* =============================================== */
+ body:nth-child(2)
 {
-    
+    margin-top:50px !important;
+    margin-bottom:100px !important;
 }
-*/

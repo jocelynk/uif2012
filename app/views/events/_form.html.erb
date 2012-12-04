@@ -15,8 +15,8 @@
   </div>
   
 
-  <%= f.input :start_time, :minute_step => 15 %>
-  <%= f.input :end_time, :minute_step => 15 %>
+  <%= f.input :start_time, :as => :time, :ampm => true, :minute_step => 15 %>
+  <%= f.input :end_time, :as => :time, :ampm => true, :minute_step => 15 %>
   <%= f.association :location, :label_method => :name, :value_method => :id, :include_blank => false, :prompt =>"Choose a Location" %>
   <%= f.input :gospel_shared, :input_html => { :value => '1' } %>
   <%= f.input :meals_served, :as => :integer, :min => 0 %>

@@ -1,12 +1,22 @@
-<h2>Check-in</h2>
+<% javascript 'home.js.coffee' %>
+<h4>Date: <%= @event.date.strftime("%b %d, %Y") %></h4>
+<%- if @event.program.scan_by_absence %>
+  <h4>Absence Scan for Following Sections:</h4>
+<%- else %>
+  <h4>Attendance Scan for Following Sections:</h4>
+<%- end %>
+<ul>
+<% @event.sections.each do |event| %>
+  <li><%= event.name %></li>
+<% end %>
 <p>Scanning...</p>
+<div id="attendance_barcodes">
+      <input id ="Input" type="text"> </input>
+      <span id="student_checked"></span>
+</div>
 
-<%= @event_details.first.section %> - <%= @event_details.first.date %>
 <div id="container">
   <h2>Attendees</h2><p/><div id="attend"><%= render :partial => "attendees" %></div>
   <h2>Absentees</h2><p/><div id="absent"><%= render :partial => "absentees" %></div>
 </div>
-<div id="content">
-      <input id ="Input" type="text"> </input>
-      <span id="add-here"></span>
-</div>
+
