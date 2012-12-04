@@ -21,7 +21,8 @@ gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
-  gem 'mina'
+  gem 'capistrano'
+  gem 'colored'
   gem 'populator3'
   gem 'faker'
   gem 'hirb'
