@@ -7,6 +7,8 @@ coverage
 db/*.sqlite3
 .rvmrc
 .DS_Store
+app/assets/.DS_Store
+app/.DS_Store
 log/*.log
 .bundle
 log/development.log
