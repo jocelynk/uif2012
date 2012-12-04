@@ -1,8 +1,8 @@
 require 'carrierwave/orm/activerecord'
 
 class Student < ActiveRecord::Base
-  attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes
-  before_save :reformat_phone
+  attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes, :is_visitor
+  before_save :reformat_phone, :assign_visitor_barcode
   
   mount_uploader :photo, PhotoUploader
   
@@ -19,19 +19,21 @@ class Student < ActiveRecord::Base
   accepts_nested_attributes_for :enrollments, :allow_destroy => true
   
   #Validations
-  validates_presence_of :first_name, :last_name, :grade, :date_of_birth
-  validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}
+  validates_presence_of :first_name, :last_name
+  validates_presence_of :grade, :date_of_birth, :barcode_number, unless: Proc.new { |s| s.is_visitor}
+  validates :date_of_birth, :timeliness => {:on_or_before => lambda { Date.current }, :type => :date}, unless: Proc.new { |s| s.is_visitor}
   validates_format_of :cell_phone, :with => /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/, :allow_blank => true, :message => "should be 10 digits (area code needed) and delimited with dashes or spaces only"
   #/^\(?\d{3}\)?[-. ]?\d{3}[-.]?\d{4}$/
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))$/i, :allow_blank => true, :message => "is not a valid format"
   validates_numericality_of :grade, :only_integer => true, :message => "is not a valid number"
   validates_inclusion_of :grade, :in => 1..12, :message => "grades are between 1 and 12"
-  
+  validates_format_of :barcode_number, :with => /^\d{12}$/, :message => 'should be 12 digits', :allow_blank => true, :if => :is_visitor
+  validates_uniqueness_of :barcode_number
   #Scopes
   scope :active, where('active = ?', true)
   scope :inactive, where('active = ?', false)
   scope :alphabetical, order('last_name, first_name')
-
+  scope :is_visitor, where('is_visitor =?', true)
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
   
@@ -106,6 +108,23 @@ class Student < ActiveRecord::Base
     phone = self.cell_phone.to_s # change to string in case input as all numbers
     phone.gsub!(/[^0-9]/,"") # strip all non-digits
     self.cell_phone = phone # reset self.phone to new string
+  end
+  
+  private
+  def assign_visitor_barcode
+    if self.is_visitor
+      @student = true
+      while @student
+        new_barcode = '00000'+Array.new(7){rand(10)}.join
+        @student = Student.find_by_barcode_number(new_barcode)
+        if @student.nil?
+          self.barcode_number = new_barcode
+          @student = false
+        else
+          @student = true
+        end  
+      end
+    end
   end
   
 end

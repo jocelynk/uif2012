@@ -1,6 +1,6 @@
 class ProgramsController < ApplicationController
   #before_filter :check_login
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :set_controller_and_action_names
   # GET /programs
   # GET /programs.json
   def index
@@ -29,7 +29,7 @@ class ProgramsController < ApplicationController
   # GET /programs/new.json
   def new
     @program = Program.new
-
+    @data = params[:data]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @program }

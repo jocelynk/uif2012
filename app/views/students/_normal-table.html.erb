@@ -11,7 +11,7 @@
           <th><%=t '.actions', :default => t("helpers.actions") %></th>
       </tr>
   </thead>
-  <tbody>
+  <tbody id="list">
       <% @students.each do |student| %>
       <tr>
 
@@ -56,7 +56,7 @@
 
 <div class="digg_pagination">
     <div clas="page_info">
-        <%= page_entries_info @students %>
+        <%# page_entries_info @students %>
     </div>
-    <%= will_paginate @students, :container => true %>
+    <%# will_paginate @students, :container => true %>
 </div>

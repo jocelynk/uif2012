@@ -37,5 +37,8 @@ class FixColumns < ActiveRecord::Migration
     
     #scan type
     add_column :programs, :scan_by_absence, :boolean, :default => false
+    
+    #adding visitor to students
+    add_column :students, :is_visitor, :boolean, :default => false
   end
 end

@@ -1,41 +1,47 @@
 <%- model_class = Event -%>
+
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 
-
-<div class="calendar-buttons">
-  <button class="btn btn-mini">Daily</button>
-  <button class="btn btn-mini">Monthly</button>
-  <button class="btn btn-mini">Yearly</button>
+<div class="row">
+  <div class="span6">
+<div id="search">
+	<%= form_tag('/events/search') do %>
+		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+	<% end %>
 </div>
-
+</div>
+<div class="span1">
+<%= link_to t('.new', :default => t("helpers.links.new")),
+new_event_path,
+:class => 'btn btn-primary' %>
+</div>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
       <% if controller.controller_name == "events" %>
-        <th><%= model_class.human_attribute_name(:date) %></th>
+        <th>Date</th>
       <% end %>
-      <th><%= model_class.human_attribute_name(:program_id) %></th>
-      <th><%= model_class.human_attribute_name(:sections) %></th>
-      <th><%= model_class.human_attribute_name(:start_time) %></th>
-      <th><%= model_class.human_attribute_name(:end_time) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      <th>Program</th>
+      <!-- <th>Sections</th> -->
+      <th>Time</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
 	
-  <tbody>
+  <tbody id="list">
     <% @events.each do |event| %>
       <tr>
         <% if controller.controller_name == "events" %>
-          <td><%= l(event.date, :format =>'%B %d, %Y') %></td>
+          <td><%= l(event.date, :format =>'%b %d, %Y') %></td>
           <td><%= link_to event.program.name, event_path(event) %></td>
         <% elsif %>
           <td><%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %></td>
         <% end %>
-        <td><% event.sections.each do |section|%><%= section.name %>&nbsp;<% end %></td>
-        <td><%= l event.start_time %></td>
-        <td><%= l event.end_time %></td>
+        <!-- <td><%# event.sections.each do |section|%><%# section.name %>&nbsp;<%# end %></td> -->
+        <td><%= l event.start_time %> - <%= l event.end_time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_event_path(event), :class => 'btn btn-mini' %>
@@ -50,13 +56,16 @@
   </tbody>
 </table>
 <%# will_paginate @events %>
-<%= link_to t('.new', :default => t("helpers.links.new")),
-new_event_path,
-:class => 'btn btn-primary' %>
 
-<div class="digg_pagination">
+
+<!-- <div class="digg_pagination">
     <div clas="page_info">
-        <%= page_entries_info @events %>
+        <%# page_entries_info @events %>
     </div>
-    <%= will_paginate @events, :container => true %>
-</div>
+    <%# will_paginate @events, :container => true %>
+</div> -->
+<br>
+<br>
+<br>
+<br>
+<br>

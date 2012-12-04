@@ -13,7 +13,7 @@ require 'mina/git'
 set :domain, 'urbanimpact.hss.cmu.edu'
 set :deploy_to, '/var/www/urban-impact'
 set :repository, 'git@github.com:cmu-is-projects/uif2012.git'
-set :branch, 'master'
+set :branch, 'production'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -48,8 +48,9 @@ task :setup => :environment do
   queue! %[mkdir -p #{deploy_to}/shared/tmp]
   queue! %[chmod g+rwx,u+rwx "#{deploy_to}/shared/tmp"]
 
-  queue! %[mkdir -p /var/log/unicorn]
-  queue! %[chmod g+rw,u+rw /var/log/unicorn]
+  queue! %[sudo mkdir -p /var/log/unicorn]
+  queue! %[sudo chmod g+rw,u+rw /var/log/unicorn]
+  queue! %[sudo chown -R #{user}:#{group} /var/log/unicorn]
 end
 
 desc "Deploys the current version to the server."
@@ -65,8 +66,7 @@ task :deploy => :environment do
 
     to :launch do
       queue 'sudo service nginx reload'
-      queue "sudo #{deploy_to}/shared/unicorn rotate"
-      queue "sudo #{deploy_to}/shared/unicorn reload"
+      queue "sudo #{deploy_to}/shared/unicorn restart"
     end
   end
 end
