@@ -161,8 +161,9 @@ ActiveRecord::Schema.define(:version => 20121202232741) do
     t.string   "photo"
     t.string   "email"
     t.string   "status"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "is_visitor",     :default => false
   end
 
   create_table "users", :force => true do |t|

@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   #before_filter :check_login
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!,  :set_controller_and_action_names
   
   respond_to :html, :xml, :json, :js
   def index
@@ -37,7 +37,7 @@ class StudentsController < ApplicationController
   # GET /students/new.json
   def new
     @student = Student.new
-
+    @data = params[:data]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student }
@@ -57,11 +57,36 @@ class StudentsController < ApplicationController
       @enrollments = params[:student][:enrollments_attributes]
     end
     params[:student].delete "enrollments_attributes"
-    puts @enrollments
-    @student = Student.new(params[:student])
-    puts @student.save
+    
+    #need to add in household id for students?
+    @student = Student.new(params[:student]) #:household_id => @household.id
+    @household = Household.new(params[:household])
     respond_to do |format|
-      if @student.save
+      if @student.save and @household.save
+      puts "Student saved and Household saved"
+        @student.update_attributes({:household_id => @household.id})         
+        unless @enrollments.nil? || @enrollments.empty?
+          @enrollments.each do |reg|
+            @enrollment = Enrollment.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
+            @enrollment.save
+          end
+        end
+        format.html { redirect_to @student, notice: 'A visitor was successfully created.' }
+        format.json { render json: @student, status: :created, location: @student }
+      elsif @student.save and @student.is_visitor
+              puts "Student but issue with ohusehold"
+        @destroy_student = Student.find_by_id(@student.id)
+        @destroy_student.destroy
+        @student = Student.new
+        format.html { render action: "new" }
+      elsif @household.save
+              puts "Household saved but issue with student"
+        @destroy_household = Household.find_by_id(@household.id)
+        @destroy_household.destroy
+        format.html { render action: "new" }
+        #format.json { render json: @student.errors, status: :unprocessable_entity } 
+      elsif @student.save
+        puts "Student saved no issue"
         unless @enrollments.nil? || @enrollments.empty?
           @enrollments.each do |reg|
             @enrollment = Enrollment.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
@@ -71,7 +96,7 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
-        puts "NEW NEW NEW NEW NEW"
+        puts "issue with student"
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end

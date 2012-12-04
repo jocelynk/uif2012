@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   
   def index
     @events = Event.by_date_desc.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -39,6 +40,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @data = params[:data]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @event }

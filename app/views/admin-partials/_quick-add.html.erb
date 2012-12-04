@@ -1,4 +1,14 @@
 <div class="page-header">
-    <h1>Quick Add...</h1>
+    <h1>Quick Add Links</h1>
+    <%= link_to t('.new', :default => "New Event"),
+     {:controller=> 'events', :action=> 'new', :data => 'home'}, :class => 'btn btn-primary' %>
+    <%= link_to t('.new', :default => "New Student"),
+     {:controller=> 'students', :action=> 'new', :data => 'home'},
+    :class => 'btn btn-primary' %>
+    <%= link_to t('.new', :default => "New Location"),
+    {:controller=> 'locations', :action=> 'new', :data => 'home'}, :class => 'btn btn-primary' %>
+     <%= link_to t('.new', :default => "New Program"),
+     {:controller=> 'programs', :action=> 'new', :data => 'home'},
+    :class => 'btn btn-primary' %>
 </div>
 

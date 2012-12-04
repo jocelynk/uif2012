@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   respond_to :html, :json, :js
+  before_filter :set_controller_and_action_names
+  
   def index
    @events = Event.current
    @all_events = Event.paginate(:page => params[:page], :per_page => 5)
