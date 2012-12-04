@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @attendees = Event.attendees(params[:id])
     @absentees = Event.absentees(params[:id])
-    @notes = @event.notes
+    @notes = @event.notes.by_priority
     @notable = @event
     respond_to do |format|
       format.html # show.html.erb
@@ -181,6 +181,16 @@ class EventsController < ApplicationController
       end
        
     end
+  end
+
+  def barcodes
+    puts params[:id]
+    @event = Event.find_by_id(params[:id])
+    @attendees = Event.attendees(params[:id])
+    puts @attendees
+    puts '++++++++++++++++++++++++++++++++++'
+    puts @absentees
+    @absentees = Event.absentees(params[:id])
   end
   
   def meals_served

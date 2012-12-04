@@ -8,7 +8,8 @@
           <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
           <th><%= model_class.human_attribute_name(:cell_phone) %></th>
           <th><%= model_class.human_attribute_name(:email) %></th>
-          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+		  <th><%= "Barcode" %></th>
+          <th></th>
       </tr>
   </thead>
   <tbody id="list">
@@ -19,7 +20,6 @@
         <td><%= link_to student.name, student_path(student) %></td>
 		<!-- <td><%= student.name %></td> -->
         <!--<td><%= student.last_name %></td>-->
-        <!-- <td><%= student.barcode_number %></td> -->
         <!-- <td><%= student.household_id %></td> -->
         <!-- <td><%= student.is_male %></td> -->
         <td><%= student.grade %></td>
@@ -28,6 +28,7 @@
         <!-- <td><%= student.can_text %></td> -->
         <!-- <td><%= student.photo %></td> -->
         <td><%= mail_to(student.email) %></td>
+	<td><%= link_to student.barcode_number, id_student_path(student.id) %></td> 
         <!-- <td><%= student.status %></td> -->
         <!-- <td><%=l student.created_at %></td> -->
         <td>

@@ -1,0 +1,29 @@
+<%- model_class = Event -%>
+
+<% if @attendees %>
+<% @attendees.each do |student| %>
+<table class = id_card>
+	<tr>
+		<td><h1><%= student.proper_name %></h1></td>
+		<td><%= image_tag(student.image, :size => "140x140") %></td>	
+	</tr>
+	<tr>
+		<td><%= image_tag(student.newbarcode) %></td>
+	</tr>
+</table>
+<% end %>
+<% end %>
+
+<% if @absentees %>
+<% @absentees.each do |student| %>
+<table class = id_card>
+	<tr>
+		<td><h1><%= student.proper_name %></h1></td>
+		<td><%= image_tag(student.image, :size => "140x140") %></td>	
+	</tr>
+	<tr>
+		<td><%= image_tag(student.newbarcode) %></td>
+	</tr>
+</table>
+<% end %>
+<% end %>

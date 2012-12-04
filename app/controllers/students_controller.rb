@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
     puts "CELL: #{@student.cell_phone}"
     @recent_activities = @student.recent_activity
-    @notes = @student.notes
+    @notes = @student.notes.by_priority.limit(4)
     @notable = @student
     respond_with(@student) do |format|
       format.js { render json: @student, :callback => params[:callback] }
@@ -135,6 +135,23 @@ class StudentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to students_url }
       format.json { head :no_content }
+    end
+  end
+
+  
+  def id
+    puts params[:id]
+    @student = Student.find_by_id(params[:id])
+    if @student
+      respond_to do |format|
+      	format.html
+      	format.json { render json: @student }
+      end
+    else
+      respond_to do |format|
+      	format.html
+      	format.json { render error: "Cannot find student" }
+      end
     end
   end
 end
