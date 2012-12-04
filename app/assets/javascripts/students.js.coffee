@@ -1,23 +1,25 @@
 jQuery ->
   obj = 
     count: 0
-  if document.getElementById("student_is_visitor").checked
-    $(document.getElementById("student_barcode_number")).parent().parent().hide()
-    $(document.getElementById("student_household_id")).parent().parent().hide()    
-    $(document.getElementById("visitor_households")).show()
-  else
-    $(document.getElementById("student_barcode_number")).parent().parent().show()
-    $(document.getElementById("student_household_id")).parent().parent().show()    
-    $(document.getElementById("visitor_households")).hide()
-  $("#student_is_visitor").click ->
+  checked = document.getElementById("student_is_visitor")
+  if checked is not null
     if document.getElementById("student_is_visitor").checked
       $(document.getElementById("student_barcode_number")).parent().parent().hide()
-      $(document.getElementById("student_household_id")).parent().parent().hide()
+      $(document.getElementById("student_household_id")).parent().parent().hide()    
       $(document.getElementById("visitor_households")).show()
     else
       $(document.getElementById("student_barcode_number")).parent().parent().show()
-      $(document.getElementById("student_household_id")).parent().parent().show()
+      $(document.getElementById("student_household_id")).parent().parent().show()    
       $(document.getElementById("visitor_households")).hide()
+    $("#student_is_visitor").click ->
+      if document.getElementById("student_is_visitor").checked
+        $(document.getElementById("student_barcode_number")).parent().parent().hide()
+        $(document.getElementById("student_household_id")).parent().parent().hide()
+        $(document.getElementById("visitor_households")).show()
+      else
+        $(document.getElementById("student_barcode_number")).parent().parent().show()
+        $(document.getElementById("student_household_id")).parent().parent().show()
+        $(document.getElementById("visitor_households")).hide()
       
   if document.getElementById('enrollment_nested_form') isnt null
     if document.getElementById('enrollment_nested_form').children.length <= 1
