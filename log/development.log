@@ -1391,3 +1391,364 @@ Processing by EventsController#index as HTML
   Rendered users/_login.html.erb (0.5ms)
   Rendered partials/_header.html.erb (2.6ms)
 Completed 200 OK in 204ms (Views: 195.6ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2012-12-03 23:40:32 -0500
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events" ORDER BY date DESC
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 1 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 7 LIMIT 1
+  [1m[36mProgram Load (0.1ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 11 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 10 LIMIT 1
+  Rendered events/_events.html.erb (146.2ms)
+  Rendered events/index.html.erb within layouts/application (151.0ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 216ms (Views: 208.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-03 23:40:38 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mStudent Load (1.6ms)[0m  SELECT "students".* FROM "students" ORDER BY last_name, first_name
+  Rendered students/_normal-table.html.erb (398.7ms)
+  Rendered students/index.html.erb within layouts/application (473.5ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.3ms)
+Completed 200 OK in 622ms (Views: 532.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-12-03 23:40:41 -0500
+Processing by ProgramsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProgram Load (0.5ms)[0m  SELECT "programs".* FROM "programs" ORDER BY name LIMIT 15 OFFSET 0
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (138.9ms)
+  Rendered users/_login.html.erb (0.7ms)
+  Rendered partials/_header.html.erb (3.8ms)
+Completed 200 OK in 220ms (Views: 216.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2012-12-03 23:40:44 -0500
+Processing by LocationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY name LIMIT 10 OFFSET 0[0m
+  Rendered locations/index.html.erb within layouts/application (6.7ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 141ms (Views: 139.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-12-03 23:40:52 -0500
+Processing by ProgramsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProgram Load (0.5ms)[0m  [1mSELECT "programs".* FROM "programs" ORDER BY name LIMIT 15 OFFSET 0[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mProgram Load (0.1ms)[0m  SELECT "programs".* FROM "programs" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  Rendered programs/index.html.erb within layouts/application (43.1ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 104ms (Views: 100.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2012-12-03 23:40:57 -0500
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mEvent Load (0.3ms)[0m  SELECT "events".* FROM "events" ORDER BY date DESC
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 1 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 7 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 11 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 10 LIMIT 1
+  Rendered events/_events.html.erb (143.7ms)
+  Rendered events/index.html.erb within layouts/application (147.8ms)
+  Rendered users/_login.html.erb (0.6ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 207ms (Views: 200.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-03 23:41:23 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mStudent Load (2.2ms)[0m  SELECT "students".* FROM "students" ORDER BY last_name, first_name
+  Rendered students/_normal-table.html.erb (442.0ms)
+  Rendered students/index.html.erb within layouts/application (444.3ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.3ms)
+Completed 200 OK in 572ms (Views: 559.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/students/145/id" for 127.0.0.1 at 2012-12-03 23:45:25 -0500
+Processing by StudentsController#id as HTML
+  Parameters: {"id"=>"145"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT "students".* FROM "students" WHERE "students"."id" = 145 LIMIT 1
+  Rendered students/id.html.erb within layouts/application (1.8ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.2ms)
+Completed 200 OK in 60ms (Views: 54.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-03 23:45:51 -0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mStudent Load (1.5ms)[0m  SELECT "students".* FROM "students" ORDER BY last_name, first_name
+  Rendered students/_normal-table.html.erb (462.3ms)
+  Rendered students/index.html.erb within layouts/application (465.1ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.5ms)
+Completed 200 OK in 533ms (Views: 520.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-12-03 23:48:23 -0500
+Processing by ProgramsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProgram Load (0.7ms)[0m  SELECT "programs".* FROM "programs" ORDER BY name LIMIT 15 OFFSET 0
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (64.5ms)
+  Rendered users/_login.html.erb (0.8ms)
+  Rendered partials/_header.html.erb (3.5ms)
+Completed 200 OK in 147ms (Views: 142.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2012-12-03 23:48:31 -0500
+Processing by EventsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events" ORDER BY date DESC[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 1 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 7 LIMIT 1[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 4 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 11 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "programs".* FROM "programs" WHERE "programs"."id" = 8 LIMIT 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 10 LIMIT 1[0m
+  Rendered events/_events.html.erb (70.9ms)
+  Rendered events/index.html.erb within layouts/application (75.6ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.7ms)
+Completed 200 OK in 214ms (Views: 206.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2012-12-03 23:54:12 -0500
+Processing by LocationsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY name LIMIT 10 OFFSET 0[0m
+  Rendered locations/index.html.erb within layouts/application (9.4ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.6ms)
+Completed 200 OK in 86ms (Views: 82.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-03 23:55:08 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mStudent Load (1.8ms)[0m  [1mSELECT "students".* FROM "students" ORDER BY last_name, first_name[0m
+  Rendered students/_normal-table.html.erb (457.8ms)
+  Rendered students/index.html.erb within layouts/application (460.9ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.2ms)
+Completed 200 OK in 530ms (Views: 515.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2012-12-03 23:56:12 -0500
+Processing by LocationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY name LIMIT 10 OFFSET 0[0m
+  Rendered locations/index.html.erb within layouts/application (6.8ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.1ms)
+Completed 200 OK in 167ms (Views: 163.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-12-03 23:56:15 -0500
+Processing by ProgramsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProgram Load (0.6ms)[0m  [1mSELECT "programs".* FROM "programs" ORDER BY name LIMIT 15 OFFSET 0[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mProgram Load (0.1ms)[0m  SELECT "programs".* FROM "programs" LIMIT 1 OFFSET 0
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  Rendered programs/index.html.erb within layouts/application (41.5ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.2ms)
+Completed 200 OK in 103ms (Views: 98.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/locations" for 127.0.0.1 at 2012-12-03 23:58:20 -0500
+Processing by LocationsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" ORDER BY name LIMIT 10 OFFSET 0
+  Rendered locations/index.html.erb within layouts/application (7.4ms)
+  Rendered users/_login.html.erb (0.4ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 85ms (Views: 81.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/programs" for 127.0.0.1 at 2012-12-03 23:58:25 -0500
+Processing by ProgramsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProgram Load (0.6ms)[0m  SELECT "programs".* FROM "programs" ORDER BY name LIMIT 15 OFFSET 0
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" LIMIT 1 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "programs" [0m
+  Rendered programs/index.html.erb within layouts/application (58.9ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (3.4ms)
+Completed 200 OK in 136ms (Views: 130.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-03 23:58:27 -0500
+Processing by HomeController#index as HTML
+  [1m[35mNote Load (0.3ms)[0m  SELECT "notes".* FROM "notes" 
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "events" WHERE (date >= '2012-12-03')[0m
+  Rendered admin-partials/_upcoming-events.html.erb (1.8ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "events" WHERE (date < '2012-12-03')
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events" WHERE (date < '2012-12-03') LIMIT 5 OFFSET 0[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "events" WHERE (date < '2012-12-03')
+  [1m[36mProgram Load (0.3ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 1
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 7 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 2
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 10 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 12 LIMIT 1[0m
+  [1m[35mSection Load (0.3ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 4
+  [1m[36mProgram Load (0.2ms)[0m  [1mSELECT "programs".* FROM "programs" WHERE "programs"."id" = 11 LIMIT 1[0m
+  [1m[35mSection Load (0.2ms)[0m  SELECT "sections".* FROM "sections" INNER JOIN "section_events" ON "sections"."id" = "section_events"."section_id" WHERE "section_events"."event_id" = 5
+  Rendered admin-partials/_past-events.html.erb (36.7ms)
+  Rendered admin-partials/_issues.html.erb (0.1ms)
+  Rendered admin-partials/_quick-add.html.erb (2.3ms)
+  Rendered home/index.html.erb within layouts/application (45.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered users/_login.html.erb (2.0ms)
+  Rendered partials/_header.html.erb (4.8ms)
+Completed 200 OK in 133ms (Views: 126.9ms | ActiveRecord: 3.5ms)
