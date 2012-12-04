@@ -6,7 +6,7 @@ gem 'carrierwave'
 gem 'rails', '3.2.8'
 gem 'gon'
 gem 'jquery-rails'
-gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+gem 'nested_form', :github => 'ryanb/nested_form'
 gem 'mini_magick'
 gem 'rmagick'
 gem 'simple_form'
@@ -20,7 +20,6 @@ gem 'will_paginate', "~> 3.0.3"
 gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
 
-# Gems used only in development
 group :development do
   gem 'mina'
   gem 'populator3'
