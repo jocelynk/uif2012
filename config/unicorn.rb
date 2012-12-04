@@ -3,7 +3,7 @@ stderr_path '/var/log/unicorn/urban-impact-error.log'
 stdout_path '/var/log/unicorn/urban-impact.log'
 pid '/var/www/urban-impact/shared/pids/unicorn.pid'
 
-listen '/var/www/urban-impact/shared/tmp/unicorn.sock', :backlog => 2048
+listen '/var/www/urban-impact/shared/sockets/unicorn.sock', :backlog => 2048
 worker_processes 4
 timeout 30
 preload_app true
