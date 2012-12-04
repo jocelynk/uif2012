@@ -23,8 +23,14 @@
   <%= f.input :bibles_distributed, :as => :integer, :min => 0%> 
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                events_path, :class => 'btn' %>
+
+    <% if @data.blank? %> 
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  events_path, :class => 'btn' %>
+    <%else%>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  home_path, :class => 'btn' %>
+    <%end%>
 
   </div>
 <% end %>

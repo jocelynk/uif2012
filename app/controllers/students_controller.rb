@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   #before_filter :check_login
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!,  :set_controller_and_action_names
   
   respond_to :html, :xml, :json, :js
   def index
@@ -37,6 +37,7 @@ class StudentsController < ApplicationController
   # GET /students/new.json
   def new
     @student = Student.new
+    @data = params[:data]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student }

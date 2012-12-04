@@ -45,11 +45,6 @@
                 <% event.sections.each do |section|%>
                 <%= section.name %>&nbsp;
                 <% end %> 
-                <!-- </td>
-                <td><%= l event.start_time %></td>
-                <td><%= l event.end_time %></td>
-                <td> -->
-                    <!-- <a href=<%= checkin_path(event) %>><i class="icon-large icon-barcode"></i></a> -->
                 </td>
                 <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
                 </td>
@@ -72,6 +67,4 @@
 
 <% end %>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-new_event_path,
-:class => 'btn btn-primary' %>
+
