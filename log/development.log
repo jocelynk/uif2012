@@ -326,3 +326,360 @@ Migrating to AddTitleToNotes (20121202232741)
   [1m[36m (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
   [1m[35m (0.1ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
   [1m[36m (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+Connecting to database specified by database.yml
+
+
+Started GET "/students/16" for 127.0.0.1 at 2012-12-04 00:12:55 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Completed 401 Unauthorized in 111ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-04 00:12:56 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (79.5ms)
+Compiled notes.css  (92ms)  (pid 4030)
+Compiled application.css  (8ms)  (pid 4030)
+  Rendered users/_login.html.erb (2.1ms)
+  Rendered partials/_header.html.erb (6.1ms)
+Completed 200 OK in 668ms (Views: 666.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-04 00:12:59 -0500
+Processing by StudentsController#index as HTML
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-04 00:12:59 -0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (11.6ms)
+  Rendered users/_login.html.erb (0.9ms)
+  Rendered partials/_header.html.erb (2.8ms)
+Completed 200 OK in 75ms (Views: 72.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2012-12-04 00:13:04 -0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"algSNqAYEXG/UOp8Wlfu2b21cBCORWI1wERRbvIqEio=", "user"=>{"login"=>"profh", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE (lower(username) = 'profh' OR lower(email) = 'profh') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-04 00:13:05.306571', "current_sign_in_at" = '2012-12-04 00:13:05.306571', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-12-04 00:13:05.308636' WHERE "users"."id" = 1
+  [1m[36m (304.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 759ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-04 00:13:05 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT "students".* FROM "students" ORDER BY last_name, first_name[0m
+  Rendered students/_normal-table.html.erb (3.1ms)
+  Rendered students/index.html.erb within layouts/application (9.1ms)
+  Rendered users/_login.html.erb (0.7ms)
+  Rendered partials/_header.html.erb (3.0ms)
+Completed 200 OK in 78ms (Views: 72.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:13:07 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (0.2ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (0.1ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (204.0ms)
+  Rendered students/_form.html.erb (464.3ms)
+  Rendered students/new.html.erb within layouts/application (466.8ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.5ms)
+Completed 200 OK in 630ms (Views: 592.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/students" for 127.0.0.1 at 2012-12-04 00:13:43 -0500
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"algSNqAYEXG/UOp8Wlfu2b21cBCORWI1wERRbvIqEio=", "student"=>{"first_name"=>"asdf", "last_name"=>"asdf", "barcode_number"=>"111111111111", "household_id"=>"", "is_male"=>"false", "is_visitor"=>"0", "grade"=>"3", "date_of_birth(2i)"=>"12", "date_of_birth(3i)"=>"4", "date_of_birth(1i)"=>"1993", "cell_phone"=>"", "can_text"=>"0", "email"=>"", "status"=>"active"}, "household"=>{"name"=>"", "street"=>"", "street2"=>"", "city"=>"", "zip"=>""}, "commit"=>"Create Student"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT 1 AS one FROM "students" WHERE "students"."barcode_number" = '111111111111' LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "students" ("barcode_number", "can_text", "cell_phone", "created_at", "date_of_birth", "email", "first_name", "grade", "household_id", "is_male", "is_visitor", "last_name", "photo", "status", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["barcode_number", "111111111111"], ["can_text", false], ["cell_phone", ""], ["created_at", Tue, 04 Dec 2012 00:13:43 EST -05:00], ["date_of_birth", Sat, 04 Dec 1993], ["email", ""], ["first_name", "asdf"], ["grade", 3], ["household_id", nil], ["is_male", false], ["is_visitor", false], ["last_name", "asdf"], ["photo", nil], ["status", "active"], ["updated_at", Tue, 04 Dec 2012 00:13:43 EST -05:00]]
+  [1m[35m (338.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mStudent Exists (0.2ms)[0m  SELECT 1 AS one FROM "students" WHERE ("students"."barcode_number" = '111111111111' AND "students"."id" != 1) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT 1 AS one FROM "students" WHERE ("students"."barcode_number" = '111111111111' AND "students"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/students/1
+Completed 302 Found in 597ms (ActiveRecord: 341.3ms)
+
+
+Started GET "/students/1" for 127.0.0.1 at 2012-12-04 00:13:43 -0500
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mStudent Load (0.3ms)[0m  SELECT "students".* FROM "students" WHERE "students"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "notes" WHERE "notes"."notable_id" = 1 AND "notes"."notable_type" = 'Student'[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(count_column) FROM (SELECT 1 AS count_column FROM "notes" WHERE "notes"."notable_id" = 1 AND "notes"."notable_type" = 'Student' LIMIT 4) subquery_for_count 
+  Rendered partials/_note_form.html.erb (25.3ms)
+  Rendered partials/_add_notes_to_page.html.erb (32.9ms)
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT sections.name AS "section",e.id AS "event", e.date AS "date" FROM "students" INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id INNER JOIN section_events se ON se.event_id = e.id INNER JOIN sections ON sections.id = se.section_id WHERE (students.id = 1 AND e.date > '2012-11-29') ORDER BY "date"[0m
+  Rendered students/_recent_activities.html.erb (2.2ms)
+  Rendered students/show.html.erb within layouts/application (44.5ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.6ms)
+Completed 200 OK in 118ms (Views: 103.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/students" for 127.0.0.1 at 2012-12-04 00:14:24 -0500
+Processing by StudentsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mStudent Load (0.6ms)[0m  [1mSELECT "students".* FROM "students" ORDER BY last_name, first_name[0m
+  Rendered students/_normal-table.html.erb (7.0ms)
+  Rendered students/index.html.erb within layouts/application (12.2ms)
+Compiled students.js  (97ms)  (pid 4030)
+Compiled application.js  (25ms)  (pid 4030)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.7ms)
+Completed 200 OK in 491ms (Views: 484.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:14:29 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (0.2ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (4.8ms)
+  Rendered students/_form.html.erb (52.7ms)
+  Rendered students/new.html.erb within layouts/application (54.3ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.5ms)
+Completed 200 OK in 122ms (Views: 118.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:14:56 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (0.2ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (0.2ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (4.7ms)
+  Rendered students/_form.html.erb (101.6ms)
+  Rendered students/new.html.erb within layouts/application (103.7ms)
+Compiled students.js  (32ms)  (pid 4030)
+Compiled application.js  (25ms)  (pid 4030)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.6ms)
+Completed 200 OK in 525ms (Views: 519.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-12-04 00:14:57 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:15:25 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (0.2ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (2.1ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (7.6ms)
+  Rendered students/_form.html.erb (134.4ms)
+  Rendered students/new.html.erb within layouts/application (136.2ms)
+Compiled students.js  (22ms)  (pid 4030)
+Compiled application.js  (26ms)  (pid 4030)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.7ms)
+Completed 200 OK in 474ms (Views: 468.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-12-04 00:15:26 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:15:35 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (0.2ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (4.7ms)
+  Rendered students/_form.html.erb (130.2ms)
+  Rendered students/new.html.erb within layouts/application (133.4ms)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.5ms)
+Completed 200 OK in 204ms (Views: 199.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-12-04 00:15:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/students/new" for 127.0.0.1 at 2012-12-04 00:15:51 -0500
+Processing by StudentsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mHousehold Load (1.1ms)[0m  [1mSELECT "households".* FROM "households" ORDER BY name[0m
+  [1m[35mProgram Load (0.3ms)[0m  SELECT "programs".* FROM "programs" 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "programs".* FROM "programs" [0m
+  Rendered students/_enrollment_fields.html.erb (4.9ms)
+  Rendered students/_form.html.erb (142.5ms)
+  Rendered students/new.html.erb within layouts/application (144.4ms)
+Compiled students.js  (21ms)  (pid 4030)
+Compiled application.js  (24ms)  (pid 4030)
+  Rendered users/_login.html.erb (0.5ms)
+  Rendered partials/_header.html.erb (2.6ms)
+Completed 200 OK in 477ms (Views: 473.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/img/glyphicons-halflings.png" for 127.0.0.1 at 2012-12-04 00:15:53 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/glyphicons-halflings.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  quiet_assets (1.0.1) lib/quiet_assets.rb:20:in `call_with_quiet_assets'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  thin (1.5.0) lib/thin/connection.rb:81:in `block in pre_process'
+  thin (1.5.0) lib/thin/connection.rb:79:in `catch'
+  thin (1.5.0) lib/thin/connection.rb:79:in `pre_process'
+  thin (1.5.0) lib/thin/connection.rb:54:in `process'
+  thin (1.5.0) lib/thin/connection.rb:39:in `receive_data'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run_machine'
+  eventmachine (1.0.0) lib/eventmachine.rb:187:in `run'
+  thin (1.5.0) lib/thin/backends/base.rb:63:in `start'
+  thin (1.5.0) lib/thin/server.rb:159:in `start'
+  rack (1.4.1) lib/rack/handler/thin.rb:13:in `run'
+  rack (1.4.1) lib/rack/server.rb:265:in `start'
+  railties (3.2.8) lib/rails/commands/server.rb:70:in `start'
+  railties (3.2.8) lib/rails/commands.rb:55:in `block in <top (required)>'
+  railties (3.2.8) lib/rails/commands.rb:50:in `tap'
+  railties (3.2.8) lib/rails/commands.rb:50:in `<top (required)>'
+  script/rails:6:in `require'
+  script/rails:6:in `<main>'
+
+
+  Rendered /home/jocelyn/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
