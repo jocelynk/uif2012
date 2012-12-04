@@ -11,7 +11,12 @@
   <%= f.input :scan_by_absence %>
   <div class="form-actions">
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                programs_path, :class => 'btn' %>
+    <% if @data.blank? %> 
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  programs_path, :class => 'btn' %>
+    <%else%>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  home_path, :class => 'btn' %>
+    <%end%>
   </div>
 <% end %>
