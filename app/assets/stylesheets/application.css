@@ -898,6 +898,11 @@ tbody tr td a
     height:60%;
 }
 
+#studentSide
+{
+    border:none !important;
+}
+
 #studentSide .page-header h1
 {
     margin-top:-15px !important;
