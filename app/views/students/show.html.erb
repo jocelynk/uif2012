@@ -41,20 +41,30 @@
                         <%= number_to_phone @student.cell_phone %>
                         <% end %>
                     </dd>
-                    <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-                    <dd><%= @student.email %></dd>
+                    <% if !@student.email.blank? %>
+                      <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+                      <dd><%= @student.email %></dd>
+                    <% end %>
                     <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
                     <dd><%= @student.barcode_number %></dd> 
-                       <dt><strong>Household:</strong></dt>
-                    <dd><%= @student.household.name %> Family (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-group"></i> </a></dd> 
-                    <dt><strong>Gender:</strong></dt>
-                    <dd><%= @student.is_male ? "Male" : "Female" %></dd>
+                    <% if !@student.household.nil? %>
+                      <dt><strong>Household:</strong></dt>
+                      <dd><%= @student.household.name %> Family (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-group"></i> </a></dd>
+                    <% end %>
+                    <% if !@student.is_male.blank? %>
+                      <dt><strong>Gender:</strong></dt>
+                      <dd><%= @student.is_male ? "Male" : "Female" %></dd>
+                    <% end %>
+                    <dt><strong><b>Visitor:</b></strong></dt>
+                    <dd><%= @student.is_visitor ? "Yes" : "No" %></dd>
                     <dt><strong>Grade:</strong></dt>
                     <dd><%= @student.grade %></dd>
                     <dt><strong>Can text:</strong></dt>
                     <dd><%= @student.can_text ? "Yes" : "No" %></dd>
-                    <dt><strong>Status:</strong></dt>
-                    <dd><%= @student.status %></dd>
+                    <% if !@student.status.blank? %>
+                      <dt><strong>Status:</strong></dt>
+                      <dd><%= @student.status %></dd>
+                    <% end %>
                 </dl>
             </table>
             <div class="form-actions">

@@ -208,7 +208,7 @@ namespace :db do
           student.is_male = true
         end
         student.status = statuses.to_a.sample
-       
+        student.is_visitor = false
       end
     end  
     
