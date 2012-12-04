@@ -27,7 +27,7 @@
   <dt><strong><%= model_class.human_attribute_name(:bibles_distributed) %>:</strong></dt>
   <dd><%= @event.bibles_distributed %></dd>
 </dl>
-<strong><%= link_to "Generate Barcodes for this Event", barcodes_event_path(@event.id) %></strong>
+<strong><%= link_to "Generate Barcodes for this Event", barcodes_event_path(@event) %></strong>
 
 <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @event} %>
 
