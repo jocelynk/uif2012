@@ -26,14 +26,14 @@
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <div class="row">
-  <div class="span10">
+  <div class="span11">
 <div id="search">
 	<%= form_tag('/students/search') do %>
 		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
 	<% end %>
 </div>
 </div>
-<div class = "span2">
+<div class = "span1">
 <%= link_to t('.new', :default => t("helpers.links.new")), new_student_path, :class => 'btn btn-primary' %>
 </div>
 </div>
