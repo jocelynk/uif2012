@@ -1,5 +1,6 @@
 <%- model_class = Event -%>
 
+<% if @attendees %>
 <% @attendees.each do |student| %>
 <table class = id_card>
 	<tr>
@@ -10,9 +11,10 @@
 		<td><%= image_tag(student.newbarcode) %></td>
 	</tr>
 </table>
-
+<% end %>
 <% end %>
 
+<% if @absentees %>
 <% @absentees.each do |student| %>
 <table class = id_card>
 	<tr>
@@ -23,4 +25,5 @@
 		<td><%= image_tag(student.newbarcode) %></td>
 	</tr>
 </table>
+<% end %>
 <% end %>
