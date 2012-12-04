@@ -37,6 +37,7 @@ Uif2012::Application.routes.draw do
   end
   resources :students do
     resources :notes
+    get 'id', :on => :member
   end
   resources :sections
   resources :attendances
@@ -46,6 +47,7 @@ Uif2012::Application.routes.draw do
   resources :events do
     resources :notes
     get 'meals_served', :on => :member
+    get 'barcodes', :on => :member
   end
   resources :programs do
     resources :notes

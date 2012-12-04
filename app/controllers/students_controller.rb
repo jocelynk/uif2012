@@ -137,4 +137,21 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
+  def id
+    puts params[:id]
+    @student = Student.find_by_id(params[:id])
+    if @student
+      respond_to do |format|
+      	format.html
+      	format.json { render json: @student }
+      end
+    else
+      respond_to do |format|
+      	format.html
+      	format.json { render error: "Cannot find student" }
+      end
+    end
+  end
 end
