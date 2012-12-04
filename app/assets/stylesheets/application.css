@@ -544,14 +544,14 @@ ul.nav li.active a:focus
     color:#ffd200 !important;
 }
 
-.brand + .nav li:nth-child(5)
+.brand + .nav li:nth-child(6)
 {
     font-size:5px　!important;
     margin-left:100px !important;
 }
 
 /*the sign in line*/
-.brand + .nav li:nth-child(5) a
+.brand + .nav li:nth-child(6) a
 {
     font-size:5px　!important;
     padding-left:0 !important;
@@ -821,6 +821,7 @@ margin-bottom:100px;
 {
     background-color:black;
 }
+
 
 
 
