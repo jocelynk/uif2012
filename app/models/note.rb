@@ -7,6 +7,8 @@ class Note < ActiveRecord::Base
   # Other relationships
   belongs_to :user
   
+  # Scopes
+  scope :by_priority, order('priority')
   # Priorities for drop-down, etc.
   PRIORITIES = [['High', 'high'],['Medium', 'medium'],['Low', 'low']]
   
