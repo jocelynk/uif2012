@@ -5,8 +5,8 @@ class HomeController < ApplicationController
   def index
    @events = Event.current
    @all_events = Event.paginate(:page => params[:page], :per_page => 5)
-   @past = Event.past.paginate(:page => params[:page], :per_page => 5)
-   @all_notes = Note.all
+   @past = Event.past.by_date_desc.paginate(:page => params[:page], :per_page => 5)
+   @all_notes = Note.by_priority.all
    @upcoming = Event.upcoming.paginate(:page => params[:page], :per_page => 5)
   
   

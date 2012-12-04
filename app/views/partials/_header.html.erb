@@ -12,7 +12,8 @@
                     <li class="<%= 'active' if params[:controller] == 'students' %>"><a href=<%= students_path %>><i class="icon-user"></i>Students</a></li>
                     <li class="<%= 'active' if params[:controller] == 'events' %>"><a href=<%= events_path %>><i class="icon-file"></i>Events</a></li>
                     <li class="<%= 'active' if params[:controller] == 'programs' %>"><a href=<%= programs_path %>><i class="icon-bullhorn"></i>Programs</a></li>
-                    <li class="<%= 'active' if params[:controller] == 'locations' %>"><a href=<%= locations_path %>><i class=" icon-map-marker"></i>Locations</a></li>
+                    <li class="<%= 'active' if params[:controller] == 'locations' %>"><a href=<%= locations_path %>><i class="icon-map-marker"></i>Locations</a></li>
+					<li class="<%= 'active' if controller.action_name == 'statistics' %>"><a href=<%= statistics_path %>><i class="icon-bar-chart"></i>Statistics</a></li>
 
                     <li id="user_nav">
                     <%= render :partial => "users/login" %>
