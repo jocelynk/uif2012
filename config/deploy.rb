@@ -1,7 +1,5 @@
 require 'bundler/capistrano'
 
-# load 'config/recipes/output'
-
 server 'urbanimpact.hss.cmu.edu', :web, :app, :db, primary: true
 
 ssh_options[:forward_agent] = true
