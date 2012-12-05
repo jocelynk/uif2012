@@ -58,10 +58,43 @@ class MobileController < ApplicationController
     puts "====================="
     puts params
     puts params[:file]
+    file_name = params[:file].original_filename
+    #temp_file = "#{Rails.root}/public/uploads/uploaded.jpg"
+    id = 0
+    #while File.exists?(temp_file) do
+    #  temp_file = "#{Rails.root}/public/uploaded-#{id}.jpg"        
+   #   id += 1
+    #end
+    # Save to temp file
+   # File.open(temp_file, 'wb') do |f|
+     # f.write  request.body.read 
+    #end
+  
+    tempfile = Tempfile.new("photoupload", 'public/uploads/tmp')
+    tempfile.binmode
+    tempfile << request.body.read
+    tempfile.rewind
+
+    puts "TEMP"
+    puts tempfile.length()
+    puts tempfile.path()
+    params[:file].tempfile = tempfile
+    puts "NEW PARAMS"
+    puts params
+    #photo_params = params.slice(:filename, :content_type, :headers, :original_filename).merge(:tempfile => tempfile)
+    #puts "photo_params"
+    #puts photo_params
+    @photo = ActionDispatch::Http::UploadedFile.new({:filename => 'test.jpg', :content_type => 'image/jpeg', :tempfile => tempfile, :original_filename => params[:original_filename]})
+    puts "PHOTO"
+    puts @photo
+    puts @photo.tempfile
     @student = Student.find_by_id(10)
-    puts @student
+    @student.photo = "asdfasdfasdf"
+    puts @student.save
+    puts @student.update_attributes(:photo => params[:file])
     if @student.update_attributes(:photo => params[:file])
       puts "success"
+      
       respond_to do |format|
 
           format.json { render :json=>{:message=>"Picture was successfully uploaded"}, :callback => params[:callback] }
@@ -70,7 +103,7 @@ class MobileController < ApplicationController
      respond_to do |format|
       puts"error"
         format.json { render :json=>{:error=>"There was an error with the upload"}, :callback => params[:callback] }
-    end
+     end
     end
   end
    
