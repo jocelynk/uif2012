@@ -1060,3 +1060,13 @@ body:nth-child(2)
     margin-top:50px !important;
     margin-bottom:100px !important;
 }
+
+
+
+
+
+.span5.events.showpage
+{
+    position:relative;
+    right:-30% !important;
+}
