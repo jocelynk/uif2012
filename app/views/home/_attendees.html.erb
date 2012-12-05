@@ -4,9 +4,10 @@
 <table id="attendees" class="table table-striped">
   <thead>
     <tr>
-      <th><%= Student.human_attribute_name(:name) %></th>
-      <th><%= Student.human_attribute_name(:phone_number) %></th>
-      <th><%= Student.human_attribute_name(:barcode_number) %></th>
+      <th>Student</th>
+      <th>Phone Number</th>
+      <th>Barcode Number</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +19,9 @@
         <% else %>
           <td><%= number_to_phone student.cell_phone %></td> 
         <% end %> 
-        <td><%= student.barcode_number %></td>            
+        <td><%= student.barcode_number %></td>    
+        <td><%= link_to raw("<i class='icon-tag'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+        </td>        
       </tr>
     <% end %>
   </tbody>

@@ -569,6 +569,11 @@ ul.nav li.active a:focus
     font-size:12px !important;
 }
 
+#user_nav span
+{
+    color: #B6CDFF; 
+}
+
 .brand + .nav li:nth-child(4) a
 {
 /*    font-size:12px !important;
@@ -951,7 +956,8 @@ tbody tr td a
 
 .issues
 {
-    margin-bottom:100px !important;
+  border: 1px red;  
+	margin-bottom:100px !important;
 }
 
 .past.events
@@ -1015,6 +1021,10 @@ div.alerts
     color: #B94A48 !important;
     background-color: #F2DEDE !important;
     border-color: #EED3D7 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
 
 .medium
@@ -1022,6 +1032,10 @@ div.alerts
     color: #C09853 !important;
     background-color: #FCF8E3 !important;
     border-color: #FBEED5 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
 
 .low
@@ -1029,6 +1043,10 @@ div.alerts
     color: #3A87AD !important;
     background-color: #D9EDF7 !important;
     border-color: #BCE8F1 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
 
 
@@ -1041,4 +1059,26 @@ body:nth-child(2)
 {
     margin-top:50px !important;
     margin-bottom:100px !important;
+}
+
+
+
+
+
+.span5.events.showpage
+{
+    position:relative;
+    right:-25% !important;
+}
+
+
+
+.scanning
+{
+    margin-top:70px !important;
+}
+
+.page-header.checkin
+{
+    margin-left:25px !important;
 }

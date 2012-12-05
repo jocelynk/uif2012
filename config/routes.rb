@@ -26,6 +26,11 @@ Uif2012::Application.routes.draw do
   match 'createAttendances' => 'mobile#createAttendances', :via => :post
   match 'getPhoto' => 'mobile#getPhoto', :via => :post
   
+  #Notes
+  match 'alerts' => 'notes#alerts', :as => :alerts
+  match 'dismiss_note/:id' => 'notes#dismiss', :as => :dismiss_note
+
+  
 
   #Generated model routes
   resources :allergies
