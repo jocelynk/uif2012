@@ -57,15 +57,18 @@ class MobileController < ApplicationController
   def getPhoto
     puts "====================="
     puts params
-    @student = Student.find_by_id(2)
+    puts params[:file]
+    @student = Student.find_by_id(10)
+    puts @student
     if @student.update_attributes(:photo => params[:file])
+      puts "success"
       respond_to do |format|
 
           format.json { render :json=>{:message=>"Picture was successfully uploaded"}, :callback => params[:callback] }
       end
     else
      respond_to do |format|
-
+      puts"error"
         format.json { render :json=>{:error=>"There was an error with the upload"}, :callback => params[:callback] }
     end
     end
