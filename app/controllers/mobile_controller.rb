@@ -57,6 +57,9 @@ class MobileController < ApplicationController
   def getPhoto
     puts "====================="
     puts params
+    respond_to do |format|
+
+        format.json { render :json=>{:message=>"There was an error with the barcodes or event."}, :callback => params[:callback] }
   end
    
 end
