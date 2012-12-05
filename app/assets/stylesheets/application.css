@@ -569,6 +569,11 @@ ul.nav li.active a:focus
     font-size:12px !important;
 }
 
+#user_nav span
+{
+    color: #B6CDFF; 
+}
+
 .brand + .nav li:nth-child(4) a
 {
 /*    font-size:12px !important;
