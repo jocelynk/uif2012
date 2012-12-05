@@ -2,7 +2,9 @@
 
 <!-- might remove later -->
 <% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>
-
+<%= image_tag @student.avatar.url %>
+<%= image_tag @student.avatar.url(:medium) %>
+<%= image_tag @student.avatar.url(:thumb) %>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="page-header">

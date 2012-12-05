@@ -21,6 +21,7 @@ gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'populator3'
   gem 'faker'
+  gem "paperclip", "~> 3.0"
 group :development do
   gem 'capistrano'
   gem 'colored'

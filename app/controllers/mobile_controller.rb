@@ -78,7 +78,7 @@ class MobileController < ApplicationController
     puts "TEMP"
     puts tempfile.length()
     puts tempfile.path()
-    params[:file].tempfile = tempfile
+    #params[:file].tempfile = tempfile
     puts "NEW PARAMS"
     puts params
     #photo_params = params.slice(:filename, :content_type, :headers, :original_filename).merge(:tempfile => tempfile)
@@ -89,7 +89,7 @@ class MobileController < ApplicationController
     puts @photo
     puts @photo.tempfile
     @student = Student.find_by_id(10)
-    @student.photo = "asdfasdfasdf"
+    @student.avatar = params[:file]
     puts @student.save
     puts @student.update_attributes(:photo => params[:file])
     if @student.update_attributes(:photo => params[:file])
