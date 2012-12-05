@@ -1068,5 +1068,17 @@ body:nth-child(2)
 .span5.events.showpage
 {
     position:relative;
-    right:-30% !important;
+    right:-25% !important;
+}
+
+
+
+.scanning
+{
+    margin-top:70px !important;
+}
+
+.page-header.checkin
+{
+    margin-left:25px !important;
 }
