@@ -54,5 +54,9 @@ class MobileController < ApplicationController
     end
   end
   
-  
+  def getPhoto
+    puts "====================="
+    puts params
+  end
+   
 end
