@@ -148,12 +148,36 @@ font-size:30px;
 }
 
 .well {
-	line-height: 1.5;
+  line-height: 1.5;
+  background-color: #fff;
+  border: 1px solid red;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
+.well-header {
+  background-color: red;
+  color: #fff;
+  -moz-border-top-left-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.well-header p {
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+
 .well li {
-	font-size: 130%;
-	line-height: 1.5;
+  font-size: 130%;
+  line-height: 1.5;
 }
 
 .navbar-inner {
@@ -664,3 +688,15 @@ font-size:30px;
 }
 
 
+// Cutting back the spacing on simple_form...
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 3px;
+    text-align: right;
+    width: 60px;
+		font-size: 90%;
+}
+.form-horizontal .controls {
+    margin-left: 70px;
+		width: 160px;
+}

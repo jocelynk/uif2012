@@ -15,9 +15,14 @@
 </div>
 
 <div class="right-nav">
-    <div class="issues events">
-    <%= render :partial => "./admin-partials/issues" %>
-    </div>
+    <% unless @alerts.empty? %>
+      <div class="well">
+        <%= render :partial => "./admin-partials/issues" %>
+        <% if @alert_count && @alert_count > 6 %>
+          <%= link_to "Click for more alerts", alerts_path %>
+        <% end %>
+      </div>
+    <% end %>
     <div class="studentIssues events">
         <%= render :partial => "./admin-partials/quick-add" %>
     </div>

@@ -24,6 +24,8 @@ Uif2012::Application.routes.draw do
   match 'ajax_allergies' => 'allergies#ajax_allergies', :via => :get
   match 'getTodaysEvents' => 'mobile#getTodaysEvents', :via => :get
   match 'createAttendances' => 'mobile#createAttendances', :via => :post
+  match 'alerts' => 'notes#alerts', :as => :alerts
+  match 'dismiss_note/:id' => 'notes#dismiss', :as => :dismiss_note
   
 
   #Generated model routes

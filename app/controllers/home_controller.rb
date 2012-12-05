@@ -6,7 +6,9 @@ class HomeController < ApplicationController
    @events = Event.current
    @all_events = Event.paginate(:page => params[:page], :per_page => 5)
    @past = Event.past.by_date_desc.paginate(:page => params[:page], :per_page => 5)
-   @all_notes = Note.by_priority.all
+   
+   @alerts = Note.alerts.active.by_priority.by_date_desc.last_six.all
+   @alert_count = Note.alerts.active.all.length
    @upcoming = Event.upcoming.paginate(:page => params[:page], :per_page => 5)
   
   
