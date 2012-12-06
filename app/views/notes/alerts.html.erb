@@ -26,7 +26,7 @@
         </td>
         <td>
           <%= link_to raw("<i class='icon-edit'></i> Edit"), edit_note_path(note), :class => 'btn btn-mini' %>
-          <%= link_to raw("<i class='icon-remove icon-white'></i> Dismiss"),
+          <%= link_to raw("<i class='icon-remove'></i> Dismiss"),
                       dismiss_note_path(note),
                       :method => :dismiss,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

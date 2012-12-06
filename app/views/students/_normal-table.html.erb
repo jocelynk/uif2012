@@ -32,7 +32,7 @@
         <!-- <td><%= student.status %></td> -->
         <!-- <td><%=l student.created_at %></td> -->
         <td>
-          <%= link_to raw("<i class='icon-tag'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
           &nbsp;
           <%= link_to raw("<i class='icon-edit'></i> Edit"),
                       edit_student_path(student), :class => 'btn btn-mini' %>

@@ -11,4 +11,16 @@ module ApplicationHelper
   def reload_flash
     page.replace "flash_messages", :partial => 'layouts/flash'
   end
+  
+  def get_well_type(priority)
+    if priority == 1
+      well = "well-red"
+    elsif priority == 2
+      well = "well-yellow"
+    else
+      well = "well-grey"
+    end
+    well
+  end
+  
 end

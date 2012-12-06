@@ -1,13 +1,12 @@
 <div class="notes">
 <div class="note-list">
-	<strong><%= obj.notes.size.zero? ? "No notes yet" : pluralize(obj.notes.size, 'note') %> on this <%= "#{obj.class.to_s.downcase}" %></strong><br/>
+	<p><em><%= obj.notes.size.zero? ? "No notes yet" : pluralize(obj.notes.size, 'note') %> on this <%= "#{obj.class.to_s.downcase}" %>:</em></p>
 	<% unless @notes.empty? || @notes.nil? %>
 		<%= render :partial => "partials/note_list" %>
 	<% end %>
-	<% if obj.notes.size > 4 %>
-	  <%= link_to "More Notes",
-                notes_path, :class => 'btn' %>
-	<% end %>
+	<%# if obj.notes.size > 4 %>
+	  <%# link_to "More Notes", notes_path, :class => 'btn' %>
+	<%# end %>
 </div>
 <div class="note-form">
 	  <%= render :partial => "partials/note_form" %>

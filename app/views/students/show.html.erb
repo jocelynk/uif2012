@@ -64,18 +64,13 @@
                     <% end %>
                 </dl>
             </table>
-            <div class="form-actions">
-                <%= link_to t('.back', :default => t("helpers.links.back")),
-                students_path, :class => 'btn'  %>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_student_path(@student), :class => 'btn' %>
-                <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                student_path(@student),
-                :method => 'delete',
-                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                :class => 'btn btn-danger' %> -->
-            </div>
+            <p>&nbsp;</p>
+            <p><%= link_to raw("<i class='icon-backward'></i> Back to students"), students_path, :class => 'btn'  %>
+            &nbsp;
+            <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %> </p>          
+
         </div>
+        <p class="supertiny">&nbsp;</p>
         <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
     </div>
 

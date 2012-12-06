@@ -46,7 +46,7 @@
                 <%= section.name %>&nbsp;
                 <% end %> 
                 </td>
-                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
+                <td><span class="bc_icon"><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %></span>
                 </td>
             </td>
             <td>

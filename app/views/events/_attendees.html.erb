@@ -16,7 +16,7 @@
         <td><%= link_to student.name, student_path(student) %></td>
         <td><%= number_to_phone student.cell_phone %></td> 
         <td>
-          <%= link_to raw("<i class='icon-tag'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
         </td>    
       </tr>
     <% end %>

@@ -20,7 +20,7 @@
 	        <td><%= number_to_phone(student.cell_phone) %></td>
 	        <td><%= student.email %></td>
 	        <td>
-	          <%= link_to raw("<i class='icon-tag'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+	          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
             &nbsp;
 	          <%= link_to t('.edit', :default => t("helpers.links.edit")),
 	                      edit_student_path(student), :class => 'btn btn-mini' %>

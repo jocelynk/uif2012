@@ -17,8 +17,13 @@ class Note < ActiveRecord::Base
   
   
   # Priorities for drop-down, etc.
-  PRIORITIES = [['High', 1],['Medium', 2],['Low', 3]]
+  PRIORITIES = [['High', 1],['Moderate', 2],['Normal', 3]]
   
+  def priority_level
+    return "High" if priority == 1
+    return "Moderate" if priority == 2
+    return "Normal" if priority == 3
+  end
   
   
 end
