@@ -25,6 +25,7 @@ Uif2012::Application.routes.draw do
   match 'getTodaysEvents' => 'mobile#getTodaysEvents', :via => :get
   match 'createAttendances' => 'mobile#createAttendances', :via => :post
   match 'getPhoto' => 'mobile#getPhoto', :via => :post
+  match 'searchForStudent' => 'mobile#searchForStudent', :via => :get
   
   #Notes
   match 'alerts' => 'notes#alerts', :as => :alerts

@@ -2,9 +2,6 @@
 
 <!-- might remove later -->
 <% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>
-<%= image_tag @student.avatar.url %>
-<%= image_tag @student.avatar.url(:medium) %>
-<%= image_tag @student.avatar.url(:thumb) %>
 <div class="container-fluid">
     <div class="row-fluid">
         <div class="page-header">
@@ -13,8 +10,8 @@
             </h1>
         </div>
         <div class="span8">
-          <% if !@student.photo.blank? %>
-              <div class="img-polaroid"><%= image_tag(@student.photo_url(:thumb))%></div>
+          <% if !@student.avatar_file_name.blank? %>
+              <div class="img-polaroid"><%= image_tag @student.avatar.url(:medium) %></div>
             <% else %>
               <% if @student.is_male %>
                 <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;

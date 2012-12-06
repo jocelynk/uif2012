@@ -37,8 +37,7 @@
   <%= f.input :can_text %>
   <%= f.input :email %>
   <%= f.input :status, :collection => Student::STATUS_LIST, :prompt => 'Choose Status' %>
-  <%= f.input :photo, :label => 'Your photo please' %>
-  <%= f.input :avatar, :label => 'Upload Avatar' %>
+  <%= f.input :avatar, :label => 'Your photo please' %>
   <div id="enrollment_nested_form">
     <%= f.fields_for :enrollments do |enrollment_form| %>
       <%= render 'enrollment_fields', f: enrollment_form %>

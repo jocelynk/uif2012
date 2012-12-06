@@ -4,9 +4,8 @@ class Student < ActiveRecord::Base
   attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes, :is_visitor
   before_save :reformat_phone, :assign_visitor_barcode, :avatar
   
-  mount_uploader :photo, PhotoUploader
   attr_accessible :avatar
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }
   
   #Relationships
   belongs_to :household
