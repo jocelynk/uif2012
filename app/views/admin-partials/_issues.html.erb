@@ -1,4 +1,4 @@
-<div class="well-header">
+<div class="well-header-red">
   <p>Alerts at UIF</p>
 </div>
 
@@ -9,6 +9,9 @@
     <% alert_class = "alert medium"%>
     <% end %>
     <div class="<%= alert_class %>">
+      <% if note.priority == 1 %>
+        <i class='icon-warning-sign'></i>
+      <% end %>
       <%= link_to note.title, note_path(note) %>
     </div>
     <% end %>

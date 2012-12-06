@@ -4,7 +4,6 @@ body {
 	padding-top: 60px; 
 	font-size: 12px;
 	background-color:white;
-	/*font-family: Verdana, Arial, sans-serif;*/
 } 
 
 h1 {
@@ -30,15 +29,6 @@ a.btn.btn-primary:visited { color: #fff; }
   border-top: 1px solid #eee;
 	background-color:#E6E6E6;
 	text-align: center;
-}
-
-.well {
-	line-height: 1.5;
-}
-
-.well li {
-	font-size: 130%;
-	line-height: 1.5;
 }
 
 .navbar-inner {
@@ -88,12 +78,18 @@ select.time { width: 100px; }
   padding_top: 0px;
 }
 label.radio.inline {
-  /*padding-top: 7px;*/
+
 }
 input[type="radio"] {
   margin-top:0px;
 }
 
+.quick_add_btn {
+    width: 80%;
+		margin-bottom: 5px;
+		margin-left: 10px;
+		margin-right: 10px;
+}
 
 // Set the correct sprite paths
 //@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -147,7 +143,7 @@ font-size:30px;
 	text-align: center;
 }
 
-.well {
+.well-red {
   line-height: 1.5;
   background-color: #fff;
   border: 1px solid red;
@@ -158,7 +154,7 @@ font-size:30px;
   border-radius: 10px;
 }
 
-.well-header {
+.well-header-red {
   background-color: red;
   color: #fff;
   -moz-border-top-left-radius: 10px;
@@ -167,7 +163,34 @@ font-size:30px;
   border-top-right-radius: 10px;
 }
 
-.well-header p {
+.well-header-red p {
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.well-black {
+  line-height: 1.5;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.well-header-black {
+  background-color: #000;
+  color: #fff;
+  -moz-border-top-left-radius: 10px;
+  -moz-border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.well-header-black p {
   color: #fff;
   font-size: 150%;
   font-weight: bold;
