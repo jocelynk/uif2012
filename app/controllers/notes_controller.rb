@@ -26,6 +26,13 @@ class NotesController < ApplicationController
     unless params[:id].nil? || params[:source].nil?
       @klass = params[:source]
       @klass_id = params[:id]
+      if params[:source] == 'student'
+        student = Student.find(params[:id])
+        @note_focus = student.proper_name
+      else
+        @note_focus = 'Event'
+      end
+       
     end
 
     respond_to do |format|

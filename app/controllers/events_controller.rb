@@ -182,6 +182,30 @@ class EventsController < ApplicationController
        
     end
   end
+  
+  def mark_attended
+    attendance = Attendance.new
+    attendance.student_id = params[:id]
+    attendance.event_id = params[:event_id]
+    if attendance.save
+      if params[:source] == 'event'
+        redirect_to event_path(params[:event_id])
+      else
+        redirect_to checkin_path(:event_id => params[:event_id])
+      end
+    end
+  end
+  
+  def mark_absent
+    attendance = Attendance.find_by_student_id_and_event_id(params[:id],params[:event_id])
+    if attendance.destroy
+      if params[:source] == 'event'
+        redirect_to event_path(params[:event_id])
+      else
+        redirect_to checkin_path(:event_id => params[:event_id])
+      end
+    end
+  end
 
   def barcodes
     puts params[:id]
