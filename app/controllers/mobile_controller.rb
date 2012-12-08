@@ -25,24 +25,28 @@ class MobileController < ApplicationController
     event = params[:event_id]
     
     @scanned = Array.new
-    @bad_attendances = Array.new
+    @already_scanned = Array.new
     @bad_barcodes = Array.new
 
     if !barcodes.nil? && Event.find_by_id(event)
        barcodes.each do |barcode|
           @student = Student.find_by_barcode_number(barcode)
-          if @student
+          @attendance = Attendance.find_by_student_id_and_event_id(@student.id,event)
+          if @student and !@attendance
             if @student.attendances.create(event_id: event)
-              @scanned.push(@student.proper_name)
-            else
-              @bad_attendances.push(@student.proper_name) 
+              @scanned.push(@student.proper_name)         
             end
           else
-            @bad_barcodes.push(barcode)
+            if !@attendance
+              @bad_barcodes.push(barcode)
+            else
+              @already_scanned.push(@student.proper_name)
+            end
+            
           end
         end
       respond_to do |format|
-        format.json { render :json=>{:scanned=>@scanned, :bad_barcodes => @bad_barcodes, :bad_attendances => @bad_attendances}, :callback => params[:callback] }
+        format.json { render :json=>{:scanned=>@scanned, :bad_barcodes => @bad_barcodes, :already_scanned =>  @already_scanned}, :callback => params[:callback] }
       end
     else
        respond_to do |format|
