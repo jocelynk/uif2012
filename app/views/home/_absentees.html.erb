@@ -12,14 +12,15 @@
   </thead>
   <tbody>
     <% @absentees.each do |student| %>
-      <tr>
+      <tr class="is_visitor">
         <td><%= link_to student.name, student_path(student) %></td>
         <%- if student.cell_phone.nil? -%>
           <td>No Phone Number</td> 
         <% else %>
           <td><%= number_to_phone student.cell_phone %></td> 
         <% end %> 
-        <td><%= student.barcode_number %></td>    
+       <td><% if student.is_visitor %> <i class="icon-flag"></i><%end%><%= student.barcode_number %></td>   
+        <% if student.is_visitor %> <i class="icon-flag"/> <%end%></td>    
         <td><%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
         </td>           
       </tr>

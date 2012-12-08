@@ -2,7 +2,6 @@
   // Use jQuery to hide items in the various index lists
   $(function() {
   	$('#query').focus().keyup(function() {
-		console.log("asdfasdfasdf")
   		// get rid of backspaces
   		var txt = $(this).val().replace(/\\b/,"");
 
@@ -37,9 +36,7 @@
 <%= link_to raw("<i class='icon-plus'></i> <strong>Add student</strong>"), new_student_path, :class => 'btn btn-primary' %>
 </div>
 </div>
-<%# form_tag students_path, :method => 'get' do %>
-<%# hidden_field_tag :direction, params[:query] %>
-<%# hidden_field_tag :sort, params[:sort] %>
+
 <!-- <p> -->
     <!-- we can remove this and move the code to the top search bar -->
     <%# text_field_tag :query, params[:query] %>
@@ -49,7 +46,16 @@
 
 
 <% if @query == 0 %>
+<%= render :partial => "visitor-normal-table" %>
 <%= render :partial => "normal-table" %>
+<% else %>
+<%= render :partial => "visitor-query-table" %>
+<%= render :partial => "query-table"%>
+<% end %>
+
+
+<% if @query == 0 %>
+
 <% else %>
 <%= render :partial => "query-table"%>
 <% end %>

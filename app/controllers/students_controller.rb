@@ -6,12 +6,9 @@ class StudentsController < ApplicationController
   
   respond_to :html, :xml, :json, :js
   def index
-    # @students = Student.search(params[:query])
-    # we need to figure out a way to do both
-    # @query = Student.search(params[:query])
-    @students = Student.alphabetical.all #paginate(:page => params[:page], :per_page => 15)
+    @students = Student.alphabetical.not_visitor
+    @visitors = Student.alphabetical.is_visitor
     @query = Student.search(params[:query])
-    # @query = Student.search(params[:query]).page(params[:page]).order('last_name ASC')
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,9 +21,9 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
-    puts "CELL: #{@student.cell_phone}"
     @recent_activities = @student.recent_activity
     @notes = @student.notes.by_priority.limit(4)
+    @department = Student.joins('INNER JOIN enrollments e ON students.id = e.student_id INNER JOIN sections s ON s.id = e.section_id INNER JOIN programs p ON p.id = s.program_id INNER JOIN departments d ON d.id = p.department_id').where('students.id = ?', @student.id).select('DISTINCT d.name as department')
     @notable = @student
     respond_with(@student) do |format|
       format.js { render json: @student, :callback => params[:callback] }

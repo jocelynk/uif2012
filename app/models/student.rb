@@ -35,6 +35,7 @@ class Student < ActiveRecord::Base
   scope :inactive, where('active = ?', false)
   scope :alphabetical, order('last_name, first_name')
   scope :is_visitor, where('is_visitor =?', true)
+  scope :not_visitor, where('is_visitor = ? ', false)
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
   

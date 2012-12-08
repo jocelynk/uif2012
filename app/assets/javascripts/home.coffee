@@ -35,7 +35,10 @@ displayUnicode = ->
                 row.append('<td>No Phone Number</td>')
               else
                 row.append('<td>'+formatPhone(data.attendees[i]['cell_phone'])+'</td>')
-              row.append('<td>'+data.attendees[i]['barcode_number']+'</td>')
+              if data.attendees[i]['is_visitor']
+                row.append('<td><i class="icon-flag"></i>'+data.attendees[i]['barcode_number']+'</td>')
+              else
+                row.append('<td>'+data.attendees[i]['barcode_number']+'</td>')
               attendees_body.append(row)
             attendees.append(attendees_body)
             $('#attend').hide().html(attendees).show()

@@ -4,7 +4,6 @@ jQuery ->
   checked = document.getElementById("student_is_visitor")
   console.log(checked)
   if checked isnt null
-    console.log("asdfadsfasdfasdf")
     if document.getElementById("student_is_visitor").checked
       $(document.getElementById("student_barcode_number")).parent().parent().hide()
       $(document.getElementById("student_household_id")).parent().parent().hide()    
@@ -23,7 +22,7 @@ jQuery ->
         $(document.getElementById("student_barcode_number")).parent().parent().show()
         $(document.getElementById("student_household_id")).parent().parent().show()
         $(document.getElementById("visitor_households")).hide()
-      
+  ###    
   if document.getElementById('enrollment_nested_form') isnt null
     if document.getElementById('enrollment_nested_form').children.length <= 1
       $('form').on 'click', '.add_fields', (event) ->
@@ -106,5 +105,5 @@ jQuery ->
           )
         fn2(obj.count-1)
         event.preventDefault()
-    
+   ### 
   

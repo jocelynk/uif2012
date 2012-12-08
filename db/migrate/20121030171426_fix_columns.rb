@@ -40,5 +40,8 @@ class FixColumns < ActiveRecord::Migration
     
     #adding visitor to students
     add_column :students, :is_visitor, :boolean, :default => false
+    
+    #removing photo from student
+    remove_column :students, :photo
   end
 end

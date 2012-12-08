@@ -96,14 +96,6 @@ class EventsController < ApplicationController
         end
 
     end
-     # if @event.save
-      #  format.html { redirect_to @event, notice: 'Event was successfully created.' }
-      #  format.json { render json: @event, status: :created, location: @event }
-      #  format.js
-     # else
-      #  format.html { render action: "new" }
-      #  format.json { render json: @event.errors, status: :unprocessable_entity }
-      #  format.js
 
     end
   end
@@ -211,37 +203,20 @@ class EventsController < ApplicationController
     puts params[:id]
     @event = Event.find_by_id(params[:id])
     @attendees = Event.attendees(params[:id])
-    puts @attendees
-    puts '++++++++++++++++++++++++++++++++++'
-    puts @absentees
     @absentees = Event.absentees(params[:id])
   end
   
   def meals_served
-    puts '++++++++++++++++++++'
-    puts params[:id]
-    puts '++++++++++++++++++++'
     if !params[:id].nil?
       gon.event_id = params[:id]
     end
-    puts'_______________________'
-    puts gon.event_id
-    puts '++++++++++++++++++++'
-    # session[:event] = params[:format]
-    @event = Event.find(gon.event_id)
-    puts @event
-    puts params[:barcode]
-    puts ")))))))))))))))))))"
+    @event = Event.find(gon.event_id)   
     if params[:barcode]
       @student = Student.find_by_barcode_number(params[:barcode])
       if @student
         @meals_served = @event.meals_served
-        puts @meals_served
         @new_meal = @meals_served+1
-        puts @new_meal
-        puts '+++++++++++++++++++++++++++++'
         @event.update_attributes({:meals_served => @new_meal})
-        puts @event.update_attributes({:meals_served => @new_meal})
         render :json => { message: "Meals Served: #{@new_meal}"}
       else
         render :json => { error: 'There was something wrong with the scan!' }

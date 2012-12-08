@@ -19,10 +19,16 @@
                 <div class="img-polaroid"> <%= image_tag("female.jpg") %></div>&nbsp;&nbsp;
               <% end %>
             <% end %>
-
-            <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;
-            <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp;
-            <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>
+            <% @department.each do |student| %> 
+              <%if student.department == 'Athletics'%>
+               <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>  
+              <% elsif student.department =='Academic Assistance' %>            
+                <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;      
+               <% else student.department == 'Performing Arts'%>
+                   <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp; 
+              <%end %>
+             <% end %>
+           
             <br><br><br>
             <div class="student-info">
                 <dl class="dl-horizontal">
