@@ -2,7 +2,6 @@
   // Use jQuery to hide items in the various index lists
   $(function() {
   	$('#query').focus().keyup(function() {
-
   		// get rid of backspaces
   		var txt = $(this).val().replace(/\\b/,"");
 
@@ -26,20 +25,18 @@
     <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
 <div class="row">
-  <div class="span11">
+  <div class="span10">
 <div id="search">
 	<%= form_tag('/students/search') do %>
 		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
 	<% end %>
 </div>
 </div>
-<div class = "span1">
-<%= link_to t('.new', :default => t("helpers.links.new")), new_student_path, :class => 'btn btn-primary' %>
+<div class = "span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add student</strong>"), new_student_path, :class => 'btn btn-primary' %>
 </div>
 </div>
-<%# form_tag students_path, :method => 'get' do %>
-<%# hidden_field_tag :direction, params[:query] %>
-<%# hidden_field_tag :sort, params[:sort] %>
+
 <!-- <p> -->
     <!-- we can remove this and move the code to the top search bar -->
     <%# text_field_tag :query, params[:query] %>
@@ -49,7 +46,16 @@
 
 
 <% if @query == 0 %>
+<%= render :partial => "visitor-normal-table" %>
 <%= render :partial => "normal-table" %>
+<% else %>
+<%= render :partial => "visitor-query-table" %>
+<%= render :partial => "query-table"%>
+<% end %>
+
+
+<% if @query == 0 %>
+
 <% else %>
 <%= render :partial => "query-table"%>
 <% end %>

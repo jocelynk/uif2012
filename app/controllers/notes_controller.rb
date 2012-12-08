@@ -22,6 +22,18 @@ class NotesController < ApplicationController
 
   def new
     @note = Note.new
+    # e.g., new_note_path(:id => student.id, :source => 'student')
+    unless params[:id].nil? || params[:source].nil?
+      @klass = params[:source]
+      @klass_id = params[:id]
+      if params[:source] == 'student'
+        student = Student.find(params[:id])
+        @note_focus = student.proper_name
+      else
+        @note_focus = 'Event'
+      end
+       
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -76,12 +88,26 @@ class NotesController < ApplicationController
     end
   end
   
+  def alerts
+    @alerts = Note.alerts.by_priority.by_date_desc.active.all
+  end
+  
+  def dismiss
+    @note = Note.find(params[:id])
+    @note.update_attribute(:active, false)
+    redirect_to alerts_path
+  end
+  
   
   private
   def find_notable
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
+    if params[:note][:hidden_klass] && params[:note][:hidden_id]
+      return params[:note][:hidden_klass].classify.constantize.find(params[:note][:hidden_id])
+    else
+      params.each do |name, value|
+        if name =~ /(.+)_id$/
+          return $1.classify.constantize.find(value)
+        end
       end
     end
     nil

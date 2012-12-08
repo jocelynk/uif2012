@@ -1,3 +1,4 @@
+<% require 'date'%>
 <% if @recent_activities.nil? %>
 <div class="page-header">
    <h1> No Recent Activities </h1>
@@ -11,7 +12,7 @@
 <ul>
     <% @recent_activities.each do |activity| %>
 
-    <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{activity.date}", event_path(activity.event) %></div>
+    <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{": "+ DateTime.parse(activity.date).strftime("%b %d")}", event_path(activity.event) %></div>
 
     <% end %>
 </ul>

@@ -1,0 +1,31 @@
+<%- model_class = Student -%>
+<h1>Visitors</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+		      <th><%= model_class.human_attribute_name(:grade) %></th>
+          <th><%= model_class.human_attribute_name(:date_of_birth) %></th>
+          <th><%= model_class.human_attribute_name(:cell_phone) %></th>
+		      <th><%= model_class.human_attribute_name(:email) %></th>
+          <th><%=t '.actions', :default => t("helpers.actions") %></th>
+        </tr>
+    </thead>
+    <tbody id="list">
+        <% @query.each do |student| %>
+        <tr>
+          <td><%= link_to student.name, student_path(student) %></td>
+	        <td><%= student.grade %></td>
+	        <td><%= student.date_of_birth.strftime("%B %d, %Y") %></td>
+	        <td><%= number_to_phone(student.cell_phone) %></td>
+	        <td><%= student.email %></td>
+	        <td>
+	          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+            &nbsp;
+	          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	                      edit_student_path(student), :class => 'btn btn-mini' %>
+	        </td>
+	      </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -16,7 +16,7 @@ class ProgramsController < ApplicationController
   # GET /programs/1.json
   def show
     @program = Program.find(params[:id])
-    @notes = @program.notes
+    @notes = @program.notes.by_priority
     @notable = @program
 
     respond_to do |format|

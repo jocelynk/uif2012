@@ -10,8 +10,6 @@
 *
 *= require_self
 *= require_tree .
-
-
 */
 
 
@@ -470,13 +468,11 @@ body
     /*background-color:#525158 !important;*/
 }
 
+p, ol, ul, td {
+	  /**font-family: verdana, arial, helvetica, sans-serif;**/
+  font-size: 13px;
 
-
-
-
-
-
-
+}
 
 /* ============================== */
 /* ========== Navbar ============ */
@@ -544,14 +540,14 @@ ul.nav li.active a:focus
     color:#ffd200 !important;
 }
 
-.brand + .nav li:nth-child(5)
+.brand + .nav li:nth-child(6)
 {
     font-size:5px　!important;
     margin-left:100px !important;
 }
 
 /*the sign in line*/
-.brand + .nav li:nth-child(5) a
+.brand + .nav li:nth-child(6) a
 {
     font-size:5px　!important;
     padding-left:0 !important;
@@ -569,6 +565,11 @@ ul.nav li.active a:focus
 #user_nav a
 {
     font-size:12px !important;
+}
+
+#user_nav span
+{
+    color: #B6CDFF; 
 }
 
 .brand + .nav li:nth-child(4) a
@@ -825,6 +826,7 @@ margin-bottom:100px;
 
 
 
+
 /* ============================== */
 /* =========== Tables =========== */
 /* ============================== */
@@ -846,7 +848,7 @@ tbody tr td a
 {
     -webkit-transition:0.2s all linear;
     background-color:transparent !important;
-    color:black !important;
+    /*color:black !important;*/
     font-size:100%;
 
 
@@ -898,6 +900,11 @@ tbody tr td a
     height:60%;
 }
 
+#studentSide
+{
+    border:none !important;
+}
+
 #studentSide .page-header h1
 {
     margin-top:-15px !important;
@@ -926,13 +933,13 @@ tbody tr td a
 .left-nav
 {
     float:left;
-    width:60% !important;
+    width:65% !important;
 }
 
 .right-nav
 {
     float:right;
-    width:20% !important;
+    width:30% !important;
 }
 
 .upcoming
@@ -947,7 +954,8 @@ tbody tr td a
 
 .issues
 {
-    margin-bottom:100px !important;
+  border: 1px red;  
+	margin-bottom:100px !important;
 }
 
 .past.events
@@ -957,8 +965,8 @@ tbody tr td a
 
 /*.upcoming, .past
 {
-width:300px !important; 
-float:left;  
+width:300px !important;
+float:left;
 }
 
 
@@ -1008,23 +1016,41 @@ div.alerts
 
 .high
 {
-    color: #B94A48 !important;
-    background-color: #F2DEDE !important;
+    /*color: #B94A48 !important;*/
+		color: red !important;
+		font-weight: bold;
+    /*background-color: #F2DEDE !important;*/
+		background-color: #FFD2CA !important;
     border-color: #EED3D7 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
+.high a { color: #000; }
 
 .medium
 {
     color: #C09853 !important;
-    background-color: #FCF8E3 !important;
+    /*background-color: #FCF8E3 !important;*/
+		background-color: #F7FFC1 !important;
     border-color: #FBEED5 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
+.medium a { color: #000; }
 
 .low
 {
     color: #3A87AD !important;
     background-color: #D9EDF7 !important;
     border-color: #BCE8F1 !important;
+		margin-left: 8px;
+		margin-right: 8px;
+		margin-top: 3px;
+		margin-bottom: 3px;
 }
 
 
@@ -1035,6 +1061,46 @@ div.alerts
 /* =============================================== */
 body:nth-child(2)
 {
-    margin-top:50px !important;
+    margin-top:20px !important;
     margin-bottom:100px !important;
 }
+
+
+
+
+
+.span5.events.showpage
+{
+    position:relative;
+    right:-25% !important;
+}
+
+
+
+.scanning
+{
+    margin-top:70px !important;
+}
+
+.page-header.checkin
+{
+    margin-left:25px !important;
+}
+ 
+p.supertiny{font-size:5px; line-height: 0.75;}
+
+.bc_icon a { color: #000; }
+
+/*** Scaling back simple_forms ***/
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 3px;
+    text-align: right;
+    width: 60px;
+		font-size: 90%;
+}
+.form-horizontal .controls {
+    margin-left: 70px;
+		width: 160px;
+}
+

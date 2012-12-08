@@ -1,11 +1,14 @@
 <%= simple_form_for @note, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.input :title %>
-  <%= f.input :date %>
-  <%= f.input :contents %>
-  <%= f.collection_select(:priority, :priority, Note::PRIORITIES, :prompt => true) %>
-  <div class="form-actions">
+  <%# f.input :date, :order => [:month, :day, :year] %>
+  <%= f.input :contents, :input_html => { :rows => 4 } %>
+  <%= f.input :priority, :collection => Note::PRIORITIES, :include_blank => true %>
+  <% unless @klass.nil? || @klass_id.nil? %>
+    <%= f.input :hidden_klass, :as => :hidden, :input_html => { :value => @klass } %>
+    <%= f.input :hidden_id, :as => :hidden, :input_html => { :value => @klass_id } %>
+  <% end %>
+  <!-- <div class="form-actions"> -->
     <%= f.button :submit, :class => 'btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                notes_path, :class => 'btn' %>
-  </div>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), notes_path, :class => 'btn' %>
+  <!-- </div> -->
 <% end %>

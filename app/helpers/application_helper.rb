@@ -8,15 +8,19 @@ module ApplicationHelper
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
-  #def flash_class(level)
-  #  case level
-  #  when :notice then "info"
-  #  when :error then "error"
-  #  when :alert then "warning"
-  #  end
-  #end
-
   def reload_flash
     page.replace "flash_messages", :partial => 'layouts/flash'
   end
+  
+  def get_well_type(priority)
+    if priority == 1
+      well = "well-red"
+    elsif priority == 2
+      well = "well-yellow"
+    else
+      well = "well-grey"
+    end
+    well
+  end
+  
 end

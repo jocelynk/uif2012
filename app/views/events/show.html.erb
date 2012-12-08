@@ -1,63 +1,63 @@
-<%- model_class = Event -%>
-<div class = "span4">
+<%# model_class = Event -%>
+<div class = "span5">
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
-  <h3><%= @event.program.name %> </h3>
+  <h3>Event: <%= @event.program.name %></h3>
   <h4><%= @event.date.strftime("%b %d, %Y") %></h4>
 </div>
 
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:date) %>:</strong></dt>
-  <dd><%= @event.date.strftime("%b %d, %Y (%a)") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:program_id) %>:</strong></dt>
-  <dd><%= @event.program.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:sections) %>:</strong></dt>
-  <dd><% @event.sections.each do |section|%><%= section.name%><p/><%end%></dd>
-  <dt><strong><%= model_class.human_attribute_name(:start_time) %>:</strong></dt>
-  <dd><%= @event.start_time.strftime("%l:%M %p") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:end_time) %>:</strong></dt>
-  <dd><%= @event.end_time.strftime("%l:%M %p") %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:location_id) %>:</strong></dt>
-  <dd><%= @event.location.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:gospel_shared) %>:</strong></dt>
-  <dd><%= @event.gospel_shared ? 'yes' : 'no' %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:meals_served) %>:</strong></dt>
-  <dd><%= @event.meals_served %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:bibles_distributed) %>:</strong></dt>
-  <dd><%= @event.bibles_distributed %></dd>
-</dl>
-<strong><%= link_to "Generate Barcodes for this Event", barcodes_event_path(@event) %></strong>
+  <table>
+    <tr>
+      <td width="100"><strong>Date:</strong></td><td><%= @event.date.strftime("%b %d, %Y (%a)") %></td>
+    </tr>
+    <tr>
+      <td><strong>Program:</strong></td><td><%= @event.program.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Sections:</strong></td><td><% @event.sections.each do |section|%><%= section.name%><p/><%end%></td>
+    </tr>
+    <tr>
+      <td><strong>Start time:</strong></td><td><%= @event.start_time.strftime("%l:%M %p") %></td>
+    </tr>
+    <tr>
+      <td><strong>End time:</strong></td><td><%= @event.end_time.strftime("%l:%M %p") %></td>
+    </tr>
+    <tr>
+      <td><strong>Location:</strong></td><td><%= @event.location.name %></td>
+    </tr>
+    <tr>
+      <td><strong>Meals served:</strong></td><td><%= @event.meals_served %></td>
+    </tr>
+    <tr>
+      <td><strong>Gospel shared?</strong></td><td><%= @event.gospel_shared ? 'yes' : 'no' %></td>
+    </tr>
+    <tr>
+      <td><strong>Bibles distributed:</strong></td><td><%= @event.bibles_distributed %></td>
+    </tr>
+  </table>
+<p><strong><%= link_to "Generate Barcodes for this Event", barcodes_event_path(@event) %></strong></p>
 
+<!-- add controls for next actions -->
+<p>&nbsp;</p>
+<p><%= link_to raw("<i class='icon-backward'></i> Back to events"), events_path, :class => 'btn btn-med'  %>&nbsp;</p>
+<p><%= link_to raw("<i class='icon-edit'></i> Edit this event"), edit_event_path(@event), :class => 'btn btn-med' %>&nbsp;</p>
+<p><%= link_to raw("<i class='icon-plus'></i> Add meals served"), meals_served_event_path(@event), :class => 'btn btn-med' %> </p>
+<p><%= link_to raw("<i class='icon-remove'></i> Destroy this event"),
+            event_path(@event),
+            :method => 'delete',
+            :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure you want to permanently destroy this event?')) },
+            :class => 'btn btn-danger btn-med' %>
+
+<!-- add notes functionality -->
 <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @event} %>
 
-
-
-
-<!-- have to figure this out -->
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              events_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_event_path(@event), :class => 'btn' %>
-  <%= link_to t('.meals_served', :default => t("helpers.links.add_meals_served")),
-              meals_served_event_path(@event), :class => 'btn'  %> 
-              
-                        
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              event_path(@event),
-              :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-              :class => 'btn btn-danger' %>
-  
-</div>
 </div>
 
 <% if @attendees.nil? && @absentees.nil? %>
 <p>Fix this error - some events created without section events fix Populate file</p>
 <% else %>
 <div class="studentSide">
-	<div class = "span5">
+	<div class = "span6 events showpage">
 <%= render :partial => "attendees" %>
 <p></p>
 

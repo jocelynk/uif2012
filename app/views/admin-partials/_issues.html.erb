@@ -1,23 +1,18 @@
-<%- model_class = Note -%>
-<div class="page-header">
-    <h1>Issues</h1>
+<div class="well-red-header">
+  <p>Alerts at UIF</p>
 </div>
 
-<% @all_notes.each do |note| %>
-    <% if note.priority == "high" %>
-    <% @class = "alert high"%>
-    <% elsif note.priority == "medium" %>
-    <% @class = "alert medium"%>
+<% @alerts.each do |note| %>
+    <% if note.priority == 1 %>
+    <% alert_class = "alert high"%>
     <% else %>
-    <% @class = "alert low"%>
+    <% alert_class = "alert medium"%>
     <% end %>
-    <%= "the class #{@class}"%>
-    <div class="<%= @class %>">
-        <a href="#"> <%= note.title %>
-        </a>
-        <div class="close" data-dismiss="alert">
-            x
-        </div>
+    <div class="<%= alert_class %>">
+      <% if note.priority == 1 %>
+        <i class='icon-warning-sign'></i>
+      <% end %>
+      <%= link_to note.title, note_path(note) %>
     </div>
     <% end %>
 

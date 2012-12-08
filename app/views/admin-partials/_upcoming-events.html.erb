@@ -46,11 +46,11 @@
                 <%= section.name %>&nbsp;
                 <% end %> 
                 </td>
-                <td><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
+                <td><span class="bc_icon"><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %></span>
                 </td>
             </td>
             <td>
-                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                <%= link_to raw("<i class='icon-edit'></i> Edit"),
                 edit_event_path(event), :class => 'btn btn-mini' %>
             </td>
         </tr>

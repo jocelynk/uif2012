@@ -2,9 +2,10 @@ require 'carrierwave/orm/activerecord'
 
 class Student < ActiveRecord::Base
   attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes, :is_visitor
-  before_save :reformat_phone, :assign_visitor_barcode
+  before_save :reformat_phone, :assign_visitor_barcode, :avatar
   
-  mount_uploader :photo, PhotoUploader
+  attr_accessible :avatar
+  has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }
   
   #Relationships
   belongs_to :household
@@ -34,6 +35,7 @@ class Student < ActiveRecord::Base
   scope :inactive, where('active = ?', false)
   scope :alphabetical, order('last_name, first_name')
   scope :is_visitor, where('is_visitor =?', true)
+  scope :not_visitor, where('is_visitor = ? ', false)
   #Misc constants
   STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
   
@@ -94,7 +96,7 @@ class Student < ActiveRecord::Base
     
   def recent_activity
     Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id INNER JOIN section_events se ON se.event_id = e.id INNER JOIN sections ON sections.id = se.section_id').
-    where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('sections.name AS "section",e.id AS "event", e.date AS "date"').order('"date"')
+    where('students.id = ? AND e.date > ?', self.id, 1.month.ago.to_date).select('sections.name AS "section",e.id AS "event", e.date AS "date"').order('"date"')
     
     #Student.joins('INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id').
     #where('students.id = ? AND e.date > ?', self.id, 5.days.ago.to_date).select('students.last_name AS "ln", e.id AS "event", e.date AS "date"')

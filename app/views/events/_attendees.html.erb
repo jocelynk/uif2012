@@ -5,15 +5,21 @@
 <table id="attendees" class="table table-striped">
   <thead>
     <tr>
-      <th><%= Student.human_attribute_name(:name) %></th>
-      <th><%= Student.human_attribute_name(:phone_number) %></th>
+      <th width="230">Student</th>
+      <th width="120">Phone</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <% @attendees.each do |student| %>
       <tr>
         <td><%= link_to student.name, student_path(student) %></td>
-        <td><%= number_to_phone student.cell_phone %></td>     
+        <td><%= number_to_phone student.cell_phone %></td> 
+        <td>
+          <%= link_to raw("<i class='icon-arrow-down'></i> Absent"), mark_absent_path(:id => student.id, :event_id => @event.id, :source => 'event'), :class => 'btn btn-mini' %>
+          &nbsp;
+          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+        </td>    
       </tr>
     <% end %>
   </tbody>

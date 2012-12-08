@@ -1,72 +1,46 @@
-require 'mina/bundler'
-require 'mina/rails'
-require 'mina/git'
-# require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
-# require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'bundler/capistrano'
 
-# Basic settings:
-#   domain       - The hostname to SSH to.
-#   deploy_to    - Path to deploy into.
-#   repository   - Git repo to clone from. (needed by mina/git)
-#   branch       - Branch name to deploy. (needed by mina/git)
+server 'urbanimpact.hss.cmu.edu', :web, :app, :db, primary: true
 
-set :domain, 'urbanimpact.hss.cmu.edu'
-set :deploy_to, '/var/www/urban-impact'
-set :repository, 'git@github.com:cmu-is-projects/uif2012.git'
-set :branch, 'production'
+ssh_options[:forward_agent] = true
+default_run_options[:pty]   = true
 
-# Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
-# They will be linked in the 'deploy:link_shared_paths' step.
-set :shared_paths, ['config/database.yml', 'log', 'public/uploads']
+set :application, 'urban-impact'
+set :repository,  'git@github.com:cmu-is-projects/uif2012.git'
+set :branch,      'production'
+set :deploy_to,   "/var/www/#{application}"
 
-# Optional settings:
-set :user, 'deploy'   # Username in the server to SSH to.
+set :user,  'deploy'
 set :group, 'deploy'
-set :forward_agent, true
+set :use_sudo, false
+set :deploy_via, :remote_cache
 
-# This task is the environment that is loaded for most commands, such as
-# `mina deploy` or `mina rake`.
-task :environment do
-  # If you're using rbenv, use this to load the rbenv environment.
-  # Be sure to commit your .rbenv-version to your repository.
-  # invoke :'rbenv:load'
+after 'deploy:restart','deploy:cleanup'
 
-  # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+namespace :deploy do
+  task :symlink_config, roles: :app do
+    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+  after 'deploy:finalize_update', 'deploy:symlink_config'
 end
 
-# Put any custom mkdir's in here for when `mina setup` is ran.
-# For Rails apps, we'll make some of the shared paths that are shared between
-# all releases.
-task :setup => :environment do
-  queue! %[mkdir -p "#{deploy_to}/shared/log"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/log"]
+after 'deploy', 'unicorn:reload'
+after 'deploy', 'nginx:reload'
 
-  queue! %[mkdir -p "#{deploy_to}/shared/config"]
-  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/config"]
-
-  queue! %[mkdir -p #{deploy_to}/shared/tmp]
-  queue! %[chmod g+rwx,u+rwx "#{deploy_to}/shared/tmp"]
-
-  queue! %[sudo mkdir -p /var/log/unicorn]
-  queue! %[sudo chmod g+rw,u+rw /var/log/unicorn]
-  queue! %[sudo chown -R #{user}:#{group} /var/log/unicorn]
+namespace :unicorn do
+  %w(start stop restart reload).each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: { no_release: true } do
+      run "#{shared_path}/unicorn #{command}"
+    end
+  end
 end
 
-desc "Deploys the current version to the server."
-task :deploy => :environment do
-  deploy do
-    # Put things that will set up an empty directory into a fully set-up
-    # instance of your project.
-    invoke :'git:clone'
-    invoke :'deploy:link_shared_paths'
-    invoke :'bundle:install'
-    invoke :'rails:db_migrate'
-    invoke :'rails:assets_precompile'
-
-    to :launch do
-      queue 'sudo service nginx reload'
-      queue "sudo #{deploy_to}/shared/unicorn restart"
+namespace :nginx do
+  %w(start stop restart reload).each do |command|
+    desc "#{command} nginx"
+    task command, roles: :app, except: { no_release: true } do
+      run "sudo service nginx #{command}"
     end
   end
 end

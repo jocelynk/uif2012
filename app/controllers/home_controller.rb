@@ -5,8 +5,10 @@ class HomeController < ApplicationController
   def index
    @events = Event.current
    @all_events = Event.paginate(:page => params[:page], :per_page => 5)
-   @past = Event.past.paginate(:page => params[:page], :per_page => 5)
-   @all_notes = Note.all
+   @past = Event.past.by_date_desc.paginate(:page => params[:page], :per_page => 5)
+   
+   @alerts = Note.alerts.active.by_priority.by_date_desc.last_six.all
+   @alert_count = Note.alerts.active.all.length
    @upcoming = Event.upcoming.paginate(:page => params[:page], :per_page => 5)
   
   
@@ -90,7 +92,6 @@ class HomeController < ApplicationController
       
       @w_month = months[@month.to_i-1]
       @year = params[:date][:year]
-     # @attendance_by_month_year = Program.joins('INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id').where('strftime("%m", date) + 0 = ? AND strftime("%Y", date) + 0 = ?',month,year).select("d.name AS department, programs.name AS program, COUNT(a.id) AS attendances").group("d.id, programs.id").order("d.name, programs.name")  
       
       @attendance_by_month_year = ActiveRecord::Base.connection.execute('SELECT d.name AS department, programs.name AS program, COUNT(a.id) AS attendances FROM "programs" INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id WHERE (strftime("%m", date) + 0 = '+@month+' AND strftime("%Y", date) + 0 ='+@year+') GROUP BY d.name, programs.name ORDER BY department, program')
       

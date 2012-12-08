@@ -6,7 +6,7 @@ Uif2012::Application.routes.draw do
   #require 'api_constraints' 
   
   #barcode scanning routes
-  match 'checkin', :controller => 'home', :action => 'checkin'
+  match 'checkin', :controller => 'home', :action => 'checkin', :as => :checkin
   match 'meals_served', :controller => 'event', :action => 'meals_served'
   
   #General Home
@@ -24,6 +24,16 @@ Uif2012::Application.routes.draw do
   match 'ajax_allergies' => 'allergies#ajax_allergies', :via => :get
   match 'getTodaysEvents' => 'mobile#getTodaysEvents', :via => :get
   match 'createAttendances' => 'mobile#createAttendances', :via => :post
+  match 'getPhoto' => 'mobile#getPhoto', :via => :post
+  match 'searchForStudent' => 'mobile#searchForStudent', :via => :get
+  
+  #Notes
+  match 'alerts' => 'notes#alerts', :as => :alerts
+  match 'dismiss_note/:id' => 'notes#dismiss', :as => :dismiss_note
+  
+  # special attendance routes
+  match 'mark_attended/:id' => 'events#mark_attended', :as => :mark_attended
+  match 'mark_absent/:id' => 'events#mark_absent', :as => :mark_absent
   
 
   #Generated model routes

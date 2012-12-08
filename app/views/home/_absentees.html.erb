@@ -4,21 +4,25 @@
 <table id="absentees" class="table table-striped">
   <thead>
     <tr>
-      <th><%= Student.human_attribute_name(:name) %></th>
-      <th><%= Student.human_attribute_name(:phone_number) %></th>
-      <th><%= Student.human_attribute_name(:barcode_number) %></th>
+      <th>Student</th>
+      <th>Phone Number</th>
+      <th>Barcode Number</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <% @absentees.each do |student| %>
-      <tr>
+      <tr class="is_visitor">
         <td><%= link_to student.name, student_path(student) %></td>
         <%- if student.cell_phone.nil? -%>
           <td>No Phone Number</td> 
         <% else %>
           <td><%= number_to_phone student.cell_phone %></td> 
         <% end %> 
-        <td><%= student.barcode_number %></td>            
+       <td><% if student.is_visitor %> <i class="icon-flag"></i><%end%><%= student.barcode_number %></td>   
+        <% if student.is_visitor %> <i class="icon-flag"/> <%end%></td>    
+        <td><%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => student.id, :source => 'student'), :class => 'btn btn-mini' %>
+        </td>           
       </tr>
     <% end %>
   </tbody>

@@ -4,7 +4,6 @@ body {
 	padding-top: 60px; 
 	font-size: 12px;
 	background-color:white;
-	/*font-family: Verdana, Arial, sans-serif;*/
 } 
 
 h1 {
@@ -30,15 +29,6 @@ a.btn.btn-primary:visited { color: #fff; }
   border-top: 1px solid #eee;
 	background-color:#E6E6E6;
 	text-align: center;
-}
-
-.well {
-	line-height: 1.5;
-}
-
-.well li {
-	font-size: 130%;
-	line-height: 1.5;
 }
 
 .navbar-inner {
@@ -81,19 +71,32 @@ h3 {
 }
 
 select.date { width: 100px; }
-select.time { width: 100px; }
+select.time { width: 95px; }
 
 .radio.inline {
   vertical-align:bottom;
   padding_top: 0px;
 }
 label.radio.inline {
-  /*padding-top: 7px;*/
+
 }
 input[type="radio"] {
   margin-top:0px;
 }
 
+.quick_add_btn {
+    width: 80%;
+		margin-bottom: 5px;
+		margin-left: 10px;
+		margin-right: 10px;
+}
+
+.btn-med {
+    width: 150px;
+		margin-bottom: 5px;
+		margin-left: 10px;
+		margin-right: 10px;
+}
 
 // Set the correct sprite paths
 //@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
@@ -147,23 +150,12 @@ font-size:30px;
 	text-align: center;
 }
 
-.well {
-	line-height: 1.5;
-}
-
-.well li {
-	font-size: 130%;
-	line-height: 1.5;
-}
-
 .navbar-inner {
   background-color: #ffd200; 
   background-image: none;
   background-repeat: no-repeat;
   filter: none;
 }
-
-
 
 
 ///////////////////////////////////////////////////////////////
@@ -664,3 +656,15 @@ font-size:30px;
 }
 
 
+// Cutting back the spacing on simple_form...
+.form-horizontal .control-label {
+    float: left;
+    padding-top: 3px;
+    text-align: right;
+    width: 80px;
+		font-size: 90%;
+}
+.form-horizontal .controls {
+    margin-left: 90px;
+		width: 320px;
+}

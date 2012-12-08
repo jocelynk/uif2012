@@ -6,7 +6,7 @@ class CreateNotes < ActiveRecord::Migration
       t.text :contents
       t.string :notable_type
       t.integer :notable_id
-      t.string :priority
+      t.integer :priority
 
       t.timestamps
     end
