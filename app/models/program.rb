@@ -25,6 +25,7 @@ class Program < ActiveRecord::Base
   
   #Scopes
   scope :active, where('active = ? AND end_date IS NULL', true)
+  scope :past, where('end_date IS NOT NULL')
   scope :by_name, order('name')
   #Methods
   def name=(s)

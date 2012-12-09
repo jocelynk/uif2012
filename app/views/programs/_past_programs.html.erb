@@ -1,0 +1,33 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Program name</th>
+      <th>Department</th>
+      <th>Grade Range</th>
+      <th>Dates</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @past_programs.each do |program| %>
+      <tr>
+        <td><%= link_to program.name, program_path(program) %></td>
+		    <td><%= program.department.name %></td>
+        <td><%= program.grade_range %></td>
+        <td><%= program.start_date.strftime("%b %d, %Y") %> - <%= program.end_date.strftime("%b %d, %Y") %>
+        </td>
+
+        <td>
+          <%= link_to raw("<i class='icon-edit'></i> Edit"),
+                      edit_program_path(program), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="digg_pagination">
+    <div class="page_info">
+        <%= page_entries_info @past_programs %>
+    </div>
+    <%= will_paginate @past_programs, :container => true %>
+</div>
