@@ -3,6 +3,37 @@ class MobileController < ApplicationController
  #Methods for mobile
  
  #Event Methods
+ 
+ #Create an Event
+  def getProgramsAndSections
+    @programs = Program.active
+    @sections = Section.joins('INNER JOIN programs p ON p.id = sections.program_id').where('sections.active = ?', true).select('sections.id, sections.name as section, p.name')
+    @locations = Location.all
+    respond_to do |format|
+      format.json {render :json=>{:programs=>@programs, :sections => @sections, :locations => @locations}, :callback => params[:callback] }
+    end
+  end
+  
+  def createEvent
+    puts params
+    #params[:event][:sections].shift
+   # sections = params[:event][:sections]
+   # event_id = params[:event][:id]
+   # params[:event].delete "sections"
+
+    
+   # @event = Event.new(params[:event])
+    
+   respond_to do |format|
+      #if @event.save
+        # sections.each do |section_id|
+       #    @section = SectionEvent.new({:event_id => @event.id, :section_id => section_id})            @section.save
+ #        end 
+           format.json {render :json=>{:message => "Message"}, :callback => params[:callback] }
+        end
+    
+  end
+
   def getTodaysEvents
     @current = Event.current
     @events = Hash.new;
