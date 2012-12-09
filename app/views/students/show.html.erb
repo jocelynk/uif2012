@@ -38,8 +38,8 @@
                     <dd><%= @student.date_of_birth.strftime("%B %d, %Y") %></dd>
                     <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
                     <dd>
-                        <% if @student.cell_phone.nil? %>
-                        "N/A"
+                        <% if @student.cell_phone.blank? %>
+                        N/A
                         <% else %>
                         <%= number_to_phone @student.cell_phone %>
                         <% end %>

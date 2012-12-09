@@ -20,6 +20,7 @@ gem 'will_paginate', "~> 3.0.3"
 gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
 gem "paperclip", "~> 3.0"
+gem 'whenever', require: false
 
 group :development do
   gem 'capistrano'
