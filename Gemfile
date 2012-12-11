@@ -23,6 +23,7 @@ gem "paperclip", "~> 3.0"
 gem 'whenever', require: false
 gem 'populator3'
 gem 'faker'
+gem 'thin'
 
 group :development do
   gem 'capistrano'
