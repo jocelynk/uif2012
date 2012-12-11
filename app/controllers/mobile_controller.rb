@@ -16,6 +16,8 @@ class MobileController < ApplicationController
   
   def createEvent
     puts params
+    startt = Time.parse(params[:start_time]) rescue nil
+    endt = Time.parse(params[:end_time]) rescue nil
     if params[:sections].length <1
       respond_to do |format|
          format.json {render :json=>{:error => "Please select a section(s)"}, :callback => params[:callback] }
@@ -24,9 +26,9 @@ class MobileController < ApplicationController
       respond_to do |format|
         format.json {render :json=>{:error => "Please select a program"}, :callback => params[:callback] } 
       end
-    elsif params[:start_time].length <1 or params[:end_time].length <1
+    elsif params[:start_time].length <1 or params[:end_time].length <1 or startt.nil? or endt.nil?
       respond_to do |format|
-        format.json {render :json=>{:error => "Please select a start and end time"}, :callback => params[:callback] } 
+        format.json {render :json=>{:error => "Please select a start and end time in format HH:MM."}, :callback => params[:callback] } 
       end 
     else
       @event = Event.new
@@ -90,18 +92,18 @@ class MobileController < ApplicationController
     if !barcodes.nil? && Event.find_by_id(event)
        barcodes.each do |barcode|
           @student = Student.find_by_barcode_number(barcode)
-          @attendance = Attendance.find_by_student_id_and_event_id(@student.id,event)
-          if @student and !@attendance
-            if @student.attendances.create(event_id: event)
-              @scanned.push(@student.proper_name)         
+         
+          if @student
+             @attendance = Attendance.find_by_student_id_and_event_id(@student.id,event)
+            if  !@attendance
+              if @student.attendances.create(event_id: event)
+                @scanned.push(@student.proper_name)         
+              end
+            else 
+               @already_scanned.push(@student.proper_name)
             end
           else
-            if !@attendance
-              @bad_barcodes.push(barcode)
-            else
-              @already_scanned.push(@student.proper_name)
-            end
-            
+               @bad_barcodes.push(barcode)         
           end
         end
       respond_to do |format|
