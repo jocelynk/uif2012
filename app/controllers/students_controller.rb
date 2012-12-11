@@ -22,7 +22,8 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
     @recent_activities = @student.recent_activity
-    @notes = @student.notes.by_priority.limit(4)
+    # @notes = @student.notes.by_priority.limit(4)  -- this is for the home page; here we want all notes in reverse chron order
+    @notes = @student.notes.by_date_desc.all
     @department = Student.joins('INNER JOIN enrollments e ON students.id = e.student_id INNER JOIN sections s ON s.id = e.section_id INNER JOIN programs p ON p.id = s.program_id INNER JOIN departments d ON d.id = p.department_id').where('students.id = ?', @student.id).select('DISTINCT d.name as department')
     @notable = @student
     respond_with(@student) do |format|
