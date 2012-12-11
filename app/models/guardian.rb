@@ -15,6 +15,17 @@ class Guardian < ActiveRecord::Base
   #scope
   scope :alphabetical,   order("last_name, first_name")
   
+  
+  TYPE_LIST = [['Father', 'Father'],['Mother', 'Mother'],['Uncustodial', 'Uncustodial'], ['Grandparent', 'Grandparent']]
+  
+  def name
+    "#{last_name}, #{first_name}"
+  end
+  
+  def proper_name
+    "#{first_name} #{last_name}"
+  end
+  
   # Callback code
   # -----------------------------
   private

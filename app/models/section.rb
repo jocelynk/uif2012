@@ -9,7 +9,7 @@ class Section < ActiveRecord::Base
   #Nested attributes
   accepts_nested_attributes_for :enrollments
 
-  
+  scope :active, where('active = ?', true) 
 
   #Validations
   validates_presence_of :name

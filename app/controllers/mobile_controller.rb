@@ -3,6 +3,65 @@ class MobileController < ApplicationController
  #Methods for mobile
  
  #Event Methods
+ 
+ #Create an Event
+  def getProgramsAndSections
+    @programs = Program.active
+    @sections = Section.joins('INNER JOIN programs p ON p.id = sections.program_id').where('sections.active = ?', true).select('sections.id, sections.name as section, p.name')
+    @locations = Location.all
+    respond_to do |format|
+      format.json {render :json=>{:programs=>@programs, :sections => @sections, :locations => @locations}, :callback => params[:callback] }
+    end
+  end
+  
+  def createEvent
+    puts params
+    if params[:sections].length <1
+      respond_to do |format|
+         format.json {render :json=>{:error => "Please select a section(s)"}, :callback => params[:callback] }
+      end
+    elsif params[:program].length <1
+      respond_to do |format|
+        format.json {render :json=>{:error => "Please select a program"}, :callback => params[:callback] } 
+      end
+    elsif params[:start_time].length <1 or params[:end_time].length <1
+      respond_to do |format|
+        format.json {render :json=>{:error => "Please select a start and end time"}, :callback => params[:callback] } 
+      end 
+    else
+      @event = Event.new
+      @event.date = Date.today
+      @event.program_id = params[:program]
+      @event.location_id = params[:location]
+      split_start = params[:start_time].split(':')
+      @event.start_time = Time.local(Date.today.year, Date.today.month, Date.today.day, split_start[0], split_start[1])
+      
+      if params[:end_time].length > 0
+         split_end = params[:end_time].split(':')
+        @event.end_time = Time.local(Date.today.year, Date.today.month, Date.today.day, split_end[0], split_end[1])
+      end
+
+      puts @event.date
+      puts @event.program_id
+      puts @event.location_id
+      puts @event.start_time
+      puts @event.end_time
+      if @event.save
+        params[:sections].each do |section|
+          @section = SectionEvent.new({:event_id => @event.id, :section_id => section})
+          @section.save          
+        end 
+        respond_to do |format|
+            format.json {render :json=>{:message => "Event was successfully created"}, :callback => params[:callback] }
+        end
+      else
+        respond_to do |format|
+            format.json {render :json=>{:error => "There was something wrong with the event"}, :callback => params[:callback] }
+        end
+      end
+    end   
+  end
+
   def getTodaysEvents
     @current = Event.current
     @events = Hash.new;
