@@ -28,7 +28,7 @@ class MobileController < ApplicationController
       end
     elsif params[:start_time].length <1 or params[:end_time].length <1 or startt.nil? or endt.nil?
       respond_to do |format|
-        format.json {render :json=>{:error => "Please select a start and end time in format HH:MM."}, :callback => params[:callback] } 
+        format.json {render :json=>{:error => "Please select a start and end time in a 24-hr HH:MM format."}, :callback => params[:callback] } 
       end 
     else
       @event = Event.new
