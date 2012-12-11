@@ -19,8 +19,9 @@ gem 'validates_timeliness', '3.0.8'
 gem 'will_paginate', "~> 3.0.3"
 gem 'devise'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'populator3'
+gem 'faker'
 gem "paperclip", "~> 3.0"
-gem 'whenever', require: false
 
 group :development do
   gem 'capistrano'
@@ -57,5 +58,6 @@ end
 
 group :production do
   gem 'pg'
+  gem 'thin'
   gem 'unicorn'
 end
