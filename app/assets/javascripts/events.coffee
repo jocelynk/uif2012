@@ -6,12 +6,12 @@ $(document).ready ->
   sections = undefined
   sections = $("#event_sections").html()
   console.log($("#action").val() is "edit")
-  #if $("#action").val() isnt "edit"  
-   # $("#event_sections").parent().hide()
-  #else
-    #changeSection(sections)
-  #$("#event_program_id").change ->
-    #changeSection(sections)
+  if $("#action").val() isnt "edit"  
+    $("#event_sections").parent().hide()
+  else
+    changeSection(sections)
+  $("#event_program_id").change ->
+    changeSection(sections)
   
     
   
