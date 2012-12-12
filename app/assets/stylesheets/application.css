@@ -1113,3 +1113,14 @@ p.supertiny{font-size:5px; line-height: 0.75;}
     width: 160px;
 }
 
+a
+{
+    color: black !important;
+}
+
+.btn.btn-primary
+{
+    color:white !important;
+    text-shadow: 1px -1px 4px rgba(0, 0, 0, 0.25);
+}
+
