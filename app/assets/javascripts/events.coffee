@@ -5,7 +5,6 @@ $(document).ready ->
 
   sections = undefined
   sections = $("#event_sections").html()
-  console.log($("#action").val() is "edit")
   if $("#action").val() isnt "edit"  
     $("#event_sections").parent().hide()
   else

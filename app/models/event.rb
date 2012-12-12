@@ -1,8 +1,5 @@
 class Event < ActiveRecord::Base
   attr_accessible :bibles_distributed, :date, :end_time, :gospel_shared, :meals_served, :program_id, :start_time, :location_id, :sections
-
-  #Callbacks
-  #after_create :assign_sections
   
   #Relationships
   belongs_to :program
@@ -83,31 +80,11 @@ class Event < ActiveRecord::Base
     end
   end
  
-  private  
-  def assign_sections
-     #if @section_ids
-      #new_ids = @section_ids
-      #old_ids = Section.all.collect{|p| p.id}
-      #ids_to_delete = old_ids - (old_ids & new_ids)
-      #ids_to_add = new_ids - (old_ids & new_ids)
-      #event_id = id
- 
-      #ids_to_delete.each do |section_id|
-      #  SectionEvent.destroy_all(:event_id => event_id, :section_id => section_id)
-      #end
-      puts self.sections
-      
-      self.sections.each do |section_id|
-        SectionEvent.create(:event_id => event_id, :section_id => section_id)
-      end      
-  end
   
   def self.get_todays_date
     t = Time.now
     return t.strftime("%b %d")
   end
 
-  #need validation for event must have end_time if after current date, Look into this CRON
-  #validation for duplicate events not created
 end
 

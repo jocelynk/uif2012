@@ -20,7 +20,6 @@ class HomeController < ApplicationController
   def contact
   end
 
-  #use sunspot gem for search????
   def search
    @query = params[:query]
    @students = Student.search(@query)
@@ -130,8 +129,8 @@ class HomeController < ApplicationController
         
         @ytd_join = @ytd_by_program_attendance.zip(@ytd_by_program_event)
         @ytd_total_join = @ytd_by_department_attendance.zip(@ytd_by_department_event)
-     elsif (1..8).include?(month.to_i)
-     last_year = (year.to_i - 1).to_s
+      elsif (1..8).include?(month.to_i)
+        last_year = (year.to_i - 1).to_s
         @ytd_by_program_attendance = ActiveRecord::Base.connection.execute('SELECT d.name AS department, programs.name AS program, COUNT(a.id) AS attendances FROM "programs" INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id LEFT JOIN attendances a ON a.event_id = e.id WHERE (EXTRACT(MONTH from date)::int BETWEEN 9 AND 12 AND EXTRACT(YEAR from date)::int ='+last_year+') OR (EXTRACT(MONTH from date)::int BETWEEN 1 AND '+ month +' AND EXTRACT(YEAR from date)::int ='+year+') GROUP BY d.name, programs.name ORDER BY d.name, programs.name')
         @ytd_by_program_event = ActiveRecord::Base.connection.execute('SELECT d.name AS department, programs.name AS program, SUM(e.meals_served) AS meals, SUM(e.bibles_distributed) AS bibles, SUM(CASE WHEN e.gospel_shared = \'t\' THEN 1 ELSE 0 END) AS gospel FROM "programs" INNER JOIN departments d ON d.id = programs.department_id LEFT JOIN events e ON e.program_id = programs.id WHERE (EXTRACT(MONTH from date)::int BETWEEN 9 AND 12 AND EXTRACT(YEAR from date)::int = '+last_year+') OR (EXTRACT(MONTH from date)::int BETWEEN 1 AND '+month+' AND EXTRACT(YEAR from date)::int = '+year+') GROUP BY d.name, programs.name ORDER BY d.name, programs.name')
      

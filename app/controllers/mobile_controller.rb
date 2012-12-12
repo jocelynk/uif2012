@@ -35,20 +35,46 @@ class MobileController < ApplicationController
       @event.date = Date.today
       @event.program_id = params[:program]
       @event.location_id = params[:location]
-      split_start = params[:start_time].split(':')
-      @event.start_time = Time.local(Date.today.year, Date.today.month, Date.today.day, split_start[0], split_start[1])
-      
-      if params[:end_time].length > 0
-         split_end = params[:end_time].split(':')
-        @event.end_time = Time.local(Date.today.year, Date.today.month, Date.today.day, split_end[0], split_end[1])
+      split_start = params[:start_time].split(/[ :]/)
+      puts split_start 
+      if split_start[2] == 'AM' and split_start[0].to_i == 12
+        hour = 24
+      elsif split_start[2] == 'PM' and split_start[0].to_i == 12  
+        hour = 12
+      elsif split_start[2] == 'AM'
+        hour = split_start[0].to_i
+      else
+        hour = split_start[0].to_i + 12
       end
+      puts "hour"
+      puts hour
+      @event.start_time = Time.local(Date.today.year, Date.today.month, Date.today.day, hour, split_start[1]) rescue nil
+      
+      
+      split_end = params[:end_time].split(/[ :]/)
+      puts split_end
+      puts split_end[0].to_i 
+      if split_end[2] == 'AM' and split_end[0].to_i == 12
+        hourend = 24
+      elsif split_end[2] == 'PM' and split_end[0].to_i == 12  
+        hourend = 12
+      elsif split_end[2] == 'AM'
+        hourend = split_end[0].to_i
+      else
+        hourend = split_end[0].to_i + 12
+      end
+       puts "end"
+      puts hourend
+      @event.end_time = Time.local(Date.today.year, Date.today.month, Date.today.day, hourend, split_end[1]) rescue nil
 
       puts @event.date
       puts @event.program_id
       puts @event.location_id
+      puts "start_time and end time"
       puts @event.start_time
       puts @event.end_time
       if @event.save
+        puts @event.start_time
         params[:sections].each do |section|
           @section = SectionEvent.new({:event_id => @event.id, :section_id => section})
           @section.save          
@@ -123,7 +149,8 @@ class MobileController < ApplicationController
   def searchForStudent
     @barcode = params[:bar_code]
     @student = Student.find_by_barcode_number(@barcode)
-    if Student.find_by_barcode_number(@barcode)
+    puts @student.nil?
+    if !@student.nil?
        respond_to do |format|
 
           format.json { render :json=>@student, :callback => params[:callback] }
@@ -138,6 +165,7 @@ class MobileController < ApplicationController
   def getPhoto
     barcode = params[:barcode]
     @student = Student.find_by_barcode_number(barcode)
+    
     if @student
       if @student.update_attributes(:avatar => params[:file])
         puts "success"

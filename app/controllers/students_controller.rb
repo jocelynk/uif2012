@@ -61,7 +61,6 @@ class StudentsController < ApplicationController
     @household = Household.new(params[:household])
     respond_to do |format|
       if @student.save and @household.save
-      puts "Student saved and Household saved"
         @student.update_attributes({:household_id => @household.id})         
         unless @enrollments.nil? || @enrollments.empty?
           @enrollments.each do |reg|
@@ -72,19 +71,16 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'A visitor was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       elsif @student.save and @student.is_visitor
-              puts "Student but issue with ohusehold"
         @destroy_student = Student.find_by_id(@student.id)
         @destroy_student.destroy
         @student = Student.new
         format.html { render action: "new" }
       elsif @household.save
-              puts "Household saved but issue with student"
         @destroy_household = Household.find_by_id(@household.id)
         @destroy_household.destroy
         format.html { render action: "new" }
         #format.json { render json: @student.errors, status: :unprocessable_entity } 
       elsif @student.save
-        puts "Student saved no issue"
         unless @enrollments.nil? || @enrollments.empty?
           @enrollments.each do |reg|
             @enrollment = Enrollment.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
@@ -94,7 +90,6 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
-        puts "issue with student"
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end

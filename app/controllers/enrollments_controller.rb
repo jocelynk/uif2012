@@ -1,7 +1,6 @@
 class EnrollmentsController < ApplicationController
   # GET /enrollments
   # GET /enrollments.json
-  #before_filter :check_login
   before_filter :authenticate_user!
   
   def index

@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   def load
     @title = "All events"
     @events = Event.paginate(:page => params[:page]).per_page(5).by_date(params[:date_query])
-    # @events = Event.all
     @event = Event.new
   end
   
@@ -200,7 +199,6 @@ class EventsController < ApplicationController
   end
 
   def barcodes
-    puts params[:id]
     @event = Event.find_by_id(params[:id])
     @attendees = Event.attendees(params[:id])
     @absentees = Event.absentees(params[:id])
