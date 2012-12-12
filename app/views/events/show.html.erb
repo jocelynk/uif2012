@@ -35,7 +35,8 @@
       <td><strong>Bibles distributed:</strong></td><td><%= @event.bibles_distributed %></td>
     </tr>
   </table>
-<p><strong><%= link_to "Generate Barcodes for this Event", barcodes_event_path(@event) %></strong></p>
+<%# link_to "Generate Barcodes for this Event", barcodes_event_path(@event) %>
+<p><strong><%= link_to "Generate Barcodes for this Event (PDF)", event_path(@event.id, :format => 'pdf') %></strong></p>
 
 <!-- add controls for next actions -->
 <p>&nbsp;</p>
