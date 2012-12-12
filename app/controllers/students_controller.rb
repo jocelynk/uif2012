@@ -22,7 +22,8 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.cell_phone = "N/A" if @student.cell_phone.nil?
     @recent_activities = @student.recent_activity
-    @notes = @student.notes.by_priority.limit(4)
+    # @notes = @student.notes.by_priority.limit(4)  -- this is for the home page; here we want all notes in reverse chron order
+    @notes = @student.notes.by_date_desc.all
     @department = Student.joins('INNER JOIN enrollments e ON students.id = e.student_id INNER JOIN sections s ON s.id = e.section_id INNER JOIN programs p ON p.id = s.program_id INNER JOIN departments d ON d.id = p.department_id').where('students.id = ?', @student.id).select('DISTINCT d.name as department')
     @notable = @student
     respond_with(@student) do |format|
@@ -60,7 +61,6 @@ class StudentsController < ApplicationController
     @household = Household.new(params[:household])
     respond_to do |format|
       if @student.save and @household.save
-      puts "Student saved and Household saved"
         @student.update_attributes({:household_id => @household.id})         
         unless @enrollments.nil? || @enrollments.empty?
           @enrollments.each do |reg|
@@ -71,19 +71,16 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'A visitor was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       elsif @student.save and @student.is_visitor
-              puts "Student but issue with ohusehold"
         @destroy_student = Student.find_by_id(@student.id)
         @destroy_student.destroy
         @student = Student.new
         format.html { render action: "new" }
       elsif @household.save
-              puts "Household saved but issue with student"
         @destroy_household = Household.find_by_id(@household.id)
         @destroy_household.destroy
         format.html { render action: "new" }
         #format.json { render json: @student.errors, status: :unprocessable_entity } 
       elsif @student.save
-        puts "Student saved no issue"
         unless @enrollments.nil? || @enrollments.empty?
           @enrollments.each do |reg|
             @enrollment = Enrollment.new({:student_id =>@student.id, :section_id => reg.second["section_id"].to_i})
@@ -93,7 +90,6 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render json: @student, status: :created, location: @student }
       else
-        puts "issue with student"
         format.html { render action: "new" }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end

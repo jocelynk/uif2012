@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-
-  #before_filter :check_login
   # authorize_resource
   before_filter :authenticate_user!
   

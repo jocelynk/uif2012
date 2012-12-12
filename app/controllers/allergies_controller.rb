@@ -3,7 +3,7 @@ class AllergiesController < ApplicationController
   # GET /allergies.json
   skip_before_filter :verify_authenticity_token
   before_filter :authenticate_user!
-  #before_filter :check_login
+
   
   respond_to :html, :json, :js, :xml
   def ajax_allergies
@@ -11,7 +11,7 @@ class AllergiesController < ApplicationController
     @allergy = Allergy.new
     @allergy.name = params[:name]
     @allergy.warning_text = params[:warning_text]
-    #respond_with Allergy.create(params[:allergy])
+
     respond_to do |format|
       if @allergy.save
         format.html { redirect_to @allergy, notice: 'Allergy was successfully created.' }

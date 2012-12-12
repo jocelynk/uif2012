@@ -5,17 +5,15 @@
 </div>
 
 <div class="row">
-  <div class="span11">
+  <div class="span10">
 <div id="search">
 	<%= form_tag('/events/search') do %>
 		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
 	<% end %>
 </div>
 </div>
-<div class="span1">
-<%= link_to t('.new', :default => t("helpers.links.new")),
-new_event_path,
-:class => 'btn btn-primary' %>
+<div class="span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add event</strong>"), new_event_path, :class => 'btn btn-primary' %>
 </div>
 </div>
 <table class="table table-striped">
@@ -43,7 +41,7 @@ new_event_path,
         <!-- <td><%# event.sections.each do |section|%><%# section.name %>&nbsp;<%# end %></td> -->
         <td><%= l event.start_time %> - <%= l event.end_time %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          <%= link_to raw("<i class='icon-edit'></i> Edit"),
                       edit_event_path(event), :class => 'btn btn-mini' %>
           <!-- <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       event_path(event), :remote => true,

@@ -4,8 +4,9 @@ class ProgramsController < ApplicationController
   # GET /programs
   # GET /programs.json
   def index
-    @programs = Program.paginate(:page => params[:page], :per_page => 15)
-
+    @current_programs = Program.active.by_name.paginate(:page => params[:page], :per_page => 15)
+    @past_programs = Program.past.by_name.paginate(:page => params[:page], :per_page => 15)
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @programs }

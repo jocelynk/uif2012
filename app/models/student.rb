@@ -37,7 +37,7 @@ class Student < ActiveRecord::Base
   scope :is_visitor, where('is_visitor =?', true)
   scope :not_visitor, where('is_visitor = ? ', false)
   #Misc constants
-  STATUS_LIST = [['Active', 'active'],['Inactive', 'inactive'],['College', 'college']]
+  STATUS_LIST = [['Active', 'Active'],['Inactive', 'Inactive'],['College', 'College'], ['Graduated', 'Graduated'], ['Missing', 'Missing']]
   
   #Other methods
   
@@ -126,6 +126,22 @@ class Student < ActiveRecord::Base
           @student = true
         end  
       end
+    end
+  end
+  
+  #CRON job
+  
+  def self.change_grade
+    graduated_students = Student.where('grade = ? AND status = ?',12, 'Active')
+    graduated_students.each do |s|
+      s.update_attributes(:status => 'Inactive')
+    end
+    
+    not_graduated_students = Student.where('grade != ?', 12)
+    not_graduated_students.each do |s| 
+      gr = s.grade
+      new_grade = gr +1
+      s.update_attributes(:grade => new_grade) 
     end
   end
   

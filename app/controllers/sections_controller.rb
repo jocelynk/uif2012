@@ -1,7 +1,6 @@
 class SectionsController < ApplicationController
   # GET /sections
   # GET /sections.json
-  #before_filter :check_login
   before_filter :authenticate_user!
   def index
     @sections = Section.paginate(:page => params[:page]).per_page(10)

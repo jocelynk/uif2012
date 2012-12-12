@@ -1,30 +1,26 @@
-<br>
-<div class="page-header checkin">
-<h2><%= @event.date.strftime("%b %d, %Y") %></h2>
-<%- if @event.program.scan_by_absence %>
-  <h2>Absence Scan for Following Sections:</h2>
-<%- else %>
-  <h3>Attendance Scan for Following Sections:</h3>
-<%- end %>
+<div class="adjust_page">
+  <div class="page-header checkin">
+  <h2><%= @event.date.strftime("%b %d, %Y") %></h2>
+  <%- if @event.program.scan_by_absence %>
+    <h2>Absence Scan for Following Sections:</h2>
+  <%- else %>
+    <h3>Attendance Scan for Following Sections:</h3>
+  <%- end %>
+  </div>
+  <ul class="scan_sections">
+  <% @event.sections.each do |event| %>
+    <li><%= event.name %></li>
+  <% end %>
+  </ul>
+  <br/>
+  <h5>Scanning...</h5>
+  <div id="attendance_barcodes">
+        <input id ="Input" type="text"> </input>
+        <h3 style="color: black;"><span id="student_checked"></span></h3>
+  </div>
+  <br/>
+  <div id="container">
+    <div class="scanning attend"><h2>Attendees</h2><p/><div id="attend"><%= render :partial => "attendees" %></div><div>
+    <div class="scanning absent"><h2>Absentees</h2><p/><div id="absent"><%= render :partial => "absentees" %></div><div>
+  </div>
 </div>
-<ul>
-<% @event.sections.each do |event| %>
-  <li><%= event.name %></li>
-<% end %>
-<p>Scanning...</p>
-<div id="attendance_barcodes">
-      <input id ="Input" type="text"> </input>
-      <span id="student_checked"></span>
-</div>
-
-<div id="container">
-  <div class="scanning attend"><h2>Attendees</h2><p/><div id="attend"><%= render :partial => "attendees" %></div><div>
-  <div class="scanning absent"><h2>Absentees</h2><p/><div id="absent"><%= render :partial => "absentees" %></div><div>
-</div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>

@@ -1,8 +1,6 @@
 jQuery ->
-  obj = 
-    count: 0
+  
   checked = document.getElementById("student_is_visitor")
-  console.log(checked)
   if checked isnt null
     if document.getElementById("student_is_visitor").checked
       $(document.getElementById("student_barcode_number")).parent().parent().hide()
@@ -13,7 +11,6 @@ jQuery ->
       $(document.getElementById("student_household_id")).parent().parent().show()    
       $(document.getElementById("visitor_households")).hide()
     $("#student_is_visitor").click ->
-      console.log("asdf")
       if document.getElementById("student_is_visitor").checked
         $(document.getElementById("student_barcode_number")).parent().parent().hide()
         $(document.getElementById("student_household_id")).parent().parent().hide()
@@ -22,7 +19,8 @@ jQuery ->
         $(document.getElementById("student_barcode_number")).parent().parent().show()
         $(document.getElementById("student_household_id")).parent().parent().show()
         $(document.getElementById("visitor_households")).hide()
-  ###    
+  obj = 
+    count: 0
   if document.getElementById('enrollment_nested_form') isnt null
     if document.getElementById('enrollment_nested_form').children.length <= 1
       $('form').on 'click', '.add_fields', (event) ->
@@ -32,18 +30,13 @@ jQuery ->
         fn = (obj) ->
           $('#student_enrollments_attributes_' + obj + '_section_id').parent().hide()
           sections = $('#student_enrollments_attributes_' + obj + '_section_id').html()
-          console.log("section: " + sections)
           $(document).on( 'change', '#student_enrollments_attributes_' + obj + '_program', (event) ->
             program = $('#student_enrollments_attributes_' + obj + '_program'+' :selected').text()
-            console.log($('#student_enrollments_attributes_' + obj + '_program'+' :selected'))
             escaped_program = program.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
             options = $(sections).filter("optgroup[label=#{escaped_program}]").html()
-            console.log($(sections).filter("optgroup[label=#{escaped_program}]"))
-            console.log("options: " + options)
             
             if options
               $('#student_enrollments_attributes_' + obj + '_section_id').html(options)
-              console.log($('#student_enrollments_attributes_' + obj + '_section_id'));
               $('#student_enrollments_attributes_' + obj + '_section_id').parent().show()
             else
               $('#student_enrollments_attributes_' + obj + '_section_id').empty()
@@ -79,25 +72,19 @@ jQuery ->
         
       obj.count = $("#enrollment_nested_form").children(".fields").length+1  
       $('form').on 'click', '.add_fields', (event) ->
-        console.log(obj.count)
         regexp = new RegExp($(this).data('id'), 'g')
         $(this).before($(this).data('fields').replace(regexp, obj.count++))
       
         fn2 = (obj) ->
           $('#student_enrollments_attributes_' + obj + '_section_id').parent().hide()
           sections = $('#student_enrollments_attributes_' + obj + '_section_id').html()
-          console.log("section: " + sections)
           $(document).on( 'change', '#student_enrollments_attributes_' + obj + '_program', (event) ->
             program = $('#student_enrollments_attributes_' + obj + '_program'+' :selected').text()
-            console.log($('#student_enrollments_attributes_' + obj + '_program'+' :selected'))
             escaped_program = program.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
             options = $(sections).filter("optgroup[label=#{escaped_program}]").html()
-            console.log($(sections).filter("optgroup[label=#{escaped_program}]"))
-            console.log("options: " + options)
-            
+     
             if options
               $('#student_enrollments_attributes_' + obj + '_section_id').html(options)
-              console.log($('#student_enrollments_attributes_' + obj + '_section_id'));
               $('#student_enrollments_attributes_' + obj + '_section_id').parent().show()
             else
               $('#student_enrollments_attributes_' + obj + '_section_id').empty()
@@ -105,5 +92,5 @@ jQuery ->
           )
         fn2(obj.count-1)
         event.preventDefault()
-   ### 
+
   

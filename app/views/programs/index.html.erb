@@ -1,63 +1,24 @@
-<%- model_class = Program -%>
 <br>
 <div class="row">
-  <div class="span11">
+  <div class="span10">
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+  <h1>Current Programs</h1>
 </div>
 </div>
-<div class="span1">
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_program_path,
-            :class => 'btn btn-primary' %>
+<div class="span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-primary' %>
 </div>
 </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <!--<th><%#= model_class.human_attribute_name(:description) %></th>-->
-      <th><%= model_class.human_attribute_name(:department_id) %></th>
-      <th><%= model_class.human_attribute_name(:grade_range) %></th>
-      <th><%= model_class.human_attribute_name(:capacity) %></th>
-      <th><%= model_class.human_attribute_name(:start_date) %></th>
-      <th><%= model_class.human_attribute_name(:end_date) %></th>
-      <!--<th><%#= model_class.human_attribute_name(:created_at) %></th> -->
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @programs.by_name.each do |program| %>
-      <tr>
-        <td><%= link_to program.name, program_path(program) %></td>
-        <!--<td><%= program.description %></td>-->
-		<td><%= program.department.name %></td>
-        <td><%= program.grade_range %></td>
-        <td><%= program.max_capacity %></td>
-        <td><%= program.start_date.strftime("%b %d, %Y") %></td>
-        <td><%= program.enddateformat %></td>
-        <!--<td><%=l program.created_at %></td>-->
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_program_path(program), :class => 'btn btn-mini' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="digg_pagination">
-    <div class="page_info">
-        <%= page_entries_info @programs %>
-    </div>
-    <%= will_paginate @programs, :container => true %>
-</div>
-
-
-
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+<% if @current_programs.empty? %>
+  <h3>There are currently no active programs in the system.</h3>
+<% else %>
+  <%= render :partial => "active_programs" %>
+<% end %>
+<p>&nbsp;</p><p>&nbsp;</p>
+<% unless @past_programs.empty? %>
+  <div class="page-header">
+    <h1>Past Programs</h1>
+  </div>
+  <%= render :partial => "past_programs" %>
+<% end %>

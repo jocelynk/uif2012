@@ -1,5 +1,4 @@
 class GuardiansController < ApplicationController
-  #before_filter :check_login
   before_filter :authenticate_user!
   # GET /guardians
   # GET /guardians.json

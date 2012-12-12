@@ -159,7 +159,6 @@ ActiveRecord::Schema.define(:version => 20121205221245) do
     t.date     "date_of_birth"
     t.string   "cell_phone"
     t.boolean  "can_text"
-    t.string   "photo"
     t.string   "email"
     t.string   "status"
     t.datetime "created_at",                             :null => false

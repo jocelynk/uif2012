@@ -21,9 +21,9 @@
 
 <%- model_class = Student -%>
 <br>
-<div class="page-header">
-    <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-</div>
+<!-- <div class="page-header"> -->
+    <h1>Student Listing</h1>
+<!-- </div> -->
 <div class="row">
   <div class="span10">
 <div id="search">
@@ -37,20 +37,19 @@
 </div>
 </div>
 
-<!-- <p> -->
-    <!-- we can remove this and move the code to the top search bar -->
-    <%# text_field_tag :query, params[:query] %>
-    <%# submit_tag "Search", :name => nil %>
-<!-- </p> -->
-<%# end %>
-
 
 <% if @query == 0 %>
-<%= render :partial => "visitor-normal-table" %>
-<%= render :partial => "normal-table" %>
+  <% unless @visitors.empty? %>
+    <%= render :partial => "visitor-normal-table" %>
+    <p class="supertiny">&nbsp;</p>
+  <% end %>
+  <%= render :partial => "normal-table" %>
 <% else %>
-<%= render :partial => "visitor-query-table" %>
-<%= render :partial => "query-table"%>
+  <% unless @visitors.empty? %>
+    <%= render :partial => "visitor-query-table" %>
+    <p class="supertiny">&nbsp;</p>
+  <% end %>
+  <%= render :partial => "query-table"%>
 <% end %>
 
 

@@ -1,14 +1,17 @@
+<div class="adjust_page">
 <h2>Add Meals</h2>
 <h4>Date: <%= @event.date.strftime("%b %d, %Y") %></h4>
 <h4>Meal Scan for Following Sections:</h4>
-<ul>
-<% @event.sections.each do |event| %>
-  <li><%= event.name %></li>
-<% end %>
+<ul class="scan_sections">
+  <% @event.sections.each do |event| %>
+    <li><%= event.name %></li>
+  <% end %>
 </ul>
-<p>Scanning...</p>
+<h5>Scanning...</h5>
 <div id="meals">
       <input id ="Input" type="text"> </input>
       <span id="meal_number"></span>
 </div>
-
+<br/>
+<p><%= link_to raw("Back to Event"), event_path(@event), :class => 'btn btn-med' %> </p>
+</div>

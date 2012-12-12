@@ -1,36 +1,40 @@
-<h1>Listing guardians</h1>
+<%- model_class = Guardian -%>
+<h1>Guardian Listing</h1>
+<div class="row">
+<div class = "span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add guardian</strong>"), new_guardian_path, :class => 'btn btn-primary' %>
+</div>
+</div>
+<br/>
+<table class="table table-striped">
+  <thead>
+      <tr>
+          <th><%= model_class.human_attribute_name(:name) %></th>
+          <th><%= model_class.human_attribute_name(:cell_phone) %></th>
+          <th><%= model_class.human_attribute_name(:email) %></th>
+		      <th><%= model_class.human_attribute_name(:guardian_type) %></th><th></th>
+		   </tr>
+	</thead>
+	<tbody id="list">
+      <% @guardians.each do |guardian| %>
+      <tr>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Household</th>
-    <th>Guardian type</th>
-    <th>Cell phone</th>
-    <th>Can text</th>
-    <th>Email</th>
-    <th>Active</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+      <td><%= link_to guardian.name, guardian_path(guardian) %></td>
+      <td><%= number_to_phone(guardian.cell_phone) %></td>
+      <td><%= mail_to(guardian.email) %></td>
+      <td><%= guardian.guardian_type %></td>
+       
+      <td>
+          <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => guardian.id, :source => 'guardian'), :class => 'btn btn-mini' %>
+          &nbsp;
+          <%= link_to raw("<i class='icon-edit'></i> Edit"),
+                      edit_guardian_path(guardian), :class => 'btn btn-mini' %>
+        </td>
 
-<% @guardians.each do |guardian| %>
-  <tr>
-    <td><%= guardian.first_name %></td>
-    <td><%= guardian.last_name %></td>
-    <td><%= guardian.household_id %></td>
-    <td><%= guardian.guardian_type %></td>
-    <td><%= guardian.cell_phone %></td>
-    <td><%= guardian.can_text %></td>
-    <td><%= guardian.email %></td>
-    <td><%= guardian.active %></td>
-    <td><%= link_to 'Show', guardian %></td>
-    <td><%= link_to 'Edit', edit_guardian_path(guardian) %></td>
-    <td><%= link_to 'Destroy', guardian, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+      </tr>
+      <% end %>
+  </tbody>
 </table>
-<%= will_paginate @guardians, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 
-<%= link_to 'New Guardian', new_guardian_path %>
+<%= will_paginate @guardians %>
+          
