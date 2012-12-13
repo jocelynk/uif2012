@@ -5,7 +5,7 @@ server 'urbanimpact.hss.cmu.edu', :web, :app, :db, primary: true
 set :application, 'uif2012'
 set :user, 'root'
 set :group, 'admin'
-set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_to, "/home/deploy/apps/#{application}"
 
 set :scm, 'git'
 set :git_enable_submodules, 1
