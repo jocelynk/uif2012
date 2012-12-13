@@ -24,7 +24,7 @@
     <% if event.date < Date.today %>
     <tr>
       <td>
-        <%= event.program.name %>
+        <%= link_to event.program.name, event_path(event) %>
       </td>
       <td>
         <%= event.date.strftime("%B %d, %Y") %>
