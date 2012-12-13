@@ -63,5 +63,5 @@ end
 group :production do
   gem 'pg'
   # gem 'thin'
-  gem 'unicorn'
+  gem 'unicorn', '4.5.0'
 end
