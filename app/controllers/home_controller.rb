@@ -147,13 +147,15 @@ class HomeController < ApplicationController
       respond_to do |format|
         format.html
         format.json
-        format.js  
+        format.js
+        format.pdf {prawnto filename: "Statistics", :inline => false }
       end
     else
       respond_to do |format|
         format.html
         format.json { render error: "Please search again"}
-        format.js  
+        format.js
+        format.pdf {prawnto filename: "Statistics", :inline => false } 
       end
     end
   end

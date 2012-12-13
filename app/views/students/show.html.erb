@@ -49,7 +49,7 @@
                       <dd><%= @student.email %></dd>
                     <% end %>
                     <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
-                    <dd><%= link_to @student.barcode_number, id_student_path(@student.id) %></dd> 
+                    <dd><%= link_to @student.barcode_number, student_path(@student.id, :format => 'pdf') %></dd> 
                     <% if !@student.household.nil? %>
                       <dt><strong>Household:</strong></dt>
                       <dd><%= @student.household.name %> Family (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-group"></i> </a></dd>
@@ -73,7 +73,9 @@
             <p>&nbsp;</p>
             <p><%= link_to raw("<i class='icon-backward'></i> Back to students"), students_path, :class => 'btn'  %>
             &nbsp;
-            <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %> </p>          
+            <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %>
+            &nbsp;   
+            <%= link_to raw("<i class='icon-barcode'></i>&nbsp;&nbsp;&nbsp;Generate barcode (PDF)"), student_path(@student.id, :format => 'pdf'), :class => 'btn' %></p>          
 
         </div>
         <p class="supertiny">&nbsp;</p>

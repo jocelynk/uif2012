@@ -23,6 +23,8 @@ gem 'populator3'
 gem 'faker'
 gem "paperclip", "~> 3.0"
 gem 'whenever', require: false
+gem 'prawn'
+gem "prawnto_2", :require => 'prawnto'
 
 group :development do
   gem 'capistrano'

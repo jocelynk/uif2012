@@ -1,4 +1,5 @@
 require 'carrierwave/orm/activerecord'
+require 'prawn'
 
 class Student < ActiveRecord::Base
   attr_accessible :barcode_number, :can_text, :cell_phone, :date_of_birth, :email, :first_name, :grade, :household_id, :is_male, :last_name, :photo, :status, :enrollments_attributes, :is_visitor
@@ -88,10 +89,6 @@ class Student < ActiveRecord::Base
   def newbarcode
     append_url('http://www.barcodesinc.com/generator/image.php?style=421&type=C128A&width=400&height=100&xres=2&font=5', {:code => self.barcode_number.to_s})
  	  #system("open", append_url('http://www.barcodesinc.com/generator/image.php?style=421&type=C128A&width=400&height=100&xres=2&font=5', {:code => self.barcode_number.to_s}).to_s)
- end
- 
- def test
-    test = "http://dl.dropbox.com/u/14519788/Tags/" + "8P.jpg"
  end
     
   def recent_activity

@@ -1,7 +1,8 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: development
+  database: uif2012
+  host: localhost
   pool: 5
 
 test:

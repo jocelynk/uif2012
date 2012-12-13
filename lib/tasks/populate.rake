@@ -34,7 +34,7 @@ namespace :db do
     
      # Step 2: Add some Locations
     
-    locations = {"Carnegie Mellon" => "5000 Forbes Avenue;15213", "Convention Center" => "1000 Fort Duquesne Blvd;15222", "Point State Park" => "101 Commonwealth Place;15222"}
+    locations = {"UIF - Union Place" => "801 Union Place;15212", "Carnegie Mellon" => "5000 Forbes Avenue;15213", "Convention Center" => "1000 Fort Duquesne Blvd;15222", "Point State Park" => "101 Commonwealth Place;15222"}
     locations.each do |location|
       loc = Location.new
       loc.name = location[0]
@@ -49,7 +49,7 @@ namespace :db do
     # Step 2: Add Some Programs for each Department and add Sections to Programs
     dept_ids = Department.all.map(&:id)
     programs = [
-       ['Performing Arts Academy',1,1,12,false],['Urban Impact Choir',1,6,12,true],['Urban Impact Children\'s Choir',1,1,5,true],['Urban Impact Singers',1,8,12, false],['Urban Impact Shakes',1,8,12,false],
+      ['Performing Arts Academy',1,1,12,false],['Urban Impact Choir',1,6,12,true],['Urban Impact Children\'s Choir',1,1,5,true],['Urban Impact Singers',1,8,12, false],['Urban Impact Shakes',1,8,12,false],
       ['Intramural Basketball',2,1,12,false],['High School Travel Basketball Teams',2,9,12,false],['Middle School Travel Basketball Teams',2,6,8,false],['Boys HS & MS Basketball Leagues',2,6,12,false],['Baseball',2,1,8,false],['Soccer',2,1,8,false],
       ['SAT Classes',3,10,12,false],['Summer Day Camp',3,1,12,false]
     ]
@@ -76,34 +76,13 @@ namespace :db do
       end
       p.save!
     end
-    # Program.populate 12 do |program|
-    #   num = Populator.value_in_range(1..11)
-    #   num1 = num+1
-    #   range = num1..12
-    #   program.department_id = dept_ids.sample
-    #   program.name = Populator.words(1..3).titleize
-    #   program.description = Populator.sentences(2..10)
-    #   program.max_capacity = Populator.value_in_range(60..100)
-    #   program.max_grade = Populator.value_in_range(range)
-    #   program.min_grade = num
-    #   not_active = rand(5)
-    #   if not_active.zero?
-    #     program.active = false
-    #   else
-    #     program.active = true
-    #   end
-    #   program.start_date = (2.years.ago.to_date..3.months.ago.to_date).to_a.sample
-    #   if program.active
-    #     program.end_date = nil
-    #   else
-    #     program.end_date = (2.months.ago.to_date..2.days.ago.to_date).to_a.sample
-    #   end
+
 
     #Step 3 Create Sections
     prg_ids = Program.all.map(&:id)
     prg_ids.each do |p_id|
       s1 = Section.new
-      s1.name = Populator.words(1..3).titleize
+      s1.name = "Basic"
       s1.active = true
       s1.max_capacity = (20..60).step(5).to_a.sample
       s1.program_id = p_id
@@ -111,7 +90,7 @@ namespace :db do
       
       if p_id%2==0
         s2 = Section.new
-        s2.name = Populator.words(1..3).titleize
+        s2.name = "Intermediate"
         s2.active = true
         s2.max_capacity = (20..60).step(5).to_a.sample
         s2.program_id = p_id
@@ -119,21 +98,14 @@ namespace :db do
       end
       if p_id%4==0
         s3 = Section.new
-        s3.name = Populator.words(1..3).titleize
+        s3.name = "Advanced"
         s3.active = true
         s3.max_capacity = (20..60).step(5).to_a.sample
         s3.program_id = p_id
         s3.save!
       end
     end
-      # Section.populate 1..3 do |section|
-      #   section.name = Populator.words(1..3).titleize
-      #   section.active = true
-      #   section.max_capacity = Populator.value_in_range(20..60)
-      #   section.program_id = program.id
-      # end
-    
-    # end
+
     
     #Step 4 Create Events and SectionEvents
     program_info = Program.joins(:sections).select('programs.id as program, sections.id as section, programs.start_date as start_date, programs.end_date as end_date, programs.active as pro_active')

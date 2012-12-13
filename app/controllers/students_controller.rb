@@ -28,6 +28,7 @@ class StudentsController < ApplicationController
     @notable = @student
     respond_with(@student) do |format|
       format.js { render json: @student, :callback => params[:callback] }
+      format.pdf {prawnto filename: @student.proper_name, :inline => false }
     end
   end
 
