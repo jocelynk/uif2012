@@ -64,7 +64,6 @@ task :deploy => :environment do
     invoke :'bundle:install'
     # invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
-    invoke :'unicorn:upload'
 
     to :launch do
       queue 'sudo service nginx reload'
