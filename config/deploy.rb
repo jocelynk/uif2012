@@ -31,6 +31,9 @@ namespace :unicorn do
     desc "#{command} unicorn server"
     task command, roles: :app, except: { no_release: true } do
       # run "#{try_sudo} /etc/init.d/unicorn_#{application} #{command}"
+      run "chmod 775 /home/deploy/apps/uif2012/current/config/deploy/nginx.conf"
+      run "chmod 775 /home/deploy/apps/uif2012/current/config/deploy/unicorn.rb"
+      run "chmod 775 /home/deploy/apps/uif2012/current/config/deploy/unicorn_init.sh"
       run "/etc/init.d/unicorn_#{application} #{command}"
     end
   end
