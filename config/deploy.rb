@@ -67,8 +67,8 @@ task :deploy => :environment do
 
     to :launch do
       queue 'sudo service nginx reload'
-      queue "sudo #{deploy_to}/shared/unicorn rotate"
-      queue "sudo #{deploy_to}/shared/unicorn reload"
+      # queue "sudo #{deploy_to}/shared/unicorn rotate"
+      # queue "sudo #{deploy_to}/shared/unicorn reload"
     end
   end
 end
