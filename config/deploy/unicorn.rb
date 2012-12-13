@@ -81,7 +81,7 @@ if env == 'production'
   working_directory '/home/deploy/apps/uif2012/current'
 
   # feel free to point this anywhere accessible on the filesystem
-  user 'deploy', 'admin'
+  user 'root', 'admin'
   shared_path = '/home/deploy/apps/uif2012/shared'
 
   stderr_path "#{shared_path}/log/unicorn.uif2012.stderr.log"
