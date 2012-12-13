@@ -27,8 +27,9 @@ gem 'prawn'
 gem "prawnto_2", :require => 'prawnto'
 
 group :development do
-  gem 'mina'
-  gem 'colored'
+  # gem 'mina'
+  gem 'capistrano'
+	gem 'colored'
   gem 'populator3'
   gem 'faker'
   gem 'hirb'
