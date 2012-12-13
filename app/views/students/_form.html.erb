@@ -40,9 +40,9 @@
 <%= f.input :avatar, :label => 'Your photo please' %>
 <div id="enrollment_nested_form">
     <%= f.fields_for :enrollments do |enrollment_form| %>
-    <%= render 'enrollment_fields', f: enrollment_form %>
+      <%= render 'enrollment_fields', f: enrollment_form %>
     <% end %>
-    <p><%= link_to_add_fields "Add a enrollment", f, :enrollments %></p>
+  <p><%= link_to_add_fields raw("<i class='icon-plus'></i> Add an enrollment"), f, :enrollments %></p>
 </div>
 
 <div class="form-actions">

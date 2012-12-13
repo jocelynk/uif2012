@@ -1,33 +1,10 @@
-<!-- if your role is an admin -->
-<br>
-<div class = "left-nav">
-    <div class="upcoming events">
-<%= render :partial => "./admin-partials/upcoming-events" %>
-</div>
+<% if current_user && current_user.is_admin? %>
+  <%= render :partial => "admin_home" %>
+<% else %>
+  <%= render :partial => "general_home" %>
+<% end %>
 
-<div class="past events">
-    <%= render :partial => "./admin-partials/past-events" %>
-    <%#= render :partial => "./events/events" %>
-    <%#= render :partial => "./admin-partials/past-events" %>
-</div>
-<br/><br/><br/><br/><br/>
 
-</div>
-
-<div class="right-nav">
-    <% unless @alerts.empty? %>
-      <div class="well-red">
-        <%= render :partial => "./admin-partials/issues" %>
-        <% if @alert_count && @alert_count > 6 %>
-          <%= link_to "Click for more alerts", alerts_path %>
-        <% end %>
-      </div>
-    <% end %>
-    <p>&nbsp;</p>
-    <div class="well-black">
-        <%= render :partial => "./admin-partials/quick-add" %>
-    </div>
-<div>
 
 
 

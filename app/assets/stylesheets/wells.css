@@ -97,7 +97,7 @@
 }
 .well-black-header p {
   color: #fff;
-  font-size: 150%;
+  font-size: 140%;
   font-weight: bold;
   padding-left: 10px;
 }
@@ -111,7 +111,7 @@
 }
 .well-red-header p {
   color: #fff;
-  font-size: 150%;
+  font-size: 140%;
   font-weight: bold;
   padding-left: 10px;
 }
@@ -125,7 +125,7 @@
 }	
 .well-yellow-header p {
   color: #000;
-  font-size: 150%;
+  font-size: 140%;
   font-weight: bold;
   padding-left: 10px;
 }
@@ -139,7 +139,7 @@
 	}
 .well-grey-header p {
   color: #000;
-  font-size: 150%;
+  font-size: 140%;
   font-weight: bold;
   padding-left: 10px;
 }

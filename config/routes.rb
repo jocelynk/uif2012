@@ -75,7 +75,7 @@ Uif2012::Application.routes.draw do
   resources :users
   #resources :sessions
   #match 'register' => 'users#new', :as => :register
- # match 'logout' => 'sessions#destroy', :as => :logout
-  #match 'login' => 'sessions#new', :as => :login
+  # match 'logout' => 'sessions#destroy', :as => :logout
+  # match 'login' => 'sessions#new', :as => :login
 
 end

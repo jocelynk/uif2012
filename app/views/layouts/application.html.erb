@@ -4,7 +4,6 @@
     <title>Uif2012</title>
     <%= include_gon %>
     <%= stylesheet_link_tag "application", :media => "all" %>
-    
     <%= javascript_include_tag "application" %>
     <%= yield :javascripts %>
     <%= csrf_meta_tags %>
@@ -15,8 +14,10 @@
 <div class = "container body">
        <!--p class="notice"><%= notice %></p-->
        <!--p class="alert"><%= alert %></p-->
+  <div class="special_font">
+    <%= yield %>
+  </div>
        
-       <%= yield %>
 </div>
 <%#= render :partial => "partials/footer"%>
 

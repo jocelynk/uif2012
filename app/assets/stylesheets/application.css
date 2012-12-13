@@ -137,14 +137,22 @@ a:hover {
 }
 
 body {
-    font-family:lato, sans-serif !important;
+    /*font-family:lato, sans-serif !important;*/
+		font-family:lato, sans-serif;
     padding: 12px;
 
     background-color: #333;
 }
 
+.special_font {
+	/*font-family:lato, sans-serif !important;*/
+	/*font-family:lato, sans-serif;*/
+	/*font-weight: 400;*/
+}
+
 h1, h2, h3, h4 {
     font-family:nobile !important;
+		/*font-family:nobile;*/
     color: #1C2324;
     margin: 0;
     padding: 0;
@@ -157,7 +165,7 @@ h1{
 
 h6 {
     margin:0;
-    ;
+    !important;
 }
 table {
     width: 100%;
@@ -500,7 +508,8 @@ p, ol, ul, td {
 #login span
 {
     padding-left:20px;
-    color:white !important;
+    /*color:white !important;*/
+		color:white !important;
 }
 
 
@@ -555,14 +564,14 @@ ul.nav li.active a:focus
 
 .brand + .nav li:nth-child(6)
 {
-    font-size:5px　!important;
+    font-size:5px　;
     margin-left:100px !important;
 }
 
 /*the sign in line*/
 .brand + .nav li:nth-child(6) a
 {
-    font-size:5px　!important;
+    font-size:5px　;
     padding-left:0 !important;
     padding-right:0 !important;
     display:inline-block !important;
@@ -654,7 +663,7 @@ right:-20px;
 .navbar-inner .container
 {
     padding-left:40px;
-    padding-right: 40px ;
+    padding-right: 40px !important;
     margin-left:65px !important;
     width: 85% !important;
 }
@@ -816,7 +825,7 @@ margin-bottom:100px;
 .uif a:hover
 {
     text-decoration:none !important;
-    background-color:inherit!important;
+    background-color:inherit;
     color:#AEC4F7;
     -webkit-transition:0.2s all linear;
 }
@@ -852,15 +861,15 @@ table, thead, tr, tbody
 tbody tr td a:hover
 {
     -webkit-transition:0.2s all linear;
-    text-decoration:none !important;
-    background-color:transparent !important;
+    text-decoration:none;
+    background-color:transparent;
 
     color:#AEC4F7 !important;
 }
 tbody tr td a
 {
     -webkit-transition:0.2s all linear;
-    background-color:transparent !important;
+    background-color:transparent;
     /*color:black !important;*/
     font-size:100%;
 
@@ -1014,7 +1023,7 @@ div.alerts
     margin-bottom: 20px;
     color: #C09853;
     position:relative;
-    width:10px!important;
+    width:10px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
     background-color: #FCF8E3;
     border: 1px solid #FBEED5;
@@ -1115,7 +1124,7 @@ p.supertiny{font-size:5px; line-height: 0.75;}
 
 a
 {
-    color: black !important;
+    color: black;
 }
 
 .btn.btn-primary

@@ -1,7 +1,33 @@
 <%- model_class = Location -%>
+<script type="text/javascript">
+  // Use jQuery to hide items in the various index lists
+  $(function() {
+  	$('#query').focus().keyup(function() {
+
+  		// get rid of backspaces
+  		var txt = $(this).val().replace(/\\b/,"");
+
+  		if (txt.length == 0) {
+  			// if the txt sent is empty, show all
+  			$('.list tr').show();
+  		}
+  		else{
+  			// else show only what we want and hide the rest...
+  			$('.list tr:not(:contains("' + txt + '"))').hide();
+  			$('.list tr:contains("' + txt + '")').show();
+  		};
+	});
+  });
+
+</script>
 <br>
 <div class="row">
   <div class="span10">
+    <div id="search">
+    	<%= form_tag('/events/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
@@ -21,7 +47,7 @@
       <th></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="list">
     <% @locations.each do |location| %>
       <tr>
         <td><%= link_to location.name, location_path(location) %></td>
