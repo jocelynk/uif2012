@@ -50,6 +50,8 @@ task :setup => :environment do
 
   queue! %[mkdir -p /var/log/unicorn]
   queue! %[chmod g+rw,u+rw /var/log/unicorn]
+  
+  
 end
 
 desc "Deploys the current version to the server."
@@ -62,6 +64,7 @@ task :deploy => :environment do
     invoke :'bundle:install'
     # invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
+    invoke :'unicorn:upload'
 
     to :launch do
       queue 'sudo service nginx reload'
