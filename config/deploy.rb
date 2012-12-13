@@ -3,7 +3,7 @@ require 'bundler/capistrano'
 server 'urbanimpact.hss.cmu.edu', :web, :app, :db, primary: true
 
 set :application, 'uif2012'
-set :user, 'deploy'
+set :user, 'root'
 set :group, 'admin'
 set :deploy_to, "/home/#{user}/apps/#{application}"
 
