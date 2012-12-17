@@ -8,7 +8,9 @@ class CreatePrograms < ActiveRecord::Migration
       t.integer :max_grade
       t.boolean :active
       t.integer :max_capacity
-      t.boolean :active
+      t.date :start_date
+      t.date :end_date
+      t.boolean :scan_by_absence, :default => false
 
       t.timestamps
     end

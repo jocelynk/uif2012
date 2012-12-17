@@ -10,9 +10,9 @@ class CreateStudents < ActiveRecord::Migration
       t.date :date_of_birth
       t.string :cell_phone
       t.boolean :can_text
-      t.string :photo
       t.string :email
       t.string :status
+      t.boolean :is_visitor, :default => false
 
       t.timestamps
     end

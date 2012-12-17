@@ -11,7 +11,7 @@ class CreateHouseholds < ActiveRecord::Migration
       t.string :church
       t.float :lat
       t.float :lon
-      t.boolean :active
+      t.boolean :active, :default => true
 
       t.timestamps
     end
