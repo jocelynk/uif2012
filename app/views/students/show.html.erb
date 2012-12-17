@@ -9,7 +9,7 @@
                 <%= @student.proper_name%>'s Profile
             </h1>
         </div>
-        <div class="span8">
+        <div class="span7">
           <% if !@student.avatar_file_name.blank? %>
               <div class="img-polaroid"><%= image_tag @student.avatar.url(:medium) %></div>
             <% else %>
@@ -82,7 +82,7 @@
         <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
     </div>
 
-    <div id="studentSide">   
+    <div class="span3">   
         <%= render :partial => 'recent_activities' %>
     </div>
 </div>

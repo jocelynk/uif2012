@@ -1,21 +1,19 @@
-<% require 'date'%>
-<% if @recent_activities.nil? %>
-<div class="page-header">
-   <h1> No Recent Activities </h1>
-</div>
-<% else %>
-<div class="page-header">
-    <h1>Recent Activity </h1>
-</div>
+<% require 'date' %>
 
-<br>
-<ul>
+<div class="well-black-small">
+  <div class="well-black-header">
+    <p>Recent Activity</p>
+  </div>
+  
+  <% if @recent_activities.nil? || @recent_activities.empty? %>
+    <p> No recorded activities in past month </p>
+  <% else %>
     <% @recent_activities.each do |activity| %>
 
-    <div class="alert">  <button type="button" class="close" data-dismiss="alert">×</button>Attended&nbsp;<%= link_to "#{activity.section} on #{": "+ DateTime.parse(activity.date).strftime("%b %d")}", event_path(activity.event) %></div>
+    <div class="alert medium"><%= link_to "#{activity.program}: #{activity.section} -- #{" "+ DateTime.parse(activity.date).strftime("%b %d")}", event_path(activity.event) %></div>
 
     <% end %>
-</ul>
-<% end %>
-
+  <% end %>
+  
+</div>
 
