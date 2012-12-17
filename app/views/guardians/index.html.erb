@@ -1,4 +1,4 @@
-<%= javascript_include_tag "quick_search" %>
+
 
 <div class="row">
   <div class="span10">
@@ -35,8 +35,8 @@
       <td><%= guardian.guardian_type %></td>
       <td><%= number_to_phone(guardian.cell_phone) %></td>
       <td><%= mail_to(guardian.email) %></td>
-      
-       
+
+
       <td>
           <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => guardian.id, :source => 'guardian'), :class => 'btn btn-mini' %>
           &nbsp;
@@ -50,4 +50,4 @@
 </table>
 
 <%# will_paginate @guardians %>
-          
+

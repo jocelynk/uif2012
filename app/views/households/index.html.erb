@@ -1,4 +1,4 @@
-<%= javascript_include_tag "quick_search" %>
+
 
 <div class="row">
   <div class="span10">
@@ -45,7 +45,7 @@
     <td><%= household.church %></td>
     <td><%= household.active ? "Active" : "Inactive" %></td>
     <td>
-      <%= link_to raw("<i class='icon-file'></i> Add note"), 
+      <%= link_to raw("<i class='icon-file'></i> Add note"),
                   new_note_path(:id => household.id, :source => 'household'), :class => 'btn btn-mini' %>
       &nbsp;
       <%= link_to raw("<i class='icon-edit'></i> Edit"),

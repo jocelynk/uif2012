@@ -1,4 +1,4 @@
-<%= javascript_include_tag "quick_search" %>
+
 
 <div class="row">
   <div class="span10">
@@ -32,10 +32,10 @@
   <tr>
     <td><%= link_to section.program.name, program_path(section.program) %></td>
     <td><%= link_to section.name, section_path(section) %></td>
-    
+
     <td align="center"><%= section.enrollments.size %></td>
     <td align="center"><%= section.max_capacity %></td>
-    
+
     <td><%= section.active ? "Yes" : "No" %></td>
     <td><%= link_to raw("<i class='icon-edit'></i> Edit"),
                 edit_section_path(section), :class => 'btn btn-mini' %></td>
