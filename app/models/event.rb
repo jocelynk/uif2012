@@ -55,7 +55,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.attendees(id)
-    attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id) 
+    attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id).order('last_name, first_name') 
 
     return nil if attendees.empty?
     attendees # return as a single object, not an array
@@ -63,8 +63,8 @@ class Event < ActiveRecord::Base
   
   def self.absentees(id)
     attendees = Student.joins("INNER JOIN attendances a ON a.student_id = students.id INNER JOIN events e ON e.id = a.event_id").where('e.id = ?', id).select('students.id').map{|s|s.id}
-    absentees = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees)
-    all_students = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id)
+    absentees = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ? AND students.id NOT IN (?)', id, attendees).order('last_name, first_name')
+    all_students = Student.joins('INNER JOIN enrollments r ON r.student_id = students.id INNER JOIN sections s ON s.id = r.section_id INNER JOIN section_events se ON se.section_id = s.id INNER JOIN events e ON e.id = se.event_id').where('e.id = ?', id).order('last_name, first_name')
     if(!absentees.empty?)
       puts "Absentees is not empty"
       puts absentees.length
