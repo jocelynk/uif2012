@@ -46,13 +46,13 @@
                     </dd>
                     <% if !@student.email.blank? %>
                       <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-                      <dd><%= @student.email %></dd>
+                      <dd><%= mail_to @student.email, @student.email %></dd>
                     <% end %>
                     <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
                     <dd><%= link_to @student.barcode_number, student_path(@student.id, :format => 'pdf') %></dd> 
                     <% if !@student.household.nil? %>
                       <dt><strong>Household:</strong></dt>
-                      <dd><%= @student.household.name %> Family (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-group"></i> </a></dd>
+                      <dd><%= link_to "#{@student.household.name} Family", household_path(@student.household.id) %> (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-home"></i> </a></dd>
                     <% end %>
                     <% if !@student.is_male.blank? %>
                       <dt><strong>Gender:</strong></dt>
