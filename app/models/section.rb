@@ -10,6 +10,7 @@ class Section < ActiveRecord::Base
   accepts_nested_attributes_for :enrollments
 
   scope :active, where('active = ?', true) 
+  scope :alphabetical, joins(:program).order('programs.name, sections.name')
 
   #Validations
   validates_presence_of :name

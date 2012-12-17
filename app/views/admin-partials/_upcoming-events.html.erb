@@ -14,10 +14,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Program</th>
-      <th>Date</th>
-      <th>Sections</th>
-      <th>Scan</th>
+      <th width="275">Program</th>
+      <th width="140">Date</th>
+      <th width="175">Sections</th>
+      <th width="40">Scan</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -47,12 +47,11 @@
     <% end %>
   </tbody>
 </table>
-<div class="digg_pagination">
-    <div clas="page_info">
-        <%= page_entries_info @upcoming %>
-    </div>
-    <%= will_paginate @upcoming, :container => true %>
+<%= page_entries_info @upcoming %>
+<div class="phantom">
+  <%= will_paginate @upcoming, :container => true %>
 </div>
+<%= will_paginate @upcoming, :container => true %>
 
 <% end %>
 

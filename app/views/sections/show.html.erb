@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h1>Section Details</h1>
 <p>
   <b>Program:</b>
   <%= @section.program.name %>
@@ -17,9 +16,18 @@
 
 <p>
   <b>Active:</b>
-  <%= @section.active %>
+  <%= @section.active ? "Yes" : "No" %>
 </p>
 
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-backward'></i> Back to sections"),
+              sections_path, :class => 'btn'  %>
+  <%= link_to raw("<i class='icon-edit'></i> Edit this section"),
+              edit_section_path(@section), :class => 'btn' %>
+  <%= link_to raw("<i class='icon-remove'></i> Destroy this section"),
+              section_path(@section),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<%= link_to 'Edit', edit_section_path(@section) %> |
-<%= link_to 'Back', sections_path %>

@@ -3,8 +3,8 @@ class SectionsController < ApplicationController
   # GET /sections.json
   before_filter :authenticate_user!
   def index
-    @sections = Section.paginate(:page => params[:page]).per_page(10)
-
+    @sections = Section.alphabetical.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sections }

@@ -1,28 +1,31 @@
 <!-- if your role is an admin -->
-<br>
+<script type="text/javascript">
+  $(function() {
+	   $('.phantom').hide();
+	});
+</script>
+
 <div class = "left-nav">
-    <div class="upcoming events">
-<%= render :partial => "./admin-partials/upcoming-events" %>
-</div>
-
-<div class="past events">
+  <div class="upcoming_events">
+    <%= render :partial => "./admin-partials/upcoming-events" %>
+  </div>
+  <p>&nbsp;</p><p>&nbsp;</p>
+  <div class="past_events">
     <%= render :partial => "./admin-partials/past-events" %>
-</div>
-<br/><br/><br/><br/><br/>
-
+  </div>
 </div>
 
 <div class="right-nav">
-    <% unless @alerts.empty? %>
-      <div class="well-red">
-        <%= render :partial => "./admin-partials/issues" %>
-        <% if @alert_count && @alert_count > 6 %>
-          <%= link_to "Click for more alerts", alerts_path %>
-        <% end %>
-      </div>
-    <% end %>
-    <p>&nbsp;</p>
-    <div class="well-black">
-        <%= render :partial => "./admin-partials/quick-add" %>
+  <% unless @alerts.empty? %>
+    <div class="well-red">
+      <%= render :partial => "./admin-partials/issues" %>
+      <% if @alert_count && @alert_count > 6 %>
+        <%= link_to "Click for more alerts", alerts_path %>
+      <% end %>
     </div>
+  <% end %>
+  <p>&nbsp;</p>
+  <div class="well-black">
+    <%= render :partial => "./admin-partials/quick-add" %>
+  </div>
 <div>

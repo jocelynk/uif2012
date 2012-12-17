@@ -1,61 +1,56 @@
 <% if @past.count() == 0 %>
-<div class="page-header">
+  <div class="page-header">
     <h1> There Are No Past Events </h1>
-</div>
+  </div>
 <% else %>
-<div class="page-header">
+  <div class="page-header">
     <h1>Past Events</h1>
-</div>
-
-
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-     <th>Program</th>
-      <th>Date</th>
-      <th>Sections</th>
-      <th>Scan</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @past.each do |event| %>
-    <% if event.date < Date.today %>
-    <tr>
-      <td>
-        <%= link_to event.program.name, event_path(event) %>
-      </td>
-      <td>
-        <%= event.date.strftime("%B %d, %Y") %>
-      </td>
-      <td>
-        <% event.sections.each do |section|%>
-          <%= section.name %>&nbsp;
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="275">Program</th>
+        <th width="140">Date</th>
+        <th width="175">Sections</th>
+        <th width="40">Scan</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @past.each do |event| %>
+        <% if event.date < Date.today %>
+          <tr>
+            <td>
+              <%= link_to event.program.name, event_path(event) %>
+            </td>
+            <td>
+              <%= event.date.strftime("%B %d, %Y") %>
+            </td>
+            <td>
+              <% event.sections.each do |section|%>
+                <%= section.name %>&nbsp;
+              <% end %>
+            <td>
+              <span class="bc_icon">
+                <%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
+              </span>
+            </td>
+            <td>
+              <%= link_to raw("<i class='icon-edit'></i> Edit"),
+              edit_event_path(event), :class => 'btn btn-mini' %>
+            </td>
+          </tr>
         <% end %>
-      <td>
-        <span class="bc_icon">
-          <%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %>
-        </span>
-      </td>
-      <td>
-          <%= link_to raw("<i class='icon-edit'></i> Edit"),
-          edit_event_path(event), :class => 'btn btn-mini' %>
-      </td>
-    </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+  <%= page_entries_info @past %>
+  <div class="phantom">
+    <%= will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+  </div>
+  <%= will_paginate @past, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
     
-    <div class="digg_pagination">
-        <div clas="page_info">
-            <%= page_entries_info @past %>
-        </div>
-        <%= will_paginate @past, :container => true %>
-    </div>
-    <% end %>
-
+<% end %>
 <%= link_to raw("<i class='icon-plus'></i> <strong>Add New Event</strong>"),
     new_event_path, :class => 'btn btn-primary' %>
     

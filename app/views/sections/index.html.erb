@@ -1,29 +1,68 @@
-<h1>Listing sections</h1>
+<script type="text/javascript">
+  // Use jQuery to hide items in the various index lists
+  $(function() {
+  	$('#query').focus().keyup(function() {
 
-<table>
+  		// get rid of backspaces
+  		var txt = $(this).val().replace(/\\b/,"");
+
+  		if (txt.length == 0) {
+  			// if the txt sent is empty, show all
+  			$('#list tr').show();
+  		}
+  		else{
+  			// else show only what we want and hide the rest...
+  			$('#list tr:not(:contains("' + txt + '"))').hide();
+  			$('#list tr:contains("' + txt + '")').show();
+  		};
+	});
+  });
+
+</script>
+<div class="row">
+  <div class="span10">
+    <div id="search">
+    	<%= form_tag('/sections/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+    <div class="page-header">
+      <h1>All Sections</h1>
+    </div>
+  </div>
+  <div class="span2">
+    <%= link_to raw("<i class='icon-plus'></i> <strong>Add section</strong>"), new_section_path, :class => 'btn btn-primary' %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
   <tr>
-    <th>Program</th>
-    <th>Name</th>
-    <th>Max capacity</th>
-    <th>Active</th>
-    <th></th>
-    <th></th>
+    <th width="320">Program<br />name</th>
+    <th width="320">Section<br />name</th>
+    <th width="125">Current<br/>enrollment</th>
+    <th width="125">Max<br/>capacity</th>
+    <th width="80">Active</th>
     <th></th>
   </tr>
-
+  </thead>
+  <tbody id="list">
 <% @sections.each do |section| %>
   <tr>
-    <td><%= section.program.name %></td>
-    <td><%= section.name %></td>
-    <td><%= section.max_capacity %></td>
-    <td><%= section.active %></td>
-    <td><%= link_to 'Show', section %></td>
-    <td><%= link_to 'Edit', edit_section_path(section) %></td>
-    <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to section.program.name, program_path(section.program) %></td>
+    <td><%= link_to section.name, section_path(section) %></td>
+    
+    <td align="center"><%= section.enrollments.size %></td>
+    <td align="center"><%= section.max_capacity %></td>
+    
+    <td><%= section.active ? "Yes" : "No" %></td>
+    <td><%= link_to raw("<i class='icon-edit'></i> Edit"),
+                edit_section_path(section), :class => 'btn btn-mini' %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
-<%= will_paginate @sections, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<%# will_paginate @sections, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
 <%= link_to 'New Section', new_section_path %>

@@ -1,18 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @household.name %>
-</p>
+<h1><%= @household.name %> Houshold</h1>
 
 <p>
   <b>Street:</b>
   <%= @household.street %>
-</p>
-
-<p>
-  <b>Street2:</b>
-  <%= @household.street2 %>
+  <% unless @household.street2.blank?  %>
+    <br /><%= @household.street2 %>
+  <% end %>
 </p>
 
 <p>
@@ -40,22 +33,23 @@
   <%= @household.church %>
 </p>
 
-<p>
-  <b>Lat:</b>
-  <%= @household.lat %>
-</p>
-
-<p>
-  <b>Lon:</b>
-  <%= @household.lon %>
-</p>
 
 <p>
   <b>Active:</b>
-  <%= @household.active %>
+  <%= @household.active ? "Yes" : "No" %>
 </p>
+
+<div class="form-actions">
+  <%= link_to raw("<i class='icon-backward'></i> Back to households"),
+              households_path, :class => 'btn'  %>
+  <%= link_to raw("<i class='icon-edit'></i> Edit this household"),
+              edit_household_path(@household), :class => 'btn' %>
+  <%= link_to raw("<i class='icon-remove'></i> Destroy this household"),
+              household_path(@household),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
 <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @household} %>
 
-<%= link_to 'Edit', edit_household_path(@household) %> |
-<%= link_to 'Back', households_path %>

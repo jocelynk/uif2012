@@ -773,10 +773,6 @@ a.btn.btn-primary:visited { color: #fff; }
     display:inline !important;
 }
 
-.form-actions
-{
-    margin-top:50px !important;
-}
 
 
 
@@ -926,12 +922,6 @@ tbody tr td a
 {
     margin-top:-15px !important;
 }
-
-.form-actions
-{
-    margin-bottom:100px !important;
-}
-
 
 
 /* =============================================== */

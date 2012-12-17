@@ -23,11 +23,11 @@
 </dl>
 
 <div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
+  <%= link_to raw("<i class='icon-backward'></i> Back to programs"),
               programs_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to raw("<i class='icon-edit'></i> Edit this program"),
               edit_program_path(@program), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to raw("<i class='icon-remove'></i> Destroy this program"),
               program_path(@program),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },

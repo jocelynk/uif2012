@@ -1,27 +1,37 @@
-<h1>Listing departments</h1>
+<div class="row">
+  <div class="span10">
+    <div class="page-header">
+      <h1>All Departments</h1>
+    </div>
+</div>
+<div class="span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add department</strong>"), new_department_path, :class => 'btn btn-primary' %>
+</div>
+</div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Active</th>
+<table class="table table-striped">
+  <thead>
+    <tr>
+    <th width="220">Name</th>
+    <th width="670">Description</th>
+    <th width="80">Active</th>
     <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+    </tr>
+  </thead>
+  <tbody id="list">
 <% @departments.each do |department| %>
   <tr>
-    <td><%= department.name %></td>
+    <td><%= link_to department.name, department_path(department) %></td>
     <td><%= department.description %></td>
-    <td><%= department.active %></td>
-    <td><%= link_to 'Show', department %></td>
-    <td><%= link_to 'Edit', edit_department_path(department) %></td>
-    <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= department.active ? "Yes" : "No" %></td>
+    <td>
+      <%= link_to raw("<i class='icon-edit'></i> Edit"), edit_department_path(department), :class => 'btn btn-mini' %>
+      <%= link_to raw("<i class='icon-remove'></i> Destroy"), department, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 <%= will_paginate @departments, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
-<%= link_to 'New Department', new_department_path %>
+<%# link_to raw("<i class='icon-plus'></i> <strong>Add department</strong>"), new_department_path, :class => 'btn btn-primary' %>

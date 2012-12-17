@@ -1,43 +1,81 @@
-<h1>Listing households</h1>
+<script type="text/javascript">
+  // Use jQuery to hide items in the various index lists
+  $(function() {
+  	$('#query').focus().keyup(function() {
 
-<table>
+  		// get rid of backspaces
+  		var txt = $(this).val().replace(/\\b/,"");
+
+  		if (txt.length == 0) {
+  			// if the txt sent is empty, show all
+  			$('#list tr').show();
+  		}
+  		else{
+  			// else show only what we want and hide the rest...
+  			$('#list tr:not(:contains("' + txt + '"))').hide();
+  			$('#list tr:contains("' + txt + '")').show();
+  		};
+	});
+  });
+
+</script>
+
+<div class="row">
+  <div class="span10">
+<div id="search">
+	<%= form_tag('/households/search') do %>
+		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+	<% end %>
+</div>
+<div class="page-header">
+  <h1>All Households</h1>
+</div>
+</div>
+<div class="span2">
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add household</strong>"), new_household_path, :class => 'btn btn-primary' %>
+</div>
+</div>
+<table class="table table-striped">
+  <thead>
   <tr>
-    <th>Name</th>
-    <th>Street</th>
-    <th>Street2</th>
-    <th>City</th>
-    <th>Zip</th>
-    <th>Insurance company</th>
-    <th>Insurance number</th>
-    <th>Church</th>
-    <th>Lat</th>
-    <th>Lon</th>
-    <th>Active</th>
-    <th></th>
-    <th></th>
+    <th width="200">Name</th>
+    <th width="250">Address</th>
+    <th width="200">Insurance</th>
+    <th width="150">Church</th>
+    <th width="90">Status</th>
     <th></th>
   </tr>
+  </thead>
 
+  <tbody id="list">
 <% @households.each do |household| %>
   <tr>
-    <td><%= household.name %></td>
-    <td><%= household.street %></td>
-    <td><%= household.street2 %></td>
-    <td><%= household.city %></td>
-    <td><%= household.zip %></td>
-    <td><%= household.insurance_company %></td>
-    <td><%= household.insurance_number %></td>
+    <td><%= link_to household.name, household_path(household) %></td>
+    <td>
+      <%= household.street %>
+      <% unless household.street2.blank? %>
+        <br /><%= household.street2 %>
+      <% end %>
+      <br /><%= household.city %>, <%= household.zip %>
+    </td>
+    <td>
+      <%= household.insurance_company %>
+      <br />#<%= household.insurance_number %>
+    </td>
     <td><%= household.church %></td>
-    <td><%= household.lat %></td>
-    <td><%= household.lon %></td>
-    <td><%= household.active %></td>
-    <td><%= link_to 'Show', household %></td>
-    <td><%= link_to 'Edit', edit_household_path(household) %></td>
-    <td><%= link_to 'Destroy', household, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= household.active ? "Active" : "Inactive" %></td>
+    <td>
+      <%= link_to raw("<i class='icon-file'></i> Add note"), 
+                  new_note_path(:id => household.id, :source => 'household'), :class => 'btn btn-mini' %>
+      &nbsp;
+      <%= link_to raw("<i class='icon-edit'></i> Edit"),
+                  edit_household_path(household), :class => 'btn btn-mini' %>
+    </td>
   </tr>
 <% end %>
+</tbody>
 </table>
 <%= will_paginate @households, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
-<%= link_to 'New Household', new_household_path %>
+<%= link_to raw("<i class='icon-plus'></i> <strong>Add household</strong>"), new_household_path, :class => 'btn btn-primary' %>
