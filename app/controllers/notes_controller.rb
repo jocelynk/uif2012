@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   def index
-    @notes = Note.all
+    @notes = Note.by_priority.by_date_desc.all
 
     respond_to do |format|
       format.html # index.html.erb
