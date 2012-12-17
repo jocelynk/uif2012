@@ -1,12 +1,21 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: uif2012
+  database: uif_dev
   host: localhost
   pool: 5
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: test
+  database: uif_test
   pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: uif2012
+  host: localhost
+  pool: 5
+  username: urban_impact
+  password: edglover
