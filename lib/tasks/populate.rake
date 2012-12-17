@@ -131,9 +131,9 @@ namespace :db do
     Event.populate 20 do |event|
       random_program = program_info.sample()
       if(random_program.pro_active)
-        event.date = (random_program.start_date..Date.today).to_a.sample
+        event.date = (random_program.start_date..Date.today).to_a.sample.to_date
       else
-        event.date = (random_program.start_date..random_program.end_date).to_a.sample
+        event.date = (random_program.start_date..random_program.end_date).to_a.sample.to_date
       end
       
       event.program_id = random_program.program
