@@ -593,7 +593,7 @@ COPY guardians (id, first_name, last_name, household_id, guardian_type, cell_pho
 
 
 --
--- Data for Name: households; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: households; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY households (id, name, street, street2, city, zip, insurance_company, insurance_number, church, lat, lon, active, created_at, updated_at) FROM stdin;
@@ -701,7 +701,7 @@ COPY households (id, name, street, street2, city, zip, insurance_company, insura
 
 
 --
--- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY locations (id, name, street, city, zip, lat, lon, active, created_at, updated_at) FROM stdin;
@@ -713,7 +713,7 @@ COPY locations (id, name, street, city, zip, lat, lon, active, created_at, updat
 
 
 --
--- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY notes (id, user_id, date, title, contents, notable_type, notable_id, priority, active, created_at, updated_at) FROM stdin;
@@ -725,7 +725,7 @@ COPY notes (id, user_id, date, title, contents, notable_type, notable_id, priori
 
 
 --
--- Data for Name: programs; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: programs; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY programs (id, name, description, department_id, min_grade, max_grade, active, max_capacity, start_date, end_date, scan_by_absence, created_at, updated_at) FROM stdin;
@@ -746,7 +746,7 @@ COPY programs (id, name, description, department_id, min_grade, max_grade, activ
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -772,7 +772,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: section_events; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: section_events; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY section_events (id, section_id, event_id, created_at, updated_at) FROM stdin;
@@ -805,7 +805,7 @@ COPY section_events (id, section_id, event_id, created_at, updated_at) FROM stdi
 
 
 --
--- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY sections (id, name, program_id, max_capacity, active, created_at, updated_at) FROM stdin;
@@ -835,7 +835,7 @@ COPY sections (id, name, program_id, max_capacity, active, created_at, updated_a
 
 
 --
--- Data for Name: student_allergies; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: student_allergies; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY student_allergies (id, student_id, allergy_id, created_at, updated_at) FROM stdin;
@@ -943,7 +943,7 @@ COPY student_allergies (id, student_id, allergy_id, created_at, updated_at) FROM
 
 
 --
--- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY students (id, first_name, last_name, barcode_number, household_id, is_male, grade, date_of_birth, cell_phone, can_text, email, status, is_visitor, created_at, updated_at, avatar_file_name, avatar_content_type, avatar_file_size, avatar_updated_at) FROM stdin;
@@ -1099,17 +1099,17 @@ COPY students (id, first_name, last_name, barcode_number, household_id, is_male,
 
 COPY users (id, first_name, last_name, username, role, department_id, active, created_at, updated_at, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, authentication_token) FROM stdin;
 2	Ed	Glover	ed.glover	admin	\N	t	2012-12-17 10:56:51.445355	2012-12-17 10:56:51.445355	edglover@uif.com	$2a$10$oalZYzhxc00jaV/wpdqNiuIq2nSdHOPIh8Ao7EqhjYwXuzPHRARS6	\N	\N	\N	0	\N	\N	\N	\N	Ls4yuQwjzU9JdRzpZyjc
-1	Professor	Heimann	profh	admin	\N	t	2012-12-17 10:56:51.294114	2012-12-17 10:59:01.299501	profh@cmu.edu	$2a$10$WcGp91pu6O4gzNC9lZB0Hu36b8FI7NI9mqL8DNZ/rHVTpCrWh6Ag.	\N	\N	\N	1	2012-12-17 10:59:01.297898	2012-12-17 10:59:01.297898	127.0.0.1	127.0.0.1	8KBy7r78MmG4sC4Lqvtm
+1	Professor	Heimann	urban_impact	admin	\N	t	2012-12-17 10:56:51.294114	2012-12-17 10:59:01.299501	urban_impact@cmu.edu	$2a$10$WcGp91pu6O4gzNC9lZB0Hu36b8FI7NI9mqL8DNZ/rHVTpCrWh6Ag.	\N	\N	\N	1	2012-12-17 10:59:01.297898	2012-12-17 10:59:01.297898	127.0.0.1	127.0.0.1	8KBy7r78MmG4sC4Lqvtm
 \.
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: profh
+-- Name: public; Type: ACL; Schema: -; Owner: urban_impact
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM profh;
-GRANT ALL ON SCHEMA public TO profh;
+REVOKE ALL ON SCHEMA public FROM urban_impact;
+GRANT ALL ON SCHEMA public TO urban_impact;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
