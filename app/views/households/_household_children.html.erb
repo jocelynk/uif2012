@@ -7,7 +7,7 @@
     <p>
       <%= student.proper_name %> -- 
           Grade <%= student.grade %> -- 
-          <%= pluralize(student.enrollments.size, 'program') %>
+          <%= pluralize(student.enrollments.active.size, 'program') %>
     </p>
   <% end %>
   
