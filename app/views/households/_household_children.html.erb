@@ -1,0 +1,14 @@
+<div class="well-black-med">
+  <div class="well-black-header">
+    <p><%= @household.name %> Children</p>
+  </div>
+  
+  <% @household.students.alphabetical.all.each do |student| %>
+    <p>
+      <%= student.proper_name %> -- 
+          Grade <%= student.grade %> -- 
+          <%= pluralize(student.enrollments.size, 'program') %>
+    </p>
+  <% end %>
+  
+</div>

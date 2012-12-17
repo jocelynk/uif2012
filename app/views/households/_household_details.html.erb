@@ -1,0 +1,24 @@
+<p>
+  <b>Address</b><br />
+  <%= @household.street %>
+  <% unless @household.street2.blank?  %>
+    <br /><%= @household.street2 %>
+  <% end %>
+  <br /><%= @household.city %>, PA <%= @household.zip %>
+</p>
+
+<p>
+  <b>Insurance Information</b><br />
+  Company:&nbsp;&nbsp;<%= @household.insurance_company %><br />
+  Number:&nbsp;&nbsp;&nbsp;&nbsp;<%= @household.insurance_number %>
+</p>
+
+<p>
+  <b>Church:</b>
+  <%= @household.church %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @household.active ? "Yes" : "No" %>
+</p>

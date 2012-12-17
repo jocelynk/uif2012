@@ -86,6 +86,75 @@
   padding-left: 10px;
 }
 
+/*** small wells ***/
+.well-black-med {
+  line-height: 1.5;
+  background-color: #fff;
+  border: 1px solid #000;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+	width: 450px;
+}
+.well-yellow-med {
+  line-height: 1.5;
+  background-color: #F7FFC1;
+  border: 1px solid #FFF77F;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+	width: 450px;
+}
+.well-red-med {
+  line-height: 1.5;
+  background-color: #FFD2CA;
+  border: 1px solid red;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+	width: 450px;
+}
+.well-grey-med {
+  line-height: 1.5;
+  background-color: #E6E6E6;
+  border: 1px solid #999;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+	width: 450px;
+}
+
+/*** well med p ***/
+.well-red-med p {
+  color: #000;
+  font-size: 120%;
+  padding-left: 10px;
+}
+.well-black-med p {
+  color: #000;
+  font-size: 120%;
+  padding-left: 10px;
+}
+.well-yellow-med p {
+  color: #000;
+  font-size: 120%;
+  padding-left: 10px;
+}
+.well-grey-med p {
+  color: #000;
+  font-size: 120%;
+  padding-left: 10px;
+}
+
+
 /*** well headers ***/
 .well-black-header {
   background-color: #000;

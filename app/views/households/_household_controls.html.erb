@@ -1,0 +1,11 @@
+<div class="form-actions">
+  <p><%= link_to raw("<i class='icon-backward'></i> Back to households"),
+           households_path, :class => 'btn btn-med'  %></p>
+  <p><%= link_to raw("<i class='icon-edit'></i> Edit this household"),
+          edit_household_path(@household), :class => 'btn btn-med' %></p>
+  <p><%= link_to raw("<i class='icon-remove'></i> Destroy household"),
+           household_path(@household),
+           :method => 'delete',
+           :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+           :class => 'btn btn-danger btn-med' %></p>
+</div>
