@@ -1,29 +1,6 @@
-<script type="text/javascript">
-  // Use jQuery to hide items in the various index lists
-  $(function() {
-  	$('#query').focus().keyup(function() {
-  		// get rid of backspaces
-  		var txt = $(this).val().replace(/\\b/,"");
-
-  		if (txt.length == 0) {
-  			// if the txt sent is empty, show all
-  			$('#list tr').show();
-  		}
-  		else{
-  			// else show only what we want and hide the rest...
-  			$('#list tr:not(:contains("' + txt + '"))').hide();
-  			$('#list tr:contains("' + txt + '")').show();
-  		};
-	});
-  });
-
-</script>
+<%= javascript_include_tag "quick_search" %>
 
 <%- model_class = Student -%>
-<br>
-<!-- <div class="page-header"> -->
-    <!-- <h1>Student Listing</h1> -->
-<!-- </div> -->
 <div class="row">
   <div class="span10">
 <div id="search">

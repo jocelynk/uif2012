@@ -1,0 +1,27 @@
+<p>
+  <h4>
+    <%= @guardian.guardian_type %>
+  </h4>
+</p>
+<p>
+  <b>Address</b><br />
+  <%= link_to @guardian.household.street, household_path(@guardian.household) %>
+  <% unless @guardian.household.street2.blank?  %>
+    <br /><%= link_to @guardian.household.street2, household_path(@guardian.household) %>
+  <% end %>
+  <br /><%= link_to "#{@guardian.household.city}, PA #{@guardian.household.zip}", household_path(@guardian.household) %>
+</p>
+
+<% unless @guardian.cell_phone.blank? %>
+  <p><b>Phone:</b> <%= number_to_phone @guardian.cell_phone %> <%= "(okay to text)" if @guardian.can_text %></p>
+<% end %>
+
+<% unless @guardian.email.blank? %>
+  <p><b>Email:</b> <%= mail_to @guardian.email %></p>
+<% end %>
+
+<p>
+  <b>Church:</b>
+  <%= @guardian.household.church %>
+</p>
+

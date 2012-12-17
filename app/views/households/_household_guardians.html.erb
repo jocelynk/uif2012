@@ -5,7 +5,7 @@
   
   <% @household.guardians.alphabetical.all.each do |guardian| %>
     <p>
-      <%= guardian.proper_name %> (<%= guardian.guardian_type %>) -- Phone: <%= number_to_phone guardian.cell_phone %>
+      <%= link_to guardian.proper_name, guardian_path(guardian) %> (<%= guardian.guardian_type %>) -- Phone: <%= number_to_phone guardian.cell_phone %>
     </p>
   <% end %>
   

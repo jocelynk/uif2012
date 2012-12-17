@@ -1,9 +1,9 @@
 <div class="well-black-med">
   <div class="well-black-header">
-    <p><%= @household.name %> Children</p>
+    <p><%= @guardian.proper_name %>'s Children</p>
   </div>
   
-  <% @household.students.alphabetical.all.each do |student| %>
+  <% @guardian.household.students.alphabetical.all.each do |student| %>
     <p>
       <%= link_to student.proper_name, student_path(student) %> -- 
           Grade <%= student.grade %> -- 

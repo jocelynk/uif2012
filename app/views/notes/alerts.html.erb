@@ -1,11 +1,26 @@
-<div class="page-header">
-  <h1>Active Alerts</h1>
+<%= javascript_include_tag "quick_search" %>
+
+<div class="row">
+  <div class="span7">
+    <div class="page-header">
+      <h1>Active Alerts</h1>
+      <%= link_to "See all notes", notes_path %>
+    </div>
+  </div>
+  <div class="span4">
+    <div id="search">
+    	<%= form_tag('/notes/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+  </div>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th width="250">Title</th>
-      <th width="250">Details</th>
+      <th width="240">Title</th>
+      <th width="240">Details</th>
       <th width="60">Date</th>
       <th width="110">Posted by</th>
       <th width="70">Priority</th>

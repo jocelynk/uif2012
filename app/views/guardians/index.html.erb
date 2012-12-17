@@ -1,18 +1,29 @@
-<%- model_class = Guardian -%>
-<h1>Guardian Listing</h1>
+<%= javascript_include_tag "quick_search" %>
+
 <div class="row">
-<div class = "span2">
-<%= link_to raw("<i class='icon-plus'></i> <strong>Add guardian</strong>"), new_guardian_path, :class => 'btn btn-primary' %>
+  <div class="span10">
+    <div id="search">
+    	<%= form_tag('/guardians/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+    <div class="page-header">
+      <h1>All Guardians</h1>
+    </div>
+  </div>
+  <div class="span2">
+    <%= link_to raw("<i class='icon-plus'></i> <strong>Add guardian</strong>"), new_guardian_path, :class => 'btn btn-primary' %>
+  </div>
 </div>
-</div>
-<br/>
 <table class="table table-striped">
   <thead>
       <tr>
-          <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:cell_phone) %></th>
-          <th><%= model_class.human_attribute_name(:email) %></th>
-		      <th><%= model_class.human_attribute_name(:guardian_type) %></th><th></th>
+          <th width="200">Name</th>
+          <th width="225">Household</th>
+          <th width="150">Relation</th>
+          <th width="100">Cell Phone</th>
+          <th width="250">Email</th>
+		      <th>&nbsp;</th>
 		   </tr>
 	</thead>
 	<tbody id="list">
@@ -20,9 +31,11 @@
       <tr>
 
       <td><%= link_to guardian.name, guardian_path(guardian) %></td>
+      <td><%= link_to "#{guardian.household.name} (#{guardian.household.street})", household_path(guardian.household) %></td>
+      <td><%= guardian.guardian_type %></td>
       <td><%= number_to_phone(guardian.cell_phone) %></td>
       <td><%= mail_to(guardian.email) %></td>
-      <td><%= guardian.guardian_type %></td>
+      
        
       <td>
           <%= link_to raw("<i class='icon-file'></i> Add note"), new_note_path(:id => guardian.id, :source => 'guardian'), :class => 'btn btn-mini' %>
@@ -36,5 +49,5 @@
   </tbody>
 </table>
 
-<%= will_paginate @guardians %>
+<%# will_paginate @guardians %>
           

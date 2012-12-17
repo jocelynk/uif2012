@@ -1,25 +1,5 @@
-<script type="text/javascript">
-  // Use jQuery to hide items in the various index lists
-  $(function() {
-  	$('#query').focus().keyup(function() {
+<%= javascript_include_tag "quick_search" %>
 
-  		// get rid of backspaces
-  		var txt = $(this).val().replace(/\\b/,"");
-
-  		if (txt.length == 0) {
-  			// if the txt sent is empty, show all
-  			$('.list tr').show();
-  		}
-  		else{
-  			// else show only what we want and hide the rest...
-  			$('.list tr:not(:contains("' + txt + '"))').hide();
-  			$('.list tr:contains("' + txt + '")').show();
-  		};
-	});
-  });
-
-</script>
-<br>
 <div class="row">
   <div class="span10">
     <div id="search">
@@ -27,13 +7,13 @@
     		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
     	<% end %>
     </div>
-<div class="page-header">
-  <h1>Current Programs</h1>
-</div>
-</div>
-<div class="span2">
-<%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-primary' %>
-</div>
+    <div class="page-header">
+      <h1>Current Programs</h1>
+    </div>
+  </div>
+  <div class="span2">
+    <%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-primary' %>
+  </div>
 </div>
 
 <% if @current_programs.empty? %>

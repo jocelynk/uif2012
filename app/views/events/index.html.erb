@@ -1,47 +1,4 @@
-<script type="text/javascript">
-  // Use jQuery to hide items in the various index lists
-  $(function() {
-  	$('#query').focus().keyup(function() {
+<%= javascript_include_tag "quick_search" %>
 
-  		// get rid of backspaces
-  		var txt = $(this).val().replace(/\\b/,"");
-
-  		if (txt.length == 0) {
-  			// if the txt sent is empty, show all
-  			$('#list tr').show();
-  		}
-  		else{
-  			// else show only what we want and hide the rest...
-  			$('#list tr:not(:contains("' + txt + '"))').hide();
-  			$('#list tr:contains("' + txt + '")').show();
-  		};
-	});
-  });
-
-</script>
-<br>
-
-<!-- <h1>Listing events</h1> -->
-
-
-
-<!-- <%= form_tag events_path, :method => 'get' do %>
-<p>
-<%= date_select :date_query, params[:date_query], :include_blank => true%>
-<%= submit_tag "Search", :name => nil %>
-</p>
-<% end %> -->
-
- <%= render :partial => "events" %>
- 
-<div id="events_list">
-    <!-- <div id="popup">
-           <%#= render :partial => 'quick_add_form' %>
-     </div> -->
-   
-</div>
-
-<div id ="creation-bar">
-    <%#= render :partial => "events-creation-nav"%>
-</div>
+<%= render :partial => "events" %>
 

@@ -1,18 +1,33 @@
-<div class="page-header">
-  <h1>All Notes</h1>
+<%= javascript_include_tag "quick_search" %>
+
+<div class="row">
+  <div class="span7">
+    <div class="page-header">
+      <h1>All Notes</h1>
+      <%= link_to "See only alerts", alerts_path %>
+    </div>
+  </div>
+  <div class="span4">
+    <div id="search">
+    	<%= form_tag('/notes/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+  </div>
 </div>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th width="250">Title</th>
-      <th width="250">Details</th>
+      <th width="240">Title</th>
+      <th width="240">Details</th>
       <th width="60">Date</th>
       <th width="110">Posted by</th>
       <th width="70">Priority</th>
       <th width="100">&nbsp;</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="list">
     <% @notes.each do |note| %>
       <tr>
         <td><%= link_to note.title, note_path(note) %></td>
@@ -41,6 +56,3 @@
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_note_path,
-            :class => 'btn btn-primary' %>

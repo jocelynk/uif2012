@@ -1,49 +1,14 @@
-<%- model_class = Guardian -%>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="page-header">
-            <h1>
-                <%= @guardian.proper_name%>
-            </h1>
-        </div>
-            <br><br><br>
-            <div class="student-info">
-                <dl class="dl-horizontal">
-                    <dt><strong>Name:</strong></dt> 
-                    <dd><%= @guardian.proper_name %></dd> 
-                    <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
-                    <dd>
-                    <% if @guardian.cell_phone.blank? %>
-                      N/A
-                    <% else %>
-                      <%= number_to_phone @guardian.cell_phone %>
-                    <% end %>
-                    </dd>
-                    <% if !@guardian.email.blank? %>
-                      <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-                      <dd><%= @guardian.email %></dd>
-                    <% end %>
-                    <% if !@guardian.household.nil? %>
-                      <dt><strong>Household:</strong></dt>
-                      <dd><%= @guardian.household.name %> Family (<%= @guardian.household.street %>) <a class="household-button" href=<%= household_path(@guardian.household.id) %> ><i class="icon-group"></i> </a></dd><%end%>
-                    <dt><strong>Can text:</strong></dt>
-                    <dd><%= @guardian.can_text ? "Yes" : "No" %></dd>
-                      <dt><strong>Active:</strong></dt>
-                      <dd><%= @guardian.active %></dd>
-                </dl>
-            </table>
-            <p>&nbsp;</p>
-            <p><%= link_to raw("<i class='icon-backward'></i> Back to guardians"), guardians_path, :class => 'btn'  %>
-            &nbsp;
-            <%= link_to raw("<i class='icon-edit'></i> Edit this guardian"), edit_guardian_path(@guardian), :class => 'btn' %> </p>          
-
-        </div>
-        <p class="supertiny">&nbsp;</p>
-        <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @guardian} %>
-    </div>
-
-
+<h1><%= @guardian.proper_name %></h1>
+<div class="row">
+  <div class="span5">
+    <%= render :partial => "guardian_details" %>
+    <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @guardian} %>
+  </div>
+  <div class="span5">
+    <%= render :partial => "guardian_children" %>
+    <p>&nbsp;</p>
+    <%= render :partial => "guardian_controls" %>
+  </div>
 </div>
 
-</div>
-</div>
+

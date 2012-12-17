@@ -3,7 +3,7 @@ class GuardiansController < ApplicationController
   # GET /guardians
   # GET /guardians.json
   def index
-    @guardians = Guardian.alphabetical.paginate(:page => params[:page]).per_page(13)
+    @guardians = Guardian.alphabetical.all #paginate(:page => params[:page]).per_page(13)
 
     respond_to do |format|
       format.html # index.html.erb
