@@ -82,7 +82,13 @@ namespace :db do
     prg_ids = Program.all.map(&:id)
     prg_ids.each do |p_id|
       s1 = Section.new
-      s1.name = "Basic"
+      if Program.find(p_id).department_id == 2
+        s1.name = "Novice"
+      elsif Program.find(p_id).name == "Performing Arts Academy"
+        s1.name = "Music"
+      else
+        s1.name = "Main"
+      end
       s1.active = true
       s1.max_capacity = (20..60).step(5).to_a.sample
       s1.program_id = p_id
@@ -90,7 +96,13 @@ namespace :db do
       
       if p_id%2==0
         s2 = Section.new
-        s2.name = "Intermediate"
+        if Program.find(p_id).department_id == 2
+          s2.name = "Intermediate"
+        elsif Program.find(p_id).name == "Performing Arts Academy"
+          s2.name = "Drama"
+        else
+          s2.name = "Secondary"
+        end
         s2.active = true
         s2.max_capacity = (20..60).step(5).to_a.sample
         s2.program_id = p_id
@@ -98,7 +110,13 @@ namespace :db do
       end
       if p_id%4==0
         s3 = Section.new
-        s3.name = "Advanced"
+        if Program.find(p_id).department_id == 2
+          s3.name = "Advanced"
+        elsif Program.find(p_id).name == "Performing Arts Academy"
+          s3.name = "Dancing"
+        else
+          s3.name = "Tertiary"
+        end
         s3.active = true
         s3.max_capacity = (20..60).step(5).to_a.sample
         s3.program_id = p_id
