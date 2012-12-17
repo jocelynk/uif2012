@@ -75,7 +75,7 @@
 <% end %>
 </tbody>
 </table>
-<%= will_paginate @households, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
+<%# will_paginate @households, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
 
 <%= link_to raw("<i class='icon-plus'></i> <strong>Add household</strong>"), new_household_path, :class => 'btn btn-primary' %>
