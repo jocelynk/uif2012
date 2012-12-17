@@ -29,7 +29,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: allergies; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: allergies; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE allergies (
@@ -42,10 +42,10 @@ CREATE TABLE allergies (
 );
 
 
-ALTER TABLE public.allergies OWNER TO profh;
+ALTER TABLE public.allergies OWNER TO urban_impact;
 
 --
--- Name: allergies_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: allergies_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE allergies_id_seq
@@ -56,24 +56,24 @@ CREATE SEQUENCE allergies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.allergies_id_seq OWNER TO profh;
+ALTER TABLE public.allergies_id_seq OWNER TO urban_impact;
 
 --
--- Name: allergies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: allergies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE allergies_id_seq OWNED BY allergies.id;
 
 
 --
--- Name: allergies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: allergies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('allergies_id_seq', 20, true);
 
 
 --
--- Name: attendances; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: attendances; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE attendances (
@@ -86,10 +86,10 @@ CREATE TABLE attendances (
 );
 
 
-ALTER TABLE public.attendances OWNER TO profh;
+ALTER TABLE public.attendances OWNER TO urban_impact;
 
 --
--- Name: attendances_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: attendances_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE attendances_id_seq
@@ -100,24 +100,24 @@ CREATE SEQUENCE attendances_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.attendances_id_seq OWNER TO profh;
+ALTER TABLE public.attendances_id_seq OWNER TO urban_impact;
 
 --
--- Name: attendances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: attendances_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE attendances_id_seq OWNED BY attendances.id;
 
 
 --
--- Name: attendances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: attendances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('attendances_id_seq', 88, true);
 
 
 --
--- Name: departments; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: departments; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE departments (
@@ -130,10 +130,10 @@ CREATE TABLE departments (
 );
 
 
-ALTER TABLE public.departments OWNER TO profh;
+ALTER TABLE public.departments OWNER TO urban_impact;
 
 --
--- Name: departments_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: departments_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE departments_id_seq
@@ -144,24 +144,24 @@ CREATE SEQUENCE departments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.departments_id_seq OWNER TO profh;
+ALTER TABLE public.departments_id_seq OWNER TO urban_impact;
 
 --
--- Name: departments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: departments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE departments_id_seq OWNED BY departments.id;
 
 
 --
--- Name: departments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: departments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('departments_id_seq', 3, true);
 
 
 --
--- Name: enrollments; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: enrollments; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE enrollments (
@@ -173,10 +173,10 @@ CREATE TABLE enrollments (
 );
 
 
-ALTER TABLE public.enrollments OWNER TO profh;
+ALTER TABLE public.enrollments OWNER TO urban_impact;
 
 --
--- Name: enrollments_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: enrollments_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE enrollments_id_seq
@@ -187,24 +187,24 @@ CREATE SEQUENCE enrollments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.enrollments_id_seq OWNER TO profh;
+ALTER TABLE public.enrollments_id_seq OWNER TO urban_impact;
 
 --
--- Name: enrollments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: enrollments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE enrollments_id_seq OWNED BY enrollments.id;
 
 
 --
--- Name: enrollments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: enrollments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('enrollments_id_seq', 225, true);
 
 
 --
--- Name: events; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: events; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE events (
@@ -222,10 +222,10 @@ CREATE TABLE events (
 );
 
 
-ALTER TABLE public.events OWNER TO profh;
+ALTER TABLE public.events OWNER TO urban_impact;
 
 --
--- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE events_id_seq
@@ -236,24 +236,24 @@ CREATE SEQUENCE events_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.events_id_seq OWNER TO profh;
+ALTER TABLE public.events_id_seq OWNER TO urban_impact;
 
 --
--- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE events_id_seq OWNED BY events.id;
 
 
 --
--- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('events_id_seq', 25, true);
 
 
 --
--- Name: guardians; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: guardians; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE guardians (
@@ -271,10 +271,10 @@ CREATE TABLE guardians (
 );
 
 
-ALTER TABLE public.guardians OWNER TO profh;
+ALTER TABLE public.guardians OWNER TO urban_impact;
 
 --
--- Name: guardians_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: guardians_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE guardians_id_seq
@@ -285,24 +285,24 @@ CREATE SEQUENCE guardians_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.guardians_id_seq OWNER TO profh;
+ALTER TABLE public.guardians_id_seq OWNER TO urban_impact;
 
 --
--- Name: guardians_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: guardians_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE guardians_id_seq OWNED BY guardians.id;
 
 
 --
--- Name: guardians_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: guardians_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('guardians_id_seq', 150, true);
 
 
 --
--- Name: households; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: households; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE households (
@@ -323,10 +323,10 @@ CREATE TABLE households (
 );
 
 
-ALTER TABLE public.households OWNER TO profh;
+ALTER TABLE public.households OWNER TO urban_impact;
 
 --
--- Name: households_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: households_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE households_id_seq
@@ -337,24 +337,24 @@ CREATE SEQUENCE households_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.households_id_seq OWNER TO profh;
+ALTER TABLE public.households_id_seq OWNER TO urban_impact;
 
 --
--- Name: households_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: households_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE households_id_seq OWNED BY households.id;
 
 
 --
--- Name: households_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: households_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('households_id_seq', 100, true);
 
 
 --
--- Name: locations; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: locations; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE locations (
@@ -371,10 +371,10 @@ CREATE TABLE locations (
 );
 
 
-ALTER TABLE public.locations OWNER TO profh;
+ALTER TABLE public.locations OWNER TO urban_impact;
 
 --
--- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE locations_id_seq
@@ -385,24 +385,24 @@ CREATE SEQUENCE locations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.locations_id_seq OWNER TO profh;
+ALTER TABLE public.locations_id_seq OWNER TO urban_impact;
 
 --
--- Name: locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE locations_id_seq OWNED BY locations.id;
 
 
 --
--- Name: locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('locations_id_seq', 4, true);
 
 
 --
--- Name: notes; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: notes; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE notes (
@@ -420,10 +420,10 @@ CREATE TABLE notes (
 );
 
 
-ALTER TABLE public.notes OWNER TO profh;
+ALTER TABLE public.notes OWNER TO urban_impact;
 
 --
--- Name: notes_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: notes_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE notes_id_seq
@@ -434,24 +434,24 @@ CREATE SEQUENCE notes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notes_id_seq OWNER TO profh;
+ALTER TABLE public.notes_id_seq OWNER TO urban_impact;
 
 --
--- Name: notes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: notes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE notes_id_seq OWNED BY notes.id;
 
 
 --
--- Name: notes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: notes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('notes_id_seq', 4, true);
 
 
 --
--- Name: programs; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: programs; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE programs (
@@ -471,10 +471,10 @@ CREATE TABLE programs (
 );
 
 
-ALTER TABLE public.programs OWNER TO profh;
+ALTER TABLE public.programs OWNER TO urban_impact;
 
 --
--- Name: programs_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: programs_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE programs_id_seq
@@ -485,24 +485,24 @@ CREATE SEQUENCE programs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.programs_id_seq OWNER TO profh;
+ALTER TABLE public.programs_id_seq OWNER TO urban_impact;
 
 --
--- Name: programs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: programs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE programs_id_seq OWNED BY programs.id;
 
 
 --
--- Name: programs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: programs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('programs_id_seq', 13, true);
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE schema_migrations (
@@ -510,10 +510,10 @@ CREATE TABLE schema_migrations (
 );
 
 
-ALTER TABLE public.schema_migrations OWNER TO profh;
+ALTER TABLE public.schema_migrations OWNER TO urban_impact;
 
 --
--- Name: section_events; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: section_events; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE section_events (
@@ -525,10 +525,10 @@ CREATE TABLE section_events (
 );
 
 
-ALTER TABLE public.section_events OWNER TO profh;
+ALTER TABLE public.section_events OWNER TO urban_impact;
 
 --
--- Name: section_events_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: section_events_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE section_events_id_seq
@@ -539,24 +539,24 @@ CREATE SEQUENCE section_events_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.section_events_id_seq OWNER TO profh;
+ALTER TABLE public.section_events_id_seq OWNER TO urban_impact;
 
 --
--- Name: section_events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: section_events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE section_events_id_seq OWNED BY section_events.id;
 
 
 --
--- Name: section_events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: section_events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('section_events_id_seq', 25, true);
 
 
 --
--- Name: sections; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: sections; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE sections (
@@ -570,10 +570,10 @@ CREATE TABLE sections (
 );
 
 
-ALTER TABLE public.sections OWNER TO profh;
+ALTER TABLE public.sections OWNER TO urban_impact;
 
 --
--- Name: sections_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: sections_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE sections_id_seq
@@ -584,24 +584,24 @@ CREATE SEQUENCE sections_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.sections_id_seq OWNER TO profh;
+ALTER TABLE public.sections_id_seq OWNER TO urban_impact;
 
 --
--- Name: sections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: sections_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE sections_id_seq OWNED BY sections.id;
 
 
 --
--- Name: sections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: sections_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('sections_id_seq', 22, true);
 
 
 --
--- Name: student_allergies; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: student_allergies; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE student_allergies (
@@ -613,10 +613,10 @@ CREATE TABLE student_allergies (
 );
 
 
-ALTER TABLE public.student_allergies OWNER TO profh;
+ALTER TABLE public.student_allergies OWNER TO urban_impact;
 
 --
--- Name: student_allergies_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: student_allergies_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE student_allergies_id_seq
@@ -627,24 +627,24 @@ CREATE SEQUENCE student_allergies_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.student_allergies_id_seq OWNER TO profh;
+ALTER TABLE public.student_allergies_id_seq OWNER TO urban_impact;
 
 --
--- Name: student_allergies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: student_allergies_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE student_allergies_id_seq OWNED BY student_allergies.id;
 
 
 --
--- Name: student_allergies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: student_allergies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('student_allergies_id_seq', 100, true);
 
 
 --
--- Name: students; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: students; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE students (
@@ -670,10 +670,10 @@ CREATE TABLE students (
 );
 
 
-ALTER TABLE public.students OWNER TO profh;
+ALTER TABLE public.students OWNER TO urban_impact;
 
 --
--- Name: students_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: students_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE students_id_seq
@@ -684,24 +684,24 @@ CREATE SEQUENCE students_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.students_id_seq OWNER TO profh;
+ALTER TABLE public.students_id_seq OWNER TO urban_impact;
 
 --
--- Name: students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: students_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE students_id_seq OWNED BY students.id;
 
 
 --
--- Name: students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: students_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('students_id_seq', 147, true);
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: profh; Tablespace: 
+-- Name: users; Type: TABLE; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE TABLE users (
@@ -728,10 +728,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE public.users OWNER TO profh;
+ALTER TABLE public.users OWNER TO urban_impact;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: profh
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: urban_impact
 --
 
 CREATE SEQUENCE users_id_seq
@@ -742,129 +742,129 @@ CREATE SEQUENCE users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO profh;
+ALTER TABLE public.users_id_seq OWNER TO urban_impact;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: profh
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: urban_impact
 --
 
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: profh
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: urban_impact
 --
 
 SELECT pg_catalog.setval('users_id_seq', 2, true);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY allergies ALTER COLUMN id SET DEFAULT nextval('allergies_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY attendances ALTER COLUMN id SET DEFAULT nextval('attendances_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY departments ALTER COLUMN id SET DEFAULT nextval('departments_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY enrollments ALTER COLUMN id SET DEFAULT nextval('enrollments_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY events ALTER COLUMN id SET DEFAULT nextval('events_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY guardians ALTER COLUMN id SET DEFAULT nextval('guardians_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY households ALTER COLUMN id SET DEFAULT nextval('households_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY notes ALTER COLUMN id SET DEFAULT nextval('notes_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY programs ALTER COLUMN id SET DEFAULT nextval('programs_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY section_events ALTER COLUMN id SET DEFAULT nextval('section_events_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY sections ALTER COLUMN id SET DEFAULT nextval('sections_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY student_allergies ALTER COLUMN id SET DEFAULT nextval('student_allergies_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY students ALTER COLUMN id SET DEFAULT nextval('students_id_seq'::regclass);
 
 
 --
--- Name: id; Type: DEFAULT; Schema: public; Owner: profh
+-- Name: id; Type: DEFAULT; Schema: public; Owner: urban_impact
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Data for Name: allergies; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: allergies; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY allergies (id, name, warning_text, active, created_at, updated_at) FROM stdin;
@@ -892,7 +892,7 @@ COPY allergies (id, name, warning_text, active, created_at, updated_at) FROM std
 
 
 --
--- Data for Name: attendances; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: attendances; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY attendances (id, student_id, event_id, exempt, created_at, updated_at) FROM stdin;
@@ -988,7 +988,7 @@ COPY attendances (id, student_id, event_id, exempt, created_at, updated_at) FROM
 
 
 --
--- Data for Name: departments; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: departments; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY departments (id, name, description, active, created_at, updated_at) FROM stdin;
@@ -999,7 +999,7 @@ COPY departments (id, name, description, active, created_at, updated_at) FROM st
 
 
 --
--- Data for Name: enrollments; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: enrollments; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY enrollments (id, student_id, section_id, created_at, updated_at) FROM stdin;
@@ -1232,7 +1232,7 @@ COPY enrollments (id, student_id, section_id, created_at, updated_at) FROM stdin
 
 
 --
--- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY events (id, date, program_id, start_time, end_time, location_id, gospel_shared, meals_served, bibles_distributed, created_at, updated_at) FROM stdin;
@@ -1265,7 +1265,7 @@ COPY events (id, date, program_id, start_time, end_time, location_id, gospel_sha
 
 
 --
--- Data for Name: guardians; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: guardians; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY guardians (id, first_name, last_name, household_id, guardian_type, cell_phone, can_text, email, active, created_at, updated_at) FROM stdin;
@@ -1423,7 +1423,7 @@ COPY guardians (id, first_name, last_name, household_id, guardian_type, cell_pho
 
 
 --
--- Data for Name: households; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: households; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY households (id, name, street, street2, city, zip, insurance_company, insurance_number, church, lat, lon, active, created_at, updated_at) FROM stdin;
@@ -1531,7 +1531,7 @@ COPY households (id, name, street, street2, city, zip, insurance_company, insura
 
 
 --
--- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY locations (id, name, street, city, zip, lat, lon, active, created_at, updated_at) FROM stdin;
@@ -1543,7 +1543,7 @@ COPY locations (id, name, street, city, zip, lat, lon, active, created_at, updat
 
 
 --
--- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: notes; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY notes (id, user_id, date, title, contents, notable_type, notable_id, priority, active, created_at, updated_at) FROM stdin;
@@ -1555,7 +1555,7 @@ COPY notes (id, user_id, date, title, contents, notable_type, notable_id, priori
 
 
 --
--- Data for Name: programs; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: programs; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY programs (id, name, description, department_id, min_grade, max_grade, active, max_capacity, start_date, end_date, scan_by_absence, created_at, updated_at) FROM stdin;
@@ -1576,7 +1576,7 @@ COPY programs (id, name, description, department_id, min_grade, max_grade, activ
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -1602,7 +1602,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: section_events; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: section_events; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY section_events (id, section_id, event_id, created_at, updated_at) FROM stdin;
@@ -1635,7 +1635,7 @@ COPY section_events (id, section_id, event_id, created_at, updated_at) FROM stdi
 
 
 --
--- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: sections; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY sections (id, name, program_id, max_capacity, active, created_at, updated_at) FROM stdin;
@@ -1665,7 +1665,7 @@ COPY sections (id, name, program_id, max_capacity, active, created_at, updated_a
 
 
 --
--- Data for Name: student_allergies; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: student_allergies; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY student_allergies (id, student_id, allergy_id, created_at, updated_at) FROM stdin;
@@ -1773,7 +1773,7 @@ COPY student_allergies (id, student_id, allergy_id, created_at, updated_at) FROM
 
 
 --
--- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: students; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY students (id, first_name, last_name, barcode_number, household_id, is_male, grade, date_of_birth, cell_phone, can_text, email, status, is_visitor, created_at, updated_at, avatar_file_name, avatar_content_type, avatar_file_size, avatar_updated_at) FROM stdin;
@@ -1928,17 +1928,17 @@ COPY students (id, first_name, last_name, barcode_number, household_id, is_male,
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: profh
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: urban_impact
 --
 
 COPY users (id, first_name, last_name, username, role, department_id, active, created_at, updated_at, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, authentication_token) FROM stdin;
 2	Ed	Glover	ed.glover	admin	\N	t	2012-12-17 10:56:51.445355	2012-12-17 10:56:51.445355	edglover@uif.com	$2a$10$oalZYzhxc00jaV/wpdqNiuIq2nSdHOPIh8Ao7EqhjYwXuzPHRARS6	\N	\N	\N	0	\N	\N	\N	\N	Ls4yuQwjzU9JdRzpZyjc
-1	Professor	Heimann	profh	admin	\N	t	2012-12-17 10:56:51.294114	2012-12-17 10:59:01.299501	profh@cmu.edu	$2a$10$WcGp91pu6O4gzNC9lZB0Hu36b8FI7NI9mqL8DNZ/rHVTpCrWh6Ag.	\N	\N	\N	1	2012-12-17 10:59:01.297898	2012-12-17 10:59:01.297898	127.0.0.1	127.0.0.1	8KBy7r78MmG4sC4Lqvtm
+1	Professor	Heimann	urban_impact	admin	\N	t	2012-12-17 10:56:51.294114	2012-12-17 10:59:01.299501	urban_impact@cmu.edu	$2a$10$WcGp91pu6O4gzNC9lZB0Hu36b8FI7NI9mqL8DNZ/rHVTpCrWh6Ag.	\N	\N	\N	1	2012-12-17 10:59:01.297898	2012-12-17 10:59:01.297898	127.0.0.1	127.0.0.1	8KBy7r78MmG4sC4Lqvtm
 \.
 
 
 --
--- Name: allergies_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: allergies_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY allergies
@@ -1946,7 +1946,7 @@ ALTER TABLE ONLY allergies
 
 
 --
--- Name: attendances_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: attendances_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY attendances
@@ -1954,7 +1954,7 @@ ALTER TABLE ONLY attendances
 
 
 --
--- Name: departments_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: departments_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY departments
@@ -1962,7 +1962,7 @@ ALTER TABLE ONLY departments
 
 
 --
--- Name: enrollments_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: enrollments_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY enrollments
@@ -1970,7 +1970,7 @@ ALTER TABLE ONLY enrollments
 
 
 --
--- Name: events_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: events_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY events
@@ -1978,7 +1978,7 @@ ALTER TABLE ONLY events
 
 
 --
--- Name: guardians_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: guardians_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY guardians
@@ -1986,7 +1986,7 @@ ALTER TABLE ONLY guardians
 
 
 --
--- Name: households_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: households_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY households
@@ -1994,7 +1994,7 @@ ALTER TABLE ONLY households
 
 
 --
--- Name: locations_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: locations_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY locations
@@ -2002,7 +2002,7 @@ ALTER TABLE ONLY locations
 
 
 --
--- Name: notes_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: notes_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY notes
@@ -2010,7 +2010,7 @@ ALTER TABLE ONLY notes
 
 
 --
--- Name: programs_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: programs_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY programs
@@ -2018,7 +2018,7 @@ ALTER TABLE ONLY programs
 
 
 --
--- Name: section_events_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: section_events_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY section_events
@@ -2026,7 +2026,7 @@ ALTER TABLE ONLY section_events
 
 
 --
--- Name: sections_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: sections_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY sections
@@ -2034,7 +2034,7 @@ ALTER TABLE ONLY sections
 
 
 --
--- Name: student_allergies_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: student_allergies_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY student_allergies
@@ -2042,7 +2042,7 @@ ALTER TABLE ONLY student_allergies
 
 
 --
--- Name: students_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: students_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY students
@@ -2050,7 +2050,7 @@ ALTER TABLE ONLY students
 
 
 --
--- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: profh; Tablespace: 
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 ALTER TABLE ONLY users
@@ -2058,33 +2058,33 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: profh; Tablespace: 
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
 
 
 --
--- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: profh; Tablespace: 
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
 
 
 --
--- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: profh; Tablespace: 
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: urban_impact; Tablespace: 
 --
 
 CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: profh
+-- Name: public; Type: ACL; Schema: -; Owner: urban_impact
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM profh;
-GRANT ALL ON SCHEMA public TO profh;
+REVOKE ALL ON SCHEMA public FROM urban_impact;
+GRANT ALL ON SCHEMA public TO urban_impact;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
