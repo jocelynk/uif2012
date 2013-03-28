@@ -31,18 +31,14 @@
 }
 
 /*** sizes ***/
-.well.small {
-  width: 390px;
-}
+.well.small { width: 390px; }
   .well.small p {
     color: #000;
     font-size: 120%;
     padding-left: 10px;
   }
   
-.well.med {
-  width: 450px;
-}
+.well.med { width: 450px; }
   .well.med p {
     color: #000;
     font-size: 120%;
