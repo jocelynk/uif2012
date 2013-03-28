@@ -1,5 +1,4 @@
 <div class="container"> 
-    <!-- place into a partial -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -15,10 +14,11 @@
                     <!-- <li class="<%# 'active' if params[:controller] == 'locations' %>"><a href=<%= locations_path %>><i class="icon-map-marker"></i>Locations</a></li> -->
                      
           					<li class="<%= 'active' if controller.action_name == 'statistics' %>"><a href=<%= statistics_path %>><i class="icon-bar-chart"></i>Statistics</a></li>
-                    <!-- <form class="navbar-search pull-left">
-                    <input type="text" class="search-query" placeholder="Search" width="100px">
-                    </form> -->
                 </ul>
+                
+                <!-- <form class="navbar-search">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form> -->
                 
                 <div id="login">
                   <%= render :partial => "users/login" %>
@@ -26,6 +26,5 @@
             </div>
         </div>
     </div>
-
 </div>
 

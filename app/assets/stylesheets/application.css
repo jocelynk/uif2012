@@ -58,32 +58,6 @@ table {
     padding: 4px 8px;  
   }
 
-#loading {
-  position: fixed;
-  left: 40%;
-  top: 50%;
-}
-
-abbr.timeago {
-  text-decoration: none;
-  border: none;
-  font-weight: bold;
-}
-
-.timestamp {
-  float: right;
-  color: #ddd;
-}
-
-.file_list {
-  margin-bottom: 18px;
-}
-
-a.src_link {
-  background: url('./magnify.png') no-repeat left 50%;
-  padding-left: 18px;
-}
-
 .green {
   color: #090;
 }
@@ -141,224 +115,37 @@ ul.nav {
     color: #B6CDFF; 
   }
 
-
-/*========================================
-  SEARCH
-  ========================================*/
-
-.navbar-search .search-query {
-  -webkit-transition: 0.5s all ease-in;
-  width:50px !important;
-  height:12px !important;
-  opacity:0.9;
-}
-
 .navbar-search {
-  /*-webkit-transition: 0.5s width ease-in;*/
-  position:absolute !important;
-  right:-20px;
+  width: 150px;
 }
-
-.navbar-search .search-query:focus {
-  -webkit-transition: 0.5s all ease-in;
-  width:100px !important;
-  opacity:1;
-}
-
-.pull-left2 input {
-  width:75px !important;
-}
-
-.pull-left2 input:focus {
-  width:115px !important;
-}
-
-#otherSide {
-  border-color:#FFF;
-  border-style:solid;
-  border-width:1px;
-  float: right;
-  height: 80%;
-  margin-top: 15px;
-  padding:15px;
-  width:200px;
-  position:absolute;
-}
-
-.navbar + .container {
-  margin-top:70px;
-  margin-bottom:100px;
-}
-
-a.btn.btn-primary {
-  margin-top:5px;
-  clear:both;
-
-}
-a.btn.btn-primary:visited { color: #fff; }
-
-.page-header {
-  border-bottom:none !important;
-}
-
-
-/*========================================
-  EVENTS
-  ========================================*/
-
-#events_list {
-  float:left;
-  width:60%;
-}
-
-#creation-bar {
-  float:right;
-}
-
-#events-details-nav {
-  position:relative;
-  float:right;
-  height:300px;
-  top:-356px;
-}
-
-.attended-list li {
-  margin-bottom:-20px;
-  margin-top:-20px;
-}
-
-.attended-list li:hover {
-  background-color:yellow;
-}
-
-.dropdown {
-  visibility:visible;
-  height:200px;
-}
-.dl-horizontal {
-  width:300px !important;
-  display:inline !important;
-}
-
-#for_date {
-  margin-top:-15px;
-  margin-bottom:30px;
-  font-size:20px;
-}
-
-.calendar-buttons {
-  width:100%;
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.calendar-buttons button {
-  font-size:15px;
-}
-
-.calendar-buttons button:nth-child(1) {
-  float:left;
-}
-
-.calendar-buttons button:nth-child(3) {
-  float:right;
-}
-
-#popup {
-  background: transparent;
-  margin-top:-30px !important;
-  position: absolute !important;
-  left:-150px;
-}
-
-#popup a span a span {
-  font-size:200px !important;
-  color:red;
-}
-
-#form-actions {
-  background: blue;
-}
-
-#event_sections {
-  margin-left:20px;
-
-  width: 220px;
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
-
-  display: inline-block;
-  padding: 4px 6px;
-  margin-bottom: 9px;
-  font-size: 14px;
-  line-height: 20px;
-  color: #555555;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.side-nav-grp h1 {
-  margin-top:20px;
-  margin-bottom:-10px !important;
-}
+  .navbar-search .search-query {
+    -webkit-transition: 0.5s all ease-in;
+    opacity:0.9;
+    width: 100%;
+  }
+  .navbar-search .search-query:focus {
+    -webkit-transition: 0.5s all ease-in;
+    opacity:1;
+  }
 
 
 /*========================================
   STUDENTS
   ========================================*/
 
-.student-img-container {
-  background-color:gray;
-  height:100px;
-  width:100px;
-}
-
-.alert-success {
-  height:20px;
-}
-
-.simple_form {
-  margin-bottom:100px !important;
-}
-
-#creation-bar form select {
-  width:90% !important;
-  display:block !important;
-}
-
-#creation-bar {
-  margin-bottom:200px !important;
-}
-
-.stu-side-nav {
-  position:absolute;
-  right:250px;
-  top:-10px;
-  height:60%;
-}
-
 .img-polaroid {
-  padding:0;
-  margin:0;
-  display:inline-block;
-  position:relative;
-  left:-15px;
-  margin-right:40px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  left: -15px;
+  margin-right: 40px;
   border: 1px solid black;
-  width:150px !important;
-  height:auto !important;
+  width: 150px !important;
+  height: auto !important;
 }
 
 .student-info {
-  position:relative !important;
-  left:-15px !important;
 }
 
 .dl-horizontal dt, .dl-horizontal dd {
@@ -367,17 +154,12 @@ a.btn.btn-primary:visited { color: #fff; }
   font-size:15px;
 }
 
-.form-actions {
-  left:-20px !important;
-  position:relative;
-}
-
 .household-button {
   margin-left: 10px !important;
 }
 
 .household-button i {
-   -webkit-transition:0.2s all linear;
+  -webkit-transition:0.2s all linear;
   font-size:20px;
 }
 
@@ -386,29 +168,18 @@ a.btn.btn-primary:visited { color: #fff; }
   color:#AEC4F7;
 }
 
-#studentSide {
-  border-color:#dcdcdc;
-  border-style:solid;
-  border-width:1px;
-  position:relative;
-  float:right;
-  top:-50px !important;
-  width:260px;
-}
-
 .id_card {
   outline: #000000 solid thick;
   width: 500px;
   height: 250px;
 }
 
-#visitor_households label {
-    margin-right:10px; 
-}
 
-#visitor_households input {
-    margin-bottom:20px; 
-}
+/*========================================
+  EVENTS
+  ========================================*/
+
+
 
 
 /*========================================
@@ -416,35 +187,35 @@ a.btn.btn-primary:visited { color: #fff; }
   ========================================*/
 
 .notes {
-  left:0;
+  left: 0;
 }
 
 .notes .form-actions {
-  width:200px;
-  left:0px !important;
-  padding-left:0 !important;
-  position:relative;
+  width: 200px;
+  left: 0px !important;
+  padding-left: 0 !important;
+  position: relative;
 }
 
 .notes p {
-  position:relative;
-  left:0;
-  text-align:left;
+  position: relative;
+  left: 0;
+  text-align: left;
 }
 
 .notes .note-list {
-  margin-bottom:40px;
+  margin-bottom: 40px;
 }
 
 .note {
-  margin:20px;
-  background-color:rgba(50,50,50,0.1);
-  border-radius:10px;
-  padding:10px;
-  width:50%;
-  left:-20px;
-  position:relative;
-  margin-bottom:10px;
+  margin: 20px;
+  background-color: rgba(50,50,50,0.1);
+  border-radius: 10px;
+  padding: 10px;
+  width: 50%;
+  left: -20px;
+  position: relative;
+  margin-bottom: 10px;
 }
 
 
@@ -486,11 +257,6 @@ div.close {
   position:relative !important;
   font-size:20px;
   float:right;
-}
-
-
-a:hover {
-  text-decoration:none !important;
 }
 
 .alerts a:hover {

@@ -29,7 +29,6 @@
               <%end %>
              <% end %>
            
-            <br><br><br>
             <div class="student-info">
                 <dl class="dl-horizontal">
                     <dt><strong>Name:</strong></dt> 
@@ -70,7 +69,6 @@
                     <% end %>
                 </dl>
             </table>
-            <p>&nbsp;</p>
             <p><%= link_to raw("<i class='icon-backward'></i> Back to students"), students_path, :class => 'btn'  %>
             &nbsp;
             <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %>
@@ -78,7 +76,6 @@
             <%= link_to raw("<i class='icon-barcode'></i>&nbsp;&nbsp;&nbsp;Generate barcode (PDF)"), student_path(@student.id, :format => 'pdf'), :class => 'btn' %></p>          
 
         </div>
-        <p class="supertiny">&nbsp;</p>
         <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
     </div>
 

@@ -17,7 +17,7 @@
 
 <div class="right-nav">
   <% unless @alerts.empty? %>
-    <div class="well-red">
+    <div class="well red">
       <%= render :partial => "./admin-partials/issues" %>
       <% if @alert_count && @alert_count > 6 %>
         <%= link_to "Click for more alerts", alerts_path %>
@@ -25,7 +25,7 @@
     </div>
   <% end %>
   <p>&nbsp;</p>
-  <div class="well-black">
+  <div class="well black">
     <%= render :partial => "./admin-partials/quick-add" %>
   </div>
 <div>

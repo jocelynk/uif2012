@@ -1,220 +1,100 @@
-.well-red {
+.well {
+  border-width: 1px;
+  border-style: solid;
   line-height: 1.5;
-  background-color: #fff;
-  border: 1px solid red;
   padding-top:0px;
   padding-left:0px;
   padding-right:0px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
 }
-.well-black {
-  line-height: 1.5;
+
+/*** colors ***/
+.well.red {
   background-color: #fff;
-  border: 1px solid #000;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  border-color: red;
 }
-/*** small wells ***/
-.well-black-small {
-  line-height: 1.5;
+.well.black {
   background-color: #fff;
-  border: 1px solid #000;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 390px;
+  border-color: #000;
 }
-.well-yellow-small {
-  line-height: 1.5;
+.well.yellow {
   background-color: #F7FFC1;
-  border: 1px solid #FFF77F;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 390px;
+  border-color: #FFF77F;
 }
-.well-red-small {
-  line-height: 1.5;
+.well.double-red {
   background-color: #FFD2CA;
-  border: 1px solid red;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 390px;
+  border-color: red;
 }
-.well-grey-small {
-  line-height: 1.5;
+.well.grey {
   background-color: #E6E6E6;
-  border: 1px solid #999;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 390px;
+  border-color: #999;
 }
 
-/*** well small p ***/
-.well-red-small p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
+/*** sizes ***/
+.well.small {
+  width: 390px;
 }
-.well-black-small p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
+  .well.small p {
+    color: #000;
+    font-size: 120%;
+    padding-left: 10px;
+  }
+  
+.well.med {
+  width: 450px;
 }
-.well-yellow-small p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
-.well-grey-small p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
+  .well.med p {
+    color: #000;
+    font-size: 120%;
+    padding-left: 10px;
+  }
 
-/*** small wells ***/
-.well-black-med {
-  line-height: 1.5;
-  background-color: #fff;
-  border: 1px solid #000;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 450px;
+/*** headers ***/
+.well-header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.well-yellow-med {
-  line-height: 1.5;
-  background-color: #F7FFC1;
-  border: 1px solid #FFF77F;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 450px;
-}
-.well-red-med {
-  line-height: 1.5;
-  background-color: #FFD2CA;
-  border: 1px solid red;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 450px;
-}
-.well-grey-med {
-  line-height: 1.5;
-  background-color: #E6E6E6;
-  border: 1px solid #999;
-  padding-top:0px;
-  padding-left:0px;
-  padding-right:0px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-	width: 450px;
-}
+  .well-header p {
+    font-size: 140%;
+    font-weight: bold;
+    padding-left: 10px;
+  }
 
-/*** well med p ***/
-.well-red-med p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
-.well-black-med p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
-.well-yellow-med p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
-.well-grey-med p {
-  color: #000;
-  font-size: 120%;
-  padding-left: 10px;
-}
-
-
-/*** well headers ***/
-.well-black-header {
+.well.black .well-header {
   background-color: #000;
   color: #fff;
-  -moz-border-top-left-radius: 10px;
-  -moz-border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
-.well-black-header p {
-  color: #fff;
-  font-size: 140%;
-  font-weight: bold;
-  padding-left: 10px;
-}
-.well-red-header {
+  .well.black .well-header p {
+    color: #fff;
+  }
+
+.well.red .well-header,
+.well.double-red .well-header {
   background-color: red;
   color: #fff;
-  -moz-border-top-left-radius: 10px;
-  -moz-border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
-.well-red-header p {
-  color: #fff;
-  font-size: 140%;
-  font-weight: bold;
-  padding-left: 10px;
-}
-.well-yellow-header {
+  .well.red .well-header p,
+  .well.double-red .well-header p {
+    color: #fff;
+  }
+
+.well.yellow .well-header {
   background-color: #FFF77F;
   color: #fff;
-  -moz-border-top-left-radius: 10px;
-  -moz-border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }	
-.well-yellow-header p {
-  color: #000;
-  font-size: 140%;
-  font-weight: bold;
-  padding-left: 10px;
-}
-.well-grey-header {
+  .well.yellow .well-header p {
+    color: #000;
+  }
+
+.well.grey .well-header {
 	  background-color: #999;
 	  color: #fff;
-	  -moz-border-top-left-radius: 10px;
-	  -moz-border-top-right-radius: 10px;
-	  border-top-left-radius: 10px;
-	  border-top-right-radius: 10px;
 	}
-.well-grey-header p {
-  color: #000;
-  font-size: 140%;
-  font-weight: bold;
-  padding-left: 10px;
-}
+  .well.grey .well-header p {
+    color: #000;
+  }
 
-
-
+/*** list items ***/
 .well li {
   font-size: 130%;
   line-height: 1.5;

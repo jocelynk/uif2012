@@ -14,11 +14,11 @@ module ApplicationHelper
   
   def get_well_type(priority)
     if priority == 1
-      well = "well-red"
+      well = "double-red"
     elsif priority == 2
-      well = "well-yellow"
+      well = "yellow"
     else
-      well = "well-grey"
+      well = "grey"
     end
     well
   end
