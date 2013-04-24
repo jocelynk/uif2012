@@ -2,22 +2,20 @@
   GLOBAL
   ========================================*/
 body {
+  color: black;
   font-family: Helvetica, sans-serif !important;
-  padding: 120px 50px 50px; }
+  font-size: 0.9em;
+  padding: 105px 0 60px; }
 
 a {
+  color: #8d1f12;
   text-decoration: none; }
   a:hover {
+    color: #8d1f12;
     text-decoration: underline; }
 
-h1, h2, h3, h4 {
-  font-family: Tahoma, sans-serif !important;
-  color: #1C2324;
-  margin: 0;
-  padding: 0; }
-
-h6 {
-  margin: 0 !important; }
+h1 {
+  font-size: 1.8em; }
 
 table {
   width: 100%; }
@@ -30,50 +28,67 @@ table {
   table td {
     padding: 4px 8px; }
 
+.container-fluid {
+  padding: 0 60px 0 230px; }
+
 .pagination ul li.active a {
-  background-color: #ffd200;
+  background-color: #ffeb00;
   color: black; }
+
+.table tr td:last-child {
+  white-space: nowrap; }
 
 /*========================================
   NAVBAR
   ========================================*/
-.navbar-inner .container {
-  width: 85% !important; }
+.navbar-fixed-top .navbar-inner {
+  background-color: #ff930c;
+  background-image: none;
+  border-style: solid;
+  border-color: #c5f23d;
+  border-width: 0 0 10px;
+  height: 65px;
+  padding: 0 60px; }
 
-.logo {
-  width: 108px;
-  height: 83px; }
+.navbar .brand {
+  padding: 3px 20px; }
+  .navbar .brand .logo {
+    width: 150px;
+    height: 115px; }
 
-ul.nav {
-  top: 30px; }
-  ul.nav li a {
-    -webkit-transition: color 0.3s ease-in;
-    color: white !important;
-    font-size: 15px; }
-    ul.nav li a:hover {
-      -webkit-transition: color 0.3s ease-in;
-      color: #ffd200 !important; }
-  ul.nav li.active a:focus {
-    color: #ffd200 !important; }
+.navbar .nav li a {
+  background: #ffb432;
+  color: white;
+  line-height: 65px;
+  margin-right: 1px;
+  padding: 0 20px;
+  text-shadow: none; }
+  .navbar .nav li a:hover {
+    background: #ffeb00;
+    color: #8d1f12; }
+  .navbar .nav li a i {
+    margin-right: 3px; }
+.navbar .nav li.active a, .navbar .nav li.active a:hover {
+  background: #ffeb00;
+  box-shadow: none;
+  color: #8d1f12;
+  position: relative; }
+  .navbar .nav li.active a:after, .navbar .nav li.active a:hover:after {
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 42.5%;
+    top: 65px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent;
+    border-top-color: #ffeb00; }
 
 #login {
   display: inline-block;
   float: right;
-  padding: 10px 15px;
-  position: relative;
-  top: 30px; }
-  #login span {
-    color: #B6CDFF; }
-
-.navbar-search {
-  width: 150px; }
-  .navbar-search .search-query {
-    -webkit-transition: 0.5s all ease-in;
-    opacity: 0.9;
-    width: 100%; }
-    .navbar-search .search-query:focus {
-      -webkit-transition: 0.5s all ease-in;
-      opacity: 1; }
+  line-height: 65px; }
 
 /*========================================
   STUDENTS
@@ -208,7 +223,7 @@ div.alerts {
   FOOTER
   ========================================*/
 #footer {
-  margin: 0;
+  margin-top: 60px;
   text-align: center; }
   #footer li {
     display: inline-block;
@@ -252,11 +267,11 @@ div.alerts {
   WELLS
   ========================================*/
 .well {
-  border-radius: 10px;
   border-width: 1px;
   border-style: solid;
   line-height: 1.5;
-  padding: 0px 0px 8px; }
+  padding: 0px 0px 10px;
+  width: 100%; }
 
 /*** colors ***/
 .well.red {
@@ -279,29 +294,11 @@ div.alerts {
   background-color: #E6E6E6;
   border-color: #999; }
 
-/*** sizes ***/
-.well.small {
-  width: 390px; }
-  .well.small p {
-    color: #000;
-    font-size: 120%;
-    padding-left: 10px; }
-
-.well.med {
-  width: 450px; }
-  .well.med p {
-    color: #000;
-    font-size: 120%;
-    padding-left: 10px; }
-
 /*** headers ***/
-.well-header {
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px; }
-  .well-header p {
-    font-size: 140%;
-    font-weight: bold;
-    padding-left: 10px; }
+.well-header p {
+  font-size: 140%;
+  font-weight: bold;
+  padding-left: 10px; }
 
 .well.black .well-header {
   background-color: #000;

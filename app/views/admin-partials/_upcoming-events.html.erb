@@ -2,56 +2,49 @@
 <!-- finding all upcoming event -->
 
 <% if @upcoming.count() == 0 %>
-<div class="page-header">
-  <h1> There Are No Upcoming Events </h1>
-</div>
+  <h1>There Are No Upcoming Events</h1>
 <% else %>
-<div class="page-header">
   <h1>Upcoming Events</h1>
-</div>
 
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th width="275">Program</th>
-      <th width="140">Date</th>
-      <th width="175">Sections</th>
-      <th width="40">Scan</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @upcoming.each do |event| %>
-    <% if event.date >= Date.today %>
-    <tr>
-      <td>
-        <%= link_to event.program.name, event_path(event)%>
-      </td>
-      <td>
-        <%= event.date.strftime("%B %d, %Y") %>
-      </td>
-      <td>
-        <% event.sections.each do |section|%>
-        <%= section.name %>&nbsp;
-        <% end %> 
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="275">Program</th>
+        <th width="140">Date</th>
+        <th width="175">Sections</th>
+        <th width="40">Scan</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @upcoming.each do |event| %>
+      <% if event.date >= Date.today %>
+      <tr>
+        <td>
+          <%= link_to event.program.name, event_path(event)%>
         </td>
-        <td><span class="bc_icon"><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %></span>
+        <td>
+          <%= event.date.strftime("%B %d, %Y") %>
         </td>
-      </td>
-      <td>
-          <%= link_to raw("<i class='icon-edit'></i> Edit"), edit_event_path(event), :class => 'btn btn-mini' %>
-      </td>
-    </tr>
-    <% end %>
-    <% end %>
-  </tbody>
-</table>
-<%= page_entries_info @upcoming %>
-<div class="phantom">
+        <td>
+          <% event.sections.each do |section|%>
+          <%= section.name %>&nbsp;
+          <% end %> 
+          </td>
+          <td><span class="bc_icon"><%= link_to "", {:controller => "home", :action => "checkin", :event_id => event.id}, {:class => "icon-large icon-barcode"} %></span>
+          </td>
+        </td>
+        <td>
+            <%= link_to raw("<i class='icon-edit'></i> Edit"), edit_event_path(event), :class => 'btn btn-mini' %>
+        </td>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= page_entries_info @upcoming %>
   <%= will_paginate @upcoming, :container => true %>
-</div>
-<%= will_paginate @upcoming, :container => true %>
+  <br /><br />
 
 <% end %>
 

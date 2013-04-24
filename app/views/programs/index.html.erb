@@ -1,7 +1,5 @@
-
-
-<div class="row">
-  <div class="span10">
+<div class="row-fluid">
+  <div class="span8">
     <div id="search">
     	<%= form_tag('/events/search') do %>
     		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
@@ -11,8 +9,8 @@
       <h1>Current Programs</h1>
     </div>
   </div>
-  <div class="span2">
-    <%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-primary' %>
+  <div class="span4">
+    <%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-primary pull-right' %>
   </div>
 </div>
 

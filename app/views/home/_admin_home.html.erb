@@ -5,25 +5,27 @@
 	});
 </script>
 
-<div class = "left-nav">
-  <div class="upcoming_events">
-    <%= render :partial => "./admin-partials/upcoming-events" %>
+<div class="row-fluid">
+  <div class="span8">
+    <div class="upcoming_events">
+      <%= render :partial => "./admin-partials/upcoming-events" %>
+    </div>
+    <div class="past_events">
+      <%= render :partial => "./admin-partials/past-events" %>
+    </div>
   </div>
-  <div class="past_events">
-    <%= render :partial => "./admin-partials/past-events" %>
+
+  <div class="span4">
+    <% unless @alerts.empty? %>
+      <div class="well red">
+        <%= render :partial => "./admin-partials/issues" %>
+        <% if @alert_count && @alert_count > 6 %>
+          <%= link_to "Click for more alerts", alerts_path %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="well black">
+      <%= render :partial => "./admin-partials/quick-add" %>
+    </div>
   </div>
 </div>
-
-<div class="right-nav">
-  <% unless @alerts.empty? %>
-    <div class="well red">
-      <%= render :partial => "./admin-partials/issues" %>
-      <% if @alert_count && @alert_count > 6 %>
-        <%= link_to "Click for more alerts", alerts_path %>
-      <% end %>
-    </div>
-  <% end %>
-  <div class="well black">
-    <%= render :partial => "./admin-partials/quick-add" %>
-  </div>
-<div>

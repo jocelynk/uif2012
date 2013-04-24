@@ -1,88 +1,86 @@
 <%- model_class = Student -%>
 
+<div class="page-header">
+  <h1>
+      <%= @student.proper_name%>'s Profile
+  </h1>
+</div>
+
 <!-- might remove later -->
 <% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="page-header">
-            <h1>
-                <%= @student.proper_name%>'s Profile
-            </h1>
-        </div>
-        <div class="span7">
-          <% if !@student.avatar_file_name.blank? %>
-              <div class="img-polaroid"><%= image_tag @student.avatar.url(:medium) %></div>
-            <% else %>
-              <% if @student.is_male %>
-                <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;
-              <% else %>  
-                <div class="img-polaroid"> <%= image_tag("female.jpg") %></div>&nbsp;&nbsp;
+<div class="row-fluid">
+  
+  <div class="span8">
+    <% if !@student.avatar_file_name.blank? %>
+        <div class="img-polaroid"><%= image_tag @student.avatar.url(:medium) %></div>
+      <% else %>
+        <% if @student.is_male %>
+          <div class="img-polaroid"> <%= image_tag("male.jpg") %></div>&nbsp;&nbsp;
+        <% else %>  
+          <div class="img-polaroid"> <%= image_tag("female.jpg") %></div>&nbsp;&nbsp;
+        <% end %>
+      <% end %>
+      <% @department.each do |student| %> 
+        <%if student.department == 'Athletics'%>
+         <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>  
+        <% elsif student.department =='Academic Assistance' %>            
+          <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;      
+         <% else student.department == 'Performing Arts'%>
+             <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp; 
+      <%end %>
+    <% end %>
+     
+      <div class="student-info">
+        <dl class="dl-horizontal">
+          <dt><strong>Name:</strong></dt> 
+          <dd><%= @student.proper_name %></dd> 
+          <dt><strong>Date of Birth:</strong></dt>
+          <dd><%= @student.date_of_birth.strftime("%B %d, %Y") %></dd>
+          <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
+          <dd>
+              <% if @student.cell_phone.blank? %>
+              N/A
+              <% else %>
+              <%= number_to_phone @student.cell_phone %>
               <% end %>
-            <% end %>
-            <% @department.each do |student| %> 
-              <%if student.department == 'Athletics'%>
-               <a class = "brand" title="ATHLETICS"><%= image_tag("athletics.jpg") %></a>  
-              <% elsif student.department =='Academic Assistance' %>            
-                <a class = "brand" title="ACADEMICS"><%= image_tag("academics.jpg") %></a>&nbsp;&nbsp;      
-               <% else student.department == 'Performing Arts'%>
-                   <a class = "brand" title="PERFORMING ARTS"><%= image_tag("music.jpg") %></a>&nbsp;&nbsp; 
-              <%end %>
-             <% end %>
-           
-            <div class="student-info">
-                <dl class="dl-horizontal">
-                    <dt><strong>Name:</strong></dt> 
-                    <dd><%= @student.proper_name %></dd> 
-                    <dt><strong>Date of Birth:</strong></dt>
-                    <dd><%= @student.date_of_birth.strftime("%B %d, %Y") %></dd>
-                    <dt><strong><%= model_class.human_attribute_name(:cell_phone) %>:</strong></dt>
-                    <dd>
-                        <% if @student.cell_phone.blank? %>
-                        N/A
-                        <% else %>
-                        <%= number_to_phone @student.cell_phone %>
-                        <% end %>
-                    </dd>
-                    <% if !@student.email.blank? %>
-                      <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
-                      <dd><%= mail_to @student.email, @student.email %></dd>
-                    <% end %>
-                    <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
-                    <dd><%= link_to @student.barcode_number, student_path(@student.id, :format => 'pdf') %></dd> 
-                    <% if !@student.household.nil? %>
-                      <dt><strong>Household:</strong></dt>
-                      <dd><%= link_to "#{@student.household.name} Family", household_path(@student.household.id) %> (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-home"></i> </a></dd>
-                    <% end %>
-                    <% if !@student.is_male.blank? %>
-                      <dt><strong>Gender:</strong></dt>
-                      <dd><%= @student.is_male ? "Male" : "Female" %></dd>
-                    <% end %>
-                    <dt><strong><b>Visitor:</b></strong></dt>
-                    <dd><%= @student.is_visitor ? "Yes" : "No" %></dd>
-                    <dt><strong>Grade:</strong></dt>
-                    <dd><%= @student.grade %></dd>
-                    <dt><strong>Can text:</strong></dt>
-                    <dd><%= @student.can_text ? "Yes" : "No" %></dd>
-                    <% if !@student.status.blank? %>
-                      <dt><strong>Status:</strong></dt>
-                      <dd><%= @student.status %></dd>
-                    <% end %>
-                </dl>
-            </table>
-            <p><%= link_to raw("<i class='icon-backward'></i> Back to students"), students_path, :class => 'btn'  %>
-            &nbsp;
-            <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %>
-            &nbsp;   
-            <%= link_to raw("<i class='icon-barcode'></i>&nbsp;&nbsp;&nbsp;Generate barcode (PDF)"), student_path(@student.id, :format => 'pdf'), :class => 'btn' %></p>          
+          </dd>
+          <% if !@student.email.blank? %>
+            <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+            <dd><%= mail_to @student.email, @student.email %></dd>
+          <% end %>
+          <dt><strong><%= model_class.human_attribute_name(:barcode_number) %>:</strong></dt>
+          <dd><%= link_to @student.barcode_number, student_path(@student.id, :format => 'pdf') %></dd> 
+          <% if !@student.household.nil? %>
+            <dt><strong>Household:</strong></dt>
+            <dd><%= link_to "#{@student.household.name} Family", household_path(@student.household.id) %> (<%= @student.household.street %>) <a class="household-button" href=<%= household_path(@student.household.id) %> ><i class="icon-home"></i> </a></dd>
+          <% end %>
+          <% if !@student.is_male.blank? %>
+            <dt><strong>Gender:</strong></dt>
+            <dd><%= @student.is_male ? "Male" : "Female" %></dd>
+          <% end %>
+          <dt><strong><b>Visitor:</b></strong></dt>
+          <dd><%= @student.is_visitor ? "Yes" : "No" %></dd>
+          <dt><strong>Grade:</strong></dt>
+          <dd><%= @student.grade %></dd>
+          <dt><strong>Can text:</strong></dt>
+          <dd><%= @student.can_text ? "Yes" : "No" %></dd>
+          <% if !@student.status.blank? %>
+            <dt><strong>Status:</strong></dt>
+            <dd><%= @student.status %></dd>
+          <% end %>
+      </dl>
+      <p><%= link_to raw("<i class='icon-backward'></i> Back to students"), students_path, :class => 'btn'  %>
+      &nbsp;
+      <%= link_to raw("<i class='icon-edit'></i> Edit this student"), edit_student_path(@student), :class => 'btn' %>
+      &nbsp;   
+      <%= link_to raw("<i class='icon-barcode'></i>&nbsp;&nbsp;&nbsp;Generate barcode (PDF)"), student_path(@student.id, :format => 'pdf'), :class => 'btn' %></p>          
 
-        </div>
-        <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
     </div>
+    <%= render :partial => "partials/add_notes_to_page", :locals => {:obj => @student} %>
+  </div>
 
-    <div class="span3">   
-        <%= render :partial => 'recent_activities' %>
-    </div>
-</div>
-
-</div>
+  <div class="span4">   
+      <%= render :partial => 'recent_activities' %>
+  </div>
+  
 </div>
