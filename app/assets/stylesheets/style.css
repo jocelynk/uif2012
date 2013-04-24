@@ -17,6 +17,9 @@ a {
 h1 {
   font-size: 1.8em; }
 
+h2 {
+  font-size: 1.4em; }
+
 table {
   width: 100%; }
   table tr {
@@ -58,7 +61,7 @@ table {
 
 .navbar .nav li a {
   background: #ffb432;
-  color: white;
+  color: #8d1f12;
   line-height: 65px;
   margin-right: 1px;
   padding: 0 20px;
@@ -89,6 +92,8 @@ table {
   display: inline-block;
   float: right;
   line-height: 65px; }
+  #login a {
+    color: #8d1f12; }
 
 /*========================================
   STUDENTS
@@ -174,6 +179,9 @@ table {
   border: 1px red;
   margin-bottom: 100px !important; }
 
+.btn.quick-add {
+  margin: 0 15px 5px 0; }
+
 /* alerts */
 div.close {
   top: -10px !important;
@@ -196,28 +204,28 @@ div.alerts {
     div.alerts a:hover {
       background-color: blue !important; }
 
-.high {
+.alert {
+  margin: 5px 0; }
+
+.alert.high {
   color: red !important;
   font-weight: bold;
   background-color: #FFD2CA !important;
-  border-color: #EED3D7 !important;
-  margin: 3px 8px; }
-  .high a {
+  border-color: #EED3D7 !important; }
+  .alert.high a {
     color: #000; }
 
-.medium {
+.alert.medium {
   color: #C09853 !important;
   background-color: #F7FFC1 !important;
-  border-color: #FBEED5 !important;
-  margin: 3px 8px; }
-  .medium a {
+  border-color: #FBEED5 !important; }
+  .alert.medium a {
     color: #000; }
 
-.low {
+.alert.low {
   color: #3A87AD !important;
   background-color: #D9EDF7 !important;
-  border-color: #BCE8F1 !important;
-  margin: 3px 8px; }
+  border-color: #BCE8F1 !important; }
 
 /*========================================
   FOOTER
@@ -266,67 +274,15 @@ div.alerts {
 /*========================================
   WELLS
   ========================================*/
-.well {
-  border-width: 1px;
-  border-style: solid;
-  line-height: 1.5;
-  padding: 0px 0px 10px;
-  width: 100%; }
+.well h2 {
+  line-height: 1.4em;
+  margin: 0 0 15px; }
 
 /*** colors ***/
-.well.red {
-  background-color: #fff;
-  border-color: red; }
-
-.well.black {
-  background-color: #fff;
-  border-color: #000; }
-
 .well.yellow {
   background-color: #F7FFC1;
   border-color: #FFF77F; }
 
-.well.double-red {
+.well.red {
   background-color: #FFD2CA;
   border-color: red; }
-
-.well.grey {
-  background-color: #E6E6E6;
-  border-color: #999; }
-
-/*** headers ***/
-.well-header p {
-  font-size: 140%;
-  font-weight: bold;
-  padding-left: 10px; }
-
-.well.black .well-header {
-  background-color: #000;
-  color: #fff; }
-  .well.black .well-header p {
-    color: #fff; }
-
-.well.red .well-header,
-.well.double-red .well-header {
-  background-color: red;
-  color: #fff; }
-  .well.red .well-header p,
-  .well.double-red .well-header p {
-    color: #fff; }
-
-.well.yellow .well-header {
-  background-color: #FFF77F;
-  color: #fff; }
-  .well.yellow .well-header p {
-    color: #000; }
-
-.well.grey .well-header {
-  background-color: #999;
-  color: #fff; }
-  .well.grey .well-header p {
-    color: #000; }
-
-/*** list items ***/
-.well li {
-  font-size: 130%;
-  line-height: 1.5; }

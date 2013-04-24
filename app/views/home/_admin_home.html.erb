@@ -17,7 +17,7 @@
 
   <div class="span4">
     <% unless @alerts.empty? %>
-      <div class="well red">
+      <div class="well">
         <%= render :partial => "./admin-partials/issues" %>
         <% if @alert_count && @alert_count > 6 %>
           <%= link_to "Click for more alerts", alerts_path %>
