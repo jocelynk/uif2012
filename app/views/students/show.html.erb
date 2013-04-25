@@ -1,10 +1,6 @@
 <%- model_class = Student -%>
 
-<div class="page-header">
-  <h1>
-      <%= @student.proper_name%>'s Profile
-  </h1>
-</div>
+<h1><%= @student.proper_name%>'s Profile</h1>
 
 <!-- might remove later -->
 <% @student.cell_phone = "N/A" if @student.cell_phone.nil? %>

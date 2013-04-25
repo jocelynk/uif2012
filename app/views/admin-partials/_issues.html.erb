@@ -2,48 +2,15 @@
 
 <% @alerts.each do |note| %>
     <% if note.priority == 1 %>
-    <% alert_class = "alert high"%>
+      <% alert_class = "alert high"%>
     <% else %>
-    <% alert_class = "alert medium"%>
+      <% alert_class = "alert medium"%>
     <% end %>
     <div class="<%= alert_class %>">
       <% if note.priority == 1 %>
         <i class='icon-warning-sign'></i>
       <% end %>
       <%= link_to note.title, alerts_path %>
+      <!--<button type="button" class="close" data-dismiss="alert">&times;</button>-->
     </div>
-    <% end %>
-
-
-
-<!-- <div class="alert error">
-<a href="#"> Something Happened
-</a>
-<div class="close" data-dismiss="alert">
-x
-</div>
-</div>
-
-<div class="alert error">
-<a href="#"> Finalize Event
-</a>
-<div class="close" data-dismiss="alert">
-x
-</div>
-</div>
-
-<div class="alert">
-<a href="#"> New Section Created
-</a>
-<div class="close" data-dismiss="alert">
-x
-</div>
-</div>
-
-<div class="alert">
-<a href="#"> Program Deleted
-</a>
-<div class="close" data-dismiss="alert">
-x
-</div>
-</div> -->
+<% end %>

@@ -1,13 +1,10 @@
 <%# model_class = Event -%>
 
-<div class="page-header">
-  <h3>Event: <%= @event.program.name %></h3>
-  <h4><%= @event.date.strftime("%b %d, %Y") %></h4>
-</div>
+<h1>Event: <%= @event.program.name %> - <%= @event.date.strftime("%b %d, %Y") %></h1>
 
 <div class="row-fluid">
   
-  <div class="span5">
+  <div class="span6">
       <table>
         <tr>
           <td width="100"><strong>Date:</strong></td><td><%= @event.date.strftime("%b %d, %Y (%a)") %></td>
@@ -57,7 +54,7 @@
   <% if @attendees.nil? && @absentees.nil? %>
     <p>Fix this error - some events created without section events fix Populate file</p>
   <% else %>
-    <div class="span7">
+    <div class="span6">
       <%= render :partial => "attendees" %>
       <%= render :partial => "absentees" %>
     </div>

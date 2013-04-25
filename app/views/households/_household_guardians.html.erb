@@ -1,7 +1,5 @@
-<div class="well black">
-  <div class="well-header">
-    <p><%= @household.name %> Guardians</p>
-  </div>
+<div class="well">
+  <h2><%= @household.name %> Guardians</h2>
   
   <% @household.guardians.alphabetical.all.each do |guardian| %>
     <p>

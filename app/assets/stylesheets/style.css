@@ -3,7 +3,6 @@
   ========================================*/
 body {
   color: black;
-  font-family: Helvetica, sans-serif !important;
   font-size: 0.9em;
   padding: 105px 0 60px; }
 
@@ -14,11 +13,17 @@ a {
     color: #8d1f12;
     text-decoration: underline; }
 
+h1, h2, h3 {
+  font-family: 'Oswald', Helvetica, sans-serif;
+  margin: 15px 0; }
+
 h1 {
-  font-size: 1.8em; }
+  border-bottom: 5px solid #b6f23d;
+  font-size: 2em;
+  padding-bottom: 5px; }
 
 h2 {
-  font-size: 1.4em; }
+  font-size: 1.6em; }
 
 table {
   width: 100%; }
@@ -38,6 +43,9 @@ table {
   background-color: #ffeb00;
   color: black; }
 
+#search #query {
+  margin: 0 0 0 8px; }
+
 .table tr td:last-child {
   white-space: nowrap; }
 
@@ -48,7 +56,7 @@ table {
   background-color: #ff930c;
   background-image: none;
   border-style: solid;
-  border-color: #c5f23d;
+  border-color: #b6f23d;
   border-width: 0 0 10px;
   height: 65px;
   padding: 0 60px; }
@@ -102,8 +110,6 @@ table {
   padding: 0;
   margin: 0;
   display: inline-block;
-  position: relative;
-  left: -15px;
   margin-right: 40px;
   border: 1px solid black;
   width: 150px !important;
@@ -148,62 +154,13 @@ table {
   .notes .note-list {
     margin-bottom: 40px; }
 
-.note {
-  margin: 20px;
-  background-color: rgba(50, 50, 50, 0.1);
-  border-radius: 10px;
-  padding: 10px;
-  width: 50%;
-  left: -20px;
-  position: relative;
-  margin-bottom: 10px; }
-
 /*========================================
   ADMIN DASHBOARD
   ========================================*/
-.left-nav, .right-nav {
-  position: relative; }
-
-.left-nav {
-  float: left;
-  width: 65% !important; }
-
-.right-nav {
-  float: right;
-  width: 30% !important; }
-
-.upcoming {
-  margin-bottom: 100px !important; }
-
-.issues {
-  border: 1px red;
-  margin-bottom: 100px !important; }
-
 .btn.quick-add {
   margin: 0 15px 5px 0; }
 
 /* alerts */
-div.close {
-  top: -10px !important;
-  position: relative !important;
-  font-size: 20px;
-  float: right; }
-
-div.alerts {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
-  color: #C09853;
-  position: relative;
-  width: 10px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #FCF8E3;
-  border: 1px solid #FBEED5;
-  border-radius: 4px; }
-  div.alerts a {
-    font-size: 4px !important; }
-    div.alerts a:hover {
-      background-color: blue !important; }
-
 .alert {
   margin: 5px 0; }
 

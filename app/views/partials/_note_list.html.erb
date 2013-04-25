@@ -1,9 +1,7 @@
 <div id="notes">
 <% for note in @notes %>
-  <div class="well <%= get_well_type(note.priority) %> small">
-    <div class="well-header">
-      <p><%= note.title %></p>
-    </div>
+  <div class="note well <%= get_well_type(note.priority) %>">
+    <h2><%= note.title %></h2>
     <p><%= note.contents %></p>
   	<p>	by <%= mail_to note.user.email, note.user.proper_name %>
   	    on <%= note.date.strftime('%b %d, %Y') %>

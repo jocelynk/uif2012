@@ -1,18 +1,17 @@
 <div class="row-fluid">
   <div class="span8">
-    <div class="page-header">
-      <h1>Active Alerts</h1>
-      <%= link_to "See all notes", notes_path %>
-    </div>
-  </div>
-  <div class="span4">
     <div id="search">
     	<%= form_tag('/notes/search') do %>
     		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
     	<% end %>
-    </div>
+    </div> 
+  </div>
+  <div class="span4">
+    <%= link_to "See all notes", notes_path, :class => 'pull-right' %>
   </div>
 </div>
+
+<h1>Active Alerts</h1>
 
 <table class="table table-striped">
   <thead>

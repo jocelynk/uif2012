@@ -1,7 +1,5 @@
-<div class="well black small">
-  <div class="well-header">
-    <p>Add a Note</p>
-  </div>
+<div class="well">
+  <h2>Add a Note</h2>
   
   <%= form_for([@notable, Note.new], :html => { :class => 'form-horizontal' }) do |f| %>
     <fieldset>
@@ -28,7 +26,7 @@
       
       <div class="control-group">
         <div class="controls">
-          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= f.submit nil, :class => 'btn btn-success' %>
         </div>
       </div>
 

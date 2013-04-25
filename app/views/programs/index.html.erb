@@ -5,14 +5,13 @@
     		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
     	<% end %>
     </div>
-    <div class="page-header">
-      <h1>Current Programs</h1>
-    </div>
   </div>
   <div class="span4">
     <%= link_to raw("<i class='icon-plus'></i> <strong>Add program</strong>"), new_program_path, :class => 'btn btn-success pull-right' %>
   </div>
 </div>
+
+<h1>Current Programs</h1>
 
 <% if @current_programs.empty? %>
   <h3>There are currently no active programs in the system.</h3>
@@ -21,8 +20,6 @@
 <% end %>
 <p>&nbsp;</p><p>&nbsp;</p>
 <% unless @past_programs.empty? %>
-  <div class="page-header">
-    <h1>Past Programs</h1>
-  </div>
+  <h1>Past Programs</h1>
   <%= render :partial => "past_programs" %>
 <% end %>

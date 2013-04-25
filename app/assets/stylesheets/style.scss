@@ -3,7 +3,7 @@ $secondary: #FFEB00;
 $light: #FFB432;
 $dark: #8D1F12;
 
-$accent: #C5F23D;
+$accent: #B6F23D;
 $text: black;
 $link: $dark;
 
@@ -17,7 +17,6 @@ $page-padding: 60px;
 
 body {
   color: $text;
-  font-family: Helvetica, sans-serif !important;
   font-size: 0.9em;
   padding: 105px 0 $page-padding;
 }
@@ -31,8 +30,16 @@ a {
   }
 }
 
-h1 { font-size: 1.8em; }
-h2 { font-size: 1.4em; }
+h1, h2, h3 { 
+  font-family: 'Oswald', Helvetica, sans-serif;
+  margin: 15px 0;
+}
+h1 { 
+  border-bottom: 5px solid $accent;
+  font-size: 2em;
+  padding-bottom: 5px;
+}
+h2 { font-size: 1.6em; }
 
 table {
   width: 100%;
@@ -57,6 +64,10 @@ table {
 .pagination ul li.active a {
   background-color: $secondary;
   color: black;
+}
+
+#search #query {
+  margin: 0 0 0 8px;
 }
 
 .table tr td:last-child {
@@ -148,8 +159,6 @@ table {
   padding: 0;
   margin: 0;
   display: inline-block;
-  position: relative;
-  left: -15px;
   margin-right: 40px;
   border: 1px solid black;
   width: 150px !important;
@@ -215,18 +224,9 @@ table {
 
   .note-list {
     margin-bottom: 40px;
+    
+    .note {}
   }
-}
-
-.note {
-  margin: 20px;
-  background-color: rgba(50,50,50,0.1);
-  border-radius: 10px;
-  padding: 10px;
-  width: 50%;
-  left: -20px;
-  position: relative;
-  margin-bottom: 10px;
 }
 
 
@@ -234,58 +234,11 @@ table {
   ADMIN DASHBOARD
   ========================================*/
 
-.left-nav, .right-nav {
-  position: relative;
-}
-
-.left-nav {
-  float: left;
-  width: 65% !important;
-}
-
-.right-nav {
-  float: right;
-  width: 30% !important;
-}
-
-.upcoming {
-  margin-bottom: 100px !important;
-}
-
-.issues {
-  border: 1px red;  
-  margin-bottom: 100px !important;
-}
-
 .btn.quick-add {
   margin: 0 15px 5px 0;
 }
 
 /* alerts */
-
-div.close {
-  top: -10px !important;
-  position: relative !important;
-  font-size: 20px;
-  float: right;
-}
-
-div.alerts {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: 20px;
-  color: #C09853;
-  position: relative;
-  width: 10px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  background-color: #FCF8E3;
-  border: 1px solid #FBEED5;
-  border-radius: 4px;
-  
-  a {
-    font-size: 4px !important;
-    &:hover { background-color:blue !important; }
-  }  
-}
 
 .alert {
   margin: 5px 0;
