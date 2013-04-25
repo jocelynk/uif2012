@@ -68,7 +68,11 @@ module Uif2012
       end
     end
     
+    # Add the fonts path
+    config.assets.paths << Rails.root.join('app', 'assets', 'font')
 
+    # Precompile additional assets
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
 
   end
 end

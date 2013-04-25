@@ -1,11 +1,7 @@
 <% if @past.count() == 0 %>
-  <div class="page-header">
-    <h1> There Are No Past Events </h1>
-  </div>
+  <h1> There Are No Past Events </h1>
 <% else %>
-  <div class="page-header">
-    <h1>Past Events</h1>
-  </div>
+  <h1>Past Events</h1>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -52,5 +48,5 @@
     
 <% end %>
 <%= link_to raw("<i class='icon-plus'></i> <strong>Add New Event</strong>"),
-    new_event_path, :class => 'btn btn-primary' %>
+    new_event_path, :class => 'btn btn-success' %>
     

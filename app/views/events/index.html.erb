@@ -1,4 +1,48 @@
+<div class="row-fluid">
+  <div class="span8">
+    <div id="search">
+    	<%= form_tag('/events/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+  </div>
+  <div class="span4">
+  <%= link_to raw("<i class='icon-plus'></i> <strong>Add event</strong>"), new_event_path, :class => 'btn btn-success pull-right' %>
+  </div>
+</div>
 
+<h1>All Events</h1>
 
-<%= render :partial => "events" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <% if controller.controller_name == "events" %>
+        <th>Date</th>
+      <% end %>
+      <th>Program</th>
+      <!-- <th>Sections</th> -->
+      <th>Time</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+	
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <% if controller.controller_name == "events" %>
+          <td><%= l(event.date, :format =>'%b %d, %Y') %></td>
+          <td><%= link_to event.program.name, event_path(event) %></td>
+        <% elsif %>
+          <td><%= link_to event.program.name, :controller => "home", :action => "checkin", :event_id => event.id %></td>
+        <% end %>
+        <!-- <td><%# event.sections.each do |section|%><%# section.name %>&nbsp;<%# end %></td> -->
+        <td><%= l event.start_time %> - <%= l event.end_time %></td>
+        <td>
+          <%= link_to raw("<i class='icon-edit'></i> Edit"),
+                      edit_event_path(event), :class => 'btn btn-mini' %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 

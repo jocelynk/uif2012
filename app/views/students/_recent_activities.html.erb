@@ -1,9 +1,7 @@
 <% require 'date' %>
 
-<div class="well-black-small">
-  <div class="well-black-header">
-    <p>Recent Activity</p>
-  </div>
+<div class="well">
+  <h2>Recent Activity</h2>
   
   <% if @recent_activities.nil? || @recent_activities.empty? %>
     <p> No recorded activities in past month </p>

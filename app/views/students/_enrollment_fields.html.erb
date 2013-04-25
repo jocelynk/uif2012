@@ -1,17 +1,14 @@
-<div class="well-black-small">
-  <div class="well-black-header">&nbsp;&nbsp;&nbsp;Enroll Student In:</div>
-<p class="supertiny">&nbsp;</p>
-<div class="field">
-  <div class="pro">
-    <%= f.label :program %>&nbsp;
-    <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
-  </div>
-  <p class="supertiny">&nbsp;</p>
-  <div class="sec">
-    <%= f.label :section %>&nbsp;
-    <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
-  </div>
+<div class="well black small">
+  <div class="well-header">&nbsp;&nbsp;&nbsp;Enroll Student In:</div>
+  <div class="field">
+    <div class="pro">
+      <%= f.label :program %>&nbsp;
+      <%= f.collection_select :program, Program.all, :id, :name, :prompt => "Choose a Program" %>  
+    </div>
+    <div class="sec">
+      <%= f.label :section %>&nbsp;
+      <%= f.grouped_collection_select :section_id, Program.all, :sections, :name, :id, :name, include_blank: false %>
+    </div>
   </div>
   &nbsp;&nbsp;&nbsp;<%= f.link_to_remove raw("<i class='icon-remove'></i> Remove this enrollment") %>
 </div>
-<p class="supertiny">&nbsp;</p>

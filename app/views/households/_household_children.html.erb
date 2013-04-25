@@ -1,7 +1,5 @@
-<div class="well-black-med">
-  <div class="well-black-header">
-    <p><%= @household.name %> Children</p>
-  </div>
+<div class="well">
+  <h2><%= @household.name %> Children</h2>
   
   <% @household.students.alphabetical.all.each do |student| %>
     <p>

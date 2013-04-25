@@ -1,0 +1,346 @@
+$primary: #FF930C;
+$secondary: #FFEB00;
+$light: #FFB432;
+$dark: #8D1F12;
+
+$accent: #B6F23D;
+$text: black;
+$link: $dark;
+
+$navbar-height: 65px;
+$page-padding: 60px;
+
+
+/*========================================
+  GLOBAL
+  ========================================*/
+
+body {
+  color: $text;
+  font-size: 0.9em;
+  padding: 105px 0 $page-padding;
+}
+
+a {
+  color: $link;
+  text-decoration: none;
+  &:hover { 
+    color: $link;
+    text-decoration: underline;
+  }
+}
+
+h1, h2, h3 { 
+  font-family: 'Oswald', Helvetica, sans-serif;
+  margin: 15px 0;
+}
+h1 { 
+  border-bottom: 5px solid $accent;
+  font-size: 2em;
+  padding-bottom: 5px;
+}
+h2 { font-size: 1.6em; }
+
+table {
+  width: 100%;
+  
+  tr {
+    margin: 0;
+    padding: 0;
+  }
+  th {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  td {
+    padding: 4px 8px;  
+  }
+}
+
+.container-fluid {
+  padding: 0 $page-padding 0 ($page-padding + 170);
+}
+
+.pagination ul li.active a {
+  background-color: $secondary;
+  color: black;
+}
+
+#search #query {
+  margin: 0 0 0 8px;
+}
+
+.table tr td:last-child {
+  white-space: nowrap;
+}
+
+
+/*========================================
+  NAVBAR
+  ========================================*/
+
+.navbar-fixed-top .navbar-inner {
+  background-color: $primary;
+  background-image: none;
+  border: {
+    style: solid;
+    color: $accent;
+    width: 0 0 10px;
+  }
+  height: $navbar-height;
+  padding: 0 $page-padding;
+}
+
+.navbar .brand {
+  padding: 3px 20px;
+  
+  .logo {
+    width: 150px;
+    height: 115px;
+  }
+}
+
+.navbar .nav {  
+  li a {
+    background: $light;
+    color: $dark;
+    line-height: $navbar-height;
+    margin-right: 1px;
+    padding: 0 20px;
+    text-shadow: none;
+    
+    &:hover {
+      background: $secondary;
+      color: $dark;
+    }
+    
+    i { margin-right: 3px; }
+  }
+  
+  li.active a, li.active a:hover {
+    background: $secondary;
+    box-shadow: none;
+    color: $dark;
+    position: relative;
+    
+    &:after {
+      content: '';
+      height: 0;
+      width: 0;
+      
+      position: absolute;
+      left: 42.5%;
+      top: $navbar-height;
+      
+      border: {
+        style: solid;
+        width: 10px;
+        color: transparent;
+        top-color: $secondary;
+      }
+    }
+  }
+}
+
+#login {
+  display: inline-block;
+  float: right;
+  line-height: $navbar-height;
+  
+  a { color: $dark; }
+}
+
+
+/*========================================
+  STUDENTS
+  ========================================*/
+
+.img-polaroid {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  margin-right: 40px;
+  border: 1px solid black;
+  width: 150px !important;
+  height: auto !important;
+}
+
+.student-info {
+}
+
+.dl-horizontal dt, .dl-horizontal dd {
+  text-align: left;
+  position: relative;
+  font-size: 15px;
+}
+
+.household-button {
+  margin-left: 10px !important;
+
+  i {
+    -webkit-transition: 0.2s all linear;
+    font-size: 20px;
+    
+    &:hover {
+     -webkit-transition: 0.2s all linear;
+      color: #AEC4F7;
+    }
+  }
+}
+
+.id_card {
+  outline: #000000 solid thick;
+  width: 500px;
+  height: 250px;
+}
+
+
+/*========================================
+  EVENTS
+  ========================================*/
+
+
+
+
+/*========================================
+  NOTES
+  ========================================*/
+
+.notes {
+  left: 0;
+
+  .form-actions {
+    width: 200px;
+    left: 0px !important;
+    padding-left: 0 !important;
+    position: relative;
+  }
+
+  p {
+    position: relative;
+    left: 0;
+    text-align: left;
+  }
+
+  .note-list {
+    margin-bottom: 40px;
+    
+    .note {}
+  }
+}
+
+
+/*========================================
+  ADMIN DASHBOARD
+  ========================================*/
+
+.btn.quick-add {
+  margin: 0 15px 5px 0;
+}
+
+/* alerts */
+
+.alert {
+  margin: 5px 0;
+}
+.alert.high {
+  color: red !important;
+  font-weight: bold;
+  background-color: #FFD2CA !important;
+  border-color: #EED3D7 !important;
+  
+  a { color: #000; }
+}
+.alert.medium {
+  color: #C09853 !important;
+  background-color: #F7FFC1 !important;
+  border-color: #FBEED5 !important;
+
+  a { color: #000; }
+}
+.alert.low {
+  color: #3A87AD !important;
+  background-color: #D9EDF7 !important;
+  border-color: #BCE8F1 !important;
+}
+
+
+/*========================================
+  FOOTER
+  ========================================*/
+
+#footer {
+  margin-top: $page-padding;
+  text-align: center;
+  
+  li {
+    display: inline-block;
+    padding: 0 10px;
+    
+    a {
+      text-decoration: none;
+      &:hover { text-decoration: underline; }
+    }
+  }
+  
+  li:not(:last-child) {
+    border-right: 1px solid #333;
+  }  
+}
+
+
+/*========================================
+  ERRORS
+  ========================================*/    
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+/*========================================
+  WELLS
+  ========================================*/
+
+.well {
+  h2 {
+    line-height: 1.4em;
+    margin: 0 0 15px;
+  }
+}
+
+/*** colors ***/
+.well.yellow {
+  background-color: #F7FFC1;
+  border-color: #FFF77F;
+}
+.well.red {
+  background-color: #FFD2CA;
+  border-color: red;
+}

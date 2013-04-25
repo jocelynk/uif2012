@@ -1,22 +1,245 @@
-/*
-Errno::ENOENT: No such file or directory - app/assets/stylesheets/style.scss
+/*========================================
+  GLOBAL
+  ========================================*/
+body {
+  color: black;
+  font-size: 0.9em;
+  padding: 105px 0 60px; }
 
-Backtrace:
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:339:in `read'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:339:in `update_stylesheet'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `each'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/sass-3.2.7/lib/sass/plugin/compiler.rb:299:in `block in watch'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `call'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `on_change'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `call'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `report_changes'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/adapter.rb:208:in `poll_changed_dirs'
-/Users/elizabethli/.rvm/gems/ruby-1.9.3-p125/gems/listen-0.6.0/lib/listen/adapters/darwin.rb:38:in `block in start'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Errno::ENOENT: No such file or directory - app/assets/stylesheets/style.scss"; }
+a {
+  color: #8d1f12;
+  text-decoration: none; }
+  a:hover {
+    color: #8d1f12;
+    text-decoration: underline; }
+
+h1, h2, h3 {
+  font-family: 'Oswald', Helvetica, sans-serif;
+  margin: 15px 0; }
+
+h1 {
+  border-bottom: 5px solid #b6f23d;
+  font-size: 2em;
+  padding-bottom: 5px; }
+
+h2 {
+  font-size: 1.6em; }
+
+table {
+  width: 100%; }
+  table tr {
+    margin: 0;
+    padding: 0; }
+  table th {
+    font-size: 15px;
+    white-space: nowrap; }
+  table td {
+    padding: 4px 8px; }
+
+.container-fluid {
+  padding: 0 60px 0 230px; }
+
+.pagination ul li.active a {
+  background-color: #ffeb00;
+  color: black; }
+
+#search #query {
+  margin: 0 0 0 8px; }
+
+.table tr td:last-child {
+  white-space: nowrap; }
+
+/*========================================
+  NAVBAR
+  ========================================*/
+.navbar-fixed-top .navbar-inner {
+  background-color: #ff930c;
+  background-image: none;
+  border-style: solid;
+  border-color: #b6f23d;
+  border-width: 0 0 10px;
+  height: 65px;
+  padding: 0 60px; }
+
+.navbar .brand {
+  padding: 3px 20px; }
+  .navbar .brand .logo {
+    width: 150px;
+    height: 115px; }
+
+.navbar .nav li a {
+  background: #ffb432;
+  color: #8d1f12;
+  line-height: 65px;
+  margin-right: 1px;
+  padding: 0 20px;
+  text-shadow: none; }
+  .navbar .nav li a:hover {
+    background: #ffeb00;
+    color: #8d1f12; }
+  .navbar .nav li a i {
+    margin-right: 3px; }
+.navbar .nav li.active a, .navbar .nav li.active a:hover {
+  background: #ffeb00;
+  box-shadow: none;
+  color: #8d1f12;
+  position: relative; }
+  .navbar .nav li.active a:after, .navbar .nav li.active a:hover:after {
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 42.5%;
+    top: 65px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent;
+    border-top-color: #ffeb00; }
+
+#login {
+  display: inline-block;
+  float: right;
+  line-height: 65px; }
+  #login a {
+    color: #8d1f12; }
+
+/*========================================
+  STUDENTS
+  ========================================*/
+.img-polaroid {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  margin-right: 40px;
+  border: 1px solid black;
+  width: 150px !important;
+  height: auto !important; }
+
+.dl-horizontal dt, .dl-horizontal dd {
+  text-align: left;
+  position: relative;
+  font-size: 15px; }
+
+.household-button {
+  margin-left: 10px !important; }
+  .household-button i {
+    -webkit-transition: 0.2s all linear;
+    font-size: 20px; }
+    .household-button i:hover {
+      -webkit-transition: 0.2s all linear;
+      color: #AEC4F7; }
+
+.id_card {
+  outline: #000000 solid thick;
+  width: 500px;
+  height: 250px; }
+
+/*========================================
+  EVENTS
+  ========================================*/
+/*========================================
+  NOTES
+  ========================================*/
+.notes {
+  left: 0; }
+  .notes .form-actions {
+    width: 200px;
+    left: 0px !important;
+    padding-left: 0 !important;
+    position: relative; }
+  .notes p {
+    position: relative;
+    left: 0;
+    text-align: left; }
+  .notes .note-list {
+    margin-bottom: 40px; }
+
+/*========================================
+  ADMIN DASHBOARD
+  ========================================*/
+.btn.quick-add {
+  margin: 0 15px 5px 0; }
+
+/* alerts */
+.alert {
+  margin: 5px 0; }
+
+.alert.high {
+  color: red !important;
+  font-weight: bold;
+  background-color: #FFD2CA !important;
+  border-color: #EED3D7 !important; }
+  .alert.high a {
+    color: #000; }
+
+.alert.medium {
+  color: #C09853 !important;
+  background-color: #F7FFC1 !important;
+  border-color: #FBEED5 !important; }
+  .alert.medium a {
+    color: #000; }
+
+.alert.low {
+  color: #3A87AD !important;
+  background-color: #D9EDF7 !important;
+  border-color: #BCE8F1 !important; }
+
+/*========================================
+  FOOTER
+  ========================================*/
+#footer {
+  margin-top: 60px;
+  text-align: center; }
+  #footer li {
+    display: inline-block;
+    padding: 0 10px; }
+    #footer li a {
+      text-decoration: none; }
+      #footer li a:hover {
+        text-decoration: underline; }
+  #footer li:not(:last-child) {
+    border-right: 1px solid #333; }
+
+/*========================================
+  ERRORS
+  ========================================*/
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table; }
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; }
+  #error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff; }
+  #error_explanation ul li {
+    font-size: 12px;
+    list-style: square; }
+
+/*========================================
+  WELLS
+  ========================================*/
+.well h2 {
+  line-height: 1.4em;
+  margin: 0 0 15px; }
+
+/*** colors ***/
+.well.yellow {
+  background-color: #F7FFC1;
+  border-color: #FFF77F; }
+
+.well.red {
+  background-color: #FFD2CA;
+  border-color: red; }

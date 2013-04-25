@@ -1,19 +1,16 @@
-
-
 <%- model_class = Student -%>
-<div class="row">
-  <div class="span10">
-<div id="search">
-	<%= form_tag('/students/search') do %>
-		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
-	<% end %>
+<div class="row-fluid">
+  <div class="span8">
+    <div id="search">
+    	<%= form_tag('/students/search') do %>
+    		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
+    	<% end %>
+    </div>
+  </div>
+  <div class = "span4">
+  <%= link_to raw("<i class='icon-plus'></i> <strong>Add student</strong>"), new_student_path, :class => 'btn btn-success pull-right' %>
+  </div>
 </div>
-</div>
-<div class = "span2">
-<%= link_to raw("<i class='icon-plus'></i> <strong>Add student</strong>"), new_student_path, :class => 'btn btn-primary' %>
-</div>
-</div>
-
 
 <% if @query == 0 %>
   <% unless @visitors.empty? %>
@@ -35,11 +32,4 @@
 <% else %>
 <%= render :partial => "query-table"%>
 <% end %>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
