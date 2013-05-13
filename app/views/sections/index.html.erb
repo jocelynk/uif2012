@@ -1,20 +1,17 @@
-
-
-<div class="row">
-  <div class="span10">
+<div class="row-fluid">
+  <div class="span8">
     <div id="search">
     	<%= form_tag('/sections/search') do %>
     		<strong>Quick Filter:</strong> <%= text_field_tag 'query' -%>
     	<% end %>
     </div>
-    <div class="page-header">
-      <h1>All Sections</h1>
-    </div>
   </div>
-  <div class="span2">
-    <%= link_to raw("<i class='icon-plus'></i> <strong>Add section</strong>"), new_section_path, :class => 'btn btn-primary' %>
+  <div class="span4">
+    <%= link_to raw("<i class='icon-plus'></i> <strong>Add section</strong>"), new_section_path, :class => 'btn btn-success pull-right' %>
   </div>
 </div>
+
+<h1>All Sections</h1>
 
 <table class="table table-striped">
   <thead>
@@ -45,5 +42,3 @@
 </table>
 <%# will_paginate @sections, :previous_label => "Previous&nbsp;", :next_label => "&nbsp;Next" %>
 <br />
-
-<%= link_to 'New Section', new_section_path %>
